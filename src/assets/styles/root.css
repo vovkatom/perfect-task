@@ -1,0 +1,25 @@
+:root {
+  --primary-color-white: #fff;
+
+  --primary-color-black: #161616; /*main text color, header, registration button*/
+  --secondary-color-black: #151515; /*pop-up & form - dark mode */
+  --color-black-background: #1f1f1f; /*input & board background - dark mode*/
+
+  --secondary-color-grey-dark: rgba(255, 255, 255, 0.5); /*text - dark mode*/
+  --secondary-color-grey-light: rgba(
+    22,
+    22,
+    22,
+    0.7
+  ); /*text - light & violet mode */
+
+  --primary-color-light-green: #bedbb0;
+  --secondary-color-green: #9dc888;
+  --color-light-background: #f6f6f7;
+
+  --primary-color-violet: #5255bc;
+  --secondary-color-light-violet: #7b7ede;
+  --color-violet-background: #ecedfd;
+
+  --font-family: 'Poppins', sans-serif;
+}
