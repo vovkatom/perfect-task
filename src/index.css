@@ -1,12 +1,15 @@
 @import-normalize; /* bring in normalize.css styles */
+@import url('./assets/styles/root.css');
 
 @font-face {
   font-family: 'Poppins';
-  src: local('Poppins-Regular'), local('Poppins-Medium'),
+  src:
+    local('Poppins-Regular'),
+    local('Poppins-Medium'),
     local('Poppins-SemiBold'),
-    url('./fonts/Poppins-Regular.ttf') format('truetype'),
-    url('./fonts/Poppins-Medium.ttf') format('truetype'),
-    url('./fonts/Poppins-SemiBold.ttf') format('truetype');
+    url('./assets/fonts/Poppins-Regular.ttf') format('truetype'),
+    url('./assets/fonts/Poppins-Medium.ttf') format('truetype'),
+    url('./assets/fonts/Poppins-SemiBold.ttf') format('truetype');
 }
 
 body {
