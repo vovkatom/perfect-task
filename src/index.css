@@ -1,9 +1,21 @@
+@import-normalize; /* bring in normalize.css styles */
+
+@font-face {
+  font-family: 'Poppins';
+  src: local('Poppins-Regular'), local('Poppins-Medium'),
+    local('Poppins-SemiBold'),
+    url('./fonts/Poppins-Regular.ttf') format('truetype'),
+    url('./fonts/Poppins-Medium.ttf') format('truetype'),
+    url('./fonts/Poppins-SemiBold.ttf') format('truetype');
+}
+
 body {
   background-size: auto 100%;
   background-position: center center;
   background-repeat: no-repeat;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 400;
+  font-size: 14px;
   font-style: normal;
   color: #111111;
   width: 100%;
