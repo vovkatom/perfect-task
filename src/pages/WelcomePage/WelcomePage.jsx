@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Container from '../../components/Container/Container';
 import css from './WelcomePage.module.css';
 
@@ -20,12 +21,16 @@ const WelcomePage = () => {
             Supercharge your productivity and take control of your tasks with
             Task Pro - Don&apos;t wait, start achieving your goals now!
           </p>
-          <button className={css.registrationBtn} type="button">
-            Registration
-          </button>
-          <button className={css.loginBtn} type="button">
-            Log In
-          </button>
+          <Link to="/auth/register" className={css.buttonLink}>
+            <button className={css.registrationBtn} type="button">
+              Registration
+            </button>
+          </Link>
+          <Link to="/auth/login">
+            <button className={css.loginBtn} type="button">
+              Log In
+            </button>
+          </Link>
         </div>
       </Container>
     </div>
