@@ -1,62 +1,31 @@
-.background {
+.control {
+  width: 287px;
+  height: 49px;
+  border-radius: 8px;
+  border: 1px solid;
+}
+
+@media only screen and (min-width: 768px) {
+  .control {
+    width: 344px;
+  }
+}
+
+form {
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  flex-wrap: wrap;
   align-items: center;
-  width: 100%;
-  height: 100vh;
-
-  background: linear-gradient(
-    180deg,
-    rgba(196, 196, 196, 0) 25%,
-    #bedbb0 92.19%
-  );
-}
-
-.registerForm {
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  background-color: var(--primary-color-black);
-  padding: 24px;
-}
-
-.authMenu {
-  display: flex;
-  flex-direction: row;
   gap: 14px;
-}
-
-.authMenuButton {
-  border: none;
-  background-color: inherit;
-  color: var(--primary-color-white);
-  margin-bottom: 40px;
-  font-size: 18px;
-  font-family: 'Poppins';
-  font-weight: 500;
-  letter-spacing: -0.02em;
-}
-
-.registerInputWrap {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-bottom: 24px;
 }
 
 .registerInput {
+  box-sizing: border-box;
   background-color: inherit;
   color: var(--primary-color-white);
-  width: 287px;
-  height: 49px;
-  border: 1px solid;
   opacity: 40%;
-  border-radius: 8px;
   border-color: var(--primary-color-light-green);
   box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
-  padding: 14px 0px 14px 18px;
+  padding-left: 18px;
   font-size: 14px;
   font-family: 'Poppins';
   font-weight: 400;
@@ -66,37 +35,9 @@
 .registerButton {
   background-color: var(--primary-color-light-green);
   color: var(--primary-color-black);
-  width: 287px;
-  height: 49px;
   font-size: 14px;
   font-family: 'Poppins';
   font-weight: 500;
   letter-spacing: -0.02em;
+  margin-top: 24px;
 }
-
-@media only screen and (max-width: 768px) {
-  .registerForm {
-    width: 335px;
-    height: 363px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .registerForm {
-    width: 424px;
-    height: 395px;
-    padding: 40px;
-  }
-  .registerInput {
-    width: 344px;
-    height: 49px;
-  }
-  .registerButton {
-    width: 344px;
-    height: 49px;
-  }
-}
-
-
-
- 

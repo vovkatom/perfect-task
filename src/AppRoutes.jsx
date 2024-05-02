@@ -14,8 +14,7 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<WelcomePage />} />
-        {/* <Route path="auth/:id" element={<AuthPage />} /> */}
-        <Route path="auth" element={<AuthPage />} />
+        <Route path="auth/:id" element={<AuthPage />} />
         <Route path="register" element={<RegisterForm />} />
         <Route path="home" element={<HomePage />} />
         <Route path="home/:boardName" element={<ScreensPage />} />
