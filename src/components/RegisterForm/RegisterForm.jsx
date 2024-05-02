@@ -11,51 +11,45 @@ export const RegisterForm = () => {
   };
   return (
     <>
-      <div className={css.background}>
-        <form
-          onSubmit={handleSubmit}
-          className={css.registerForm}
-          autoComplete="off"
+      <form
+        onSubmit={handleSubmit}
+        className={css.registerForm}
+        autoComplete="off"
+      >
+        <input
+          className={`${css.registerInput} ${css.control}`}
+          type="text"
+          name="name"
+          placeholder="Enter your name"
+          pattern="^[^\d]+$"
+          required
+        />
+
+        <input
+          className={`${css.registerInput} ${css.control}`}
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          required
+        />
+
+        <input
+          className={`${css.registerInput} ${css.control}`}
+          type="password"
+          name="password"
+          placeholder="Create a password"
+          pattern="^[a-zA-Z0-9!@#$%^&*()-_=+`~[\]{}|:<>/?]+$"
+          title="The password must contain only Latin letters (both upper and lower case), numbers and other symbols"
+          required
+        />
+        <button
+          className={`${css.registerButton} ${css.control}`}
+          type="submit"
         >
-          <div className={css.authMenu}>
-            <button className={css.authMenuButton}> Registration </button>
-            <button className={css.authMenuButton}> Log In </button>
-          </div>
-          <div className={css.registerInputWrap}>
-            <input
-              className={css.registerInput}
-              type="text"
-              name="name"
-              placeholder="Enter your name"
-              pattern="^[^\d]+$"
-              required
-            />
-
-            <input
-              className={css.registerInput}
-              type="email"
-              name="email"
-              placeholder="Enter your email"
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-              required
-            />
-
-            <input
-              className={css.registerInput}
-              type="password"
-              name="password"
-              placeholder="Create a password"
-              pattern="^[a-zA-Z0-9!@#$%^&*()-_=+`~[\]{}|:<>/?]+$"
-              title="The password must contain only Latin letters (both upper and lower case), numbers and other symbols"
-              required
-            />
-          </div>
-          <button className={css.registerButton} type="submit">
-            Register Now
-          </button>
-        </form>
-      </div>
-      ;
+          Register Now
+        </button>
+      </form>
     </>
   );
 };

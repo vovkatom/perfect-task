@@ -13,8 +13,8 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route path="welcome" element={<WelcomePage />} />
-        {/* <Route path="auth/:id" element={<AuthPage />} /> */}
+        <Route index element={<WelcomePage />} />
+        <Route path="auth/:id" element={<AuthPage />} />
         <Route path="register" element={<RegisterForm />} />
         <Route path="login" element={<LoginForm />} />
         <Route path="home" element={<HomePage />} />
