@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import SharedLayout from './components/SharedLayout/SharedLayout';
+import { RegisterForm } from './components/RegisterForm/RegisterForm';
 
 const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('./pages/AuthPage/AuthPage'));
@@ -15,6 +16,7 @@ const AppRoutes = () => {
         <Route path="welcome" element={<WelcomePage />} />
         {/* <Route path="auth/:id" element={<AuthPage />} /> */}
         <Route path="auth" element={<AuthPage />} />
+        <Route path="register" element={<RegisterForm />} />
         <Route path="home" element={<HomePage />} />
         <Route path="home/:boardName" element={<ScreensPage />} />
         <Route path="*" element={<NotFoundPage />} />
