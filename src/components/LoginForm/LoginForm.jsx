@@ -1,52 +1,54 @@
-import { useState } from 'react';
+import css from './loginform.module.css';
+// import { useDispatch } from 'react-redux';
 
-const LoginForm = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+// Компонент LoginForm відповідає за форму авторизації нового користувача
+export const LoginForm = () => {
+  //   const dispatch = useDispatch();
 
-  // Обработчики изменения значений полей
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-
-  // Обработчик отправки формы
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Код для обработки входа пользователя
+    //   const form = event.currentTarget;
   };
-
   return (
-    <div>
-      <h2>Login Page</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={handleEmailChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={handlePasswordChange}
-            required
-          />
-        </div>
-        <button type="submit">Log In</button>
-      </form>
-    </div>
+    <>
+      <div className={css.background}>
+        <form
+          onSubmit={handleSubmit}
+          className={css.loginForm}
+          autoComplete="off"
+        >
+          <div className={css.authMenu}>
+            <button className={`${css.authMenuButton} ${css.regButton}`}>
+              Registration
+            </button>
+            <button className={css.authMenuButton}>Log In</button>
+          </div>
+          <div className={css.loginInputWrap}>
+            <input
+              className={css.loginInput}
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              required
+            />
+
+            <input
+              className={css.loginInput}
+              type="password"
+              name="password"
+              placeholder="Confirm a password"
+              pattern="^[a-zA-Z0-9!@#$%^&*()-_=+`~[\]{}|:<>/?]+$"
+              title="The password must contain only Latin letters (both upper and lower case), numbers and other symbols"
+              required
+            />
+          </div>
+          <button className={css.loginButton} type="submit">
+            Log In Now
+          </button>
+        </form>
+      </div>
+      ;
+    </>
   );
 };
-
-export default LoginForm;
