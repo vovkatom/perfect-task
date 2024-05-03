@@ -1,0 +1,20 @@
+.logo {
+  display: flex;
+  margin-bottom: 70px;
+  align-items: center;
+  gap: 4px;
+}
+
+.logoIcon {
+  width: 32px;
+  height: 32px;
+  background-color: #161616;
+  color: #fff;
+  border-radius: 25%;
+}
+
+.logoTitle {
+  font-weight: 600;
+  font-size: 16px;
+  color: #161616;
+}

@@ -1,0 +1,28 @@
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  border-top: 1px solid #1616161a;
+  border-bottom: 1px solid #1616161a;
+  background-color: #fff;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  margin-bottom: 40px;
+}
+
+.buttonTitle {
+  width: 76px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.buttonIcon {
+  width: 40px;
+  height: 36px;
+  background-color: #bedbb0;
+  border: 1.8px;
+  fill: #121212;
+  border-radius: 25%;
+}

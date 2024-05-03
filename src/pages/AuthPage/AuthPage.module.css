@@ -92,3 +92,7 @@
   letter-spacing: -0.02em;
   margin-top: 24px;
 }
+
+.errorText {
+  color: red;
+}
