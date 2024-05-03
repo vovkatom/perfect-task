@@ -1,8 +1,11 @@
-import css from './RegistrationForm.module.css';
 // import { useDispatch } from 'react-redux';
 
 // Компонент RegisterForm відповідає за форму реєстрації нового користувача
-export const RegisterForm = () => {
+export const RegisterForm = ({
+  formClassName,
+  inputClassName,
+  buttonClassname,
+}) => {
   //   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
@@ -13,11 +16,11 @@ export const RegisterForm = () => {
     <>
       <form
         onSubmit={handleSubmit}
-        className={css.registerForm}
+        className={formClassName}
         autoComplete="off"
       >
         <input
-          className={`${css.registerInput} ${css.control}`}
+          className={inputClassName}
           type="text"
           name="name"
           placeholder="Enter your name"
@@ -26,7 +29,7 @@ export const RegisterForm = () => {
         />
 
         <input
-          className={`${css.registerInput} ${css.control}`}
+          className={inputClassName}
           type="email"
           name="email"
           placeholder="Enter your email"
@@ -35,7 +38,7 @@ export const RegisterForm = () => {
         />
 
         <input
-          className={`${css.registerInput} ${css.control}`}
+          className={inputClassName}
           type="password"
           name="password"
           placeholder="Create a password"
@@ -43,10 +46,7 @@ export const RegisterForm = () => {
           title="The password must contain only Latin letters (both upper and lower case), numbers and other symbols"
           required
         />
-        <button
-          className={`${css.registerButton} ${css.control}`}
-          type="submit"
-        >
+        <button className={buttonClassname} type="submit">
           Register Now
         </button>
       </form>
