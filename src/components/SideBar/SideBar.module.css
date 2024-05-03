@@ -1,7 +1,24 @@
 .container {
+  /* display: none;
+  visibility: hidden; */
   width: 225px;
   padding: 14px;
 }
+
+@media only screen and (min-width: 768px) {
+  .container {
+    width: 260px;
+    padding: 24px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .container {
+    display: block;
+    visibility: 100%;
+  }
+}
+
 .myBoardsTitle {
   color: #16161680;
   font-weight: 400;

@@ -9,7 +9,8 @@
   width: 32px;
   height: 32px;
   background-color: #161616;
-  fill: white;
+  color: #fff;
+  border-radius: 25%;
 }
 
 .logoTitle {
