@@ -1,5 +1,4 @@
 import css from '../CreateNewBoard/CreateNewBoard.module.css';
-//import {} from '../../../../src/assets/img/icon.svg';
 
 const CreateNewBoard = () => {
   return (
