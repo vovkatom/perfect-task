@@ -40,9 +40,13 @@ const AuthPage = () => {
         </div>
         {register ? (
           <RegisterForm
+            onSubmit={() => {
+              setRegister(false);
+            }}
             inputClassName={inputClassName}
-            buttonClassname={buttonClassName}
+            buttonClassName={buttonClassName}
             formClassName={css.authForm}
+            errorClassName={css.errorText}
           />
         ) : (
           <LoginForm

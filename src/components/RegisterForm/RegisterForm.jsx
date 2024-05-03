@@ -1,94 +1,106 @@
-import { useState, useMemo, useId } from 'react';
-import { nanoid } from 'nanoid';
+import toast, { Toaster } from 'react-hot-toast';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { saveToken } from '../../lib/session/token';
+import { useNavigate } from 'react-router-dom';
 
-// import { useDispatch } from 'react-redux';
-const INITIAL_STATE = {
-  name: '',
-  email: '',
-  password: '',
-};
+const schema = yup.object().shape({
+  email: yup.string().email().required(),
+  password: yup.string().min(8).required(),
+  name: yup.string().required(),
+});
+
 // Компонент RegisterForm відповідає за форму реєстрації нового користувача
 const RegisterForm = ({
-  onSubmit,
   formClassName,
   inputClassName,
-  buttonClassname,
+  buttonClassName,
+  errorClassName,
 }) => {
-  const [state, setState] = useState({ ...INITIAL_STATE });
-  const handleChange = ({ target }) => {
-    const { name, value, type, checked } = target;
-    const newValue = type === 'checkbox' ? checked : value;
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
 
-    setState({
-      ...state,
-      [name]: newValue,
-    });
-  };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    onSubmit({ ...state });
+  const navigate = useNavigate();
+
+  const onSubmitHandler = async (data) => {
+    try {
+      const resp = await registerUser(data);
+      if (resp.token) {
+        saveToken(resp.token);
+        return;
+      }
+      if (resp.message) {
+        toast(resp.message, { type: 'error' });
+        return;
+      }
+      navigate('/home');
+    } catch (err) {
+      console.log(err);
+      toast(err, { type: 'error' });
+    }
+
     reset();
   };
 
-  const reset = () => {
-    setState({ ...INITIAL_STATE });
-  };
-
-  const nameId = useId();
-  const emailId = useId();
-  const passwordId = useId();
-  console.log(passwordId);
-
-  const { name, email, password } = state;
-
   return (
     <>
+      <Toaster />
       <form
-        onSubmit={handleSubmit}
+        onSubmit={handleSubmit(onSubmitHandler)}
         className={formClassName}
         autoComplete="off"
       >
         <input
           className={inputClassName}
-          value={name}
-          onChange={handleChange}
+          {...register('name')}
           type="text"
-          name="name"
-          id={nameId}
           placeholder="Enter your name"
           pattern="^[^\d]+$"
-          required
         />
-
+        <p className={errorClassName}>{errors.name?.message}</p>
         <input
           className={inputClassName}
-          value={email}
-          onChange={handleChange}
           type="email"
-          name="email"
-          id={emailId}
           placeholder="Enter your email"
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-          required
+          {...register('email')}
         />
-
+        <p className={errorClassName}>{errors.email?.message}</p>
         <input
           className={inputClassName}
-          value={password}
-          onChange={handleChange}
+          {...register('password')}
           type="password"
-          name="password"
-          id={passwordId}
           placeholder="Create a password"
           pattern="^[a-zA-Z0-9!@#$%^&*()-_=+`~[\]{}|:<>/?]+$"
-          title="The password must contain only Latin letters (both upper and lower case), numbers and other symbols"
-          required
         />
-        <button className={buttonClassname} type="submit">
+        <p className={errorClassName}>{errors.password?.message}</p>
+        <button className={buttonClassName} type="submit">
           Register Now
         </button>
       </form>
     </>
   );
 };
+
+const registerUser = async (data) => {
+  const resp = await fetch(
+    'https://perfect-task-back.onrender.com/api/users/register',
+    {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  );
+  return await resp.json();
+};
+
 export default RegisterForm;
