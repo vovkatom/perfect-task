@@ -16,10 +16,12 @@
     "@vitejs/plugin-react-swc": "^3.3.2",
     "clsx": "^2.1.1",
     "modern-normalize": "^2.0.0",
+    "nanoid": "^5.0.7",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
+    "socket.io": "^4.7.5",
     "styled-components": "^6.0.7",
     "vite-plugin-svgr": "^3.2.0"
   },
