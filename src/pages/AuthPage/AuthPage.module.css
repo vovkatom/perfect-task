@@ -14,10 +14,17 @@
   );
 }
 
-.loginForm {
+.mainBox {
   display: flex;
   flex-direction: column;
   background-color: var(--primary-color-black);
+  padding: 24px;
+}
+
+@media only screen and (min-width: 768px) {
+  .mainBox {
+    padding: 40px;
+  }
 }
 
 .authMenu {
@@ -35,66 +42,53 @@
   font-family: 'Poppins';
   font-weight: 500;
   letter-spacing: -0.02em;
+  opacity: 0.3;
 }
 
-.regButton {
-  color: rgba(255, 255, 255, 0.3);
+.selectedAuthMenuButton {
+  opacity: 1;
 }
 
-.loginInputWrap {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-bottom: 24px;
-}
-
-.loginInput {
-  background-color: inherit;
-  color: var(--primary-color-white);
+.authControl {
   width: 287px;
   height: 49px;
-  border: 1px solid;
-  opacity: 40%;
   border-radius: 8px;
+  border: 1px solid;
+}
+
+@media only screen and (min-width: 768px) {
+  .authControl {
+    width: 344px;
+  }
+}
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.authInput {
+  box-sizing: border-box;
+  background-color: inherit;
+  color: var(--primary-color-white);
+  opacity: 40%;
   border-color: var(--primary-color-light-green);
   box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
-  padding: 14px 0px 14px 18px;
+  padding-left: 18px;
   font-size: 14px;
   font-family: 'Poppins';
   font-weight: 400;
   letter-spacing: -0.02em;
 }
 
-.loginButton {
+.authButton {
   background-color: var(--primary-color-light-green);
   color: var(--primary-color-black);
-  width: 287px;
-  height: 49px;
   font-size: 14px;
   font-family: 'Poppins';
   font-weight: 500;
   letter-spacing: -0.02em;
-}
-
-@media only screen and (max-width: 768px) {
-  .loginForm {
-    width: 335px;
-    height: 363px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .loginForm {
-    width: 424px;
-    height: 395px;
-    padding: 40px;
-  }
-  .loginInput {
-    width: 344px;
-    height: 49px;
-  }
-  .loginButton {
-    width: 344px;
-    height: 49px;
-  }
+  margin-top: 24px;
 }
