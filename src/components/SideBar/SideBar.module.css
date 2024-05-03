@@ -1,0 +1,10 @@
+.container {
+  width: 225px;
+  padding: 14px;
+}
+.myBoardsTitle {
+  color: #16161680;
+  font-weight: 400;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
