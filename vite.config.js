@@ -12,5 +12,5 @@ export default defineConfig({
           assets: '/src/assets'
         },
       },
-      base: '/perfect-task/',
+      base: '/Perfect-Task/',
     });
