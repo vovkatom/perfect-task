@@ -15,8 +15,8 @@ const AppRoutes = () => {
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<WelcomePage />} />
         {/* <Route path="auth/:id" element={<AuthPage />} /> */}
-        <Route path="register" element={<RegisterForm />} />
-        <Route path="login" element={<LoginForm />} />
+        <Route path="auth/register" element={<RegisterForm />} />
+        <Route path="auth/login" element={<LoginForm />} />
         <Route path="home" element={<HomePage />} />
         <Route path="home/:boardName" element={<ScreensPage />} />
         <Route path="*" element={<NotFoundPage />} />
