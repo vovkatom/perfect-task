@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 // import Container from '../../components/Container/Container';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import css from './AuthPage.module.css';
-import { RegisterForm } from '../../components/RegisterForm/RegisterForm';
+import RegisterForm from '../../components/RegisterForm/RegisterForm';
 import clsx from 'clsx';
 
 const AuthPage = () => {
