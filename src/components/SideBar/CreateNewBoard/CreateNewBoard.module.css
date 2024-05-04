@@ -12,6 +12,12 @@
   margin-bottom: 40px;
 }
 
+@media only screen and (min-width: 1440px) {
+  .button {
+    cursor: pointer;
+  }
+}
+
 .buttonTitle {
   width: 76px;
   font-weight: 500;
@@ -19,10 +25,17 @@
 }
 
 .buttonIcon {
+  display: flex;
   width: 40px;
   height: 36px;
+  font-size: 20px;
   background-color: #bedbb0;
-  border: 1.8px;
-  fill: #121212;
   border-radius: 25%;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonPlus {
+  font-size: large;
+  color: #121212;
 }
