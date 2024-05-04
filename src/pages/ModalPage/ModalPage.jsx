@@ -1,6 +1,6 @@
-import css from './CommonModal.module.css';
+import css from './modal-page.module.css';
 
-const CommonModal = ({ isOpen, onClose, title, children }) => {
+const ModalPage = ({ isOpen, onClose, title, children }) => {
   if (!isOpen) return null;
 
   return (
@@ -17,4 +17,4 @@ const CommonModal = ({ isOpen, onClose, title, children }) => {
   );
 };
 
-export default CommonModal;
+export default ModalPage;
