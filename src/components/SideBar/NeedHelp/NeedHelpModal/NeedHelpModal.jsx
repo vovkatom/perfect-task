@@ -17,7 +17,7 @@ const NeedHelpModal = () => {
 
   const inputClassName = clsx(css.modalInput, css.modalControl);
   const textareaClassName = clsx(css.modalInput, css.modalControlText);
-  const buttonClassName = clsx(css.authButton, css.modalControl);
+  const buttonClassName = clsx(css.modalButton, css.modalControl);
 
   return (
     <div>
