@@ -1,3 +1,4 @@
+import { getToken } from '../../../lib/session/token';
 import css from '../CreateNewBoard/CreateNewBoard.module.css';
 
 const CreateNewBoard = () => {
@@ -15,5 +16,22 @@ const CreateNewBoard = () => {
     </button>
   );
 };
+
+//EXAMPLE of calling Backend with Authorization token.
+
+// const createBoard = async (board) => {
+//   const result = await fetch(
+//     'https://perfect-task-back.onrender.com/api/boards/',
+//     {
+//       method: 'POST',
+//       body: JSON.stringify(board),
+//       headers: {
+//         'Content-Type': 'application/json',
+//         Authorization: `Bearer ${getToken()}`,
+//       },
+//     }
+//   );
+//   return await result.json();
+// };
 
 export default CreateNewBoard;
