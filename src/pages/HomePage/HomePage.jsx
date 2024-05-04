@@ -1,20 +1,18 @@
 import Container from '../../components/Container/Container';
 import Header from '../../components/Header/Header';
-import Sidebar from '../../components/Sidebar/Sidebar';
+import SideBar from '../../components/Sidebar/Sidebar';
 import ScreensPage from '../ScreensPage/ScreensPage';
 import css from './HomePage.module.css';
 
 const HomePage = () => {
   return (
-    <>
+    <div className={css.background}>
       <Header />
-      <Sidebar />
-      <div className={css.background}>
-        <Container className="home-page">
-          <ScreensPage />
-        </Container>
-      </div>
-    </>
+      <SideBar />
+      <Container className="home-page">
+        <ScreensPage />
+      </Container>
+    </div>
   );
 };
 

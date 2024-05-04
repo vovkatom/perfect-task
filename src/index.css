@@ -26,7 +26,7 @@
     padding-left: 32px;
     padding-right: 32px;
   }
-  
+
   @media only screen and (min-width: 1440px) {
     max-width: 1440px;
     padding-left: 24px;
@@ -73,4 +73,6 @@ img {
 button {
   cursor: pointer;
   padding: 0;
+
+  border: none;
 }
