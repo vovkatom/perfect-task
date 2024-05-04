@@ -5,6 +5,7 @@
   align-items: center;
 
   padding: 14px 20px;
+  background-color: #fcfcfc;
 }
 
 .burgerButton {
@@ -34,13 +35,12 @@
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(22, 22, 22, 0.8);
 }
 
 .select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  border: none;
+  appearance: auto;
 }
 
 .user {
@@ -51,7 +51,12 @@
 }
 
 .userName {
-  color: var(--primary-color-white);
+  /* color: var(--primary-color-white); */
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: #161616;
 }
 
 .avatar {
