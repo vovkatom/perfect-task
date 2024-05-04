@@ -1,4 +1,4 @@
-.modal {
+.background {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,13 +11,18 @@
   align-items: center;
 }
 
-.modalContent {
+.modalBox {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-color-black);
+  color: #fff;
+  padding: 24px;
+
   position: relative;
-  background-color: #fff;
-  padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 400px;
+  border: 1px solid rgba(190, 219, 176, 0.5);
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
 }
 
 .close {
@@ -26,32 +31,66 @@
   right: 10px;
   cursor: pointer;
   font-size: 20px;
-  color: #333;
+  color: #fff;
 }
 
 h2 {
-  margin-top: 0;
+  /* margin-top: 0; */
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: #fff;
 }
 
 form {
-  margin-top: 20px;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 14px; */
 }
 
-label {
-  display: block;
-  margin-bottom: 5px;
+.modalInput {
+  box-sizing: border-box;
+  background-color: inherit;
+  color: var(--primary-color-white);
+  opacity: 40%;
+  border-color: var(--primary-color-light-green);
+  /* box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08); */
+  padding-left: 18px;
+  font-size: 14px;
+  font-family: 'Poppins';
+  font-weight: 400;
+  letter-spacing: -0.02em;
 }
 
-input,
-textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.modalControl {
+  width: 344px;
+  height: 49px;
+  border-radius: 8px;
+  border: 1px solid;
+  margin-bottom: 14px;
+}
+.modalControlText {
+  width: 344px;
+  height: 120px;
+  border-radius: 8px;
+  border: 1px solid;
+  padding-top: 14px;
 }
 
-button {
+.authButton {
+  background-color: var(--primary-color-light-green);
+  color: var(--primary-color-black);
+  font-size: 14px;
+  font-family: 'Poppins';
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-top: 24px;
+}
+
+/* button {
   width: 100%;
   padding: 10px;
   background-color: #007bff;
@@ -63,4 +102,4 @@ button {
 
 button:hover {
   background-color: #0056b3;
-}
+} */
