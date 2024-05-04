@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import HelpModal from './HelpModal/HelpModal'; // Импортируем компонент HelpModal
+import NeedHelpModal from './NeedHelpModal/NeedHelpModal';
 import css from '../NeedHelp/NeedHelp.module.css';
+import ModalPage from '../../../pages/ModalPage/ModalPage';
 
 const NeedHelp = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // Состояние для открытия/закрытия модального окна
@@ -28,7 +29,13 @@ const NeedHelp = () => {
         <Link onClick={handleOpenModal}>Need help?</Link>
       </p>
       {/* Показываем модальное окно, если isModalOpen true */}
-      <HelpModal isOpen={isModalOpen} onClose={handleCloseModal} />
+      <ModalPage
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        title="Need help"
+      >
+        <NeedHelpModal />
+      </ModalPage>
     </div>
   );
 };
