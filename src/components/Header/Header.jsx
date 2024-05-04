@@ -1,5 +1,32 @@
+import css from './Header.module.css';
+
 const Header = () => {
-  return <div>Header</div>;
+  return (
+    <header className={css.headerContainer}>
+      <button className={css.burgerButton} type="button">
+        <svg className={css.burgerIcon} width="24" height="24">
+          <use href="" />
+        </svg>
+      </button>
+      <div className={css.customBox}>
+        <div className={css.themeBox}>
+          <label htmlFor="theme" className={css.label}>
+            Theme
+          </label>
+          <select className={css.select} id="theme" type="select">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="violet">Violet</option>
+          </select>
+        </div>
+
+        <div className={css.user}>
+          <p className={css.userName}>Ivetta</p>
+          <div className={css.avatar}></div>
+        </div>
+      </div>
+    </header>
+  );
 };
 
 export default Header;
