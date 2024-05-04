@@ -5,14 +5,14 @@ import css from '../NeedHelp/NeedHelp.module.css';
 import ModalPage from '../../../pages/ModalPage/ModalPage';
 
 const NeedHelp = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false); // Состояние для открытия/закрытия модального окна
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => {
-    setIsModalOpen(true); // Открыть модальное окно при нажатии на ссылку
+    setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
-    setIsModalOpen(false); // Закрыть модальное окно
+    setIsModalOpen(false);
   };
 
   return (
@@ -25,10 +25,10 @@ const NeedHelp = () => {
       </p>
       <p className={css.needHelp}>
         <svg viewBox="0 0 32 32" width="20" height="20"></svg>
-        {/* При нажатии на ссылку вызываем функцию handleOpenModal */}
+
         <Link onClick={handleOpenModal}>Need help?</Link>
       </p>
-      {/* Показываем модальное окно, если isModalOpen true */}
+
       <ModalPage
         isOpen={isModalOpen}
         onClose={handleCloseModal}
