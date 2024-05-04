@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import NeedHelpModal from './NeedHelpModal/NeedHelpModal';
 import css from '../NeedHelp/NeedHelp.module.css';
-import ModalPage from '../../../pages/ModalPage/ModalPage';
+import CommonModal from '../../CommonModal/CommonModal';
 
 const NeedHelp = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -29,13 +29,13 @@ const NeedHelp = () => {
         <Link onClick={handleOpenModal}>Need help?</Link>
       </p>
 
-      <ModalPage
+      <CommonModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         title="Need help"
       >
         <NeedHelpModal />
-      </ModalPage>
+      </CommonModal>
     </div>
   );
 };
