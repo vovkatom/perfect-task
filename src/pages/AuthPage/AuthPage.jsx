@@ -43,7 +43,6 @@ const AuthPage = () => {
           inputClassName={inputClassName}
           buttonClassName={buttonClassName}
           formClassName={css.authForm}
-          errorClassName={css.errorText}
         />
       </div>
     </div>
