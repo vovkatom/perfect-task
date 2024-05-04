@@ -31,13 +31,13 @@
   display: flex;
   flex-direction: row;
   gap: 14px;
+  margin-bottom: 40px;
 }
 
 .authMenuButton {
   border: none;
   background-color: inherit;
   color: var(--primary-color-white);
-  margin-bottom: 40px;
   font-size: 18px;
   font-family: 'Poppins';
   font-weight: 500;
@@ -90,9 +90,5 @@
   font-family: 'Poppins';
   font-weight: 500;
   letter-spacing: -0.02em;
-  margin-top: 24px;
-}
-
-.errorText {
-  color: red;
+  margin-top: 10px;
 }
