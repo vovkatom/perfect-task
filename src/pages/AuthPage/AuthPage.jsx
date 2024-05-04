@@ -11,6 +11,7 @@ const AuthPage = () => {
   const [register, setRegister] = useState(id === 'register');
   const inputClassName = clsx(css.authInput, css.authControl);
   const buttonClassName = clsx(css.authButton, css.authControl);
+  const Form = register ? RegisterForm : LoginForm;
   return (
     <div className={css.background}>
       <div className={css.mainBox}>
@@ -38,23 +39,12 @@ const AuthPage = () => {
             Log In
           </button>
         </div>
-        {register ? (
-          <RegisterForm
-            onSubmit={() => {
-              setRegister(false);
-            }}
-            inputClassName={inputClassName}
-            buttonClassName={buttonClassName}
-            formClassName={css.authForm}
-            errorClassName={css.errorText}
-          />
-        ) : (
-          <LoginForm
-            inputClassName={inputClassName}
-            buttonClassname={buttonClassName}
-            formClassName={css.authForm}
-          />
-        )}
+        <Form
+          inputClassName={inputClassName}
+          buttonClassName={buttonClassName}
+          formClassName={css.authForm}
+          errorClassName={css.errorText}
+        />
       </div>
     </div>
   );
