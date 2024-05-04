@@ -34,13 +34,12 @@ const RegisterForm = ({
       const resp = await registerUser(data);
       if (resp.token) {
         saveToken(resp.token);
-        return;
+        navigate('/home');
       }
       if (resp.message) {
         toast(resp.message, { type: 'error' });
         return;
       }
-      navigate('/home');
     } catch (err) {
       console.log(err);
       toast(err, { type: 'error' });
@@ -62,7 +61,6 @@ const RegisterForm = ({
           {...register('name')}
           type="text"
           placeholder="Enter your name"
-          pattern="^[^\d]+$"
         />
         <p className={errorClassName}>{errors.name?.message}</p>
         <input
