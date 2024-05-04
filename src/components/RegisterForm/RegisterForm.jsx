@@ -91,7 +91,7 @@ const RegisterForm = ({
 
 const registerUser = async (data) => {
   const resp = await fetch(
-    'https://perfect-task-back.onrender.com/api/users/register',
+    'https://perfect-task-back.onrender.com/api/users/signup',
     {
       method: 'POST',
       body: JSON.stringify(data),
