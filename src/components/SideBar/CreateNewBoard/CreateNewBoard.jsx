@@ -1,4 +1,4 @@
-import { getToken } from '../../../lib/session/token';
+// import { getToken } from '../../../lib/session/token';
 import css from '../CreateNewBoard/CreateNewBoard.module.css';
 
 const CreateNewBoard = () => {
