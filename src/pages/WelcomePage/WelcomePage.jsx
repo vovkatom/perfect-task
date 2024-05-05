@@ -12,17 +12,17 @@ const WelcomePage = () => {
             <img
               className={css.logoAvatar}
               srcSet="
-              /src/assets/img/start-avatar/start-user-124.png 124w,
-              /src/assets/img/start-avatar/start-user_desktop-162.png 162w,
-              /src/assets/img/start-avatar/start-user@2x-248.png 248w,
-              /src/assets/img/start-avatar/start-user_desktop@2x-324.png 324w,
+              /perfect-task/src/assets/img/start-avatar/start-user-124.png 124w,
+              /perfect-task/src/assets/img/start-avatar/start-user_desktop-162.png 162w,
+              /perfect-task/src/assets/img/start-avatar/start-user@2x-248.png 248w,
+              /perfect-task/src/assets/img/start-avatar/start-user_desktop@2x-324.png 324w,
               "
               sizes="
               (min-width: 1200px) 162px,
               (min-width: 768px) 162px,
               (min-width: 375px) 124px
               "
-              src="/src/assets/img/start-avatar/start-user-124.png"
+              src="/perfect-task/src/assets/img/start-avatar/start-user-124.png"
               alt="Task Pro avatar"
               width="124"
               height="124"
