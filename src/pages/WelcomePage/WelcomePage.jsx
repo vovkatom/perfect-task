@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Container from '../../components/Container/Container';
 import css from './WelcomePage.module.css';
+import LogoWelcome from '../../components/LogoWelcome/LogoWelcome';
 
 const WelcomePage = () => {
   return (
@@ -15,6 +16,7 @@ const WelcomePage = () => {
               width="124"
               height="124"
             />
+            <LogoWelcome />
             <h1 className={css.header}>Task Pro</h1>
           </div>
           <p className={css.paragraph}>
