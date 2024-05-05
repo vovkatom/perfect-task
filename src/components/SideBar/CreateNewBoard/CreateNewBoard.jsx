@@ -1,19 +1,28 @@
-// import { getToken } from '../../../lib/session/token';
+import { useState } from 'react';
+import Modal from '../../shared/Modal/Modal';
 import css from '../CreateNewBoard/CreateNewBoard.module.css';
+import ModalContent from './ModalContent/ModalContent';
 
 const CreateNewBoard = () => {
-  return (
-    <button className={css.button} type="button">
-      <p className={css.buttonTitle}>Create a new board</p>
-      <div className={css.buttonIcon}>
-        <p className={css.buttonPlus}>+</p>
-      </div>
+  const [modalActive, setModalActive] = useState(false);
 
-      {/* <svg className={css.buttonIcon} viewBox="0 0 32 32">
-        <path d="M16 11.333v9.333"></path>
-        <path d="M11.333 16h9.333"></path>
-      </svg> */}
-    </button>
+  const changeModalState = () => {
+    setModalActive((modalActive) => !modalActive);
+  };
+  return (
+    <>
+      <button className={css.button} type="button" onClick={changeModalState}>
+        <p className={css.buttonTitle}>Create a new board</p>
+        <div className={css.buttonIcon}>
+          <p className={css.buttonPlus}>+</p>
+        </div>
+      </button>
+      {modalActive && (
+        <Modal active={modalActive} setActive={setModalActive}>
+          <ModalContent />
+        </Modal>
+      )}
+    </>
   );
 };
 
