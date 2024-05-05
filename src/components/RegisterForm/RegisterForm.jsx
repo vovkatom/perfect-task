@@ -4,6 +4,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { saveToken } from '../../lib/session/token';
 import { useNavigate } from 'react-router-dom';
+import PasswordField from '../PasswordField/PasswordField';
+import InputError from '../InputError/InputError';
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -12,12 +14,7 @@ const schema = yup.object().shape({
 });
 
 // Компонент RegisterForm відповідає за форму реєстрації нового користувача
-const RegisterForm = ({
-  formClassName,
-  inputClassName,
-  buttonClassName,
-  errorClassName,
-}) => {
+const RegisterForm = ({ formClassName, inputClassName, buttonClassName }) => {
   const {
     register,
     handleSubmit,
@@ -34,13 +31,12 @@ const RegisterForm = ({
       const resp = await registerUser(data);
       if (resp.token) {
         saveToken(resp.token);
-        return;
+        navigate('/home');
       }
       if (resp.message) {
         toast(resp.message, { type: 'error' });
         return;
       }
-      navigate('/home');
     } catch (err) {
       console.log(err);
       toast(err, { type: 'error' });
@@ -62,9 +58,8 @@ const RegisterForm = ({
           {...register('name')}
           type="text"
           placeholder="Enter your name"
-          pattern="^[^\d]+$"
         />
-        <p className={errorClassName}>{errors.name?.message}</p>
+        <InputError message={errors.name?.message} />
         <input
           className={inputClassName}
           type="email"
@@ -72,15 +67,13 @@ const RegisterForm = ({
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           {...register('email')}
         />
-        <p className={errorClassName}>{errors.email?.message}</p>
-        <input
+        <InputError message={errors.email?.message} />
+        <PasswordField
           className={inputClassName}
-          {...register('password')}
-          type="password"
+          register={register}
           placeholder="Create a password"
-          pattern="^[a-zA-Z0-9!@#$%^&*()-_=+`~[\]{}|:<>/?]+$"
         />
-        <p className={errorClassName}>{errors.password?.message}</p>
+        <InputError message={errors.password?.message} />
         <button className={buttonClassName} type="submit">
           Register Now
         </button>
@@ -91,7 +84,7 @@ const RegisterForm = ({
 
 const registerUser = async (data) => {
   const resp = await fetch(
-    'https://perfect-task-back.onrender.com/api/users/register',
+    'https://perfect-task-back.onrender.com/api/users/signup',
     {
       method: 'POST',
       body: JSON.stringify(data),

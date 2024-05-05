@@ -1,0 +1,14 @@
+.logoIcon {
+  width: 32px;
+  height: 32px;
+  background-color: #161616;
+  fill: #fff;
+  border-radius: 8px;
+}
+
+@media only screen and (min-width: 768px) {
+  .logoIcon {
+    width: 48px;
+    height: 48px;
+  }
+}
