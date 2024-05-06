@@ -1,0 +1,10 @@
+.buttonCreate {
+  width: 100%;
+  display: flex;
+  gap: 3.5px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color-light-green);
+  border: none;
+  border-radius: 8px;
+}

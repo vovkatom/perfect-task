@@ -1,0 +1,39 @@
+.container {
+  width: 212px;
+  height: 272px;
+  padding: 20px;
+  margin-bottom: 24px;
+  background-color: #f6f6f7;
+}
+
+.image {
+  width: 54px;
+  height: 78px;
+  margin-bottom: 14px;
+  background-image: url('../../../../src/assets/img/imageNeedHelp.svg');
+  background-size: contain;
+}
+
+.infoText {
+  margin-bottom: 18px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: -0.02em;
+  color: #161616;
+}
+
+.perfectTask {
+  color: #bedbb0;
+}
+
+.question {
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: -0.02em;
+  color: #161616;
+}
+
+.needHelp {
+  display: flex;
+}

@@ -1,11 +1,15 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
+//import SideBar from '../SideBar/SideBar';
 
 const SharedLayout = () => {
   return (
-    <Suspense fallback={null}>
-      <Outlet />
-    </Suspense>
+    <>
+      {/* <SideBar /> */}
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
+    </>
   );
 };
 

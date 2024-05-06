@@ -1,0 +1,58 @@
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 14px 20px;
+  background-color: #fcfcfc;
+}
+
+.customBox {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+}
+
+.themeBox {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+}
+
+.label {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: rgba(22, 22, 22, 0.8);
+}
+
+.select {
+  border: none;
+  appearance: auto;
+}
+
+.user {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.userName {
+  /* color: var(--primary-color-white); */
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: #161616;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 2px;
+  background-color: blue;
+}
