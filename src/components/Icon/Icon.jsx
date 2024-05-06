@@ -1,11 +1,10 @@
 import sprite from '../../assets/img/icon.svg';
 
-const Icon = ({ id, className }) => {
-  const route = sprite + '#' + id;
+const Icon = ({ id, className, width, height }) => {
   return (
     <>
-      <svg className={className}>
-        <use href={route.toString()}></use>
+      <svg className={className} width={width} height={height}>
+        <use href={`${sprite}#${id}`}></use>
       </svg>
     </>
   );
