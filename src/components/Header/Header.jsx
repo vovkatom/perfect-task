@@ -1,13 +1,10 @@
+import BurgerMenu from './BurgerMenu/BurgerMenu';
 import css from './Header.module.css';
 
 const Header = () => {
   return (
     <header className={css.headerContainer}>
-      <button className={css.burgerButton} type="button">
-        <svg className={css.burgerIcon} width="24" height="24">
-          <use href="" />
-        </svg>
-      </button>
+      <BurgerMenu />
       <div className={css.customBox}>
         <div className={css.themeBox}>
           <label htmlFor="theme" className={css.label}>

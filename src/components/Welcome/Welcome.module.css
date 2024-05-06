@@ -142,6 +142,13 @@
   }
 }
 
+.authBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+}
+
 .loginBtn {
   border-radius: 8px;
   border: 0;
@@ -157,4 +164,27 @@
 .loginBtn:hover,
 .loginBtn:focus {
   color: var(--primary-color-white);
+}
+
+.googleBtn {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  height: 28px;
+  width: 28px;
+  padding: 4px;
+  background: linear-gradient(-120deg, #4285f4, #34a853, #fbbc05, #ea4335);
+}
+
+.googleBtn:hover,
+.googleBtn:focus {
+  .googleIcon {
+    fill: var(--primary-color-black);
+  }
+}
+
+.googleIcon {
+  fill: var(--primary-color-white);
+
+  transition: fill 0.25s ease-in-out;
 }

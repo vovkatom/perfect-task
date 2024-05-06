@@ -49,11 +49,24 @@ const Welcome = () => {
               Registration
             </button>
           </Link>
-          <Link to="/auth/login">
-            <button className={css.loginBtn} type="button">
-              Log In
-            </button>
-          </Link>
+          <div className={css.authBox}>
+            <Link to="/auth/login">
+              <button className={css.loginBtn} type="button">
+                Log In
+              </button>
+            </Link>
+            <a
+              className={css.googleBtn}
+              href="http://localhost:3000/api/users/google"
+            >
+              <Icon
+                id="google"
+                className={css.googleIcon}
+                width="20"
+                height="20"
+              />
+            </a>
+          </div>
         </div>
       </Container>
     </div>

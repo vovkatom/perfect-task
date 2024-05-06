@@ -8,15 +8,6 @@
   background-color: #fcfcfc;
 }
 
-.burgerButton {
-  width: 24px;
-  height: 24px;
-}
-
-.burgerIcon {
-  display: inline-block;
-}
-
 .customBox {
   display: flex;
   flex-direction: row;
