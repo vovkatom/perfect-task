@@ -1,0 +1,29 @@
+.container {
+    width: 100%;
+    max-width: 375px;
+    height: 80px;
+    margin-top: 292px;
+    margin-bottom: 380px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-black-background);
+}
+
+@media screen and (min-width: 768px) {
+    width: 100%;
+    width: 486px;
+
+}
+
+@media screen and (min-width: 1440px) {
+    margin-top: 281px;
+}
+
+.button_create {
+    color: #bedbb0;
+}
