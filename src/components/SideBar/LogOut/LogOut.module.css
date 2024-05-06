@@ -1,0 +1,9 @@
+.btn_logout{
+    font-family: 'Poppins', sans-serif;
+    display:flex;
+    outline: none;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}
