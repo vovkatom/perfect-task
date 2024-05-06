@@ -1,6 +1,20 @@
+import { useState } from 'react';
 import css from './Header.module.css';
+import CommonModal from '../CommonModal/CommonModal';
+import { getUserData } from '../../lib/session/user';
+import EditProfileForm from '../EditProfile/EditProfile';
 
 const Header = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+  const user = getUserData();
   return (
     <header className={css.headerContainer}>
       <button className={css.burgerButton} type="button">
@@ -20,11 +34,18 @@ const Header = () => {
           </select>
         </div>
 
-        <div className={css.user}>
-          <p className={css.userName}>Ivetta</p>
-          <div className={css.avatar}></div>
+        <div className={css.user} onClick={handleOpenModal}>
+          <p className={css.userName}>{user?.name}</p>
+          <div className={css.avatar}>{user?.avatarURL}</div>
         </div>
       </div>
+      <CommonModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        title={'Edit profile'}
+      >
+        <EditProfileForm user={user} />
+      </CommonModal>
     </header>
   );
 };
