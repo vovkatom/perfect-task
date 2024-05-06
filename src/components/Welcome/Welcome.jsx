@@ -32,7 +32,12 @@ const Welcome = () => {
             height="124"
           />
           <div className={css.logoIconBox}>
-            <Icon className={css.logoIcon} id="icon-logo2" />
+            <Icon
+              className={css.logoIcon}
+              id="icon-logo2"
+              width="40"
+              height="40"
+            />
             <h1 className={css.header}>Perfect Task</h1>
           </div>
           <p className={css.paragraph}>
