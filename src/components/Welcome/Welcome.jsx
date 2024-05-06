@@ -57,7 +57,7 @@ const Welcome = () => {
             </Link>
             <a
               className={css.googleBtn}
-              href="http://localhost:3000/api/users/google"
+              href="https://perfect-task-back.onrender.com/api/users/google"
             >
               <Icon
                 id="google"
