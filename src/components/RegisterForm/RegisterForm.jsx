@@ -6,6 +6,7 @@ import { saveToken } from '../../lib/session/token';
 import { useNavigate } from 'react-router-dom';
 import PasswordField from '../PasswordField/PasswordField';
 import InputError from '../InputError/InputError';
+import { saveUserData } from '../../lib/session/user';
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -31,6 +32,7 @@ const RegisterForm = ({ formClassName, inputClassName, buttonClassName }) => {
       const resp = await registerUser(data);
       if (resp.token) {
         saveToken(resp.token);
+        saveUserData(resp.user);
         navigate('/home');
       }
       if (resp.message) {
