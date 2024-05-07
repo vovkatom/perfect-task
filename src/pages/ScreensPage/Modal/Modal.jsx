@@ -42,9 +42,9 @@ const Modal = ({ children, openModal }) => {
           className={css.closeIcon}
           onClick={() => openModal()}
         >
-          <svg className={css.icon}>
+          {/* <svg className={css.icon}>
             <use href={#} />
-          </svg>
+          </svg> */}
         </button>
         {children}
       </div>
