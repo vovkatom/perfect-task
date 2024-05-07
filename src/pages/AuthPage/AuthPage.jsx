@@ -12,8 +12,10 @@ import {
   selectIsLogin,
 } from '../../redux/auth/auth-selectors';
 
+import Loader from '../../components/Loader/Loader';
+
 const AuthPage = () => {
-  const loading = useSelector(selectAuthLoading);
+  const isRefreshing = useSelector(selectAuthLoading);
   const error = useSelector(selectAuthError);
   const isLogin = useSelector(selectIsLogin);
 
@@ -24,12 +26,13 @@ const AuthPage = () => {
   const Form = register ? RegisterForm : LoginForm;
 
   if (isLogin) {
-    return <Navigate to="/home" />;
+    return <Navigate to='/home' />;
   }
 
-  return (
+  return isRefreshing ? (
+    <Loader />
+  ) : (
     <>
-      {loading && <p>Loading...</p>}
       <div className={css.background}>
         <div className={css.mainBox}>
           <div className={css.authMenu}>
