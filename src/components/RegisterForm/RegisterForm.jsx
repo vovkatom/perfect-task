@@ -1,12 +1,12 @@
-import toast, { Toaster } from 'react-hot-toast';
+// import toast, { Toaster } from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { saveToken } from '../../lib/session/token';
-import { useNavigate } from 'react-router-dom';
+// import { saveToken } from '../../lib/session/token';
+// import { useNavigate } from 'react-router-dom';
 import PasswordField from '../PasswordField/PasswordField';
 import InputError from '../InputError/InputError';
-import { saveUserData } from '../../lib/session/user';
+// import { saveUserData } from '../../lib/session/user';
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -15,46 +15,47 @@ const schema = yup.object().shape({
 });
 
 // Компонент RegisterForm відповідає за форму реєстрації нового користувача
-const RegisterForm = ({ formClassName, inputClassName, buttonClassName }) => {
+const RegisterForm = ({
+  formClassName,
+  inputClassName,
+  buttonClassName,
+  onSubmit,
+}) => {
   const {
     register,
-    handleSubmit,
+    // handleSubmit,
     formState: { errors },
-    reset,
+    // reset,
   } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const onSubmitHandler = async (data) => {
-    try {
-      const resp = await registerUser(data);
-      if (resp.token) {
-        saveToken(resp.token);
-        saveUserData(resp.user);
-        navigate('/home');
-      }
-      if (resp.message) {
-        toast(resp.message, { type: 'error' });
-        return;
-      }
-    } catch (err) {
-      console.log(err);
-      toast(err, { type: 'error' });
-    }
+  // const onSubmitHandler = async (data) => {
+  //   try {
+  //     const resp = await registerUser(data);
+  //     if (resp.token) {
+  //       saveToken(resp.token);
+  //       saveUserData(resp.user);
+  //       navigate('/home');
+  //     }
+  //     if (resp.message) {
+  //       toast(resp.message, { type: 'error' });
+  //       return;
+  //     }
+  //   } catch (err) {
+  //     console.log(err);
+  //     toast(err, { type: 'error' });
+  //   }
 
-    reset();
-  };
+  //   reset();
+  // };
 
   return (
     <>
-      <Toaster />
-      <form
-        onSubmit={handleSubmit(onSubmitHandler)}
-        className={formClassName}
-        autoComplete="off"
-      >
+      {/* <Toaster /> */}
+      <form onSubmit={onSubmit} className={formClassName} autoComplete="off">
         <input
           className={inputClassName}
           {...register('name')}
@@ -84,18 +85,18 @@ const RegisterForm = ({ formClassName, inputClassName, buttonClassName }) => {
   );
 };
 
-const registerUser = async (data) => {
-  const resp = await fetch(
-    'https://perfect-task-back.onrender.com/api/users/signup',
-    {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }
-  );
-  return await resp.json();
-};
+// const registerUser = async (data) => {
+//   const resp = await fetch(
+//     'https://perfect-task-back.onrender.com/api/users/signup',
+//     {
+//       method: 'POST',
+//       body: JSON.stringify(data),
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//     }
+//   );
+//   return await resp.json();
+// };
 
 export default RegisterForm;
