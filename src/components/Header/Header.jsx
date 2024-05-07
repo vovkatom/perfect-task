@@ -33,7 +33,7 @@ const Header = () => {
 
         <div className={css.user} onClick={handleOpenModal}>
           <p className={css.userName}>{user?.name}</p>
-          <div className={css.avatar}>{user?.avatarURL}</div>
+          <img className={css.avatar} src={user?.avatarURL} />
         </div>
       </div>
       <ModalEditProfile

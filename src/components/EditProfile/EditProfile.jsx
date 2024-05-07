@@ -6,6 +6,7 @@ import PasswordField from '../PasswordField/PasswordField';
 import toast, { Toaster } from 'react-hot-toast';
 import { getToken } from '../../lib/session/token';
 import InputError from '../InputError/InputError';
+import { saveUserData } from '../../lib/session/user';
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -22,9 +23,9 @@ const EditProfileForm = ({ user }) => {
     defaultValues: user,
     resolver: yupResolver(schema),
   });
-  
+
   return (
-        <form className={css.profileForm} onSubmit={handleSubmit(updateProfile)}>
+    <form className={css.profileForm} onSubmit={handleSubmit(updateProfile)}>
       <Toaster />
       <div className={css.avatar}>
         <img src={user?.avatarURL} alt="avatar" />
@@ -66,6 +67,7 @@ const updateProfile = async (data) => {
     if (resp?.message) {
       toast(resp.message, { type: 'error' });
     } else {
+      saveUserData(data);
       toast('Profile updated', { type: 'success' });
     }
   } catch (err) {
