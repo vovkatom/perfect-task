@@ -1,7 +1,7 @@
 import BurgerMenu from './BurgerMenu/BurgerMenu';
 import { useState } from 'react';
 import css from './Header.module.css';
-import CommonModal from '../CommonModal/CommonModal';
+import ModalEditProfile from '../EditProfile/ModalEditProfile.jsx';
 import { getUserData } from '../../lib/session/user';
 import EditProfileForm from '../EditProfile/EditProfile';
 
@@ -36,13 +36,13 @@ const Header = () => {
           <div className={css.avatar}>{user?.avatarURL}</div>
         </div>
       </div>
-      <CommonModal
+      <ModalEditProfile
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         title={'Edit profile'}
       >
         <EditProfileForm user={user} />
-      </CommonModal>
+      </ModalEditProfile>
     </header>
   );
 };
