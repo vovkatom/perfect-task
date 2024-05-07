@@ -2,10 +2,12 @@ import BurgerMenu from './BurgerMenu/BurgerMenu';
 import { useState } from 'react';
 import css from './Header.module.css';
 import ModalEditProfile from '../EditProfile/ModalEditProfile.jsx';
-import { getUserData } from '../../lib/session/user';
 import EditProfileForm from '../EditProfile/EditProfile';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../redux/auth/auth-selectors';
 
 const Header = () => {
+  const user = useSelector(selectUser);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => {
@@ -15,7 +17,7 @@ const Header = () => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
-  const user = getUserData();
+
   return (
     <header className={css.headerContainer}>
       <BurgerMenu />
@@ -33,7 +35,9 @@ const Header = () => {
 
         <div className={css.user} onClick={handleOpenModal}>
           <p className={css.userName}>{user?.name}</p>
-          <div className={css.avatar}>{user?.avatarURL}</div>
+          <div className={css.avatar}>
+            <img src={`${user?.avatarURL}`} alt="User avatar" />
+          </div>
         </div>
       </div>
       <ModalEditProfile
