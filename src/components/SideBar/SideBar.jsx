@@ -7,7 +7,7 @@ import LogOut from './LogOut/LogOut';
 
 const SideBar = () => {
   return (
-    <div className={css.container}>
+    <div className={`${css.container} ${css.sidebar}`}>
       <Logo />
       <h3 className={css.myBoardsTitle}>My boards</h3>
       <CreateNewBoard />
