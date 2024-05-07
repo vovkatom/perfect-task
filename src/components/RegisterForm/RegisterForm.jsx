@@ -1,4 +1,5 @@
 // import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -6,6 +7,8 @@ import * as yup from 'yup';
 // import { useNavigate } from 'react-router-dom';
 import PasswordField from '../PasswordField/PasswordField';
 import InputError from '../InputError/InputError';
+import { useDispatch } from 'react-redux';
+import { signup } from '../../redux/auth/auth-operations';
 // import { saveUserData } from '../../lib/session/user';
 
 const schema = yup.object().shape({
@@ -15,15 +18,16 @@ const schema = yup.object().shape({
 });
 
 // Компонент RegisterForm відповідає за форму реєстрації нового користувача
-const RegisterForm = ({
-  formClassName,
-  inputClassName,
-  buttonClassName,
-  onSubmit,
-}) => {
+const RegisterForm = ({ formClassName, inputClassName, buttonClassName }) => {
+  const dispatch = useDispatch();
+
+  const handleSignup = (data) => {
+    dispatch(signup(data));
+  };
+
   const {
     register,
-    // handleSubmit,
+    handleSubmit,
     formState: { errors },
     // reset,
   } = useForm({
@@ -54,8 +58,12 @@ const RegisterForm = ({
 
   return (
     <>
-      {/* <Toaster /> */}
-      <form onSubmit={onSubmit} className={formClassName} autoComplete="off">
+      <Toaster />
+      <form
+        onSubmit={handleSubmit(handleSignup)}
+        className={formClassName}
+        autoComplete="off"
+      >
         <input
           className={inputClassName}
           {...register('name')}
@@ -67,7 +75,7 @@ const RegisterForm = ({
           className={inputClassName}
           type="email"
           placeholder="Enter your email"
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           {...register('email')}
         />
         <InputError message={errors.email?.message} />

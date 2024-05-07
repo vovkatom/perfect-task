@@ -8,3 +8,8 @@ export const signupRequest = async (body) => {
   const { data } = await axiosInstance.post('/users/signup', body);
   return data;
 };
+
+export const loginRequest = async (body) => {
+  const { data } = await axiosInstance.post('/users/signin', body);
+  return data;
+};

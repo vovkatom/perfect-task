@@ -10,7 +10,7 @@ const PasswordField = ({ placeholder, register, className }) => {
       <div className={clsx(className, css.container)}>
         <input
           type={hidePassword ? 'password' : 'text'}
-          pattern="^[a-zA-Z0-9!@#$%^&*()-_=+`~[\]{}|:<>/?]+$"
+          // pattern="^[a-zA-Z0-9!@#$%^&*()-_=+`~[\]{}|:<>/?]+$"
           {...register('password')}
           placeholder={placeholder}
         />
