@@ -1,9 +1,9 @@
-// const tokenLocalStorageKey = 'token';
+const tokenLocalStorageKey = 'token';
 
 // export const saveToken = (token) => {
 //   localStorage.setItem(tokenLocalStorageKey, token);
 // };
 
-// export const getToken = () => {
-//   return localStorage.getItem(tokenLocalStorageKey);
-// };
+export const getToken = () => {
+  return localStorage.getItem(tokenLocalStorageKey);
+};

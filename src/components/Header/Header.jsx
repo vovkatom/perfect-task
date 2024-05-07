@@ -34,8 +34,10 @@ const Header = () => {
         </div>
 
         <div className={css.user} onClick={handleOpenModal}>
-          <p className={css.userName}>{user.name}</p>
-          <div className={css.avatar}>Avatar</div>
+          <p className={css.userName}>{user?.name}</p>
+          <div className={css.avatar}>
+            <img src={`${user?.avatarURL}`} alt="User avatar" />
+          </div>
         </div>
       </div>
       <CommonModal
