@@ -25,8 +25,6 @@ const NeedHelp = () => {
         support resources or reach out to our customer support team.
       </p>
       <p className={css.needHelp}>
-        {/* <svg viewBox="0 0 32 32" width="20" height="20"></svg> */}
-
         <Link className={css.link} onClick={handleOpenModal}>
           <HelpSign />
           Need help?
