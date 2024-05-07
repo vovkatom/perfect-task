@@ -22,11 +22,12 @@ const EditProfileForm = ({ user }) => {
     defaultValues: user,
     resolver: yupResolver(schema),
   });
+  
   return (
-    <form className={css.profileForm} onSubmit={handleSubmit(updateProfile)}>
+        <form className={css.profileForm} onSubmit={handleSubmit(updateProfile)}>
       <Toaster />
       <div className={css.avatar}>
-        {user?.avatarURL}
+        <img src={user?.avatarURL} alt="avatar" />
         <div className={css.buttonIconProfile}>
           <p className={css.buttonPlusProfile}>+</p>
         </div>
