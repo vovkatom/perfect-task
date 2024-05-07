@@ -1,7 +1,7 @@
 import BurgerMenu from './BurgerMenu/BurgerMenu';
 import { useState } from 'react';
 import css from './Header.module.css';
-import CommonModal from '../CommonModal/CommonModal';
+import ModalEditProfile from '../EditProfile/ModalEditProfile.jsx';
 import EditProfileForm from '../EditProfile/EditProfile';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/auth-selectors';
@@ -40,13 +40,13 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <CommonModal
+      <ModalEditProfile
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         title={'Edit profile'}
       >
         <EditProfileForm user={user} />
-      </CommonModal>
+      </ModalEditProfile>
     </header>
   );
 };
