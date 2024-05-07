@@ -3,7 +3,8 @@
   height: 272px;
   padding: 20px;
   margin-bottom: 24px;
-  background-color: #f6f6f7;
+  background-color: var(--color-light-background);
+  border-radius: 8px;
 }
 
 .image {
