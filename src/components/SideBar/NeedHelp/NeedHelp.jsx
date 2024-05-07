@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import NeedHelpModal from './NeedHelpModal/NeedHelpModal';
 import css from '../NeedHelp/NeedHelp.module.css';
 import CommonModal from '../../CommonModal/CommonModal';
+import { ReactComponent as HelpSign } from './help-icon.svg';
 
 const NeedHelp = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,9 +25,10 @@ const NeedHelp = () => {
         support resources or reach out to our customer support team.
       </p>
       <p className={css.needHelp}>
-        <svg viewBox="0 0 32 32" width="20" height="20"></svg>
-
-        <Link onClick={handleOpenModal}>Need help?</Link>
+        <Link className={css.link} onClick={handleOpenModal}>
+          <HelpSign />
+          Need help?
+        </Link>
       </p>
 
       <CommonModal
