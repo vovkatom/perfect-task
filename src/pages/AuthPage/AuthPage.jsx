@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { Navigate, useParams } from 'react-router-dom';
-// import Container from '../../components/Container/Container';
+import { useParams } from 'react-router-dom';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import css from './AuthPage.module.css';
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
@@ -9,15 +8,13 @@ import { useSelector } from 'react-redux';
 import {
   selectAuthLoading,
   selectAuthError,
-  selectIsLogin,
 } from '../../redux/auth/auth-selectors';
 
 import Loader from '../../components/Loader/Loader';
 
 const AuthPage = () => {
-  const isRefreshing = useSelector(selectAuthLoading);
+  const isLoading = useSelector(selectAuthLoading);
   const error = useSelector(selectAuthError);
-  const isLogin = useSelector(selectIsLogin);
 
   const { id } = useParams();
   const [register, setRegister] = useState(id === 'register');
@@ -25,11 +22,7 @@ const AuthPage = () => {
   const buttonClassName = clsx(css.authButton, css.authControl);
   const Form = register ? RegisterForm : LoginForm;
 
-  if (isLogin) {
-    return <Navigate to='/home' />;
-  }
-
-  return isRefreshing ? (
+  return isLoading ? (
     <Loader />
   ) : (
     <>
