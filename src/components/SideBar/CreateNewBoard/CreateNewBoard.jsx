@@ -1,27 +1,30 @@
 import { useState } from 'react';
-import Modal from '../../shared/Modal/Modal';
 import css from '../CreateNewBoard/CreateNewBoard.module.css';
 import ModalContent from './ModalContent/ModalContent';
+import CommonModal from '../../CommonModal/CommonModal';
 
 const CreateNewBoard = () => {
-  const [modalActive, setModalActive] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const changeModalState = () => {
-    setModalActive((modalActive) => !modalActive);
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
   };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <>
-      <button className={css.button} type="button" onClick={changeModalState}>
+      <button className={css.button} type="button" onClick={handleOpenModal}>
         <p className={css.buttonTitle}>Create a new board</p>
         <div className={css.buttonIcon}>
           <p className={css.buttonPlus}>+</p>
         </div>
       </button>
-      {modalActive && (
-        <Modal active={modalActive} setActive={setModalActive}>
-          <ModalContent />
-        </Modal>
-      )}
+      <CommonModal isOpen={isModalOpen} onClose={handleCloseModal}>
+        <ModalContent />
+      </CommonModal>
     </>
   );
 };

@@ -1,6 +1,7 @@
 .container {
   width: 225px;
   padding: 14px;
+  background-color: var(--primary-color-white);
 }
 
 @media only screen and (min-width: 768px) {
