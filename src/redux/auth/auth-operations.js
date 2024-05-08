@@ -19,7 +19,7 @@ export const signup = createAsyncThunk(
 );
 
 export const login = createAsyncThunk(
-  'auth/signin',
+  'auth/login',
   async (body, { rejectWithValue }) => {
     try {
       const data = await loginRequest(body);
@@ -35,8 +35,9 @@ export const current = createAsyncThunk(
   async (_, { rejectWithValue, getState }) => {
     try {
       const { auth } = getState();
-      const data = await currentRequest(auth.token);
-      console.log(data);
+      console.log('current', auth);
+      const data = await currentRequest(auth.accessToken);
+      console.log('await current', data);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -45,7 +46,8 @@ export const current = createAsyncThunk(
   {
     condition: (_, { getState }) => {
       const { auth } = getState();
-      if (!auth.token) {
+      if (!auth.accessToken) {
+        console.log(false);
         return false;
       }
     },
@@ -57,6 +59,18 @@ export const logout = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const data = await logoutRequest();
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+export const refresh = createAsyncThunk(
+  'auth/refresh',
+  async (body, { rejectWithValue }) => {
+    try {
+      const data = await refreshRequest(body);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
