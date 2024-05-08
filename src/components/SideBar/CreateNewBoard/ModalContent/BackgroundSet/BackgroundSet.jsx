@@ -1,7 +1,11 @@
 import css from '../BackgroundSet/BackgroundSet.module.css';
 
 const BackgroundSet = () => {
-  return <></>;
+  return (
+    <ul className={css.list}>
+      <li></li>
+    </ul>
+  )
 };
 
 export default BackgroundSet;

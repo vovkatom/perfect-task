@@ -19,7 +19,7 @@
   padding: 24px;
   position: relative;
   border-radius: 8px;
-  width: 335px;
+  width: 100%;
   border: 1px solid var(--primary-color-light-green);
   box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
 }

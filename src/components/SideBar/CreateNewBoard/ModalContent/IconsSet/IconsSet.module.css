@@ -1,0 +1,15 @@
+.iconSet {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.iconContainer {
+  margin-top: 14px;
+}
+
+.icon {
+  stroke-width: 3px;
+  stroke: #16161680;
+  fill: transparent;
+}
