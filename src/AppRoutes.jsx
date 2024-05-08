@@ -4,7 +4,7 @@ import AuthPage from './pages/AuthPage/AuthPage';
 import { lazy } from 'react';
 
 import PublicRoute from './components/PublicRoute/PublicRoute';
-import PrivateRoute from './components/PrivateRoute/PrivatRoute';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import { useSelector } from 'react-redux';
 import { selectIsLogin } from './redux/auth/auth-selectors';
 
