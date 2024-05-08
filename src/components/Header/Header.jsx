@@ -1,13 +1,26 @@
+import BurgerMenu from './BurgerMenu/BurgerMenu';
+import { useState } from 'react';
 import css from './Header.module.css';
+import ModalEditProfile from '../EditProfile/ModalEditProfile.jsx';
+import EditProfileForm from '../EditProfile/EditProfile';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../redux/auth/auth-selectors';
 
 const Header = () => {
+  const user = useSelector(selectUser);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <header className={css.headerContainer}>
-      <button className={css.burgerButton} type="button">
-        <svg className={css.burgerIcon} width="24" height="24">
-          <use href="" />
-        </svg>
-      </button>
+      <BurgerMenu />
       <div className={css.customBox}>
         <div className={css.themeBox}>
           <label htmlFor="theme" className={css.label}>
@@ -20,11 +33,20 @@ const Header = () => {
           </select>
         </div>
 
-        <div className={css.user}>
-          <p className={css.userName}>Ivetta</p>
-          <div className={css.avatar}></div>
+        <div className={css.user} onClick={handleOpenModal}>
+          <p className={css.userName}>{user?.name}</p>
+          <div className={css.avatar}>
+            <img src={`${user?.avatarURL}`} alt="User avatar" />
+          </div>
         </div>
       </div>
+      <ModalEditProfile
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        title={'Edit profile'}
+      >
+        <EditProfileForm user={user} />
+      </ModalEditProfile>
     </header>
   );
 };

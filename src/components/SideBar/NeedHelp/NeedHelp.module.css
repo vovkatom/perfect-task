@@ -38,3 +38,9 @@
 .needHelp {
   display: flex;
 }
+
+.link {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}

@@ -4,6 +4,10 @@
   background-color: var(--primary-color-white);
 }
 
+.sidebar {
+  background-color: var(--primary-color-white);
+}
+
 @media only screen and (min-width: 768px) {
   .container {
     width: 260px;

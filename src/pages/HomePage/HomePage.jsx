@@ -6,13 +6,15 @@ import css from './HomePage.module.css';
 
 const HomePage = () => {
   return (
-    <div className={css.background}>
-      <Header />
-      <SideBar />
-      <Container className="home-page">
-        <ScreensPage />
-      </Container>
-    </div>
+    <>
+      <div className={css.background}>
+        <Header />
+        <SideBar />
+        <Container className="home-page">
+          <ScreensPage />
+        </Container>
+      </div>
+    </>
   );
 };
 
