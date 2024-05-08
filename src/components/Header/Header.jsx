@@ -6,7 +6,7 @@ import EditProfileForm from '../EditProfile/EditProfile';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/auth-selectors';
 
-const Header = () => {
+const Header = ({ toggleSidebar }) => {
   const user = useSelector(selectUser);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -20,7 +20,7 @@ const Header = () => {
 
   return (
     <header className={css.headerContainer}>
-      <BurgerMenu />
+      <BurgerMenu onClick={toggleSidebar} />
       <div className={css.customBox}>
         <div className={css.themeBox}>
           <label htmlFor="theme" className={css.label}>

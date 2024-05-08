@@ -1,6 +1,7 @@
 .container {
   width: 225px;
   padding: 14px;
+  height: 100%;
 }
 
 .sidebar {
