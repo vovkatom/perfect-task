@@ -1,19 +1,16 @@
+import Icon from '../../Icon/Icon';
 import css from '../LogOut/LogOut.module.css';
-import { ReactComponent as LogOutIcon } from './logout-icon.svg';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../../redux/auth/auth-operations';
 
 const LogOut = () => {
-  const handleLogout = () => {
-    // Функція
-  };
+  const dispatch = useDispatch();
+  const onLogout = () => dispatch(logout());
+  console.log(onLogout);
   return (
     <div>
-      {/* <div className={css.icon_logout} width="32" height="32">
-        <svg>
-          <use href="icon.svg#icon-login"></use>
-        </svg>
-      </div> */}
-      <button className={css.btn_logout} onClick={handleLogout}>
-        <LogOutIcon />
+      <button className={css.btn_logout} onClick={onLogout} type="button">
+        <Icon id="logout" width="32" height="32" className="" />
         Log Out
       </button>
     </div>

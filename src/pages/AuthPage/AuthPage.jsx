@@ -15,7 +15,7 @@ import {
 import Loader from '../../components/Loader/Loader';
 
 const AuthPage = () => {
-  const isRefreshing = useSelector(selectAuthLoading);
+  const isLoading = useSelector(selectAuthLoading);
   const error = useSelector(selectAuthError);
   const isLogin = useSelector(selectIsLogin);
 
@@ -26,10 +26,10 @@ const AuthPage = () => {
   const Form = register ? RegisterForm : LoginForm;
 
   if (isLogin) {
-    return <Navigate to='/home' />;
+    return <Navigate to="/home" />;
   }
 
-  return isRefreshing ? (
+  return isLoading ? (
     <Loader />
   ) : (
     <>

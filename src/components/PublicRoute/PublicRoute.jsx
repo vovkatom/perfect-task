@@ -1,12 +1,18 @@
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Navigate, Outlet } from 'react-router-dom';
-// import { getIsLoggedIn } from 'redux/selector/selectors';
+import { selectIsLogin, selectToken } from '../../redux/auth/auth-selectors';
+import Loader from '../Loader/Loader';
 
-const PublicRoute = ({ redirectPath = 'home' }) => {
-  // const isLoggedIn = useSelector(getIsLoggedIn);
-  const isLoggedIn = false;
-  if (isLoggedIn) {
-    return <Navigate to={redirectPath} />;
+const PublicRoute = () => {
+  const isLogin = useSelector(selectIsLogin);
+  const token = useSelector(selectToken);
+
+  if (!isLogin && token) {
+    return <Loader />;
+  }
+
+  if (isLogin) {
+    return <Navigate to="/home" />;
   }
 
   return <Outlet />;
