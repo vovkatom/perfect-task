@@ -4,6 +4,7 @@ import {
   loginRequest,
   currentRequest,
   logoutRequest,
+  refreshRequest,
 } from '../../api/auth-api';
 
 export const signup = createAsyncThunk(
