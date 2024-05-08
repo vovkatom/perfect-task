@@ -1,4 +1,3 @@
-// import css from '../SideBar/SideBar.module.css';
 import css from './SideBar.module.css';
 import Logo from './Logo/Logo';
 import CreateNewBoard from './CreateNewBoard/CreateNewBoard';
