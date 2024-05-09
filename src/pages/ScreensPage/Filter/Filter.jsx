@@ -65,7 +65,7 @@ const Filter = ({ openModal }) => {
               />
               <label htmlFor="medium" className={css.filterListItem}>
                 <span
-                  style={{ backgroundColor: '#e09cb5' }}
+                  style={{ backgroundColor: '#e09cb5 ' }}
                   className={css.inputBtn}
                 ></span>
                 Medium
@@ -80,7 +80,7 @@ const Filter = ({ openModal }) => {
               />
               <label htmlFor="high" className={css.filterListItem}>
                 <span
-                  style={{ backgroundColor: '#bedbb0' }}
+                  style={{ backgroundColor: '#bedbb0 ' }}
                   className={css.inputBtn}
                 ></span>
                 High
