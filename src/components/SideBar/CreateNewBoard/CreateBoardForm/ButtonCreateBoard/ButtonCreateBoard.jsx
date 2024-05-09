@@ -1,10 +1,11 @@
 import css from '../ButtonCreateBoard/ButtonCreateBoard.module.css';
+import Icon from '../../../../Icon/Icon';
 
 const ButtonCreateBoard = () => {
   return (
     <button type="submit" className={css.buttonCreate}>
-      <svg width="28" height="28"></svg>
-      <p>Create</p>
+      <Icon className={css.icon} id="icon-plus" width="28" height="28" />
+      <p className={css.textButton}>Create</p>
     </button>
   );
 };

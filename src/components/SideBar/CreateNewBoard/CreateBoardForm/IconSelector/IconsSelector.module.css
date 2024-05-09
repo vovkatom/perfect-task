@@ -1,0 +1,26 @@
+.iconSet {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.iconContainer {
+  margin-top: 14px;
+}
+
+.icon {
+  stroke-width: 3px;
+  stroke: #16161680;
+  fill: transparent;
+  transform: scale(1);
+}
+
+.icon:hover {
+  transform: scale(1.3);
+}
+
+.iconSelected {
+  background-color: var(--primary-color-light-green);
+  transform: scale(1.2);
+  border-radius: 5px;
+}

@@ -1,5 +1,6 @@
 .buttonCreate {
   width: 100%;
+  height: 49px;
   display: flex;
   gap: 3.5px;
   align-items: center;
@@ -7,4 +8,13 @@
   background-color: var(--primary-color-light-green);
   border: none;
   border-radius: 8px;
+}
+
+.icon {
+  stroke: white;
+}
+
+.textButton {
+  font-weight: 500;
+  font-size: 14px;
 }
