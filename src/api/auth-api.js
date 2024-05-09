@@ -64,7 +64,6 @@ export const currentRequest = async (token) => {
   setToken(token);
   try {
     const { data } = await axiosInstance.get('/users/current');
-    console.log('current req', data);
     return data;
   } catch (error) {
     setToken();
@@ -77,24 +76,44 @@ export const logoutRequest = async () => {
   return data;
 };
 
-// axiosInstance.interceptors.response.use(
-//   (responce) => responce,
-//   async (error) => {
-//     if (error.responce.status == 401) {
-//       try {
-//         const { auth } = getState();
-//         const dispatch = useDispatch;
-//         dispatch(refresh(auth.refreshToken));
-//         const { newAuth } = getState();
-//         setToken(newAuth.accessToken);
-//         return instance(error.config);
-//       } catch (error) {
-//         return Promise.reject(error);
-//       }
-//     }
-//     if (error.responce.status == 403) {
-//       logoutRequest();
-//     }
-//     return Promise.reject(error);
-//   }
-// );
+export const refreshRequest = async (body) => {
+  const { data } = await axiosInstance.post('/users/refresh', body);
+  setToken(data.accessToken);
+  return data;
+};
+
+export const updateProfileRequest = async (formData) => {
+  try {
+    const { data } = await axiosInstance.patch('/users/update', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    return data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
+/*global getState, instance*/ // не заберати цей коментар
+axiosInstance.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    if (error.response.status == 401) {
+      try {
+        const { auth } = getState();
+        const dispatch = useDispatch;
+        dispatch(refresh(auth.refreshToken));
+        const { newAuth } = getState();
+        setToken(newAuth.accessToken);
+        return instance(error.config);
+      } catch (error) {
+        return Promise.reject(error);
+      }
+    }
+    if (error.response.status == 403) {
+      logoutRequest();
+    }
+    return Promise.reject(error);
+  }
+);

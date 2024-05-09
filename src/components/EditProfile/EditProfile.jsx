@@ -1,13 +1,12 @@
+import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import css from './EditProfile.module.css';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import PasswordField from '../PasswordField/PasswordField';
-// import toast, { Toaster } from 'react-hot-toast';
 import { Toaster } from 'react-hot-toast';
-// import { getToken } from '../../lib/session/token';
 import InputError from '../InputError/InputError';
-// import { useSelector } from 'react-redux';
+import sprite from '../../assets/img/icon.svg';
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -16,24 +15,51 @@ const schema = yup.object().shape({
 });
 
 const EditProfileForm = ({ user }) => {
+  const [avatarFile, setAvatarFile] = useState(null);
   const {
     register,
-    // handleSubmit,
+    handleSubmit,
     formState: { errors },
   } = useForm({
     defaultValues: user,
     resolver: yupResolver(schema),
   });
 
+  const handleAvatarChange = e => {
+    const file = e.target.files[0];
+    setAvatarFile(file);
+  };
+
+  const onSubmit = data => {
+    const formData = new FormData();
+    formData.append('avatar', avatarFile);
+    formData.append('name', data.name);
+    formData.append('email', data.email);
+    formData.append('password', data.password);
+  };
+
   return (
-    <form
-      className={css.profileForm} // onSubmit= { handleSubmit(updateProfile) }
-    >
+    <form className={css.profileForm} onSubmit={handleSubmit(onSubmit)}>
       <Toaster />
       <div className={css.avatar}>
-        {user?.avatarURL}
+        <img
+          src={avatarFile ? URL.createObjectURL(avatarFile) : user.avatarURL}
+          alt=''
+        />
+
         <div className={css.buttonIconProfile}>
-          <p className={css.buttonPlusProfile}>+</p>
+          <label htmlFor='avatarInput'>
+            <svg width='24' height='24' className={css.plusIcon}>
+              <use xlinkHref={`${sprite}#icon-plus`} />
+            </svg>
+          </label>
+          <input
+            id='avatarInput'
+            type='file'
+            accept='image/*'
+            onChange={handleAvatarChange}
+            style={{ display: 'none' }}
+          />
         </div>
       </div>
       <input className={css.inputClassName} {...register('name')} />
@@ -43,38 +69,14 @@ const EditProfileForm = ({ user }) => {
       <PasswordField
         className={css.inputClassName}
         register={register}
-        placeholder="Edit a password"
+        placeholder='Редагувати пароль'
       />
       <InputError message={errors.password?.message} />
-      <button className={css.buttonSend} type="submit">
-        Send
+      <button className={css.buttonSend} type='submit'>
+        Відправити
       </button>
     </form>
   );
 };
-
-// const updateProfile = async (data) => {
-//   try {
-//     const result = await fetch(
-//       'https://perfect-task-back.onrender.com/api/users/update',
-//       {
-//         method: 'PATCH',
-//         body: JSON.stringify(data),
-//         headers: {
-//           'Content-Type': 'application/json',
-//           Authorization: `Bearer ${getToken()}`,
-//         },
-//       }
-//     );
-//     const resp = await result.json();
-//     if (resp?.message) {
-//       toast(resp.message, { type: 'error' });
-//     } else {
-//       toast('Profile updated', { type: 'success' });
-//     }
-//   } catch (err) {
-//     toast(err, { type: 'error' });
-//   }
-// };
 
 export default EditProfileForm;

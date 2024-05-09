@@ -116,7 +116,7 @@
         0.915c-0.263 1.339-0.48 2.677-0.77 3.989-0.149 0.678 0.045 0.919 0.751 0.892 0.709-0.036
         1.419-0.036 2.127 0 0.403 0 0.932-0.21 1.141 0.339s-0.231 0.781-0.453 1.107c-0.905
         1.115-1.823 2.229-2.752 3.342-1.361 1.624-2.711 3.242-4.051 4.854-0.263 0.317-0.557
-        0.571-1.005 0.41s-0.353-0.54-0.353-0.924z"></path>
+        0.571-1.005 0.41s-0.353-0.54-0.353-0.924z"/>
     </symbol>
 
     <symbol id="icon-menu" viewBox="0 0 32 32">
@@ -137,6 +137,9 @@
       <path d="M11.8667 10.08C12.28 5.28001 14.7467 3.32001 20.1467 3.32001H20.32C26.28 3.32001 28.6667 5.70667 28.6667 11.6667V20.36C28.6667 26.32 26.28 28.7067 20.32 28.7067H20.1467C14.7867 28.7067 12.32 26.7733 11.88 22.0533" stroke="#BEDBB0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
       <path d="M2.6665 16H19.8398" stroke="#BEDBB0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
       <path d="M16.8667 11.5333L21.3334 16L16.8667 20.4667" stroke="#BEDBB0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="chevron-down" viewBox="0 0 46 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="6.8571" d="M4.571 6.857l18.286 18.286 18.286-18.286"></path>
     </symbol>
   </defs>
 </svg>

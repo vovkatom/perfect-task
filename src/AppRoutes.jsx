@@ -24,8 +24,8 @@ const AppRoutes = () => {
             isLogin ? <Navigate to="/home" /> : <Navigate to="/welcome" />
           }
         />
-        <Route path="welcome" element={<WelcomePage />} />
         <Route element={<PublicRoute />}>
+          <Route path="welcome" element={<WelcomePage />} />
           <Route path="auth/:id" element={<AuthPage />} />
         </Route>
         <Route element={<PrivateRoute />}>
