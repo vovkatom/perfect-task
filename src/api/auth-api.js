@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 import { refresh } from '../redux/auth/auth-operations';
 import { useDispatch } from 'react-redux';
@@ -30,7 +29,6 @@ export const currentRequest = async (token) => {
   setToken(token);
   try {
     const { data } = await axiosInstance.get('/users/current');
-    console.log('current req', data);
     return data;
   } catch (error) {
     setToken();
@@ -51,7 +49,7 @@ export const refreshRequest = async (body) => {
 
 export const updateProfileRequest = async (formData) => {
   try {
-    const { data } = await axios.patch('/users/update', formData, {
+    const { data } = await axiosInstance.patch('/users/update', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -62,11 +60,11 @@ export const updateProfileRequest = async (formData) => {
   }
 };
 
-/*global getState, instance*/// не заберати цей коментар
+/*global getState, instance*/ // не заберати цей коментар
 axiosInstance.interceptors.response.use(
-  (responce) => responce,
+  (response) => response,
   async (error) => {
-    if (error.responce.status == 401) {
+    if (error.response.status == 401) {
       try {
         const { auth } = getState();
         const dispatch = useDispatch;
@@ -78,7 +76,7 @@ axiosInstance.interceptors.response.use(
         return Promise.reject(error);
       }
     }
-    if (error.responce.status == 403) {
+    if (error.response.status == 403) {
       logoutRequest();
     }
     return Promise.reject(error);

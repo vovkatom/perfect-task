@@ -50,27 +50,7 @@
 .customBox {
   display: flex;
   flex-direction: row;
-  gap: 14px;
-}
-
-.themeBox {
-  display: flex;
-  flex-direction: row;
-  gap: 4px;
-  align-items: center;
-}
-
-.label {
-  font-family: var(--font-family);
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: -0.02em;
-  color: rgba(22, 22, 22, 0.8);
-}
-
-.select {
-  border: none;
-  appearance: auto;
+  gap: 18px;
 }
 
 .user {

@@ -138,5 +138,8 @@
       <path d="M2.6665 16H19.8398" stroke="#BEDBB0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
       <path d="M16.8667 11.5333L21.3334 16L16.8667 20.4667" stroke="#BEDBB0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
     </symbol>
+    <symbol id="chevron-down" viewBox="0 0 46 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="6.8571" d="M4.571 6.857l18.286 18.286 18.286-18.286"></path>
+    </symbol>
   </defs>
 </svg>

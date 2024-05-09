@@ -5,6 +5,7 @@ import ModalEditProfile from '../EditProfile/ModalEditProfile.jsx';
 import EditProfileForm from '../EditProfile/EditProfile';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/auth-selectors';
+import Theme from './Theme/Theme';
 
 const Header = ({ toggleSidebar }) => {
   const user = useSelector(selectUser);
@@ -23,8 +24,7 @@ const Header = ({ toggleSidebar }) => {
       <header className={css.headerContainer}>
         <BurgerMenu onClick={toggleSidebar} />
         <div className={css.customBox}>
-          <div className={css.themeBox}>Theme</div>
-
+          <Theme />
           <div className={css.user} onClick={handleOpenModal}>
             <p className={css.userName}>{user?.name}</p>
             <div className={css.avatar}>
