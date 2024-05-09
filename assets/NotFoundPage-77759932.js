@@ -1,0 +1,1 @@
+import{j as o,L as e}from"./index-e1363e0b.js";const s=()=>o.jsxs("div",{children:[o.jsx("h1",{children:"Cannot found this page"}),o.jsx(e,{to:"/home",children:"To home page"})]});export{s as default};
