@@ -61,6 +61,29 @@
   font-size: 10px;
 }
 
+.plusIconBackground {
+  position: absolute;
+  right: 148px;
+  top: 73%;
+  transform: translate(-70%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+
+  border-radius: 6px;
+  background: #bedbb0;
+}
+
+.plusIcon {
+  stroke: #121212;
+  fill: #bedbb0;
+  border-radius: 4px;
+}
+
 .buttonSend {
   width: 287px;
   height: 49px;

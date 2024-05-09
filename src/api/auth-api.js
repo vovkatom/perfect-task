@@ -47,6 +47,19 @@ export const refreshRequest = async (body) => {
   return data;
 };
 
+export const updateProfileRequest = async (formData) => {
+  try {
+    const { data } = await axiosInstance.patch('/users/update', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    return data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
 /*global getState, instance*/ // не заберати цей коментар
 axiosInstance.interceptors.response.use(
   (response) => response,

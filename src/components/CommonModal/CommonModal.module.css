@@ -14,13 +14,13 @@
 .modalPageBox {
   display: flex;
   flex-direction: column;
-  background-color: var(--primary-color-black);
-  color: #fff;
+  background-color: var(--primary-color-white);
+  color: var(--primary-color-black);
   padding: 24px;
   position: relative;
   border-radius: 8px;
-  width: 335px;
-  border: 1px solid rgba(190, 219, 176, 0.5);
+  width: 100%;
+  border: 1px solid var(--primary-color-light-green);
   box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
 }
 
@@ -30,7 +30,7 @@
   right: 10px;
   cursor: pointer;
   font-size: 20px;
-  color: #fff;
+  color: var(--primary-color-black);
 }
 
 h2 {
