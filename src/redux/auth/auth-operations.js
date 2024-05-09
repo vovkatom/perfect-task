@@ -36,9 +36,7 @@ export const current = createAsyncThunk(
   async (_, { rejectWithValue, getState }) => {
     try {
       const { auth } = getState();
-      console.log('current', auth);
       const data = await currentRequest(auth.accessToken);
-      console.log('await current', data);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -48,7 +46,6 @@ export const current = createAsyncThunk(
     condition: (_, { getState }) => {
       const { auth } = getState();
       if (!auth.accessToken) {
-        console.log(false);
         return false;
       }
     },
