@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { selectIsLogin } from '../../redux/auth/auth-selectors';
 // import Modal
 // import newBoard
+import NewBoard from './NewBoard';
 
 const ScreensPage = () => {
   const isLogin = useSelector(selectIsLogin);

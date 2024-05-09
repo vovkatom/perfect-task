@@ -1,5 +1,5 @@
 .title {
-    color: #161616;
+    color: var(--primary-color-black);
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 14px;
@@ -11,7 +11,7 @@
 }
 
 .listTitle {
-    color: #161616;
+    color: var(--primary-color-black);
     font-size: 14px;
     margin-bottom: 14px;
     font-weight: 500;
