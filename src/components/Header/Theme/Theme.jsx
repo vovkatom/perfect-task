@@ -1,14 +1,14 @@
 import Icon from '../../Icon/Icon';
-import CommonPopUpSmall from '../../CommonPopUpSmall/CommonPopUpSmall';
+// import CommonPopUpSmall from '../../CommonPopUpSmall/CommonPopUpSmall';
 import css from './Theme.module.css';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 const Theme = () => {
-  const [isPopUpOpen, setIsSidebarOpen] = useState(false);
+  //   const [isPopUpOpen, setIsSidebarOpen] = useState(false);
 
-  const togglePopUp = () => {
-    setIsSidebarOpen(!isPopUpOpen);
-  };
+  //   const togglePopUp = () => {
+  //     setIsSidebarOpen(!isPopUpOpen);
+  //   };
   return (
     <>
       <button className={css.themeBox} type="button">
@@ -20,7 +20,7 @@ const Theme = () => {
           height="7"
         />
       </button>
-      <CommonPopUpSmall onClick={togglePopUp} />
+      {/* <CommonPopUpSmall onClick={togglePopUp} /> */}
     </>
   );
 };
