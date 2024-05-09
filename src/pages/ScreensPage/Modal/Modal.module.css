@@ -5,11 +5,11 @@
     left: 0;
     top: 0;
     position: fixed;
-    background-color: #161616;
+    background-color: var(--primary-color-black);
 }
 
 .modal {
-    border: 1px solid #161616;
+    border: 1px solid var(--primary-color-black);
     box-sizing: border-box;
     max-width: 400px;
     min-width: 300px;
@@ -18,14 +18,14 @@
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
-    background-color: #161616;
+    background-color: var(--primary-color-black);
     padding: 24px;
 }
 
 .closeIcon {
     top: 14px;
     right: 14px;
-    color: #161616;
+    color: var(--primary-color-black);
     cursor: pointer;
     position: absolute;
 
@@ -33,7 +33,7 @@
 }
 
 .closeIcon:hover {
-    color: #161616;
+    color: var(--primary-color-black);
 }
 
 .icon {}

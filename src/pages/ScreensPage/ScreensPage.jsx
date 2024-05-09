@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
+import React, { useState} from 'react';
 import css from './ScreensPage.module.css';
 import Modal from './Modal/Modal';
 // import Modal

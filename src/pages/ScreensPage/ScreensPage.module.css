@@ -1,6 +1,6 @@
 .container {
     width: 100%;
-    max-width: 375px;
+    max-width: 335px;
     height: 80px;
     margin-top: 292px;
     margin-bottom: 380px;
@@ -12,16 +12,21 @@
     align-items: center;
     justify-content: center;
     color: var(--color-black-background);
-}
+
 
 @media screen and (min-width: 768px) {
     width: 100%;
     width: 486px;
+    max-width: 486px;
+    height: 72px;
+    font-size: 14px;
+    margin-top: 408px;
 
-}
 
 @media screen and (min-width: 1440px) {
     margin-top: 281px;
+}
+}
 }
 
 .button_create {

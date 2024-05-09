@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import css from './Modal.module.css';
-//import svg
-//  new
+import Icon from '../../Icon/Icon';
+
 import { createPortal } from 'react-dom';
 import { useUserData } from 'hooks/useUserData';
 
@@ -42,9 +42,12 @@ const Modal = ({ children, openModal }) => {
           className={css.closeIcon}
           onClick={() => openModal()}
         >
-          {/* <svg className={css.icon}>
-            <use href={#} />
-          </svg> */}
+          <Icon
+            lassName={css.logoIcon}
+            id="icon-logo2"
+            width="20"
+            height="20"
+          />
         </button>
         {children}
       </div>
