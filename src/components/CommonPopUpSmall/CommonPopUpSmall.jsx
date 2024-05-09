@@ -4,11 +4,13 @@ import { nanoid } from 'nanoid';
 const CommonPopUpSmall = ({ children, onClick }) => {
   return (
     <div className={css.background}>
-      <div className={css.modalPageBox}>
-        <ul>
-          {children.map((item, index) => (
+      <div className={css.popUpBox}>
+        <ul className={css.list}>
+          {children?.map((item, index) => (
             <li key={index} id={nanoid()}>
-              <button onClick={() => onClick(item)}>{item}</button>
+              <button className={css.popUpBtn} onClick={() => onClick(item)}>
+                {item}
+              </button>
             </li>
           ))}
         </ul>
@@ -18,19 +20,3 @@ const CommonPopUpSmall = ({ children, onClick }) => {
 };
 
 export default CommonPopUpSmall;
-
-// const CommonPopUpSmall = ({ items, onClose }) => {
-//   return (
-//     <div className={css.background}>
-//       <div className={css.modalPageBox}>
-//         <ul>
-//           {items.map((item, index) => (
-//             <li key={index} id={nanoid()}>
-//               <button onClick={onClose}>{item}</button>
-//             </li>
-//           ))}
-//         </ul>
-//       </div>
-//     </div>
-//   );
-// };
