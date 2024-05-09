@@ -4,6 +4,7 @@ import css from './ScreensPage.module.css';
 import Modal from './Modal/Modal';
 // import Modal
 // import newBoard
+import NewBoard from './NewBoard';
 
 const ScreensPage = () => {
   const [openNewBoardModal, setOpenEditBoardModal] = useState(false);
@@ -24,7 +25,7 @@ const ScreensPage = () => {
       <div>
         {openNewBoardModal && (
           <Modal openModal={openModal}>
-            {/* <NewBoard openModal={openModal} /> */}
+             <NewBoard openModal={openModal} /> 
           </Modal>
         )}
       </div>
