@@ -1,0 +1,42 @@
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  border-top: 1px solid #1616161a;
+  border-bottom: 1px solid #1616161a;
+  background-color: #fff;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  margin-bottom: 40px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .button {
+    cursor: pointer;
+  }
+}
+
+.buttonTitle {
+  width: 76px;
+  font-weight: 500;
+  font-size: 14px;
+  text-align: start;
+}
+
+.buttonIcon {
+  display: flex;
+  width: 40px;
+  height: 36px;
+  font-size: 20px;
+  background-color: #bedbb0;
+  border-radius: 25%;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonPlus {
+  font-size: large;
+  color: #121212;
+}

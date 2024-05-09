@@ -1,0 +1,63 @@
+form {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modalInput {
+  box-sizing: border-box;
+  background-color: inherit;
+  color: var(--primary-color-white);
+  opacity: 40%;
+  border-color: var(--primary-color-light-green);
+  font-size: 14px;
+  font-family: 'Poppins';
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.modalControl {
+  width: 287px;
+  border-radius: 8px;
+  border: 1px solid;
+  margin-bottom: 14px;
+  padding: 14px 18px;
+}
+.modalControlText {
+  width: 287px;
+  border-radius: 8px;
+  border: 1px solid;
+  padding: 14px 18px;
+}
+
+.modalButton {
+  background-color: var(--primary-color-light-green);
+  color: var(--primary-color-black);
+  font-size: 14px;
+  font-family: 'Poppins';
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-top: 24px;
+  margin-bottom: 0;
+}
+
+@media only screen and (min-width: 320px) {
+  .modalControl,
+  .modalControlText {
+    width: 287px;
+  }
+}
+
+@media only screen and (min-width: 375px) {
+}
+
+@media only screen and (min-width: 768px) {
+  .modalControl,
+  .modalControlText {
+    width: 352px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+}
