@@ -1,3 +1,4 @@
+
 import axios from 'axios';
 import { refresh } from '../redux/auth/auth-operations';
 import { useDispatch } from 'react-redux';
@@ -48,6 +49,7 @@ export const refreshRequest = async (body) => {
   return data;
 };
 
+/*global getState, instance*/// не заберати цей коментар
 axiosInstance.interceptors.response.use(
   (responce) => responce,
   async (error) => {
