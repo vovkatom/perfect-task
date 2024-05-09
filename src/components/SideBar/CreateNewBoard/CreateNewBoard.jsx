@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import css from '../CreateNewBoard/CreateNewBoard.module.css';
-import ModalContent from './ModalContent/ModalContent';
+import CreateBoardForm from './CreateBoardForm/CreateBoardForm';
 import CommonModal from '../../CommonModal/CommonModal';
 
 const CreateNewBoard = () => {
@@ -23,7 +23,7 @@ const CreateNewBoard = () => {
         </div>
       </button>
       <CommonModal isOpen={isModalOpen} onClose={handleCloseModal}>
-        <ModalContent />
+        <CreateBoardForm />
       </CommonModal>
     </>
   );
