@@ -1,6 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { pending, rejected } from '../../shared/redux/redux';
-import { current, login, signup, logout, refresh } from './auth-operations';
+import {
+  current,
+  login,
+  signup,
+  support,
+  logout,
+  refresh,
+} from './auth-operations';
 
 const initialState = {
   user: {}, //"name" & "email"
@@ -50,6 +57,14 @@ const authSlice = createSlice({
         state.accessToken = '';
         state.refreshToken = '';
       })
+      /*--------------------------------------------------------*/
+      .addCase(support.pending, pending)
+      .addCase(support.fulfilled, (state) => {
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(support.rejected, rejected)
+      /*--------------------------------------------------------*/
       .addCase(logout.pending, pending)
       .addCase(logout.fulfilled, (state) => {
         state.user = {};
