@@ -28,18 +28,18 @@ const Header = ({ toggleSidebar }) => {
           <div className={css.user} onClick={handleOpenModal}>
             <p className={css.userName}>{user?.name}</p>
             <div className={css.avatar}>
-              <img src={`${user?.avatarURL}`} alt="User avatar" />
+              <img src={`${user?.avatarURL}`} alt='User avatar' />
             </div>
           </div>
         </div>
-        <ModalEditProfile
-          isOpen={isModalOpen}
-          onClose={handleCloseModal}
-          title={'Edit profile'}
-        >
-          <EditProfileForm user={user} />
-        </ModalEditProfile>
       </header>
+      <ModalEditProfile
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        title={'Edit profile'}
+      >
+        <EditProfileForm user={user} />
+      </ModalEditProfile>
     </div>
   );
 };
