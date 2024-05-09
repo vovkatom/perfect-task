@@ -1,12 +1,51 @@
+.headerMainContainer {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+
+  padding: 14px 20px;
+
+  background-color: #fcfcfc;
+}
+
+@media only screen and (min-width: 768px) {
+  .headerMainContainer {
+    height: 68px;
+    padding: 18px 32px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .headerMainContainer {
+    padding: 18px 24px;
+  }
+}
+
 .headerContainer {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 
-  padding: 14px 20px;
-  background-color: #fcfcfc;
+  /* max-width: 375px; */
 }
+
+/* @media only screen and (min-width: 768px) {
+  .headerContainer {
+    max-width: 768px;
+  }
+} */
+
+/* @media only screen and (min-width: 1440px) {
+  .headerContainer {
+    max-width: 1440px;
+  }
+} */
 
 .customBox {
   display: flex;
@@ -54,5 +93,4 @@
   width: 32px;
   height: 32px;
   border-radius: 2px;
-  background-color: blue;
 }

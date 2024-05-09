@@ -31,7 +31,7 @@ const EditProfileForm = ({ user }) => {
     >
       <Toaster />
       <div className={css.avatar}>
-        {user?.avatarURL}
+        <img src={user?.avatarURL} alt="" />
         <div className={css.buttonIconProfile}>
           <p className={css.buttonPlusProfile}>+</p>
         </div>
