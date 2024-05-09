@@ -14,6 +14,7 @@ const setToken = (token) => {
   axiosInstance.defaults.headers.authorization = '';
 };
 
+/*global getState, instance*/ // не заберати цей коментар
 axiosInstance.interceptors.response.use(
   (response) => {
     console.log('why', response);
@@ -76,12 +77,6 @@ export const logoutRequest = async () => {
   return data;
 };
 
-export const refreshRequest = async (body) => {
-  const { data } = await axiosInstance.post('/users/refresh', body);
-  setToken(data.accessToken);
-  return data;
-};
-
 export const updateProfileRequest = async (formData) => {
   try {
     const { data } = await axiosInstance.patch('/users/update', formData, {
@@ -94,26 +89,3 @@ export const updateProfileRequest = async (formData) => {
     throw new Error(error.message);
   }
 };
-
-/*global getState, instance*/ // не заберати цей коментар
-axiosInstance.interceptors.response.use(
-  (response) => response,
-  async (error) => {
-    if (error.response.status == 401) {
-      try {
-        const { auth } = getState();
-        const dispatch = useDispatch;
-        dispatch(refresh(auth.refreshToken));
-        const { newAuth } = getState();
-        setToken(newAuth.accessToken);
-        return instance(error.config);
-      } catch (error) {
-        return Promise.reject(error);
-      }
-    }
-    if (error.response.status == 403) {
-      logoutRequest();
-    }
-    return Promise.reject(error);
-  }
-);
