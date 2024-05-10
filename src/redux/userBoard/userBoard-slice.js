@@ -1,18 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import {
-    fetchBoards,
-    addBoard,
-    deleteBoard,
-    updateBoardById,
-    updateBoardPatchById,
-    addTask,
-    addColumn,
-    updateColumnTitle,
-    deleteColumn,
-    updateTask,
-    updateTaskPlace,
-    deleteTask,
+  fetchBoards,
+  addBoard,
+  deleteBoard,
+  updateBoardById,
+  updateBoardPatchById,
+  addTask,
+  addColumn,
+  updateColumnTitle,
+  deleteColumn,
+  updateTask,
+  updateTaskPlace,
+  deleteTask,
 } from '../../userBoard/userBoard-operations';
 const handlePending = (state) => {
   state.isLoading = true;
