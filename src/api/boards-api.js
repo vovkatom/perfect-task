@@ -1,5 +1,3 @@
-//import { refresh } from '../redux/auth/auth-operations';
-import { useDispatch } from 'react-redux';
 import { axiosInstance } from '../api/auth-api.js';
 
 export const requestAllBoards = async () => {

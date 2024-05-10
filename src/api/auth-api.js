@@ -5,7 +5,7 @@ import { logout } from '../redux/auth/auth-operations';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
-const axiosInstance = axios.create({
+export const axiosInstance = axios.create({
   baseURL: 'https://perfect-task-back.onrender.com/api',
 });
 
