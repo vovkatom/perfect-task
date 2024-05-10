@@ -1,0 +1,9 @@
+.datePicker {
+  display: inline-block;
+  color: var(--primary-color-black);
+  cursor: pointer;
+  /* width: 127px; */
+  width: fit-content;
+
+  /* outline: 1px solid tomato; */
+}
