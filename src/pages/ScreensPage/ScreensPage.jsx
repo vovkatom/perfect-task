@@ -4,14 +4,22 @@ import { useSelector } from 'react-redux';
 import { selectIsLogin } from '../../redux/auth/auth-selectors';
 // import Modal1
 // import newBoard
+// import CommonModal from '../../CommonModal/CommonModal';
+// import CreateBoardForm from './CreateBoardForm/CreateBoardForm';
+import CommonModal from '../../components/CommonModal/CommonModal';
+import CreateBoardForm from '../../components/SideBar/CreateNewBoard/CreateBoardForm/CreateBoardForm';
 
 const ScreensPage = () => {
   const isLogin = useSelector(selectIsLogin);
-  const [openNewBoardModal, setOpenEditBoardModal] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
-    setOpenEditBoardModal(!openNewBoardModal);
+    setIsModalOpen(!isModalOpen);
   };
+
+    const handleCloseModal = () => {
+      setIsModalOpen(false);
+    };
   return (
     <>
       {isLogin && (
@@ -28,6 +36,12 @@ const ScreensPage = () => {
           to visualize and track all the necessary tasks and milestones. This
           board serves as a powerful tool to organize the workflow and ensure
           effective collaboration among team members.
+          <>
+            <CommonModal isOpen={isModalOpen} onClose={handleCloseModal}>
+            <CreateBoardForm />
+            </CommonModal>
+          </>
+         
           {/* <div>
         {openNewBoardModal && (
           <Modal openModal={openModal}>
