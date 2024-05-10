@@ -73,7 +73,7 @@ export const currentRequest = async (token) => {
 };
 
 /*--------------------------------------------------------*/
-export const supportRequest = async (token, body) => {
+export const supportRequest = async (body, token) => {
   setToken(token);
   const { data } = await axiosInstance.post('/users/support', body);
   return data;
