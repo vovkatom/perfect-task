@@ -16,7 +16,7 @@ const setToken = (token) => {
   axiosInstance.defaults.headers.authorization = '';
 };
 
-/*global getState, instance*/ // не заберати цей коментар
+//*global getState, instance*/ // не заберати цей коментар
 axiosInstance.interceptors.response.use(
   (response) => {
     console.log('why', response);
@@ -26,6 +26,7 @@ axiosInstance.interceptors.response.use(
     console.log('MYYYYYYYYYYYY', error.response.status);
     if (error.response.status === 401) {
       console.log('first');
+      // refresh();
       let dispatch = useDispatch();
       useEffect(() => {
         return dispatch(refresh());
