@@ -4,12 +4,10 @@ import css from './EditProfile.module.css';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import PasswordField from '../PasswordField/PasswordField';
-import { Toaster } from 'react-hot-toast';
 import InputError from '../InputError/InputError';
 import sprite from '../../assets/img/icon.svg';
 import { updateProfile } from '../../redux/auth/auth-operations';
 import { useDispatch } from 'react-redux';
-
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -29,7 +27,7 @@ const EditProfileForm = ({ user }) => {
     resolver: yupResolver(schema),
   });
 
-  const handleAvatarChange = e => {
+  const handleAvatarChange = (e) => {
     const file = e.target.files[0];
     setAvatarFile(file);
   };
@@ -48,23 +46,22 @@ const EditProfileForm = ({ user }) => {
 
   return (
     <form className={css.profileForm} onSubmit={handleSubmit(onSubmit)}>
-      <Toaster />
       <div className={css.avatar}>
         <img
           src={avatarFile ? URL.createObjectURL(avatarFile) : user.avatarURL}
-          alt='avatar'
+          alt="avatar"
         />
 
         <div className={css.buttonIconProfile}>
-          <label htmlFor='avatarInput'>
-            <svg width='24' height='24' className={css.plusIcon}>
+          <label htmlFor="avatarInput">
+            <svg width="24" height="24" className={css.plusIcon}>
               <use xlinkHref={`${sprite}#icon-plus`} />
             </svg>
           </label>
           <input
-            id='avatarInput'
-            type='file'
-            accept='image/*'
+            id="avatarInput"
+            type="file"
+            accept="image/*"
             onChange={handleAvatarChange}
             style={{ display: 'none' }}
           />
@@ -77,10 +74,10 @@ const EditProfileForm = ({ user }) => {
       <PasswordField
         className={css.inputClassName}
         register={register}
-        placeholder='passworld'
+        placeholder="Enter your password"
       />
       <InputError message={errors.password?.message} />
-      <button className={css.buttonSend} type='submit'>
+      <button className={css.buttonSend} type="submit">
         Send
       </button>
     </form>
