@@ -1,62 +1,54 @@
-// import toast, { Toaster } from 'react-hot-toast';
-import { Toaster } from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-// import { saveToken } from '../../lib/session/token';
-// import { useNavigate } from 'react-router-dom';
 import PasswordField from '../PasswordField/PasswordField';
 import InputError from '../InputError/InputError';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/auth/auth-operations';
-// import { saveUserData } from '../../lib/session/user';
+import { Notify } from 'notiflix';
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
   password: yup.string().required(),
 });
 
-// Компонент LoginForm відповідає за форму авторизації нового користувача
 const LoginForm = ({ formClassName, inputClassName, buttonClassName }) => {
   const dispatch = useDispatch();
-
-  const handleLogin = (data) => {
-    dispatch(login(data));
-  };
 
   const {
     register,
     handleSubmit,
-    formState: { errors }, // reset,
+    formState: { errors },
+    reset,
   } = useForm({
     resolver: yupResolver(schema),
   });
 
-  // const navigate = useNavigate();
+  const handleLogin = async (data) => {
+    const resp = await dispatch(login(data));
+    console.log('response form', resp);
 
-  // const onSubmitHandler = async (data) => {
-  //   try {
-  //     const resp = await loginUser(data);
-  //     if (resp.token) {
-  //       saveToken(resp.token);
-  //       saveUserData(resp.user);
-  //       navigate('/home');
-  //     }
-  //     if (resp.message) {
-  //       toast(resp.message, { type: 'error' });
-  //       return;
-  //     }
-  //   } catch (err) {
-  //     console.log(err);
-  //     toast(err, { type: 'error' });
-  //   }
+    if (resp.type === 'auth/login/fulfilled') {
+      return Notify.success('Registration successful!');
+    }
 
-  //   reset();
-  // };
+    if (resp.error) {
+      console.log(resp.error.message);
+      return Notify.failure('Invalid email or password. Please try again.');
+    }
+
+    if (resp.error) {
+      console.log(resp.error.message);
+      return Notify.failure(
+        'Oops... Something went wrong. Please,ry again later!'
+      );
+    }
+
+    reset();
+  };
 
   return (
     <>
-      <Toaster />
       <form
         onSubmit={handleSubmit(handleLogin)}
         className={formClassName}
@@ -82,19 +74,5 @@ const LoginForm = ({ formClassName, inputClassName, buttonClassName }) => {
     </>
   );
 };
-
-// const loginUser = async (data) => {
-//   const resp = await fetch(
-//     'https://perfect-task-back.onrender.com/api/users/signin',
-//     {
-//       method: 'POST',
-//       body: JSON.stringify(data),
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//     }
-//   );
-//   return await resp.json();
-// };
 
 export default LoginForm;

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import css from './AuthPage.module.css';
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
@@ -29,28 +29,32 @@ const AuthPage = () => {
       <div className={css.background}>
         <div className={css.mainBox}>
           <div className={css.authMenu}>
-            <button
-              className={clsx(
-                css.authMenuButton,
-                register && css.selectedAuthMenuButton
-              )}
-              onClick={() => {
-                setRegister(true);
-              }}
-            >
-              Registration
-            </button>
-            <button
-              className={clsx(
-                css.authMenuButton,
-                !register && css.selectedAuthMenuButton
-              )}
-              onClick={() => {
-                setRegister(false);
-              }}
-            >
-              Log In
-            </button>
+            <Link to="/auth/register">
+              <button
+                className={clsx(
+                  css.authMenuButton,
+                  register && css.selectedAuthMenuButton
+                )}
+                onClick={() => {
+                  setRegister(true);
+                }}
+              >
+                Registration
+              </button>
+            </Link>
+            <Link to="/auth/login">
+              <button
+                className={clsx(
+                  css.authMenuButton,
+                  !register && css.selectedAuthMenuButton
+                )}
+                onClick={() => {
+                  setRegister(false);
+                }}
+              >
+                Log In
+              </button>
+            </Link>
           </div>
           <Form
             inputClassName={inputClassName}

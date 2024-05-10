@@ -36,9 +36,10 @@ export const login = createAsyncThunk(
 /*--------------------------------------------------------------------------------*/
 export const support = createAsyncThunk(
   'auth/support',
-  async (body, { rejectWithValue }) => {
+  async (body, { rejectWithValue, getState }) => {
     try {
-      const data = await supportRequest(body);
+      const { auth } = getState();
+      const data = await supportRequest(body, auth.accessToken);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
