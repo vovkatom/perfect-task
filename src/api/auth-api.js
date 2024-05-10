@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { refresh } from '../redux/auth/auth-operations';
 import { logout } from '../redux/auth/auth-operations';
+// import { store } from '../redux/store.js';
 import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 export const axiosInstance = axios.create({
   baseURL: 'https://perfect-task-back.onrender.com/api',
@@ -14,30 +16,28 @@ const setToken = (token) => {
   axiosInstance.defaults.headers.authorization = '';
 };
 
-/*global getState, instance*/ // не заберати цей коментар
+//*global getState, instance*/ // не заберати цей коментар
 axiosInstance.interceptors.response.use(
   (response) => {
     console.log('why', response);
     return response;
   },
-  async (error) => {
+  (error) => {
     console.log('MYYYYYYYYYYYY', error.response.status);
     if (error.response.status === 401) {
-      console.log('MYYYYYYY_401', error);
-      try {
-        // const dispatch = useDispatch();
-        refresh();
-        // Повторяем запрос с новым токеном
-        return axios(error.config);
-      } catch (error) {
-        // Обрабатываем ошибку обновления токена
-        throw error;
-      }
-
+      console.log('first');
+      // refresh();
+      let dispatch = useDispatch();
+      useEffect(() => {
+        return dispatch(refresh());
+      });
       // return axiosInstance.request(error.config);
     }
-    if (error.responce.status === 403) {
-      logout();
+    if (error.response.status === 403) {
+      let dispatch = useDispatch();
+      useEffect(() => {
+        return dispatch(logout());
+      });
     }
     return Promise.reject(error);
   }
