@@ -1,0 +1,41 @@
+.themeBtn {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+
+  border: none;
+  background-color: transparent;
+
+  transition: color 0.25s ease-in-out;
+}
+
+.themeBtn:hover::after,
+.themeBtn:focus::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.themeBtn:hover,
+.themeBtn:focus {
+  color: var(--primary-color-light-green);
+}
+
+.themeIcon {
+  stroke-width: 1.5px;
+  stroke: rgba(22, 22, 22, 0.8);
+  fill: transparent;
+
+  transition: stroke 0.25s ease-in-out;
+}
+
+.themeBtn:hover .themeIcon,
+.themeBtn:focus .themeIcon {
+  stroke: var(--primary-color-light-green);
+}
