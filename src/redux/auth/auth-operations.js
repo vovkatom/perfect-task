@@ -94,7 +94,7 @@ export const refresh = createAsyncThunk(
       }
       // const data = await response;
       console.log('ASYNKKKKK', response);
-      return response.data;
+      return JSON.parse(response.data);
     } catch (error) {
       return rejectWithValue(error.response.data.message);
     }
