@@ -13,7 +13,7 @@ const CreateBoardForm = () => {
   const [error, setError] = useState(null);
 
   const { register, handleSubmit } = useForm({
-    values: { title: '', icon: '', bgImage: '' },
+    defaultValues: { title: 'My super board', icon: '', bgImage: '' },
   });
 
   const submit = (data) => {
@@ -25,8 +25,8 @@ const CreateBoardForm = () => {
     const fetchBgImagesMin = async () => {
       try {
         //setLoading(true);
-        const data = await requestBgImages();
-        setBgImages(data?.length ? data : []);
+        const { data } = await requestBgImages();
+        setBgImages(data);
       } catch (error) {
         setError(error.message);
       } finally {

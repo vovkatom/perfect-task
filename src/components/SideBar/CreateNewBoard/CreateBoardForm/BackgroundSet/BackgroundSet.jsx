@@ -13,9 +13,9 @@ const BackgroundSet = ({ register, bgImages }) => {
     setSelectedBg(selectedBg);
   };
 
-  const imagesBG = Object.entries(bgImages).map(([key, value]) => (
+  const imagesBG = Object.entries(bgImages).map(([key, value], idx) => (
     <li
-      key={key}
+      key={idx}
       className={css.bgItem}
       onClick={() => handleBgClick(value)}
       {...register('bgImage')}
