@@ -14,7 +14,7 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@hookform/resolvers": "^3.3.4",
-    "@reduxjs/toolkit": "^2.2.3",
+    "@reduxjs/toolkit": "^2.2.4",
     "@vitejs/plugin-react-swc": "^3.3.2",
     "axios": "^1.6.8",
     "clsx": "^2.1.1",
