@@ -30,7 +30,7 @@ const RegisterForm = ({ formClassName, inputClassName, buttonClassName }) => {
     const resp = await dispatch(signup(data));
 
     if (resp.type === 'auth/signup/fulfilled') {
-      return Notify.success('Registration successful!');
+      return Notify.success('Welcome!');
     }
 
     if (resp.payload === 'Email in use') {

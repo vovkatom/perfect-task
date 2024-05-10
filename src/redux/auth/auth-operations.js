@@ -91,7 +91,7 @@ export const refresh = createAsyncThunk(
       const response = await refreshRequest(JSON.stringify({ refreshToken }));
       console.log('first', response);
       if (!response.ok) {
-        throw new Error('Falied to refresh token');
+        throw new Error('Failed to refresh token');
       }
       // const data = await response;
       console.log('ASYNKKKKK', response);
