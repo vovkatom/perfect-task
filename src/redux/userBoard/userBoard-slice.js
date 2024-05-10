@@ -110,15 +110,6 @@ const boardsSlice = createSlice({
       })
       .addCase(updateBoardById.pending, handlePending)
       .addCase(updateBoardById.rejected, handleRejected)
-      // .addCase(updateBoardById.fulfilled, (state, action) => {
-      //   state.isLoading = false;
-      //   state.error = null;
-      //   const index = state.items.findIndex(
-      //     (board) => board._id === action.payload._id
-      //   );
-
-      //   state.items[index].background = action.payload.background;
-      // })
       .addCase(updateBoardPatchById.pending, handlePending)
       .addCase(updateBoardPatchById.rejected, handleRejected)
       .addCase(deleteBoard.pending, handlePending)

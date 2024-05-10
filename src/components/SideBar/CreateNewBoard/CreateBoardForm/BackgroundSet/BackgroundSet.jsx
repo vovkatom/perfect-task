@@ -1,25 +1,33 @@
 import { useState } from 'react';
 import css from '../BackgroundSet/BackgroundSet.module.css';
-import imagesBG from './bg.json';
+//import { requestBgImages } from '../../../../../api/boards-api';
+//import imagesBG from './bg.json';
 
-const BackgroundSet = ({register}) => {
+const BackgroundSet = ({ register, bgImages }) => {
   const [selectedBg, setSelectedBg] = useState(null);
+  //const [bgImages, setBgImages] = useState('');
+
+  console.log(bgImages);
 
   const handleBgClick = (selectedBg) => {
     setSelectedBg(selectedBg);
   };
 
-  const bgImages = imagesBG.map(({ src, name }) => (
+  const imagesBG = Object.entries(bgImages).map(([key, value]) => (
     <li
-      key={name}
+      key={key}
       className={css.bgItem}
-      onClick={() => handleBgClick({ name })}
+      onClick={() => handleBgClick(value)}
       {...register('bgImage')}
     >
-      <img className={css.image} src={src} alt={name} />
+      <img
+        className={selectedBg === key ? css.imageSelected : css.image}
+        src={value}
+        alt={value}
+      />
     </li>
   ));
-  return <ul className={css.list}>{bgImages}</ul>;
+  return <ul className={css.list}>{imagesBG}</ul>;
 };
 
 export default BackgroundSet;
