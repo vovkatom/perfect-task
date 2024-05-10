@@ -24,10 +24,6 @@ const NeedHelpModal = () => {
     try {
       dispatch(support(formData));
 
-      // if (onSubmit) {
-      //   onSubmit({ ...formData });
-      // }
-
       reset();
     } catch (error) {
       console.log(error.response.data.message);
