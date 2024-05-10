@@ -31,7 +31,7 @@ const boardSlice = createSlice({
         isLoading: false,
         items: payload,
       }))
-      .addCase(getAllBoards.rejected.rejected)
+      .addCase(getAllBoards.rejected, rejected)
 
       .addCase(getBoardByID.pending, pending)
       .addCase(getBoardByID.fulfilled, (state, { payload }) => ({
@@ -57,3 +57,5 @@ const boardSlice = createSlice({
       }));
   },
 });
+
+export default boardSlice.reducer;

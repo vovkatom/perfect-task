@@ -1,9 +1,8 @@
-
 import axios from 'axios';
 import { refresh } from '../redux/auth/auth-operations';
 import { useDispatch } from 'react-redux';
 
-const axiosInstance = axios.create({
+export const axiosInstance = axios.create({
   baseURL: 'https://perfect-task-back.onrender.com/api',
 });
 
@@ -49,7 +48,7 @@ export const refreshRequest = async (body) => {
   return data;
 };
 
-/*global getState, instance*/// не заберати цей коментар
+/*global getState, instance*/ // не заберати цей коментар
 axiosInstance.interceptors.response.use(
   (responce) => responce,
   async (error) => {
