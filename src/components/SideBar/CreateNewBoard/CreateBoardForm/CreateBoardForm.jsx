@@ -6,9 +6,11 @@ import IconsSelector from './IconSelector/IconsSelector';
 import css from '../CreateBoardForm/CreateBoardForm.module.css';
 
 const CreateBoardForm = () => {
-  const { register, handleSubmit } = useForm({ values: { title: '' } });
+  const { register, handleSubmit } = useForm({
+    values: { title: '', icon: '', bgImage: '' },
+  });
 
-  const handleOnSubmit = (data) => {
+  const submit = (data) => {
     // Обробка поданих даних форми
     console.log(data);
   };
@@ -16,7 +18,7 @@ const CreateBoardForm = () => {
     <form
       noValidate
       autoComplete="off"
-      onSubmit={handleSubmit(handleOnSubmit)}
+      onSubmit={handleSubmit(submit)}
       className={css.form}
     >
       <svg width="18" height="18">
@@ -31,9 +33,9 @@ const CreateBoardForm = () => {
       />
 
       <p>Icons</p>
-      <IconsSelector />
+      <IconsSelector register={register} />
       <p>Background</p>
-      <BackgroundSet />
+      <BackgroundSet register={register} />
       <ButtonCreateBoard />
     </form>
   );
