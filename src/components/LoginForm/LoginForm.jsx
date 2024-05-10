@@ -5,7 +5,7 @@ import PasswordField from '../PasswordField/PasswordField';
 import InputError from '../InputError/InputError';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/auth/auth-operations';
-import { Notify } from 'notiflix';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -26,23 +26,31 @@ const LoginForm = ({ formClassName, inputClassName, buttonClassName }) => {
 
   const handleLogin = async (data) => {
     const resp = await dispatch(login(data));
-    console.log('response form', resp);
 
     if (resp.type === 'auth/login/fulfilled') {
-      return Notify.success('Registration successful!');
-    }
-
-    if (resp.error) {
-      console.log(resp.error.message);
-      return Notify.failure('Invalid email or password. Please try again.');
+      return Notify.success('Welcome back!');
     }
 
     if (resp.error) {
       console.log(resp.error.message);
       return Notify.failure(
-        'Oops... Something went wrong. Please,ry again later!'
+        'Invalid email, or password, or something went wrong. Please try again.'
       );
     }
+
+    // не видаляти!
+
+    // if (resp.error) {
+    //   console.log(resp.error.message);
+    //   return Notify.failure('Invalid email or password. Please try again.');
+    // }
+
+    // if (resp.error) {
+    //   console.log(resp.error.message);
+    //   return Notify.failure(
+    //     'Oops... Something went wrong. Please, try again later!'
+    //   );
+    // }
 
     reset();
   };

@@ -9,9 +9,9 @@ export const axiosInstance = axios.create({
   baseURL: 'https://perfect-task-back.onrender.com/api',
 });
 
-const setToken = (token) => {
-  if (token) {
-    return (axiosInstance.defaults.headers.authorization = `Bearer ${token}`);
+const setToken = (accessToken) => {
+  if (accessToken) {
+    return (axiosInstance.defaults.headers.authorization = `Bearer ${accessToken}`);
   }
   axiosInstance.defaults.headers.authorization = '';
 };
@@ -51,13 +51,13 @@ export const refreshRequest = async (body) => {
 
 export const signupRequest = async (body) => {
   const { data } = await axiosInstance.post('/users/signup', body);
-  setToken(data.accesstoken);
+  setToken(data.accessToken);
   return data;
 };
 
 export const loginRequest = async (body) => {
   const { data } = await axiosInstance.post('/users/signin', body);
-  setToken(data.accesstoken);
+  setToken(data.accessToken);
   return data;
 };
 
@@ -73,7 +73,7 @@ export const currentRequest = async (token) => {
 };
 
 /*--------------------------------------------------------*/
-export const supportRequest = async (body, token) => {
+export const supportRequest = async (token, body) => {
   setToken(token);
   const { data } = await axiosInstance.post('/users/support', body);
   return data;
