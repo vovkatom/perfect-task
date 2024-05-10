@@ -13,8 +13,8 @@ const HomePage = () => {
   };
   return (
     <>
+      <Header toggleSidebar={toggleSidebar} />
       <div className={css.background}>
-        <Header toggleSidebar={toggleSidebar} />
         {isSidebarOpen && <SideBar />}
         <Container className="home-page">
           <ScreensPage />
