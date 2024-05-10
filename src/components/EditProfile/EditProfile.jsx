@@ -7,6 +7,9 @@ import PasswordField from '../PasswordField/PasswordField';
 import { Toaster } from 'react-hot-toast';
 import InputError from '../InputError/InputError';
 import sprite from '../../assets/img/icon.svg';
+import { updateProfile } from '../../redux/auth/auth-operations';
+import { useDispatch } from 'react-redux';
+
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -15,6 +18,7 @@ const schema = yup.object().shape({
 });
 
 const EditProfileForm = ({ user }) => {
+  const dispatch = useDispatch();
   const [avatarFile, setAvatarFile] = useState(null);
   const {
     register,
@@ -30,12 +34,16 @@ const EditProfileForm = ({ user }) => {
     setAvatarFile(file);
   };
 
-  const onSubmit = data => {
+  const onSubmit = async (data) => {
     const formData = new FormData();
-    formData.append('avatar', avatarFile);
+    formData.append('avatarURL', avatarFile);
     formData.append('name', data.name);
     formData.append('email', data.email);
-    formData.append('password', data.password);
+    // formData.append('password', data.password);
+
+    await dispatch(updateProfile(formData));
+
+    history.go(0);
   };
 
   return (
@@ -44,7 +52,7 @@ const EditProfileForm = ({ user }) => {
       <div className={css.avatar}>
         <img
           src={avatarFile ? URL.createObjectURL(avatarFile) : user.avatarURL}
-          alt=''
+          alt='avatar'
         />
 
         <div className={css.buttonIconProfile}>
@@ -69,11 +77,11 @@ const EditProfileForm = ({ user }) => {
       <PasswordField
         className={css.inputClassName}
         register={register}
-        placeholder='Редагувати пароль'
+        placeholder='passworld'
       />
       <InputError message={errors.password?.message} />
       <button className={css.buttonSend} type='submit'>
-        Відправити
+        Send
       </button>
     </form>
   );
