@@ -6,8 +6,8 @@ import Icon from '../../../../Icon/Icon';
 const IconsSelector = ({ register }) => {
   const [selectedIcon, setSelectedIcon] = useState(null);
 
-  const handleIconClick = (selectedIcon) => {
-    setSelectedIcon(selectedIcon);
+  const handleIconClick = (iconId) => {
+    setSelectedIcon(iconId);
   };
 
   const iconsList = [

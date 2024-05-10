@@ -24,3 +24,9 @@ export const updateBoardById = async (id) => {
   const { data } = await axiosInstance.put(`/boards/${id}`);
   return { data };
 };
+
+export const requestBgImages = async () => {
+  const { data } = await axiosInstance.get('/boards/bgall');
+  console.log(data);
+  return { data };
+};

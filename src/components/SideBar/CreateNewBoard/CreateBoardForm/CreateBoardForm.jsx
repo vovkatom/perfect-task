@@ -4,8 +4,14 @@ import BackgroundSet from './BackgroundSet/BackgroundSet';
 import ButtonCreateBoard from './ButtonCreateBoard/ButtonCreateBoard';
 import IconsSelector from './IconSelector/IconsSelector';
 import css from '../CreateBoardForm/CreateBoardForm.module.css';
+import { useEffect, useState } from 'react';
+import { requestBgImages } from '../../../../api/boards-api';
 
 const CreateBoardForm = () => {
+  const [bgImages, setBgImages] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
   const { register, handleSubmit } = useForm({
     values: { title: '', icon: '', bgImage: '' },
   });
@@ -14,6 +20,23 @@ const CreateBoardForm = () => {
     // Обробка поданих даних форми
     console.log(data);
   };
+
+  useEffect(() => {
+    const fetchBgImagesMin = async () => {
+      try {
+        //setLoading(true);
+        const data = await requestBgImages();
+        setBgImages(data?.length ? data : []);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBgImagesMin();
+  }, []);
+
   return (
     <form
       noValidate
@@ -35,7 +58,9 @@ const CreateBoardForm = () => {
       <p>Icons</p>
       <IconsSelector register={register} />
       <p>Background</p>
-      <BackgroundSet register={register} />
+      {error && <p className={css.error}>{error}</p>}
+      {loading && <p>...Loading</p>}
+      <BackgroundSet register={register} bgImages={bgImages} />
       <ButtonCreateBoard />
     </form>
   );
