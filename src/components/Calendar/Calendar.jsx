@@ -19,6 +19,7 @@ const Calendar = () => {
         dateFormat="EEEE, MMMM d"
         showPopperArrow={true}
         placeholderText="Select a date"
+        closeOnScroll={true}
       />
     </div>
   );
