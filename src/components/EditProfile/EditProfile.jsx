@@ -43,6 +43,9 @@ const EditProfileForm = ({ user, onCloseModal }) => {
       onCloseModal();
       await dispatch(updateProfile(formData));
       Notify.success('Profile updated successfully');
+      setTimeout(() => {
+        window.location.reload(); 
+      }, 2000); 
     } catch (error) {
       return Notify.failure('Server error. Please try again.');
     }
