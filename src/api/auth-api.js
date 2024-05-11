@@ -1,12 +1,10 @@
 import axios from 'axios';
 import { refresh } from '../redux/auth/auth-operations';
 import { logout } from '../redux/auth/auth-operations';
-// import { store } from '../redux/store.js';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 
 export const axiosInstance = axios.create({
-  baseURL: 'https://perfect-task-back.onrender.com/api',
+  // baseURL: 'https://perfect-task-back.onrender.com/api',
+  baseURL: 'http://localhost:3000/api',
 });
 
 const setToken = (accessToken) => {
@@ -16,35 +14,37 @@ const setToken = (accessToken) => {
   axiosInstance.defaults.headers.authorization = '';
 };
 
-//*global getState, instance*/ // не заберати цей коментар
-axiosInstance.interceptors.response.use(
-  (response) => {
-    console.log('why', response);
-    return response;
-  },
-  (error) => {
-    console.log('MYYYYYYYYYYYY', error.response.status);
-    if (error.response.status === 401) {
-      console.log('first');
-      // refresh();
-      let dispatch = useDispatch();
-      useEffect(() => {
-        return dispatch(refresh());
-      });
-      // return axiosInstance.request(error.config);
+export const setupAxiosInterceptors = (store) => {
+  axiosInstance.interceptors.response.use(
+    (response) => response,
+    async (error) => {
+      if (error.response.status === 401) {
+        try {
+          const { refreshToken } = store.getState().auth;
+          if (refreshToken) {
+            store.dispatch(refresh({ refreshToken }));
+            const { accessToken } = store.getState().auth;
+            error.config.headers.authorization = `Bearer ${accessToken}`;
+          }
+
+          return axios.request(error.config);
+        } catch (error) {
+          store.dispatch(logout());
+          return Promise.reject(error);
+        }
+      }
+      if (error.responce.status === 403) {
+        store.dispatch(logout());
+      }
+      return Promise.reject(error);
     }
-    if (error.response.status === 403) {
-      let dispatch = useDispatch();
-      useEffect(() => {
-        return dispatch(logout());
-      });
-    }
-    return Promise.reject(error);
-  }
-);
+  );
+};
 
 export const refreshRequest = async (body) => {
-  const { data } = await axiosInstance.post('/users/refresh', body);
+  const { data } = await axiosInstance.post('/users/refresh', {
+    refreshToken: body,
+  });
   setToken(data.accessToken);
   return data;
 };
