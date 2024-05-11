@@ -3,17 +3,6 @@ import { logout } from '../redux/auth/auth-operations';
 import { axiosInstance } from './axios-instance';
 import { setToken } from './axios-instance';
 
-export const axiosInstance = axios.create({
-  baseURL: 'https://perfect-task-back.onrender.com/api',
-});
-
-const setToken = (accessToken) => {
-  if (accessToken) {
-    return (axiosInstance.defaults.headers.authorization = `Bearer ${accessToken}`);
-  }
-  axiosInstance.defaults.headers.authorization = '';
-};
-
 export const setupAxiosInterceptors = (store) => {
   axiosInstance.interceptors.response.use(
     (response) => response,
