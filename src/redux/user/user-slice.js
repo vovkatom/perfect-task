@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { pending, rejected } from '../../shared/redux/redux';
-import { support } from './user-operations';
+import { support, updateProfile } from './user-operations';
 
 const initialState = {
-  isLogin: false,
   isLoading: false,
+  isUpdate: false,
+  isMessageSend: false,
   error: null,
 };
 
@@ -16,10 +17,19 @@ const userSlice = createSlice({
       .addCase(support.pending, pending)
       .addCase(support.fulfilled, (state) => {
         state.isLoading = false;
-        state.isLogin = true;
+        state.isUpdate = false;
+        state.isMessageSend = true;
         state.error = null;
       })
-      .addCase(support.rejected, rejected);
+      .addCase(support.rejected, rejected)
+      .addCase(updateProfile.pending, pending)
+      .addCase(updateProfile.fulfilled, (state) => {
+        state.isLoading = false;
+        state.isUpdate = true;
+        state.isMessageSend = false;
+        state.error = null;
+      })
+      .addCase(updateProfile.rejected, rejected);
   },
 });
 
