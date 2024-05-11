@@ -28,12 +28,12 @@ const EditProfileForm = ({ user, onCloseModal }) => {
     resolver: yupResolver(schema),
   });
 
-  const handleAvatarChange = (e) => {
+  const handleAvatarChange = e => {
     const file = e.target.files[0];
     setAvatarFile(file);
   };
 
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
     try {
       const formData = new FormData();
       formData.append('avatarURL', avatarFile);
@@ -43,9 +43,6 @@ const EditProfileForm = ({ user, onCloseModal }) => {
       onCloseModal();
       await dispatch(updateProfile(formData));
       Notify.success('Profile updated successfully');
-      setTimeout(() => {
-        window.location.reload();
-      }, 2000);
     } catch (error) {
       return Notify.failure('Server error. Please try again.');
     }
@@ -56,19 +53,19 @@ const EditProfileForm = ({ user, onCloseModal }) => {
       <div className={css.avatar}>
         <img
           src={avatarFile ? URL.createObjectURL(avatarFile) : user.avatarURL}
-          alt="avatar"
+          alt='avatar'
         />
 
         <div className={css.buttonIconProfile}>
-          <label htmlFor="avatarInput">
-            <svg width="24" height="24" className={css.plusIcon}>
+          <label htmlFor='avatarInput'>
+            <svg width='24' height='24' className={css.plusIcon}>
               <use xlinkHref={`${sprite}#icon-plus`} />
             </svg>
           </label>
           <input
-            id="avatarInput"
-            type="file"
-            accept="image/*"
+            id='avatarInput'
+            type='file'
+            accept='image/*'
             onChange={handleAvatarChange}
             style={{ display: 'none' }}
           />
@@ -81,10 +78,10 @@ const EditProfileForm = ({ user, onCloseModal }) => {
       <PasswordField
         className={css.inputClassName}
         register={register}
-        placeholder="Current password"
+        placeholder='Current password'
       />
       <InputError message={errors.password?.message} />
-      <button className={css.buttonSend} type="submit">
+      <button className={css.buttonSend} type='submit'>
         Send
       </button>
     </form>
