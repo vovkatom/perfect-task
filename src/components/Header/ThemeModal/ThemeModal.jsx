@@ -7,7 +7,9 @@ const ThemeModal = ({ onClick }) => {
 
     list.addEventListener('click', (e) => {
       e.preventDefault();
-      console.log(e.currentTarget);
+      const { textContent: label } = e.target;
+      console.dir(label);
+      console.log(e.target);
     });
 
     // const items = document.querySelectorAll('.themeChangeItem');

@@ -8,13 +8,13 @@
   padding: 10px 20px;
 }
 
-.notiflix-notification.success {
-  background-color: #32cd32;
+.success {
+  background-color: #2e21b4;
   color: white;
 }
 
 .notiflix-notification.failure {
-  background-color: #ff6347;
+  background-color: #7d514a;
   color: white;
 }
 
