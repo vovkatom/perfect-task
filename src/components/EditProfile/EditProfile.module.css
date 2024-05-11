@@ -82,6 +82,7 @@
   stroke: #121212;
   fill: #bedbb0;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .buttonSend {
