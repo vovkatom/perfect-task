@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import NeedHelpModal from './NeedHelpModal/NeedHelpModal';
-// import Calendar from '../../Calendar/Calendar';
+
 import css from '../NeedHelp/NeedHelp.module.css';
 import CommonModal from '../../CommonModal/CommonModal';
 import { ReactComponent as HelpSign } from './help-icon.svg';
@@ -38,7 +38,6 @@ const NeedHelp = () => {
         title="Need help"
       >
         <NeedHelpModal />
-        {/* <Calendar /> */}
       </CommonModal>
     </div>
   );
