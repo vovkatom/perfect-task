@@ -25,10 +25,9 @@
   font-size: 14px;
   line-height: 129%;
   letter-spacing: -0.02em;
-  color: var(--primary-color-black);
 
   background-color: var(--primary-color-white);
-  color: #000;
+  color: var(--primary-color-black);
   border: 1px solid var(--primary-color-light-green);
   border-radius: 8px;
   display: inline-block;
@@ -895,7 +894,6 @@
 
 /*-------------------------------------------------*/
 .react-datepicker__day--outside-month {
-  /* font-family: var(--font-family); */
   font-weight: 400;
   font-size: 14px;
   line-height: 129%;
@@ -908,16 +906,33 @@
 }
 
 .react-datepicker__current-month {
-  position: relative; /* Позиционируем элемент как относительный */
+  position: relative;
 }
 
 .react-datepicker__current-month::after {
   content: '';
   position: absolute;
-  left: 0; /* Положение слева, чтобы начать с самого начала контейнера */
-  right: 0; /* Положение справа, чтобы занимать всю доступную ширину */
-  bottom: -14px; /* Располагаем линию под элементом */
-  height: 1px; /* Высота линии */
-  background-color: var(--primary-color-black); /* Цвет линии */
+  left: 0;
+  right: 0;
+  bottom: -14px;
+  height: 1px;
+  background-color: var(--primary-color-black);
   opacity: 0.2;
+}
+
+.react-datepicker-wrapper input::placeholder {
+  color: var(--primary-color-light-green);
+}
+
+.react-datepicker-wrapper input {
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--primary-color-light-green);
+}
+
+.react-datepicker-wrapper {
+  display: inline-block;
 }
