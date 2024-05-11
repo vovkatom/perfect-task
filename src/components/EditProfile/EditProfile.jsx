@@ -39,13 +39,13 @@ const EditProfileForm = ({ user, onCloseModal }) => {
       formData.append('avatarURL', avatarFile);
       formData.append('name', data.name);
       formData.append('email', data.email);
-      // formData.append('password', data.password);
+      formData.append('password', data.password);
       onCloseModal();
       await dispatch(updateProfile(formData));
       Notify.success('Profile updated successfully');
-      // setTimeout(() => {
-      //   window.location.reload();
-      // }, 2000);
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
     } catch (error) {
       return Notify.failure('Server error. Please try again.');
     }
