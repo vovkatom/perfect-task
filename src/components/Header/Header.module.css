@@ -60,6 +60,13 @@
   flex-direction: row;
   gap: 8px;
   align-items: center;
+  cursor: pointer;
+}
+
+.userName:hover,
+.userName:focus {
+  color: var(--primary-color-light-green);
+  stroke: var(--primary-color-light-green);
 }
 
 .userName {
@@ -75,4 +82,5 @@
   width: 32px;
   height: 32px;
   border-radius: 2px;
+  cursor: pointer;
 }
