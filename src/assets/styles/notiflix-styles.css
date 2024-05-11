@@ -1,0 +1,23 @@
+/* .notiflix-notification {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: Arial, sans-serif;
+  border-radius: 8px;
+  padding: 10px 20px;
+}
+
+.notiflix-notification.success {
+  background-color: #32cd32;
+  color: white;
+}
+
+.notiflix-notification.failure {
+  background-color: #ff6347;
+  color: white;
+}
+
+.notiflix-notification-content {
+  font-size: 16px;
+} */
