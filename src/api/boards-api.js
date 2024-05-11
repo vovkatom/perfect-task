@@ -1,4 +1,4 @@
-import { axiosInstance } from '../api/auth-api.js';
+import { axiosInstance } from './axios-instance';
 
 export const requestAllBoards = async () => {
   const { data } = await axiosInstance.get('/boards');
