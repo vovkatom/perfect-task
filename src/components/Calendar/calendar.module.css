@@ -1,6 +1,12 @@
 .datePicker {
-  display: inline-block;
+  /* display: inline-block; */
   color: var(--primary-color-black);
   cursor: pointer;
-  width: fit-content;
+  /* width: fit-content; */
+
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--primary-color-light-green);
 }

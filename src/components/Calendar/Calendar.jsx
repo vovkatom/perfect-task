@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 
-import 'react-datepicker/dist/react-datepicker.css';
+// import 'react-datepicker/dist/react-datepicker.css';
+import './react-datepicker2.css';
 import css from './calendar.module.css';
 
 const Calendar = () => {
