@@ -1,11 +1,11 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import PasswordField from '../PasswordField/PasswordField';
-import InputError from '../InputError/InputError';
+import PasswordField from '../../PasswordField/PasswordField';
+import InputError from '../../InputError/InputError';
 import { useDispatch } from 'react-redux';
-import { login } from '../../redux/auth/auth-operations';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { login } from '../../../redux/auth/auth-operations';
+import { Notify } from 'notiflix';
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -28,12 +28,12 @@ const LoginForm = ({ formClassName, inputClassName, buttonClassName }) => {
     const resp = await dispatch(login(data));
 
     if (resp.type === 'auth/login/fulfilled') {
-      return Notify.success('Welcome back!');
+      Notify.success('Welcome back!');
     }
 
     if (resp.error) {
       console.log(resp.error.message);
-      return Notify.failure(
+      Notify.failure(
         'Invalid email, or password, or something went wrong. Please try again.'
       );
     }
