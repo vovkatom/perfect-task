@@ -68,17 +68,9 @@ export const refresh = createAsyncThunk(
   'auth/refresh',
   async (_, { rejectWithValue, getState }) => {
     try {
-      console.log('refresh');
       const { auth } = getState();
-      const refreshToken = auth.refreshToken;
-      const response = await refreshRequest(JSON.stringify({ refreshToken }));
-      console.log('first', response);
-      if (!response.ok) {
-        throw new Error('Failed to refresh token');
-      }
-      // const data = await response;
-      console.log('ASYNKKKKK', response);
-      return JSON.parse(response.data);
+      const data = await refreshRequest(auth.refreshToken);
+      return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
     }
