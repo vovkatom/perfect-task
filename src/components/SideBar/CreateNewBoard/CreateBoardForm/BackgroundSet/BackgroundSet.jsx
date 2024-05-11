@@ -7,17 +7,18 @@ const BackgroundSet = ({ register, bgImages }) => {
   const [selectedBg, setSelectedBg] = useState(null);
   //const [bgImages, setBgImages] = useState('');
 
-  console.log(bgImages);
+  console.log(Object.keys(bgImages));
 
   const handleBgClick = (selectedBg) => {
     setSelectedBg(selectedBg);
+    console.log(selectedBg);
   };
 
-  const imagesBG = Object.entries(bgImages).map(([key, value], idx) => (
+  const imagesBG = Object.entries(bgImages).map(([key, value]) => (
     <li
-      key={idx}
+      key={key}
       className={css.bgItem}
-      onClick={() => handleBgClick(value)}
+      onClick={() => handleBgClick(key)}
       {...register('bgImage')}
     >
       <img
@@ -31,3 +32,19 @@ const BackgroundSet = ({ register, bgImages }) => {
 };
 
 export default BackgroundSet;
+
+// const sortable = resources.map((item, index) => {
+//   const filenameWithExtension = item.secure_url.substring(
+//     item.secure_url.lastIndexOf('/') + 1
+//   );
+
+//   const filenameWithoutExtension = filenameWithExtension
+//     .split('.')
+//     .slice(0, -1)
+//     .join('.');
+//   return [filenameWithoutExtension, item.secure_url];
+// });
+
+// sortable.sort(([filename1], [filename2]) => {
+//   return filename1.localeCompare(filename2);
+// });

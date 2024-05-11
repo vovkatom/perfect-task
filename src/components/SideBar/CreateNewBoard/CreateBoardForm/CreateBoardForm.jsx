@@ -25,7 +25,8 @@ const CreateBoardForm = () => {
     const fetchBgImagesMin = async () => {
       try {
         //setLoading(true);
-        const { data } = await requestBgImages();
+        const data = await requestBgImages();
+        console.log(data);
         setBgImages(data);
       } catch (error) {
         setError(error.message);
