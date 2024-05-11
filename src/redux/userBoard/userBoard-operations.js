@@ -73,4 +73,118 @@ export const updateBoardById = createAsyncThunk(
         return thunkAPI.rejectWithValue(error.message);
       }
     }
-  );
+);
+  
+
+//POST  id columns
+
+export const addTask = createAsyncThunk(
+  'boards/addTask',
+  async ({_id,body}, thunkAPI) => {
+    try {
+      const response = await axios.post(`/columns/${_id}/tasks`, { ...body });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+// POST columns
+
+export const addColumn = createAsyncThunk(
+  'boards/addColumn',
+  async (body, thunkAPI) => {
+    try {
+      const response = await axios.post('/columns', { ...body });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+
+
+//PATCH id columns
+export const updateColumnTitle = createAsyncThunk(
+  'boards/updateColumnTitle',
+  async (column, thunkAPI) => {
+    const { _id, title } = column;
+    try {
+      await axios.patch(`/columns/${_id}`, {
+        title,
+      });
+      return column;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+
+// * DELETE id  columns
+ export const deleteColumn = createAsyncThunk(
+      'boards/deleteColumn',
+      async (_id, thunkAPI) => {
+        try {
+         await axios.delete(`/columns/${_id}`);
+          return _id;
+        } catch (error) {
+          return thunkAPI.rejectWithValue(error.message);
+        }
+      }
+);
+
+// * PUT id  columns
+export const updateTask = createAsyncThunk(
+  'task/updateTask',
+  async (task, thunkAPI) => {
+    const { _id, title, description, deadline, priority, column } = task;
+    try {
+      await axios.put(`/tasks/${_id}`, {
+        title,
+        description, 
+        deadline, 
+        priority, 
+        column
+      });
+      return task;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+//PATCH id
+export const updateTaskPlace = createAsyncThunk(
+  'tasks/updateTaskPlace',
+  async ({ task, oldColumn }, thunkAPI) => {
+    const { _id, column} = task;
+    try {
+      axios.patch(`/tasks/${_id}`, {
+        column,
+      });
+      return { task, oldColumn };
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+
+//DELETE id
+
+export const deleteTask = createAsyncThunk(
+      'boards/deleteTask',
+      async (task, thunkAPI) => {
+        const { _id } = task;
+        try {
+          await axios.delete(`/tasks/${_id}`);
+          return task;
+        } catch (error) {
+          return thunkAPI.rejectWithValue(error.message);
+        }
+  }
+);
+
