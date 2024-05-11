@@ -6,7 +6,7 @@ import * as yup from 'yup';
 import PasswordField from '../PasswordField/PasswordField';
 import InputError from '../InputError/InputError';
 import sprite from '../../assets/img/icon.svg';
-import { updateProfile } from '../../redux/auth/auth-operations';
+import { updateProfile } from '../../redux/user/user-operations';
 import { useDispatch } from 'react-redux';
 import { Notify } from 'notiflix';
 
@@ -40,9 +40,8 @@ const EditProfileForm = ({ user, onCloseModal }) => {
       formData.append('name', data.name);
       formData.append('email', data.email);
       // formData.append('password', data.password);
-
-      await dispatch(updateProfile(formData));
       onCloseModal();
+      await dispatch(updateProfile(formData));
       Notify.success('Profile updated successfully');
     } catch (error) {
       return Notify.failure('Server error. Please try again.');

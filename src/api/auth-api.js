@@ -1,10 +1,10 @@
-import axios from 'axios';
 import { refresh } from '../redux/auth/auth-operations';
 import { logout } from '../redux/auth/auth-operations';
+import { axiosInstance } from './axios-instance';
+import { setToken } from './axios-instance';
 
 export const axiosInstance = axios.create({
-  // baseURL: 'https://perfect-task-back.onrender.com/api',
-  baseURL: 'http://localhost:3000/api',
+  baseURL: 'https://perfect-task-back.onrender.com/api',
 });
 
 const setToken = (accessToken) => {
@@ -72,27 +72,7 @@ export const currentRequest = async (token) => {
   }
 };
 
-/*--------------------------------------------------------*/
-export const supportRequest = async (body) => {
-  const { data } = await axiosInstance.post('/users/support', body);
-  return data;
-};
-/*--------------------------------------------------------*/
-
 export const logoutRequest = async () => {
   const { data } = await axiosInstance.post('/users/logout');
   return data;
-};
-
-export const updateProfileRequest = async (formData) => {
-  try {
-    const { data } = await axiosInstance.patch('/users/update', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
-    return data;
-  } catch (error) {
-    throw new Error(error.message);
-  }
 };

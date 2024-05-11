@@ -2,11 +2,9 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   signupRequest,
   loginRequest,
-  supportRequest,
   currentRequest,
   logoutRequest,
   refreshRequest,
-  updateProfileRequest,
 } from '../../api/auth-api';
 
 export const signup = createAsyncThunk(
@@ -32,20 +30,6 @@ export const login = createAsyncThunk(
     }
   }
 );
-
-/*--------------------------------------------------------------------------------*/
-export const support = createAsyncThunk(
-  'auth/support',
-  async (body, { rejectWithValue }) => {
-    try {
-      const data = await supportRequest(body);
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.response.data.message);
-    }
-  }
-);
-/*--------------------------------------------------------------------------------*/
 
 export const current = createAsyncThunk(
   'auth/current',
@@ -89,18 +73,6 @@ export const refresh = createAsyncThunk(
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
-    }
-  }
-);
-
-export const updateProfile = createAsyncThunk(
-  'users/update',
-  async (formData, thunkAPI) => {
-    try {
-      const data = await updateProfileRequest(formData);
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
