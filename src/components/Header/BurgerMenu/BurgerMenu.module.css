@@ -13,7 +13,7 @@
 }
 
 .burgerIcon {
-  stroke: var(--primary-color-black);
+  stroke: var(--header-primary);
   stroke-width: 2px;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -23,7 +23,7 @@
 
 .burgerIcon:hover,
 .burgerIcon:focus {
-  stroke: var(--primary-color-light-green);
+  stroke: var(--main-hover);
 }
 
 @media only screen and (min-width: 768px) {
