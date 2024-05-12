@@ -1,6 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { pending, rejected } from '../../shared/redux/redux';
-import { current, login, signup, logout, refresh } from './auth-operations';
+import {
+  current,
+  login,
+  signup,
+  logout,
+  refresh,
+  googleLog,
+} from './auth-operations';
 
 const initialState = {
   user: {},
@@ -74,7 +81,17 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.accessToken = '';
         state.refreshToken = '';
-      });
+      })
+      .addCase(googleLog.pending, pending)
+      .addCase(googleLog.fulfilled, (state, { payload }) => {
+        state.user = payload.user;
+        state.accessToken = payload.accessToken;
+        state.refreshToken = payload.refreshToken;
+        state.isLogin = true;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(googleLog.rejected, rejected);
   },
 });
 

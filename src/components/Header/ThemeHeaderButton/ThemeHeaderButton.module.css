@@ -7,6 +7,7 @@
 
   border: none;
   background-color: transparent;
+  color: var(--header-secondary);
 
   transition: color 0.25s ease-in-out;
 }
@@ -24,12 +25,12 @@
 
 .themeBtn:hover,
 .themeBtn:focus {
-  color: var(--primary-color-light-green);
+  color: var(--main-hover);
 }
 
 .themeIcon {
   stroke-width: 1.5px;
-  stroke: rgba(22, 22, 22, 0.8);
+  stroke: var(--header-secondary);
   fill: transparent;
 
   transition: stroke 0.25s ease-in-out;
@@ -37,5 +38,5 @@
 
 .themeBtn:hover .themeIcon,
 .themeBtn:focus .themeIcon {
-  stroke: var(--primary-color-light-green);
+  stroke: var(--main-hover);
 }

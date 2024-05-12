@@ -5,6 +5,7 @@ import {
   currentRequest,
   logoutRequest,
   refreshRequest,
+  googleLogin,
 } from '../../api/auth-api';
 
 export const signup = createAsyncThunk(
@@ -70,6 +71,18 @@ export const refresh = createAsyncThunk(
     try {
       const { auth } = getState();
       const data = await refreshRequest(auth.refreshToken);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+export const googleLog = createAsyncThunk(
+  'auth/googleLogin',
+  async (body, { rejectWithValue, getState }) => {
+    try {
+      const data = await googleLogin(body);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
