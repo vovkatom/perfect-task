@@ -10,8 +10,8 @@ const SideBar = () => {
       <Logo />
       <h3 className={css.myBoardsTitle}>My boards</h3>
       <CreateNewBoard />
-      <NeedHelp />
-      <LogOut />
+      <NeedHelp className={css.needHelpPosition} />
+      <LogOut className={css.logoutPosition} />
     </div>
   );
 };
