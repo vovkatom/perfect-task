@@ -39,9 +39,7 @@ const Header = ({ toggleSidebar }) => {
           </div>
         </div>
       </header>
-      {/* {isPopUpOpen && ( */}
-      <ThemeModal onClick={togglePopUp} />
-      {/* )} */}
+      {isPopUpOpen && <ThemeModal onClick={togglePopUp} />}
       <ModalEditProfile
         isOpen={isModalOpen}
         onClose={handleCloseModal}
