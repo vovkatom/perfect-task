@@ -5,13 +5,14 @@ import Loader from '../../../../components/Loader/Loader';
 import css from './need-help-modal.module.css';
 import clsx from 'clsx';
 import { selectAuthLoading } from '../../../../redux/auth/auth-selectors.js';
+import { Notify } from 'notiflix';
 
 const INITIAL_STATE = {
   email: '',
   message: '',
 };
 
-const NeedHelpModal = () => {
+const NeedHelpModal = ({ closeModal }) => {
   const [formData, setFormData] = useState({ ...INITIAL_STATE });
   const dispatch = useDispatch();
   const loading = useSelector(selectAuthLoading);
@@ -25,12 +26,21 @@ const NeedHelpModal = () => {
     e.preventDefault();
 
     try {
-      dispatch(support(formData));
+      const response = dispatch(support(formData));
+      console.log(response);
+      if (response.email === formData.email) {
+        return Notify.success(
+          "You've successfully sent your message to our support. You will get the answer on your email during 48 hours"
+        );
+      }
 
       reset();
     } catch (error) {
       console.log(error.response.data.message);
+      return Notify.failure('Ooops, something went wrong. Try again, please');
     }
+
+    closeModal();
   };
 
   const reset = () => {

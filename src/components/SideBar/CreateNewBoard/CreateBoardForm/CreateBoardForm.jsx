@@ -22,7 +22,6 @@ const CreateBoardForm = ({ closeModal }) => {
   const [error, setError] = useState(null);
   const [background, setBackground] = useState(null);
   const [icon, setIcon] = useState(null);
-  //const [isModalOpen, setIsModalOpen] = useState(true);
 
   const dispatch = useDispatch();
 
