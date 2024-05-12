@@ -48,6 +48,8 @@
   --board-secondary: rgba(22, 22, 22, 0.7);
   --board-accent: #bedbb0;
   /*pop-up & modal*/
+  --popup-primary-background: #fcfcfc;
+  --popup-border: #bedbb0;
 }
 
 .dark {
@@ -73,6 +75,9 @@
   /*screen-page*/
   --board-secondary: rgba(255, 255, 255, 0.5);
   --board-accent: #bedbb0;
+  /*pop-up & modal*/
+  --popup-primary-background: #151515;
+  --popup-border: #bedbb0;
 }
 
 .violet {
@@ -98,6 +103,9 @@
   /*screen-page*/
   --board-secondary: rgba(22, 22, 22, 0.7);
   --board-accent: #5255bc;
+  /*pop-up & modal*/
+  --popup-primary-background: #fcfcfc;
+  --popup-border: #ecedfd;
 }
 
 .light body,

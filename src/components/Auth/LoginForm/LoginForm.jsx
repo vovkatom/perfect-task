@@ -27,7 +27,7 @@ const LoginForm = ({ formClassName, inputClassName, buttonClassName }) => {
     resolver: yupResolver(schema),
   });
 
-  const handleLogin = async data => {
+  const handleLogin = async (data) => {
     const resp = await dispatch(login(data));
 
     if (resp.type === 'auth/login/fulfilled') {
@@ -41,20 +41,6 @@ const LoginForm = ({ formClassName, inputClassName, buttonClassName }) => {
       );
     }
 
-    // не видаляти!
-
-    // if (resp.error) {
-    //   console.log(resp.error.message);
-    //   return Notify.failure('Invalid email or password. Please try again.');
-    // }
-
-    // if (resp.error) {
-    //   console.log(resp.error.message);
-    //   return Notify.failure(
-    //     'Oops... Something went wrong. Please, try again later!'
-    //   );
-    // }
-
     reset();
   };
 
@@ -63,22 +49,22 @@ const LoginForm = ({ formClassName, inputClassName, buttonClassName }) => {
       <form
         onSubmit={handleSubmit(handleLogin)}
         className={formClassName}
-        autoComplete='off'
+        autoComplete="off"
       >
         <input
           className={inputClassName}
-          type='email'
-          placeholder='Enter your email'
+          type="email"
+          placeholder="Enter your email"
           {...register('email')}
         />
         <InputError message={errors.email?.message} />
         <PasswordField
           className={inputClassName}
           register={register}
-          placeholder='Enter a password'
+          placeholder="Enter a password"
         />
         <InputError message={errors.password?.message} />
-        <button className={buttonClassName} type='submit'>
+        <button className={buttonClassName} type="submit">
           {loading ? <Loader /> : 'Log In Now'}
         </button>
       </form>

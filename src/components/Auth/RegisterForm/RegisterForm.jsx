@@ -29,7 +29,7 @@ const RegisterForm = ({ formClassName, inputClassName, buttonClassName }) => {
     resolver: yupResolver(schema),
   });
 
-  const handleSignup = async data => {
+  const handleSignup = async (data) => {
     const resp = await dispatch(signup(data));
 
     if (resp.type === 'auth/signup/fulfilled') {
@@ -57,19 +57,19 @@ const RegisterForm = ({ formClassName, inputClassName, buttonClassName }) => {
       <form
         onSubmit={handleSubmit(handleSignup)}
         className={formClassName}
-        autoComplete='off'
+        autoComplete="off"
       >
         <input
           className={inputClassName}
           {...register('name')}
-          type='text'
-          placeholder='Enter your name'
+          type="text"
+          placeholder="Enter your name"
         />
         <InputError message={errors.name?.message} />
         <input
           className={inputClassName}
-          type='email'
-          placeholder='Enter your email'
+          type="email"
+          placeholder="Enter your email"
           // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           {...register('email')}
         />
@@ -77,10 +77,10 @@ const RegisterForm = ({ formClassName, inputClassName, buttonClassName }) => {
         <PasswordField
           className={inputClassName}
           register={register}
-          placeholder='Create a password'
+          placeholder="Create a password"
         />
         <InputError message={errors.password?.message} />
-        <button className={buttonClassName} type='submit'>
+        <button className={buttonClassName} type="submit">
           {loading ? <Loader /> : 'Register Now'}
         </button>
       </form>

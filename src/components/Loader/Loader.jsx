@@ -12,11 +12,11 @@ const Loader = () => {
     <Spinner>
       <ColorRing
         visible={true}
-        height='32'
-        width='32'
-        ariaLabel='blocks-loading'
+        height="32"
+        width="32"
+        ariaLabel="blocks-loading"
         wrapperStyle={{}}
-        wrapperClass='blocks-wrapper'
+        wrapperClass="blocks-wrapper"
         colors={['#8FA1D0', '#E09CB5', '#f8b26a', '#abbd81', '#849b87']}
       />
     </Spinner>
