@@ -7,6 +7,7 @@ import {
   logout,
   refresh,
   googleLog,
+  updateProfile,
 } from './auth-operations';
 
 const initialState = {
@@ -91,7 +92,21 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(googleLog.rejected, rejected);
+      .addCase(googleLog.rejected, rejected)
+      .addCase(updateProfile.pending, pending)
+      .addCase(updateProfile.fulfilled, (state, { payload }) => {
+        state.user = payload.user;
+        state.isLoading = false;
+        state.isUpdate = true;
+        state.isMessageSend = false;
+        state.error = null;
+      })
+    
+      .addCase(updateProfile.rejected, rejected);
+      // .addCase(updateProfile.rejected, (state) => {
+      //   // state.isLogin = false;
+      //   // state.isLoading = false;
+      // })
   },
 });
 

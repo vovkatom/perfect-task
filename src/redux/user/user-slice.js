@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { pending, rejected } from '../../shared/redux/redux';
-import { support, updateProfile } from './user-operations';
+import { support } from './user-operations';
+// updateProfile
 
 const initialState = {
   isLoading: false,
@@ -22,14 +23,14 @@ const userSlice = createSlice({
         state.error = null;
       })
       .addCase(support.rejected, rejected)
-      .addCase(updateProfile.pending, pending)
-      .addCase(updateProfile.fulfilled, (state) => {
-        state.isLoading = false;
-        state.isUpdate = true;
-        state.isMessageSend = false;
-        state.error = null;
-      })
-      .addCase(updateProfile.rejected, rejected);
+      // .addCase(updateProfile.pending, pending)
+      // .addCase(updateProfile.fulfilled, (state) => {
+      //   state.isLoading = false;
+      //   state.isUpdate = true;
+      //   state.isMessageSend = false;
+      //   state.error = null;
+      // })
+      // .addCase(updateProfile.rejected, rejected);
   },
 });
 

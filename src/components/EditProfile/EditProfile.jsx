@@ -6,7 +6,7 @@ import * as yup from 'yup';
 import PasswordField from '../PasswordField/PasswordField';
 import InputError from '../InputError/InputError';
 import sprite from '../../assets/img/icon.svg';
-import { updateProfile } from '../../redux/user/user-operations';
+import { updateProfile } from '../../redux/auth/auth-operations';
 import { useDispatch } from 'react-redux';
 import { Notify } from 'notiflix';
 

@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { supportRequest, updateProfileRequest } from '../../api/user-api';
+import { supportRequest } from '../../api/user-api';
+// updateProfileRequest
 
 export const support = createAsyncThunk(
   'user/support',
@@ -13,14 +14,14 @@ export const support = createAsyncThunk(
   }
 );
 
-export const updateProfile = createAsyncThunk(
-  'user/update',
-  async (formData, thunkAPI) => {
-    try {
-      const data = await updateProfileRequest(formData);
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
+// export const updateProfile = createAsyncThunk(
+//   'user/update',
+//   async (formData, thunkAPI) => {
+//     try {
+//       const data = await updateProfileRequest(formData);
+//       return data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
