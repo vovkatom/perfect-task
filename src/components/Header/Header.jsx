@@ -4,12 +4,16 @@ import css from './Header.module.css';
 import ModalEditProfile from '../EditProfile/ModalEditProfile.jsx';
 import EditProfileForm from '../EditProfile/EditProfile';
 import { useSelector } from 'react-redux';
-import { selectUser } from '../../redux/auth/auth-selectors';
-import Theme from './Theme/Theme';
-import CommonPopUpSmall from '../CommonPopUpSmall/CommonPopUpSmall';
+import { selectAuthLoading, selectUser } from '../../redux/auth/auth-selectors';
+import ThemeModal from './ThemeModal/ThemeModal';
+import ThemeHeaderButton from './ThemeHeaderButton/ThemeHeaderButton';
+import Loader from '../Loader/Loader.jsx';
+// import { selectAuthLoading } from '../../redux/auth/auth-selectors';
 
 const Header = ({ toggleSidebar }) => {
   const user = useSelector(selectUser);
+  const loading = useSelector(selectAuthLoading);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isPopUpOpen, setIsPopUpOpen] = useState(false);
 
@@ -30,26 +34,31 @@ const Header = ({ toggleSidebar }) => {
       <header className={css.headerContainer}>
         <BurgerMenu onClick={toggleSidebar} />
         <div className={css.customBox}>
-          <Theme onClick={togglePopUp} />
+          <ThemeHeaderButton onClick={togglePopUp} />
           <div className={css.user} onClick={handleOpenModal}>
             <p className={css.userName}>{user?.name}</p>
             <div className={css.avatar}>
-              <img src={`${user?.avatarURL}`} alt="User avatar" />
+              {loading ? (
+                <Loader />
+              ) : (
+                <img
+                  className={css.avatarImg}
+                  src={`${user?.avatarURL}`}
+                  alt="User avatar"
+                />
+              )}
             </div>
           </div>
         </div>
       </header>
-      {isPopUpOpen && (
-        <CommonPopUpSmall onClick={togglePopUp}>
-          {['Light', 'Dark', 'Violet']}
-        </CommonPopUpSmall>
-      )}
+      {isPopUpOpen && <ThemeModal onClick={togglePopUp} />}
       <ModalEditProfile
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         title={'Edit profile'}
       >
-        <EditProfileForm user={user} />
+        <EditProfileForm user={user} onCloseModal={handleCloseModal} />{' '}
+        {/* Передача onCloseModal */}
       </ModalEditProfile>
     </div>
   );

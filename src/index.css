@@ -9,6 +9,7 @@
     url('./assets/fonts/Poppins-Regular.ttf') format('truetype'),
     url('./assets/fonts/Poppins-Medium.ttf') format('truetype'),
     url('./assets/fonts/Poppins-SemiBold.ttf') format('truetype');
+  font-display: swap;
 }
 
 .container {
@@ -42,7 +43,6 @@ body {
   font-weight: 400;
   font-size: 14px;
   font-style: normal;
-  color: var(--primary-color-black);
   width: 100%;
   height: 100vh;
   margin: 0;

@@ -1,6 +1,6 @@
 import { useState, useId } from 'react';
 import { useDispatch } from 'react-redux';
-import { support } from '../../../../redux/auth/auth-operations';
+import { support } from '../../../../redux/user/user-operations';
 import css from './need-help-modal.module.css';
 import clsx from 'clsx';
 

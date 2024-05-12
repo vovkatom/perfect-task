@@ -9,13 +9,8 @@ import {
   REGISTER,
 } from 'redux-persist';
 import rootReducer from './rootReducer';
-// import { boardsReducer } from './boards/slice';
 
-// const boardsPersistConfig = {
-//   key: 'boards',
-//   storage,
-//   whitelist: ['items', 'currentBoard'],
-// };
+import { setupAxiosInterceptors } from '../api/auth-api';
 
 
 export const store = configureStore({
@@ -29,4 +24,5 @@ export const store = configureStore({
     }),
 });
 
+setupAxiosInterceptors(store);
 export const persistor = persistStore(store);

@@ -23,3 +23,93 @@
 
   --font-family: 'Poppins', sans-serif;
 }
+
+.light {
+  --main-background: #f6f6f7;
+  --main-hover: #9dc888;
+  /*icons*/
+  --logo-background: #1f1f1f;
+  --logo-fill: #fff;
+  --logout-stroke: #bedbb0;
+  /*sidebar*/
+  --primary-sidebar-text-color: #161616;
+  --secondary-sidebar-text-color: rgba(22, 22, 22, 0.5);
+  --sidebar-background: #fff;
+  --sidebar-border: rgba(22, 22, 22, 0.1);
+  --create-button: #bedbb0;
+  --plus-fill: #121212;
+  --need-help-background: #f6f6f7;
+  --need-help-span: #bedbb0;
+  /*header*/
+  --header-background: #fcfcfc;
+  --header-primary: #161616;
+  --header-secondary: rgba(22, 22, 22, 0.8);
+  /*screen-page*/
+  --board-secondary: rgba(22, 22, 22, 0.7);
+  --board-accent: #bedbb0;
+  /*pop-up & modal*/
+  --popup-primary-background: #fcfcfc;
+  --popup-border: #bedbb0;
+}
+
+.dark {
+  --main-background: #1f1f1f;
+  --main-hover: #9dc888;
+  /*icons*/
+  --logo-background: #1f1f1f;
+  --logo-fill: #fff;
+  --logout-stroke: #bedbb0;
+  /*sidebar*/
+  --primary-sidebar-text-color: #fff;
+  --secondary-sidebar-text-color: rgba(255, 255, 255, 0.5);
+  --sidebar-background: #121212;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --create-button: #bedbb0;
+  --plus-fill: #121212;
+  --need-help-background: #1f1f1f;
+  --need-help-span: #bedbb0;
+  /*header*/
+  --header-background: #161616;
+  --header-primary: #fff;
+  --header-secondary: rgba(255, 255, 255, 0.8);
+  /*screen-page*/
+  --board-secondary: rgba(255, 255, 255, 0.5);
+  --board-accent: #bedbb0;
+  /*pop-up & modal*/
+  --popup-primary-background: #151515;
+  --popup-border: #bedbb0;
+}
+
+.violet {
+  --main-background: #ecedfd;
+  --main-hover: #5255bc;
+  /*icons*/
+  --logo-background: #ecedfd;
+  --logo-fill: #5255bc;
+  --logout-stroke: #fff;
+  /*sidebar*/
+  --primary-sidebar-text-color: #fff;
+  --secondary-sidebar-text-color: rgba(255, 255, 255, 0.5);
+  --sidebar-background: #5255bc;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --create-button: #b8bcfd;
+  --plus-fill: #fff;
+  --need-help-background: rgba(236, 237, 253, 0.4);
+  --need-help-span: #5255bc;
+  /*header*/
+  --header-background: #fff;
+  --header-primary: #161616;
+  --header-secondary: rgba(22, 22, 22, 0.8);
+  /*screen-page*/
+  --board-secondary: rgba(22, 22, 22, 0.7);
+  --board-accent: #5255bc;
+  /*pop-up & modal*/
+  --popup-primary-background: #fcfcfc;
+  --popup-border: #ecedfd;
+}
+
+.light body,
+.dark body,
+.violet body {
+  transition: all 0.7s ease;
+}

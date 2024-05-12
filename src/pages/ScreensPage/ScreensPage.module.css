@@ -11,7 +11,7 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-  color: var(--color-black-background);
+  color: var(--board-secondary);
 }
 
 @media screen and (min-width: 768px) {
@@ -28,5 +28,14 @@
 }
 
 .button_create {
-  color: #bedbb0;
+  color: var(--board-accent);
+  background-color: transparent;
+  border: none;
+
+  transition: color 0.25s ease-in-out;
+}
+
+.button_create:hover,
+.button_create:focus {
+  color: var(--main-hover);
 }

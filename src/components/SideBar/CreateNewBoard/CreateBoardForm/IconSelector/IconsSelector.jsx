@@ -3,16 +3,52 @@ import { useState } from 'react';
 import css from './IconsSelector.module.css';
 import Icon from '../../../../Icon/Icon';
 
-const IconsSelector = () => {
+const IconsSelector = ({ updateIcon }) => {
   const [selectedIcon, setSelectedIcon] = useState(null);
 
-  const handleIconClick = (selectedIcon) => {
-    setSelectedIcon(selectedIcon);
+  const handleIconClick = (iconId) => {
+    setSelectedIcon(iconId);
+    console.log(selectedIcon);
+    updateIcon(selectedIcon);
   };
 
+  const iconsList = [
+    'icon-Project',
+    'icon-star-04',
+    'icon-loading-03',
+    'icon-puzzle-piece-02',
+    'icon-container',
+    'icon-lightning-02',
+    'icon-colors',
+    'icon-hexagon-01',
+  ];
+
+  const icons = iconsList.map((icon) => (
+    <li
+      key={icon}
+      className={css.iconContainer}
+      onClick={() => handleIconClick(icon)}
+    >
+      <Icon
+        className={selectedIcon === icon ? css.iconSelected : css.icon}
+        id={icon}
+        width="18"
+        height="18"
+      />
+    </li>
+  ));
+
   return (
-    <ul className={css.iconSet}>
-      <li
+    <>
+      <ul className={css.iconSet}>{icons}</ul>
+    </>
+  );
+};
+
+export default IconsSelector;
+
+{
+  /* <li
         className={css.iconContainer}
         onClick={() => handleIconClick('icon-Project')}
       >
@@ -117,9 +153,5 @@ const IconsSelector = () => {
           width="18"
           height="18"
         />
-      </li>
-    </ul>
-  );
-};
-
-export default IconsSelector;
+      </li> */
+}

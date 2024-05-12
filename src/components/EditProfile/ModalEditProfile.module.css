@@ -11,11 +11,12 @@
   align-items: center;
 }
 
+/* DARK THEME */
 .modalPageBox {
   display: flex;
   flex-direction: column;
-  background-color: var(--primary-color-black);
-  color: #fff;
+  background-color: var(--color-black-background);
+  color: var(--primary-color-white);
   padding: 24px;
   position: relative;
   border-radius: 8px;
@@ -23,24 +24,85 @@
   border: 1px solid rgba(190, 219, 176, 0.5);
   box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
 }
-
 .close {
   position: absolute;
   top: 14px;
   right: 14px;
   cursor: pointer;
   font-size: 18px;
-  color: #fff;
+  color: var(--primary-color-white);
 }
 
-h2 {
+.editProfileTitle {
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 18px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--primary-color-white);
 }
 
+/* LIGHT THEME */
+
+/* .modalPageBox {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-light-background);
+  color: var(--primary-color-black);
+  padding: 24px;
+  position: relative;
+  border-radius: 8px;
+  width: 335px;
+  border: 1px solid rgba(190, 219, 176, 0.5);
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+} */
+
+/* .close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--primary-color-black);
+}
+
+.editProfileTitle {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: var(--primary-color-black);
+} */
+
+/* VIOLET THEME */
+/* .modalPageBox {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-light-background);
+  color: var(--primary-color-black);
+  padding: 24px;
+  position: relative;
+  border-radius: 8px;
+  width: 335px;
+  /* border: 1px solid rgba(190, 219, 176, 0.5);
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+} */
+
+/* .close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--primary-color-black);
+}
+
+.editProfileTitle {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: var(--primary-color-black);
+} */
 @media only screen and (min-width: 320px) {
   .modalPageBox {
     padding: 24px;

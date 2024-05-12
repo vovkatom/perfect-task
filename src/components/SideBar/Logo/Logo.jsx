@@ -13,5 +13,3 @@ const Logo = () => {
 };
 
 export default Logo;
-
-// href="/perfect-task/assets/icon.svg#logo2"

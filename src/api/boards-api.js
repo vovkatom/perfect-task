@@ -1,6 +1,4 @@
-//import { refresh } from '../redux/auth/auth-operations';
-import { useDispatch } from 'react-redux';
-import { axiosInstance } from '../api/auth-api.js';
+import { axiosInstance } from './axios-instance';
 
 export const requestAllBoards = async () => {
   const { data } = await axiosInstance.get('/boards');
@@ -25,4 +23,10 @@ export const requestDeleteBoardById = async (id) => {
 export const updateBoardById = async (id) => {
   const { data } = await axiosInstance.put(`/boards/${id}`);
   return { data };
+};
+
+export const requestBgImages = async () => {
+  const { data } = await axiosInstance.get('/boards/bgall');
+  console.log(data);
+  return data;
 };
