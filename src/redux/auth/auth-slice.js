@@ -103,10 +103,7 @@ const authSlice = createSlice({
       })
     
       .addCase(updateProfile.rejected, rejected);
-      // .addCase(updateProfile.rejected, (state) => {
-      //   // state.isLogin = false;
-      //   // state.isLoading = false;
-      // })
+
   },
 });
 
