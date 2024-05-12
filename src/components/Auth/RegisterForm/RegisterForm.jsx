@@ -3,9 +3,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import PasswordField from '../../PasswordField/PasswordField';
 import InputError from '../../InputError/InputError';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signup } from '../../../redux/auth/auth-operations';
 import { Notify } from 'notiflix';
+import Loader from '../../Loader/Loader';
+import { selectAuthLoading } from '../../../redux/auth/auth-selectors';
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -16,6 +18,7 @@ const schema = yup.object().shape({
 // Компонент RegisterForm відповідає за форму реєстрації нового користувача
 const RegisterForm = ({ formClassName, inputClassName, buttonClassName }) => {
   const dispatch = useDispatch();
+  const loading = useSelector(selectAuthLoading);
 
   const {
     register,
@@ -26,7 +29,7 @@ const RegisterForm = ({ formClassName, inputClassName, buttonClassName }) => {
     resolver: yupResolver(schema),
   });
 
-  const handleSignup = async (data) => {
+  const handleSignup = async data => {
     const resp = await dispatch(signup(data));
 
     if (resp.type === 'auth/signup/fulfilled') {
@@ -54,19 +57,19 @@ const RegisterForm = ({ formClassName, inputClassName, buttonClassName }) => {
       <form
         onSubmit={handleSubmit(handleSignup)}
         className={formClassName}
-        autoComplete="off"
+        autoComplete='off'
       >
         <input
           className={inputClassName}
           {...register('name')}
-          type="text"
-          placeholder="Enter your name"
+          type='text'
+          placeholder='Enter your name'
         />
         <InputError message={errors.name?.message} />
         <input
           className={inputClassName}
-          type="email"
-          placeholder="Enter your email"
+          type='email'
+          placeholder='Enter your email'
           // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           {...register('email')}
         />
@@ -74,11 +77,11 @@ const RegisterForm = ({ formClassName, inputClassName, buttonClassName }) => {
         <PasswordField
           className={inputClassName}
           register={register}
-          placeholder="Create a password"
+          placeholder='Create a password'
         />
         <InputError message={errors.password?.message} />
-        <button className={buttonClassName} type="submit">
-          Register Now
+        <button className={buttonClassName} type='submit'>
+          {loading ? <Loader /> : 'Register Now'}
         </button>
       </form>
     </>
