@@ -136,7 +136,7 @@ export const updateColumnTitle = createAsyncThunk(
       }
 );
 
-// * PUT id  columns
+//  PUT id  columns
 export const updateTask = createAsyncThunk(
   'task/updateTask',
   async (task, thunkAPI) => {
