@@ -8,3 +8,5 @@ export const selectCurrentBoard = (state) => state.boards.currentBoard;
 
 export const selectCurrentBoardData = (state) =>
   state.boards.items[state.boards.currentBoard];
+
+export const getFilter = (state) => state.filter.filter;

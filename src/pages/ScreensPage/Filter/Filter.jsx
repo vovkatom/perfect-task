@@ -1,9 +1,8 @@
 import React from 'react';
 import css from './Filter.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-// import { getFilter } from 'redux/boards/boardsSelectors';
-// import { addFilter } from 'redux/boards/filterSlice';
-
+import { getFilter } from '../../../redux/userBoard/userBoard-selectors';
+import { addFilter } from '../../../redux/userBoard/userBoard-slice';
 const Filter = ({ openModal }) => {
   const dispatch = useDispatch();
 

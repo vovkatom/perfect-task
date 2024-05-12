@@ -238,3 +238,18 @@ const boardsSlice = createSlice({
 export const { selectBoard, setFilter, dragAndDropTask, dragAndDropColumn } =
   boardsSlice.actions;
 export const boardsReducer = boardsSlice.reducer;
+
+
+const filterSlice = createSlice({
+  name: 'filter',
+  initialState: { filter: '' },
+  reducers: {
+    addFilter(state, { payload }) {
+      state.filter = payload;
+    },
+  },
+});
+
+export const filterReducer = filterSlice.reducer;
+
+export const { addFilter } = filterSlice.actions;
