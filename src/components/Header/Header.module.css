@@ -84,6 +84,20 @@
 .avatar {
   width: 32px;
   height: 32px;
-  border-radius: 2px;
+  border-radius: 4px;
   cursor: pointer;
+
+  transition: outline 0.25s ease-in-out;
+}
+
+.avatar:hover,
+.avatar:focus {
+  outline: 1px solid var(--main-hover);
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
 }
