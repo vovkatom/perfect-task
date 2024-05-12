@@ -1,8 +1,8 @@
 import Icon from '../../Icon/Icon';
 
-import css from './Theme.module.css';
+import css from './ThemeHeaderButton.module.css';
 
-const Theme = ({ onClick }) => {
+const ThemeHeaderButton = ({ onClick }) => {
   return (
     <>
       <button className={css.themeBtn} type="button" onClick={onClick}>
@@ -18,4 +18,4 @@ const Theme = ({ onClick }) => {
   );
 };
 
-export default Theme;
+export default ThemeHeaderButton;

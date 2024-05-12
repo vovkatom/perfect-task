@@ -9,7 +9,7 @@ const ModalEditProfile = ({ isOpen, onClose, title, children }) => {
         <span className={css.close} onClick={onClose}>
           &times;
         </span>
-        <h2>{title}</h2>
+        <h2 className={css.editProfileTitle}>{title}</h2>
 
         <div className={css.content}>{children}</div>
       </div>

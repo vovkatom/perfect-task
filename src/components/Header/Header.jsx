@@ -5,8 +5,8 @@ import ModalEditProfile from '../EditProfile/ModalEditProfile.jsx';
 import EditProfileForm from '../EditProfile/EditProfile';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/auth-selectors';
-import Theme from './Theme/Theme';
-import CommonPopUpSmall from '../CommonPopUpSmall/CommonPopUpSmall';
+import ThemeModal from './ThemeModal/ThemeModal';
+import ThemeHeaderButton from './ThemeHeaderButton/ThemeHeaderButton';
 
 const Header = ({ toggleSidebar }) => {
   const user = useSelector(selectUser);
@@ -30,7 +30,7 @@ const Header = ({ toggleSidebar }) => {
       <header className={css.headerContainer}>
         <BurgerMenu onClick={toggleSidebar} />
         <div className={css.customBox}>
-          <Theme onClick={togglePopUp} />
+          <ThemeHeaderButton onClick={togglePopUp} />
           <div className={css.user} onClick={handleOpenModal}>
             <p className={css.userName}>{user?.name}</p>
             <div className={css.avatar}>
@@ -39,17 +39,16 @@ const Header = ({ toggleSidebar }) => {
           </div>
         </div>
       </header>
-      {isPopUpOpen && (
-        <CommonPopUpSmall onClick={togglePopUp}>
-          {['Light', 'Dark', 'Violet']}
-        </CommonPopUpSmall>
-      )}
+      {/* {isPopUpOpen && ( */}
+      <ThemeModal onClick={togglePopUp} />
+      {/* )} */}
       <ModalEditProfile
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         title={'Edit profile'}
       >
-        <EditProfileForm user={user} />
+        <EditProfileForm user={user} onCloseModal={handleCloseModal} />{' '}
+        {/* Передача onCloseModal */}
       </ModalEditProfile>
     </div>
   );

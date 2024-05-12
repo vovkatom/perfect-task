@@ -4,9 +4,11 @@ import css from './EditProfile.module.css';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import PasswordField from '../PasswordField/PasswordField';
-import { Toaster } from 'react-hot-toast';
 import InputError from '../InputError/InputError';
 import sprite from '../../assets/img/icon.svg';
+import { updateProfile } from '../../redux/user/user-operations';
+import { useDispatch } from 'react-redux';
+import { Notify } from 'notiflix';
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -14,7 +16,8 @@ const schema = yup.object().shape({
   name: yup.string().required(),
 });
 
-const EditProfileForm = ({ user }) => {
+const EditProfileForm = ({ user, onCloseModal }) => {
+  const dispatch = useDispatch();
   const [avatarFile, setAvatarFile] = useState(null);
   const {
     register,
@@ -30,21 +33,27 @@ const EditProfileForm = ({ user }) => {
     setAvatarFile(file);
   };
 
-  const onSubmit = data => {
-    const formData = new FormData();
-    formData.append('avatar', avatarFile);
-    formData.append('name', data.name);
-    formData.append('email', data.email);
-    formData.append('password', data.password);
+  const onSubmit = async data => {
+    try {
+      const formData = new FormData();
+      formData.append('avatarURL', avatarFile);
+      formData.append('name', data.name);
+      formData.append('email', data.email);
+      formData.append('password', data.password);
+      onCloseModal();
+      await dispatch(updateProfile(formData));
+      Notify.success('Profile updated successfully');
+    } catch (error) {
+      return Notify.failure('Server error. Please try again.');
+    }
   };
 
   return (
     <form className={css.profileForm} onSubmit={handleSubmit(onSubmit)}>
-      <Toaster />
       <div className={css.avatar}>
         <img
           src={avatarFile ? URL.createObjectURL(avatarFile) : user.avatarURL}
-          alt=''
+          alt='avatar'
         />
 
         <div className={css.buttonIconProfile}>
@@ -69,11 +78,11 @@ const EditProfileForm = ({ user }) => {
       <PasswordField
         className={css.inputClassName}
         register={register}
-        placeholder='Редагувати пароль'
+        placeholder='Current password'
       />
       <InputError message={errors.password?.message} />
       <button className={css.buttonSend} type='submit'>
-        Відправити
+        Send
       </button>
     </form>
   );

@@ -1,63 +1,53 @@
 import axios from 'axios';
 import { refresh } from '../redux/auth/auth-operations';
 import { logout } from '../redux/auth/auth-operations';
-import { useDispatch } from 'react-redux';
+import { axiosInstance } from './axios-instance';
+import { setToken } from './axios-instance';
 
-const axiosInstance = axios.create({
-  baseURL: 'https://perfect-task-back.onrender.com/api',
-});
+export const setupAxiosInterceptors = (store) => {
+  axiosInstance.interceptors.response.use(
+    (response) => response,
+    async (error) => {
+      if (error.response.status === 401) {
+        try {
+          const { refreshToken } = store.getState().auth;
+          if (refreshToken) {
+            store.dispatch(refresh({ refreshToken }));
+            const { accessToken } = store.getState().auth;
+            error.config.headers.authorization = `Bearer ${accessToken}`;
+          }
 
-const setToken = (token) => {
-  if (token) {
-    return (axiosInstance.defaults.headers.authorization = `Bearer ${token}`);
-  }
-  axiosInstance.defaults.headers.authorization = '';
+          return axios.request(error.config);
+        } catch (error) {
+          store.dispatch(logout());
+          return Promise.reject(error);
+        }
+      }
+      if (error.response.status === 403) {
+        store.dispatch(logout());
+      }
+      return Promise.reject(error);
+    }
+  );
 };
 
-/*global getState, instance*/ // не заберати цей коментар
-axiosInstance.interceptors.response.use(
-  (response) => {
-    console.log('why', response);
-    return response;
-  },
-  async (error) => {
-    console.log('MYYYYYYYYYYYY', error.response.status);
-    if (error.response.status === 401) {
-      console.log('MYYYYYYY_401', error);
-      try {
-        // const dispatch = useDispatch();
-        refresh();
-        // Повторяем запрос с новым токеном
-        return axios(error.config);
-      } catch (error) {
-        // Обрабатываем ошибку обновления токена
-        throw error;
-      }
-
-      // return axiosInstance.request(error.config);
-    }
-    if (error.responce.status === 403) {
-      logout();
-    }
-    return Promise.reject(error);
-  }
-);
-
 export const refreshRequest = async (body) => {
-  const { data } = await axiosInstance.post('/users/refresh', body);
+  const { data } = await axiosInstance.post('/users/refresh', {
+    refreshToken: body,
+  });
   setToken(data.accessToken);
   return data;
 };
 
 export const signupRequest = async (body) => {
   const { data } = await axiosInstance.post('/users/signup', body);
-  setToken(data.accesstoken);
+  setToken(data.accessToken);
   return data;
 };
 
 export const loginRequest = async (body) => {
   const { data } = await axiosInstance.post('/users/signin', body);
-  setToken(data.accesstoken);
+  setToken(data.accessToken);
   return data;
 };
 
@@ -72,28 +62,7 @@ export const currentRequest = async (token) => {
   }
 };
 
-/*--------------------------------------------------------*/
-export const supportRequest = async (token, body) => {
-  setToken(token);
-  const { data } = await axiosInstance.post('/users/support', body);
-  return data;
-};
-/*--------------------------------------------------------*/
-
 export const logoutRequest = async () => {
   const { data } = await axiosInstance.post('/users/logout');
   return data;
-};
-
-export const updateProfileRequest = async (formData) => {
-  try {
-    const { data } = await axiosInstance.patch('/users/update', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
-    return data;
-  } catch (error) {
-    throw new Error(error.message);
-  }
 };

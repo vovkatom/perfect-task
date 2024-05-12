@@ -4,19 +4,44 @@ import BackgroundSet from './BackgroundSet/BackgroundSet';
 import ButtonCreateBoard from './ButtonCreateBoard/ButtonCreateBoard';
 import IconsSelector from './IconSelector/IconsSelector';
 import css from '../CreateBoardForm/CreateBoardForm.module.css';
+import { useEffect, useState } from 'react';
+import { requestBgImages } from '../../../../api/boards-api';
 
 const CreateBoardForm = () => {
-  const { register, handleSubmit } = useForm({ values: { title: '' } });
+  const [bgImages, setBgImages] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleOnSubmit = (data) => {
+  const { register, handleSubmit } = useForm({
+    defaultValues: { title: 'My super board', icon: '', bgImage: '' },
+  });
+
+  const submit = (data) => {
     // Обробка поданих даних форми
     console.log(data);
   };
+
+  useEffect(() => {
+    const fetchBgImagesMin = async () => {
+      try {
+        //setLoading(true);
+        const { data } = await requestBgImages();
+        setBgImages(data);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBgImagesMin();
+  }, []);
+
   return (
     <form
       noValidate
       autoComplete="off"
-      onSubmit={handleSubmit(handleOnSubmit)}
+      onSubmit={handleSubmit(submit)}
       className={css.form}
     >
       <svg width="18" height="18">
@@ -31,9 +56,11 @@ const CreateBoardForm = () => {
       />
 
       <p>Icons</p>
-      <IconsSelector />
+      <IconsSelector register={register} />
       <p>Background</p>
-      <BackgroundSet />
+      {error && <p className={css.error}>{error}</p>}
+      {loading && <p>...Loading</p>}
+      <BackgroundSet register={register} bgImages={bgImages} />
       <ButtonCreateBoard />
     </form>
   );

@@ -3,16 +3,51 @@ import { useState } from 'react';
 import css from './IconsSelector.module.css';
 import Icon from '../../../../Icon/Icon';
 
-const IconsSelector = () => {
+const IconsSelector = ({ register }) => {
   const [selectedIcon, setSelectedIcon] = useState(null);
 
-  const handleIconClick = (selectedIcon) => {
-    setSelectedIcon(selectedIcon);
+  const handleIconClick = (iconId) => {
+    setSelectedIcon(iconId);
   };
 
+  const iconsList = [
+    { iconId: 'icon-Project' },
+    { iconId: 'icon-star-04' },
+    { iconId: 'icon-loading-03' },
+    { iconId: 'icon-puzzle-piece-02' },
+    { iconId: 'icon-container' },
+    { iconId: 'icon-lightning-02' },
+    { iconId: 'icon-colors' },
+    { iconId: 'icon-hexagon-01' },
+  ];
+
+  const icons = iconsList.map(({ iconId }) => (
+    <li
+      key={iconId}
+      className={css.iconContainer}
+      onClick={() => handleIconClick({ iconId })}
+      {...register('icon')}
+    >
+      <Icon
+        className={selectedIcon === iconId ? css.iconSelected : css.icon}
+        id={iconId}
+        width="18"
+        height="18"
+      />
+    </li>
+  ));
+
   return (
-    <ul className={css.iconSet}>
-      <li
+    <>
+      <ul className={css.iconSet}>{icons}</ul>
+    </>
+  );
+};
+
+export default IconsSelector;
+
+{
+  /* <li
         className={css.iconContainer}
         onClick={() => handleIconClick('icon-Project')}
       >
@@ -117,9 +152,5 @@ const IconsSelector = () => {
           width="18"
           height="18"
         />
-      </li>
-    </ul>
-  );
-};
-
-export default IconsSelector;
+      </li> */
+}
