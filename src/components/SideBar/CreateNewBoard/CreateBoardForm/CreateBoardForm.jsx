@@ -16,12 +16,13 @@ const schema = yup.object().shape({
   title: yup.string().required(),
 });
 
-const CreateBoardForm = () => {
+const CreateBoardForm = ({ closeModal }) => {
   const [bgImages, setBgImages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [background, setBackground] = useState(null);
   const [icon, setIcon] = useState(null);
+  //const [isModalOpen, setIsModalOpen] = useState(true);
 
   const dispatch = useDispatch();
 
@@ -54,6 +55,8 @@ const CreateBoardForm = () => {
     const res = await dispatch(addBoard(formData));
 
     console.log(res);
+
+    closeModal();
 
     if (res.type === 'boards/addBoard/fulfilled') {
       return Notify.success("You've successfully created a board! Congrats)");
@@ -99,9 +102,10 @@ const CreateBoardForm = () => {
         placeholder="Title"
         {...register('title')}
       />
-
+      {/* Icon selection */}
       <p>Icons</p>
       <IconsSelector updateIcon={updateIcon} />
+      {/* Background selection */}
       <p>Background</p>
       {error && <p className={css.error}>{error}</p>}
       {loading && <p>...Loading</p>}
