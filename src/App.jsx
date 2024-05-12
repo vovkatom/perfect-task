@@ -37,7 +37,7 @@ const AppRoutes = () => {
           <Route path="welcome" element={<WelcomePage />} />
           <Route path="auth/:id" element={<AuthPage />} />
         </Route>
-        <Route element={<PrivateRoute />}>
+        <Route>
           <Route path="home" element={<HomePage />} />
           <Route path="home/:boardName" element={<ScreensPage />} />
         </Route>
