@@ -1,4 +1,6 @@
 import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
 import BackgroundSet from './BackgroundSet/BackgroundSet';
 import ButtonCreateBoard from './ButtonCreateBoard/ButtonCreateBoard';
@@ -6,26 +8,72 @@ import IconsSelector from './IconSelector/IconsSelector';
 import css from '../CreateBoardForm/CreateBoardForm.module.css';
 import { useEffect, useState } from 'react';
 import { requestBgImages } from '../../../../api/boards-api';
+import { useDispatch } from 'react-redux';
+import { addBoard } from '../../../../redux/userBoard/userBoard-operations';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-const CreateBoardForm = () => {
+const schema = yup.object().shape({
+  title: yup.string().required(),
+});
+
+const CreateBoardForm = ({ closeModal }) => {
   const [bgImages, setBgImages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [background, setBackground] = useState(null);
+  const [icon, setIcon] = useState(null);
+  //const [isModalOpen, setIsModalOpen] = useState(true);
+
+  const dispatch = useDispatch();
 
   const { register, handleSubmit } = useForm({
-    defaultValues: { title: 'My super board', icon: '', bgImage: '' },
+    resolver: yupResolver(schema),
   });
 
-  const submit = (data) => {
+  const updateBg = (background) => {
+    setBackground(background);
+  };
+
+  const updateIcon = (icon) => {
+    setIcon(icon);
+  };
+  console.log(icon);
+
+  console.log(background);
+
+  const submit = async (data) => {
     // Обробка поданих даних форми
-    console.log(data);
+
+    const formData = {
+      title: data.title,
+      icon: icon,
+      background: background,
+    };
+
+    console.log(formData);
+
+    const res = await dispatch(addBoard(formData));
+
+    console.log(res);
+
+    closeModal();
+
+    if (res.type === 'boards/addBoard/fulfilled') {
+      return Notify.success("You've successfully created a board! Congrats)");
+    }
+
+    if (res.error) {
+      console.log(res.error.message);
+      return Notify.failure('Something went wrong. Please try again.');
+    }
   };
 
   useEffect(() => {
     const fetchBgImagesMin = async () => {
       try {
-        //setLoading(true);
-        const { data } = await requestBgImages();
+        setLoading(true);
+        const data = await requestBgImages();
+        console.log(data);
         setBgImages(data);
       } catch (error) {
         setError(error.message);
@@ -54,13 +102,14 @@ const CreateBoardForm = () => {
         placeholder="Title"
         {...register('title')}
       />
-
+      {/* Icon selection */}
       <p>Icons</p>
-      <IconsSelector register={register} />
+      <IconsSelector updateIcon={updateIcon} />
+      {/* Background selection */}
       <p>Background</p>
       {error && <p className={css.error}>{error}</p>}
       {loading && <p>...Loading</p>}
-      <BackgroundSet register={register} bgImages={bgImages} />
+      <BackgroundSet bgImages={bgImages} updateBg={updateBg} />
       <ButtonCreateBoard />
     </form>
   );

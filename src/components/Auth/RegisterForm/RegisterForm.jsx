@@ -3,9 +3,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import PasswordField from '../../PasswordField/PasswordField';
 import InputError from '../../InputError/InputError';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signup } from '../../../redux/auth/auth-operations';
 import { Notify } from 'notiflix';
+import Loader from '../../Loader/Loader';
+import { selectAuthLoading } from '../../../redux/auth/auth-selectors';
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -16,6 +18,7 @@ const schema = yup.object().shape({
 // Компонент RegisterForm відповідає за форму реєстрації нового користувача
 const RegisterForm = ({ formClassName, inputClassName, buttonClassName }) => {
   const dispatch = useDispatch();
+  const loading = useSelector(selectAuthLoading);
 
   const {
     register,
@@ -78,7 +81,7 @@ const RegisterForm = ({ formClassName, inputClassName, buttonClassName }) => {
         />
         <InputError message={errors.password?.message} />
         <button className={buttonClassName} type="submit">
-          Register Now
+          {loading ? <Loader /> : 'Register Now'}
         </button>
       </form>
     </>
