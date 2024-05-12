@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { refresh } from '../redux/auth/auth-operations';
 import { logout } from '../redux/auth/auth-operations';
 import { axiosInstance } from './axios-instance';
@@ -22,7 +23,7 @@ export const setupAxiosInterceptors = (store) => {
           return Promise.reject(error);
         }
       }
-      if (error.responce.status === 403) {
+      if (error.response.status === 403) {
         store.dispatch(logout());
       }
       return Promise.reject(error);
