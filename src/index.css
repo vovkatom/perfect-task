@@ -9,6 +9,7 @@
     url('./assets/fonts/Poppins-Regular.ttf') format('truetype'),
     url('./assets/fonts/Poppins-Medium.ttf') format('truetype'),
     url('./assets/fonts/Poppins-SemiBold.ttf') format('truetype');
+  font-display: swap;
 }
 
 .container {
