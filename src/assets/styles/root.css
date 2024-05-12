@@ -25,6 +25,8 @@
 }
 
 .light {
+  --main-background: #f6f6f7;
+  /*icons*/
   --logo-background: #1f1f1f;
   --logo-fill: #fff;
   --logout-stroke: #bedbb0;
@@ -35,9 +37,13 @@
   --sidebar-border: rgba(22, 22, 22, 0.1);
   --create-button: #bedbb0;
   --plus-fill: #121212;
+  --need-help-background: #f6f6f7;
+  --need-help-span: #bedbb0;
 }
 
 .dark {
+  --main-background: #1f1f1f;
+  /*icons*/
   --logo-background: #1f1f1f;
   --logo-fill: #fff;
   --logout-stroke: #bedbb0;
@@ -48,9 +54,13 @@
   --sidebar-border: rgba(255, 255, 255, 0.1);
   --create-button: #bedbb0;
   --plus-fill: #121212;
+  --need-help-background: #1f1f1f;
+  --need-help-span: #bedbb0;
 }
 
 .violet {
+  --main-background: #ecedfd;
+  /*icons*/
   --logo-background: #ecedfd;
   --logo-fill: #5255bc;
   --logout-stroke: #fff;
@@ -61,6 +71,8 @@
   --sidebar-border: rgba(255, 255, 255, 0.1);
   --create-button: #b8bcfd;
   --plus-fill: #fff;
+  --need-help-background: rgba(236, 237, 253, 0.4);
+  --need-help-span: #5255bc;
 }
 
 .light body,
