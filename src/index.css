@@ -1,5 +1,4 @@
 @import url('./assets/styles/root.css');
-/* @import url('./assets/styles/notiflix-styles.css'); */
 
 @font-face {
   font-family: 'Poppins';
@@ -43,7 +42,6 @@ body {
   font-weight: 400;
   font-size: 14px;
   font-style: normal;
-  color: var(--primary-color-black);
   width: 100%;
   height: 100vh;
   margin: 0;

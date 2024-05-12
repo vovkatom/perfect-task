@@ -9,6 +9,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import rootReducer from './rootReducer';
+import { setupAxiosInterceptors } from '../api/auth-api';
 
 export const store = configureStore({
   reducer: rootReducer,
@@ -20,4 +21,5 @@ export const store = configureStore({
     }),
 });
 
+setupAxiosInterceptors(store);
 export const persistor = persistStore(store);

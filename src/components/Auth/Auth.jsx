@@ -2,8 +2,8 @@ import css from './Auth.module.css';
 import clsx from 'clsx';
 import { useState } from 'react';
 import { useParams } from 'react-router';
-import RegisterForm from '../RegisterForm/RegisterForm';
-import LoginForm from '../LoginForm/LoginForm';
+import RegisterForm from './RegisterForm/RegisterForm';
+import LoginForm from './LoginForm/LoginForm';
 import { Link } from 'react-router-dom';
 
 const Auth = () => {

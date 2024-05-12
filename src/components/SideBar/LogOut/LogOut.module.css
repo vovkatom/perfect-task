@@ -1,11 +1,13 @@
 .btn_logout {
-  font-family: 'Poppins', sans-serif;
   display: flex;
   align-items: center;
+  padding: 0;
   gap: 14px;
+  font-family: 'Poppins', sans-serif;
   outline: none;
   border: none;
   background: none;
-  padding: 0;
   cursor: pointer;
+
+  color: var(--primary-sidebar-text-color);
 }
