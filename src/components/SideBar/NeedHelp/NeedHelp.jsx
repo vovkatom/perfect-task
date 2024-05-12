@@ -39,7 +39,7 @@ const NeedHelp = () => {
         onClose={handleCloseModal}
         title="Need help"
       >
-        <NeedHelpModal />
+        <NeedHelpModal closeModal={handleCloseModal} />
       </CommonModal>
     </div>
   );
