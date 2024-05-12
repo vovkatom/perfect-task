@@ -3,9 +3,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import PasswordField from '../../PasswordField/PasswordField';
 import InputError from '../../InputError/InputError';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../../redux/auth/auth-operations';
 import { Notify } from 'notiflix';
+import Loader from '../../Loader/Loader';
+import { selectAuthLoading } from '../../../redux/auth/auth-selectors';
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -14,6 +16,7 @@ const schema = yup.object().shape({
 
 const LoginForm = ({ formClassName, inputClassName, buttonClassName }) => {
   const dispatch = useDispatch();
+  const loading = useSelector(selectAuthLoading);
 
   const {
     register,
@@ -76,7 +79,7 @@ const LoginForm = ({ formClassName, inputClassName, buttonClassName }) => {
         />
         <InputError message={errors.password?.message} />
         <button className={buttonClassName} type="submit">
-          Log In Now
+        {loading ? <Loader /> : 'Log In Now'}
         </button>
       </form>
     </>
