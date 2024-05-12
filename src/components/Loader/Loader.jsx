@@ -1,23 +1,25 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
-import LoadingBar from 'react-top-loading-bar';
+import { ColorRing } from 'react-loader-spinner';
+import styled from 'styled-components';
+
+const Spinner = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const Loader = () => {
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    setProgress(100);
-  }, []);
-
   return (
-    <div>
-      <LoadingBar
-        color="#7d81ff"
-        height={3}
-        progress={progress}
-        onLoaderFinished={() => setProgress(0)}
+    <Spinner>
+      <ColorRing
+        visible={true}
+        height='32'
+        width='32'
+        ariaLabel='blocks-loading'
+        wrapperStyle={{}}
+        wrapperClass='blocks-wrapper'
+        colors={['#8FA1D0', '#E09CB5', '#f8b26a', '#abbd81', '#849b87']}
       />
-    </div>
+    </Spinner>
   );
 };
 
