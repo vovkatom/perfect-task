@@ -1,3 +1,28 @@
 .list {
+  display: flex;
+  flex-wrap: wrap;
   margin-bottom: 37px;
+  gap: 4px;
+}
+
+.bgItem {
+  border-radius: 7px;
+
+  transition: transform 0.25s ease-in-out;
+}
+
+.bgItem:hover,
+.bgItem:focus {
+  transform: scale(1.2);
+}
+
+.image {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  border: none;
+}
+
+.imageSelected {
+  transform: scale(1.2);
 }

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import NeedHelpModal from './NeedHelpModal/NeedHelpModal';
 import css from '../NeedHelp/NeedHelp.module.css';
 import CommonModal from '../../CommonModal/CommonModal';
-import { ReactComponent as HelpSign } from './help-icon.svg';
+import Icon from '../../Icon/Icon';
 
 const NeedHelp = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,19 +24,22 @@ const NeedHelp = () => {
         <span className={css.perfectTask}>Perfect Task</span>, check out our
         support resources or reach out to our customer support team.
       </p>
-      <p className={css.needHelp}>
-        <Link className={css.link} onClick={handleOpenModal}>
-          <HelpSign />
-          Need help?
-        </Link>
-      </p>
+      <Link className={css.needHelpLink} onClick={handleOpenModal}>
+        <Icon
+          id="icon-help-circle"
+          className={css.iconHelp}
+          width="20"
+          height="20"
+        />
+        Need help?
+      </Link>
 
       <CommonModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         title="Need help"
       >
-        <NeedHelpModal />
+        <NeedHelpModal closeModal={handleCloseModal} />
       </CommonModal>
     </div>
   );

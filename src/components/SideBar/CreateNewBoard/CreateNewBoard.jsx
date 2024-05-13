@@ -2,6 +2,7 @@ import { useState } from 'react';
 import css from '../CreateNewBoard/CreateNewBoard.module.css';
 import CreateBoardForm from './CreateBoardForm/CreateBoardForm';
 import CommonModal from '../../CommonModal/CommonModal';
+import Icon from '../../Icon/Icon';
 
 const CreateNewBoard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,12 +19,21 @@ const CreateNewBoard = () => {
     <>
       <button className={css.button} type="button" onClick={handleOpenModal}>
         <p className={css.buttonTitle}>Create a new board</p>
-        <div className={css.buttonIcon}>
-          <p className={css.buttonPlus}>+</p>
+        <div className={css.buttonPlus}>
+          <Icon
+            id="icon-plus"
+            className={css.iconPlus}
+            width="20"
+            height="20"
+          />
         </div>
       </button>
-      <CommonModal isOpen={isModalOpen} onClose={handleCloseModal}>
-        <CreateBoardForm />
+      <CommonModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        title="New board"
+      >
+        <CreateBoardForm closeModal={handleCloseModal} />
       </CommonModal>
     </>
   );

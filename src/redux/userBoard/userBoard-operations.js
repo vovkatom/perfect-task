@@ -1,3 +1,4 @@
+
 //redux operation
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
@@ -54,11 +55,13 @@ export const editBoard = createAsyncThunk(
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
+
     }
   }
 );
 
 export const deleteBoard = createAsyncThunk(
+
   'boards/delete',
   async (boardId, { rejectWithValue }) => {
     try {
@@ -66,6 +69,7 @@ export const deleteBoard = createAsyncThunk(
       return boardId;
     } catch (error) {
       return rejectWithValue(error.message);
+
     }
   }
 );
@@ -82,6 +86,7 @@ export const fetchColumns = createAsyncThunk(
         auth.accessToken
       );
       return data;
+
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -92,13 +97,16 @@ export const addColumn = createAsyncThunk(
   'columns/add',
   async ({ boardId, body }, { rejectWithValue }) => {
     try {
+
       const { data } = await boardsApi.requestAddColumn(boardId, body);
       return data;
+
     } catch (error) {
       return rejectWithValue(error.message);
     }
   }
 );
+
 
 export const editColumn = createAsyncThunk(
   'columns/put',
@@ -122,11 +130,13 @@ export const deleteColumn = createAsyncThunk(
     try {
       await boardsApi.requestDeleteColumn(boardId, columnId);
       return columnId;
+
     } catch (error) {
       return rejectWithValue(error.message);
     }
   }
 );
+
 
 //task--------------------------------------------
 
@@ -138,6 +148,7 @@ export const addTaskRequest = createAsyncThunk(
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
+
     }
   }
 );
@@ -146,13 +157,16 @@ export const editTask = createAsyncThunk(
   'tasks/put',
   async ({ columnId, taskId, body }, { rejectWithValue }) => {
     try {
+
       const { data } = await boardsApi.updateTaskById(columnId, taskId, body);
       return data;
+
     } catch (error) {
       return rejectWithValue(error.message);
     }
   }
 );
+
 
 export const deleteTaskById = createAsyncThunk(
   'Tasks/delete',
@@ -160,11 +174,13 @@ export const deleteTaskById = createAsyncThunk(
     try {
       await boardsApi.requestDeleteTaskById(columnId, taskId);
       return taskId;
+
     } catch (error) {
       return rejectWithValue(error.message);
     }
   }
 );
+
 
 // import { createAsyncThunk } from '@reduxjs/toolkit';
 // import * as dashboardsApi from '../../api/boards-api';
@@ -418,3 +434,4 @@ export const deleteTaskById = createAsyncThunk(
 // //     }
 // //   }
 // // );
+

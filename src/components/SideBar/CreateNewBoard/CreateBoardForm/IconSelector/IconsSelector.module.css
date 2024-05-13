@@ -4,23 +4,28 @@
   margin-bottom: 24px;
 }
 
-.iconContainer {
-  margin-top: 14px;
-}
-
 .icon {
-  stroke-width: 3px;
-  stroke: #16161680;
-  fill: transparent;
+  stroke: var(--modal-main);
+  stroke-opacity: 0.5;
+  stroke-width: 2;
+
+  fill: none;
   transform: scale(1);
+
+  transition:
+    transform 0.25s ease-in-out,
+    stroke-opacity 0.25s ease-in-out;
 }
 
-.icon:hover {
+.icon:hover,
+.icon:focus {
   transform: scale(1.3);
+  stroke-opacity: 1;
 }
 
 .iconSelected {
-  background-color: var(--primary-color-light-green);
-  transform: scale(1.2);
-  border-radius: 5px;
+  transform: scale(1.3);
+  stroke-opacity: 1;
+  stroke: var(--modal-main);
+  fill: none;
 }

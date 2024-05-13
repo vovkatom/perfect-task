@@ -2,6 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import Notiflix from 'notiflix';
 import {
+
 fetchRequestAllBoards,
 addBoard,
 editBoard,
@@ -23,6 +24,7 @@ import { pending, rejected } from '../../redux/userBoard/slice-function';
 
 
 
+
 const initialState = {
   items: [],
   isLoading: false,
@@ -32,6 +34,7 @@ const initialState = {
 
 const BoardSlice = createSlice({
   name: 'boards',
+
   initialState,
   extraReducers: builder => {
     builder
@@ -50,6 +53,7 @@ const BoardSlice = createSlice({
           `Dashboard with title ${payload.title} has been added`
         );
       })
+
       .addCase(addBoard.rejected, rejected)
 
       .addCase(editBoard.pending, pending)
@@ -70,6 +74,7 @@ const BoardSlice = createSlice({
 
       .addCase(deleteBoard.pending, pending)
       .addCase(deleteBoard.fulfilled, (state, { payload }) => {
+
         state.isLoading = false;
         const deleteObject = state.items.findIndex(
           item => item._id === payload
@@ -82,6 +87,7 @@ const BoardSlice = createSlice({
           );
         }
       })
+
       .addCase(deleteBoard.rejected, rejected);
   },
 });
@@ -474,3 +480,4 @@ export default TaskSlice.reducer;
 // export const filterReducer = filterSlice.reducer;
 
 // export const { addFilter } = filterSlice.actions;
+

@@ -4,12 +4,12 @@
   top: 60px;
   width: 225px;
   padding: 14px;
-  background-color: var(--primary-color-white);
-  height: 100%;
+  background-color: var(--sidebar-background);
+  height: 100vh;
 }
 
 .sidebar {
-  background-color: var(--primary-color-white);
+  background-color: var(--sidebar-background);
 }
 
 @media only screen and (min-width: 768px) {
@@ -28,7 +28,7 @@
 }
 
 .myBoardsTitle {
-  color: #16161680;
+  color: var(--secondary-sidebar-text-color);
   font-weight: 400;
   font-size: 12px;
   margin-bottom: 8px;

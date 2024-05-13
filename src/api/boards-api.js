@@ -1,4 +1,5 @@
 
+
 import { axiosInstance } from './axios-instance';
 import { setToken } from './axios-instance';
 
@@ -16,10 +17,12 @@ export const requestAllBoards = async token => {
 };
 
 
+
 export const requestBoardById = async (boardId, token) => {
 setToken(token);
   try {
   const  data  = await axiosInstance.get(`/boards/${boardId}`);
+
   return { data };
  } catch (error) {
     setToken();
@@ -44,6 +47,7 @@ export const requestDeleteBoardById = async (boardId) => {
   return await axiosInstance.delete(`/boards/${boardId}`);
   
 };
+
 
 
 
@@ -115,3 +119,4 @@ export const requestDeleteTaskById= async (columnId, taskId) => {
 //   const { data } = await axiosInstance.put(`/boards/${id}`);
 //   return { data };
 // };
+

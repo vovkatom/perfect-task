@@ -2,10 +2,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   signupRequest,
   loginRequest,
-  supportRequest,
   currentRequest,
   logoutRequest,
   refreshRequest,
+  googleLogin,
   updateProfileRequest,
 } from '../../api/auth-api';
 
@@ -32,20 +32,6 @@ export const login = createAsyncThunk(
     }
   }
 );
-
-/*--------------------------------------------------------------------------------*/
-export const support = createAsyncThunk(
-  'auth/support',
-  async (body, { rejectWithValue }) => {
-    try {
-      const data = await supportRequest(body);
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.response.data.message);
-    }
-  }
-);
-/*--------------------------------------------------------------------------------*/
 
 export const current = createAsyncThunk(
   'auth/current',
@@ -84,17 +70,21 @@ export const refresh = createAsyncThunk(
   'auth/refresh',
   async (_, { rejectWithValue, getState }) => {
     try {
-      console.log('refresh');
       const { auth } = getState();
-      const refreshToken = auth.refreshToken;
-      const response = await refreshRequest(JSON.stringify({ refreshToken }));
-      console.log('first', response);
-      if (!response.ok) {
-        throw new Error('Falied to refresh token');
-      }
-      // const data = await response;
-      console.log('ASYNKKKKK', response);
-      return response.data;
+      const data = await refreshRequest(auth.refreshToken);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+export const googleLog = createAsyncThunk(
+  'auth/googleLogin',
+  async (body, { rejectWithValue, getState }) => {
+    try {
+      const data = await googleLogin(body);
+      return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
     }
@@ -102,13 +92,16 @@ export const refresh = createAsyncThunk(
 );
 
 export const updateProfile = createAsyncThunk(
-  'users/update',
-  async (formData, thunkAPI) => {
+  'user/update',
+  async (formData, { rejectWithValue, getState }) => {
     try {
+      const { accessToken } = getState();
+      await currentRequest(accessToken);
+
       const data = await updateProfileRequest(formData);
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message);
     }
   }
 );

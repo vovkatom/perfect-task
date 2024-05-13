@@ -4,13 +4,14 @@ import {
   current,
   login,
   signup,
-  support,
   logout,
   refresh,
+  googleLog,
+  updateProfile,
 } from './auth-operations';
 
 const initialState = {
-  user: {}, //"name" & "email"
+  user: {},
   accessToken: '',
   refreshToken: '',
   isLogin: false,
@@ -58,15 +59,6 @@ const authSlice = createSlice({
         state.refreshToken = '';
         state.isLogin = false;
       })
-      /*--------------------------------------------------------*/
-      .addCase(support.pending, pending)
-      .addCase(support.fulfilled, (state) => {
-        state.isLoading = false;
-        state.isLogin = true;
-        state.error = null;
-      })
-      .addCase(support.rejected, rejected)
-      /*--------------------------------------------------------*/
       .addCase(logout.pending, pending)
       .addCase(logout.fulfilled, (state) => {
         state.user = {};
@@ -90,7 +82,28 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.accessToken = '';
         state.refreshToken = '';
-      });
+      })
+      .addCase(googleLog.pending, pending)
+      .addCase(googleLog.fulfilled, (state, { payload }) => {
+        state.user = payload.user;
+        state.accessToken = payload.accessToken;
+        state.refreshToken = payload.refreshToken;
+        state.isLogin = true;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(googleLog.rejected, rejected)
+      .addCase(updateProfile.pending, pending)
+      .addCase(updateProfile.fulfilled, (state, { payload }) => {
+        state.user = payload.user;
+        state.isLoading = false;
+        state.isUpdate = true;
+        state.isMessageSend = false;
+        state.error = null;
+      })
+    
+      .addCase(updateProfile.rejected, rejected);
+
   },
 });
 

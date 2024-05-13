@@ -1,4 +1,4 @@
-import React from 'react';
+
 import css from '../../ScreensPage/HeaderDashboard';
 
 
@@ -7,6 +7,7 @@ const HeaderDashboard = ({ boardName }) => {
     <div className={css.headerDashSection}>
       <h3 className={css.titleDashboard}>{boardName}</h3>
     </div>
+
   );
 };
 

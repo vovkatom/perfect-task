@@ -11,11 +11,26 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-  color: var(--color-black-background);
+  color: var(--board-secondary);
+}
+
+.mainContainer {
+  width: 100vw;
+  height: 100vh;
+  margin-top: 60px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 @media screen and (min-width: 768px) {
   .container {
+    width: 100%;
+    width: 486px;
+  }
+
+  .mainContainer {
     width: 100%;
     width: 486px;
   }
@@ -25,8 +40,21 @@
   .container {
     padding-top: 281px;
   }
+
+  .mainContainer {
+    padding-top: 281px;
+  }
 }
 
 .button_create {
-  color: #bedbb0;
+  color: var(--board-accent);
+  background-color: transparent;
+  border: none;
+
+  transition: color 0.25s ease-in-out;
+}
+
+.button_create:hover,
+.button_create:focus {
+  color: var(--main-hover);
 }
