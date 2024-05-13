@@ -71,6 +71,8 @@ export const refresh = createAsyncThunk(
   async (_, { rejectWithValue, getState }) => {
     try {
       const { auth } = getState();
+      // const { accessToken } = getState();
+      // await currentRequest(accessToken);
       const data = await refreshRequest(auth.refreshToken);
       return data;
     } catch (error) {
@@ -92,13 +94,43 @@ export const googleLog = createAsyncThunk(
 );
 
 export const updateProfile = createAsyncThunk(
-  'user/update',
+  'auth/update',
   async (formData, { rejectWithValue, getState }) => {
     try {
       const { accessToken } = getState();
       await currentRequest(accessToken);
+      console.log('accessToken:', accessToken)
 
       const data = await updateProfileRequest(formData);
+      return data;
+    } catch (error) {
+      
+      return rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+
+
+// export const refreshAndFetchCurrent = () => async (dispatch, { rejectWithValue, getState }) => {
+//   try {
+//     await dispatch(refresh());
+//     const { auth } = getState();
+//     await dispatch(current(auth.accessToken));
+//   } catch (error) {
+//     return rejectWithValue(error.response.data.message);
+//   }
+// };
+
+// import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+
+export const refreshAndFetchCurrent = createAsyncThunk(
+  'auth/refreshAndFetchCurrent',
+  async (_, { rejectWithValue, dispatch, getState }) => {
+    try {
+      await dispatch(refresh());
+      const { auth } = getState();
+      const data = await dispatch(current(auth.accessToken));
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);

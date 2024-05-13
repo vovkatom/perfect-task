@@ -5,10 +5,12 @@ import {
   login,
   signup,
   logout,
-  refresh,
+  // refresh,
   googleLog,
   updateProfile,
+  refreshAndFetchCurrent
 } from './auth-operations';
+import { Notify } from 'notiflix';
 
 const initialState = {
   user: {},
@@ -69,8 +71,8 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(logout.rejected, rejected)
-      .addCase(refresh.pending, pending)
-      .addCase(refresh.fulfilled, (state, { payload }) => {
+      .addCase(refreshAndFetchCurrent.pending, pending)
+      .addCase(refreshAndFetchCurrent.fulfilled, (state, { payload }) => {
         state.user = payload.user;
         state.accessToken = payload.accessToken;
         state.refreshToken = payload.refreshToken;
@@ -78,7 +80,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(refresh.rejected, (state) => {
+      .addCase(refreshAndFetchCurrent.rejected, (state) => {
         state.isLoading = false;
         state.accessToken = '';
         state.refreshToken = '';
@@ -97,12 +99,19 @@ const authSlice = createSlice({
       .addCase(updateProfile.fulfilled, (state, { payload }) => {
         state.user = payload.user;
         state.isLoading = false;
+        Notify.success('Profile updated successfully');
         state.isUpdate = true;
         state.isMessageSend = false;
         state.error = null;
       })
     
-      .addCase(updateProfile.rejected, rejected);
+      .addCase(updateProfile.rejected, (state, { payload }) => {
+        state.error=payload
+        state.isUpdate = true;
+        Notify.failure('Server error. Please try again.');
+        state.isMessageSend = false;
+        
+      });
 
   },
 });
