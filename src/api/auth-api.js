@@ -24,7 +24,7 @@ export const setupAxiosInterceptors = (store) => {
         }
       }
       if (error.response.status === 403) {
-        store.dispatch(logout());
+        // store.dispatch(logout());
       }
       return Promise.reject(error);
     }
@@ -87,6 +87,8 @@ export const updateProfileRequest = async (formData) => {
     });
     return data;
   // } catch (error) {
+
+
   //   throw error;
   // }
 };
