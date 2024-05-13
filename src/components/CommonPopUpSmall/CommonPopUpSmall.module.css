@@ -42,7 +42,7 @@
 }
 
 .popUpBtn {
-  color: var(--primary-color-black);
+  color: var(--popup-item-color);
   background-color: transparent;
   border: none;
 
@@ -55,5 +55,5 @@
 
 .popUpBtn:hover,
 .popUpBtn:focus {
-  color: var(--primary-color-light-green);
+  color: var(--popup-accent-color);
 }

@@ -38,6 +38,7 @@
   --sidebar-border: rgba(22, 22, 22, 0.1);
   --create-button: #bedbb0;
   --plus-fill: #121212;
+  --sidebar-plus-hover: #9dc888;
   --need-help-background: #f6f6f7;
   --need-help-span: #bedbb0;
   /*header*/
@@ -50,6 +51,12 @@
   /*pop-up & modal*/
   --popup-primary-background: #fcfcfc;
   --popup-border: #bedbb0;
+  --popup-item-color: #161616;
+  --popup-accent-color: #bedbb0;
+  --modal-main: #161616;
+  --modal-button-create: #161616;
+  --modal-plus-icon: #fff;
+  --modal-button-hover: #9dc888;
 }
 
 .dark {
@@ -66,6 +73,7 @@
   --sidebar-border: rgba(255, 255, 255, 0.1);
   --create-button: #bedbb0;
   --plus-fill: #121212;
+  --sidebar-plus-hover: #9dc888;
   --need-help-background: #1f1f1f;
   --need-help-span: #bedbb0;
   /*header*/
@@ -78,6 +86,12 @@
   /*pop-up & modal*/
   --popup-primary-background: #151515;
   --popup-border: #bedbb0;
+  --popup-item-color: rgba(255, 255, 255, 0.5);
+  --popup-accent-color: #bedbb0;
+  --modal-main: #fff;
+  --modal-button-create: #161616;
+  --modal-plus-icon: #fff;
+  --modal-button-hover: #9dc888;
 }
 
 .violet {
@@ -94,6 +108,7 @@
   --sidebar-border: rgba(255, 255, 255, 0.1);
   --create-button: #b8bcfd;
   --plus-fill: #fff;
+  --sidebar-plus-hover: #979cea;
   --need-help-background: rgba(236, 237, 253, 0.4);
   --need-help-span: #5255bc;
   /*header*/
@@ -106,6 +121,12 @@
   /*pop-up & modal*/
   --popup-primary-background: #fcfcfc;
   --popup-border: #ecedfd;
+  --popup-item-color: #161616;
+  --popup-accent-color: #5255bc;
+  --modal-main: #161616;
+  --modal-button-create: #fff;
+  --modal-plus-icon: #161616;
+  --modal-button-hover: #7b7ede;
 }
 
 .light body,

@@ -8,7 +8,7 @@ import { boardsReducer } from './userBoard/userBoard-slice';
 const persistConfig = {
   key: 'root',
   storage,
-  // whitelist: ['accessToken', 'refreshToken', 'user'],
+  whitelist: ['accessToken', 'refreshToken', 'user'],
 };
 
 const persistAuthReducer = persistReducer(persistConfig, authReducer);

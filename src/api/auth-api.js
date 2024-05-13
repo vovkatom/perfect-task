@@ -12,7 +12,7 @@ export const setupAxiosInterceptors = (store) => {
         try {
           const { refreshToken } = store.getState().auth;
           if (refreshToken) {
-            store.dispatch(refresh({ refreshToken }));
+            await store.dispatch(refresh({ refreshToken }));
             const { accessToken } = store.getState().auth;
             error.config.headers.authorization = `Bearer ${accessToken}`;
           }
@@ -68,7 +68,6 @@ export const logoutRequest = async () => {
 };
 
 export const googleLogin = async (token) => {
-  console.log('api', token);
   setToken(token);
   try {
     const { data } = await axiosInstance.get('/users/current');
@@ -88,6 +87,6 @@ export const updateProfileRequest = async (formData) => {
     });
     return data;
   } catch (error) {
-    throw new Error(error.message);
+    throw error;
   }
 };

@@ -1,11 +1,44 @@
 .buttonCreate {
-  width: 100%;
-  height: 49px;
   display: flex;
-  gap: 3.5px;
   align-items: center;
   justify-content: center;
-  background-color: var(--primary-color-light-green);
+  gap: 8px;
+
+  width: 100%;
+  height: 49px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--popup-accent-color);
+  color: var(--modal-button-create);
+
+  transition: background-color 0.25s ease-in-out;
+}
+
+.buttonCreate:hover,
+.buttonCreate:focus {
+  background-color: var(--modal-button-hover);
+}
+
+/* .icon {
+  stroke: var(--modal-main);
+  fill: var(--modal-button-create);
+  border-radius: 6px;
+  border: none;
+} */
+
+.buttonPlus {
+  display: flex;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--modal-button-create);
+}
+
+.iconPlus {
+  stroke: var(--modal-plus-icon);
+  fill: none;
   border: none;
   border-radius: 8px;
 }

@@ -36,9 +36,9 @@ const CreateBoardForm = ({ closeModal }) => {
   const updateIcon = (icon) => {
     setIcon(icon);
   };
-  console.log(icon);
+  // console.log(icon);
 
-  console.log(background);
+  // console.log(background);
 
   const submit = async (data) => {
     // Обробка поданих даних форми
@@ -49,11 +49,11 @@ const CreateBoardForm = ({ closeModal }) => {
       background: background,
     };
 
-    console.log(formData);
+    // console.log(formData);
 
     const res = await dispatch(addBoard(formData));
 
-    console.log(res);
+    // console.log(res);
 
     closeModal();
 
@@ -91,10 +91,6 @@ const CreateBoardForm = ({ closeModal }) => {
       onSubmit={handleSubmit(submit)}
       className={css.form}
     >
-      <svg width="18" height="18">
-        icon close
-      </svg>
-      <p className={css.newBoard}>New board</p>
       <input
         className={css.input}
         type="text"
@@ -102,10 +98,10 @@ const CreateBoardForm = ({ closeModal }) => {
         {...register('title')}
       />
       {/* Icon selection */}
-      <p>Icons</p>
+      <p className={css.categoryName}>Icons</p>
       <IconsSelector updateIcon={updateIcon} />
       {/* Background selection */}
-      <p>Background</p>
+      <p className={css.categoryName}>Background</p>
       {error && <p className={css.error}>{error}</p>}
       {loading && <p>...Loading</p>}
       <BackgroundSet bgImages={bgImages} updateBg={updateBg} />

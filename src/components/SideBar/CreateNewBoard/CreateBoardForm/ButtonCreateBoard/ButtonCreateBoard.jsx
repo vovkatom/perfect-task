@@ -4,7 +4,9 @@ import Icon from '../../../../Icon/Icon';
 const ButtonCreateBoard = () => {
   return (
     <button type="submit" className={css.buttonCreate}>
-      <Icon className={css.icon} id="icon-plus" width="28" height="28" />
+      <div className={css.buttonPlus}>
+        <Icon id="icon-plus" className={css.iconPlus} width="14" height="14" />
+      </div>
       <p className={css.textButton}>Create</p>
     </button>
   );
