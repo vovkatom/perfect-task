@@ -20,7 +20,6 @@ const CreateNewBoard = () => {
       <button className={css.button} type="button" onClick={handleOpenModal}>
         <p className={css.buttonTitle}>Create a new board</p>
         <div className={css.buttonPlus}>
-          {/* <p className={css.buttonPlus}>+</p> */}
           <Icon
             id="icon-plus"
             className={css.iconPlus}

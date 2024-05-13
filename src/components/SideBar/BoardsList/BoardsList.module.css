@@ -4,6 +4,15 @@
   min-height: 61px;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
+  color: #16161680;
+}
+
+.boardContainer:active {
+  width: 100%;
+  color: black;
+  background-color: var(--color-light-background);
+  border-right: 4px solid var(--primary-color-light-green);
 }
 
 .box1 {
@@ -16,8 +25,12 @@
 }
 
 .icon {
-  stroke: 1.3 #16161680;
-  color: transparent;
+  background-color: white;
+  fill: #16161680;
+  stroke: 1.3 solid #16161680;
+}
+.icon:hover {
+  transform: scale(1.3);
 }
 
 button {

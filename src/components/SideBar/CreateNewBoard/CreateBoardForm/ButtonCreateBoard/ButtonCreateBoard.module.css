@@ -12,7 +12,9 @@
 
 .icon {
   stroke: white;
+  border: 1px;
   background-color: black;
+  border-radius: 8px;
 }
 
 .textButton {

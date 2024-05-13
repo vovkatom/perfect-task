@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectBoards } from '../../../redux/userBoard/userBoard-selectors';
 import Icon from '../../Icon/Icon';
 import { deleteBoard } from '../../../redux/userBoard/userBoard-operations';
-import { updateBoardById } from '../../../api/boards-api';
+import { updateBoardById } from '../../../redux/userBoard/userBoard-operations';
 
 const BoardsList = () => {
   const boards = useSelector(selectBoards);
 
-  const boardsList = boards.map(({ title, icon, id }) => {
+  const boardsList = boards.map(({ title, icon, _id }) => {
     return (
       <li key={title} className={css.boardContainer}>
         <div className={css.box1}>
@@ -19,7 +19,7 @@ const BoardsList = () => {
           <button
             type="button"
             className={css.updateButton}
-            onClick={() => dispatch(updateBoardById(id))}
+            onClick={() => dispatch(updateBoardById(_id))}
           >
             <Icon
               className={css.icon}
@@ -31,7 +31,7 @@ const BoardsList = () => {
           <button
             type="button"
             className={css.deleteButton}
-            onClick={() => dispatch(deleteBoard(id))}
+            onClick={() => dispatch(deleteBoard(_id))}
           >
             <Icon
               className={css.icon}
