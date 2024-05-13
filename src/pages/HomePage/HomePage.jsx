@@ -4,10 +4,13 @@ import Header from '../../components/Header/Header';
 import SideBar from '../../components/SideBar/SideBar';
 import ScreensPage from '../ScreensPage/ScreensPage';
 import css from './HomePage.module.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { googleLog } from '../../redux/auth/auth-operations';
+import { selectIsLoading } from '../../redux/userBoard/userBoard-selectors';
+import Loader from '../../components/Loader/Loader';
 
 const HomePage = () => {
+  const isLoading = useSelector(selectIsLoading);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const queryString = window.location.search;
@@ -26,6 +29,7 @@ const HomePage = () => {
   };
   return (
     <>
+      {isLoading && <Loader />}
       <Header toggleSidebar={toggleSidebar} />
       <div className={css.background}>
         {isSidebarOpen && <SideBar />}
