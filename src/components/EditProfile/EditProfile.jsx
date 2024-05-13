@@ -7,8 +7,9 @@ import PasswordField from '../PasswordField/PasswordField';
 import InputError from '../InputError/InputError';
 import sprite from '../../assets/img/icon.svg';
 import { updateProfile } from '../../redux/auth/auth-operations';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Notify } from 'notiflix';
+import { selectIsUpdate } from '../../redux/auth/auth-selectors';
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -18,6 +19,8 @@ const schema = yup.object().shape({
 
 const EditProfileForm = ({ user, onCloseModal }) => {
   const dispatch = useDispatch();
+  const isUpdate = useSelector(selectIsUpdate); 
+
   const [avatarFile, setAvatarFile] = useState(null);
   const {
     register,
@@ -31,28 +34,32 @@ const EditProfileForm = ({ user, onCloseModal }) => {
   const handleAvatarChange = e => {
     const file = e.target.files[0];
     setAvatarFile(file);
+    
   };
 
   const onSubmit = async data => {
-    try {
-      const formData = new FormData();
-      formData.append('avatarURL', avatarFile);
-      formData.append('name', data.name);
-      formData.append('email', data.email);
-      formData.append('password', data.password);
-      onCloseModal();
-      await dispatch(updateProfile(formData));
-      Notify.success('Profile updated successfully');
-    } catch (error) {
-      return Notify.failure('Server error. Please try again.');
-    }
+    const formData = new FormData();
+    formData.append('avatarURL', avatarFile);
+    formData.append('name', data.name);
+    formData.append('email', data.email);
+    formData.append('password', data.password);
+
+    dispatch(updateProfile(formData));
+    //     if (isUpdate) {
+    //       Notify.success('Profile updated successfully');
+         
+    // } else {
+    //   Notify.failure('Server error. Please try again.');
+    // }
+    onCloseModal();
   };
+
 
   return (
     <form className={css.profileForm} onSubmit={handleSubmit(onSubmit)}>
       <div className={css.avatar}>
         <img
-          src={avatarFile ? URL.createObjectURL(avatarFile) : user.avatarURL}
+          src={avatarFile ? URL.createObjectURL(avatarFile) : (user && user.avatarURL)}
           alt='avatar'
         />
 
