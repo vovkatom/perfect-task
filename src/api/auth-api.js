@@ -88,6 +88,6 @@ export const updateProfileRequest = async (formData) => {
     });
     return data;
   } catch (error) {
-    throw new Error(error.message);
+    throw error;
   }
 };
