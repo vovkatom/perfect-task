@@ -1,0 +1,1 @@
+import{j as s}from"./index-1c336ee2.js";const c="/perfect-task/assets/icon-c0bb3d18.svg",a=({id:e,className:r,width:t,height:n})=>s.jsx(s.Fragment,{children:s.jsx("svg",{className:r,width:t,height:n,children:s.jsx("use",{href:`${c}#${e}`})})});export{a as I,c as s};
