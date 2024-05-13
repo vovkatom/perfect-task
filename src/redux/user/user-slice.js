@@ -22,15 +22,15 @@ const userSlice = createSlice({
         state.isMessageSend = true;
         state.error = null;
       })
-      .addCase(support.rejected, rejected)
-      // .addCase(updateProfile.pending, pending)
-      // .addCase(updateProfile.fulfilled, (state) => {
-      //   state.isLoading = false;
-      //   state.isUpdate = true;
-      //   state.isMessageSend = false;
-      //   state.error = null;
-      // })
-      // .addCase(updateProfile.rejected, rejected);
+      .addCase(support.rejected, rejected);
+    // .addCase(updateProfile.pending, pending)
+    // .addCase(updateProfile.fulfilled, (state) => {
+    //   state.isLoading = false;
+    //   state.isUpdate = true;
+    //   state.isMessageSend = false;
+    //   state.error = null;
+    // })
+    // .addCase(updateProfile.rejected, rejected);
   },
 });
 

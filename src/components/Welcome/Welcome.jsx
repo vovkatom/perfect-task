@@ -10,67 +10,69 @@ import Icon from '../Icon/Icon';
 
 const Welcome = () => {
   return (
-    <div className={css.background}>
-      <Container className='welcome-page'>
-        <div className={css.mainBox}>
-          <img
-            className={css.logoAvatar}
-            srcSet={`
+    <>
+      <div className={css.background}>
+        <Container className="welcome-page">
+          <div className={css.mainBox}>
+            <img
+              className={css.logoAvatar}
+              srcSet={`
               ${UserAvatarMobile} 124w,
               ${UserAvatarMobile2x} 248w,
               ${UserAvatarDesktop} 162w,
               ${UserAvatarDesktop2x} 324w
               `}
-            sizes='
+              sizes="
               (min-width: 1200px) 162px,
               (min-width: 768px) 162px,
               (min-width: 375px) 124px
-              '
-            src={`${UserAvatarMobile}`}
-            alt='Task Pro avatar'
-            width='124'
-            height='124'
-          />
-          <div className={css.logoIconBox}>
-            <Icon
-              className={css.logoIcon}
-              id='icon-logo2'
-              width='40'
-              height='40'
+              "
+              src={`${UserAvatarMobile}`}
+              alt="Task Pro avatar"
+              width="124"
+              height="124"
             />
-            <h1 className={css.header}>Perfect Task</h1>
-          </div>
-          <p className={css.paragraph}>
-            Supercharge your productivity and take control of your tasks with
-            Task Pro - Don&apos;t wait, start achieving your goals now!
-          </p>
-          <Link to='/auth/register' className={css.buttonLink}>
-            <button className={css.registrationBtn} type='button'>
-              Registration
-            </button>
-          </Link>
-          <div className={css.authBox}>
-            <Link to='/auth/login'>
-              <button className={css.loginBtn} type='button'>
-                Log In
+            <div className={css.logoIconBox}>
+              <Icon
+                className={css.logoIcon}
+                id="icon-logo-welcome"
+                width="40"
+                height="40"
+              />
+              <h1 className={css.header}>Perfect Task</h1>
+            </div>
+            <p className={css.paragraph}>
+              Supercharge your productivity and take control of your tasks with
+              Perfect Task - Don&apos;t wait, start achieving your goals now!
+            </p>
+            <Link to="/auth/register" className={css.buttonLink}>
+              <button className={css.registrationBtn} type="button">
+                Registration
               </button>
             </Link>
-            <a
-              className={css.googleBtn}
-              href='https://perfect-task-back.onrender.com/api/users/google'
-              aria-label='Registration by using Google'
-            >
-              <Icon
-                id='google'
-                className={css.googleIcon}
-                width='20'
-                height='20'
-              />
-            </a>
+            <div className={css.authBox}>
+              <Link to="/auth/login">
+                <button className={css.loginBtn} type="button">
+                  Log In
+                </button>
+              </Link>
+              <a
+                className={css.googleBtn}
+                href="https://perfect-task-back.onrender.com/api/users/google"
+                aria-label="Registration by using Google"
+              >
+                <Icon
+                  id="google"
+                  className={css.googleIcon}
+                  width="20"
+                  height="20"
+                />
+              </a>
+            </div>
           </div>
-        </div>
-      </Container>
-    </div>
+        </Container>
+      </div>
+    </>
   );
 };
 
