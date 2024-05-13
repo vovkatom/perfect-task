@@ -5,9 +5,10 @@ import {
   login,
   signup,
   logout,
-  refresh,
+  // refresh,
   googleLog,
   updateProfile,
+  refreshAndFetchCurrent
 } from './auth-operations';
 import { Notify } from 'notiflix';
 
@@ -70,8 +71,8 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(logout.rejected, rejected)
-      .addCase(refresh.pending, pending)
-      .addCase(refresh.fulfilled, (state, { payload }) => {
+      .addCase(refreshAndFetchCurrent.pending, pending)
+      .addCase(refreshAndFetchCurrent.fulfilled, (state, { payload }) => {
         state.user = payload.user;
         state.accessToken = payload.accessToken;
         state.refreshToken = payload.refreshToken;
@@ -79,7 +80,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(refresh.rejected, (state) => {
+      .addCase(refreshAndFetchCurrent.rejected, (state) => {
         state.isLoading = false;
         state.accessToken = '';
         state.refreshToken = '';
