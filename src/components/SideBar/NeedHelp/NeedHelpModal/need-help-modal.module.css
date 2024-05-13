@@ -20,14 +20,14 @@ form {
 .modalControl {
   width: 287px;
   border-radius: 8px;
-  border: 1px solid;
+  border: 1px solid var(--primary-color-light-green);
   margin-bottom: 14px;
   padding: 14px 18px;
 }
 .modalControlText {
   width: 287px;
   border-radius: 8px;
-  border: 1px solid;
+  border: 1px solid var(--primary-color-light-green);
   padding: 14px 18px;
 }
 
