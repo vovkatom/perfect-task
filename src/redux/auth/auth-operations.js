@@ -92,13 +92,13 @@ export const googleLog = createAsyncThunk(
 );
 
 export const updateProfile = createAsyncThunk(
-  'auth/update',
-  async (formData, { rejectWithValue }) => {
+  'user/update',
+  async (formData, { rejectWithValue, getState }) => {
     try {
-      await thunkAPI.dispatch(current());
+      const { accessToken } = getState();
+      await currentRequest(accessToken);
 
       const data = await updateProfileRequest(formData);
-
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
