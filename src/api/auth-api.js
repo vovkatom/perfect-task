@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { refresh } from '../redux/auth/auth-operations';
 import { logout } from '../redux/auth/auth-operations';
-import { axiosInstance } from './axios-instance';
-import { setToken } from './axios-instance';
 
 export const setupAxiosInterceptors = (store) => {
   axiosInstance.interceptors.response.use(
