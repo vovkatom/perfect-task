@@ -68,7 +68,6 @@ export const logoutRequest = async () => {
 };
 
 export const googleLogin = async (token) => {
-  console.log('api', token);
   setToken(token);
   try {
     const { data } = await axiosInstance.get('/users/current');
