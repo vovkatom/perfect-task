@@ -1,25 +1,51 @@
+// import { useState } from 'react';
+
 import css from './BoardsList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectBoards } from '../../../redux/userBoard/userBoard-selectors';
 import Icon from '../../Icon/Icon';
 import { deleteBoard } from '../../../redux/userBoard/userBoard-operations';
-import { updateBoardById } from '../../../api/boards-api';
+import { selectBoard } from '../../../redux/userBoard/userBoard-slice';
+//import { NavLink } from 'react-router-dom';
+// import { updateBoardById } from '../../../redux/userBoard/userBoard-operations';
+// import CommonModal from '../../CommonModal/CommonModal';
+// import UpdateBoardForm from './UpdateBoardForm/UpdateBoardForm';
 
 const BoardsList = () => {
   const boards = useSelector(selectBoards);
+  const dispatch = useDispatch();
 
-  const boardsList = boards.map(({ title, icon, id }) => {
+  const handleBoardClick = (board) => {
+    dispatch(selectBoard(board)); // Dispatch action with the board object
+  };
+  //const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // const handleOpenModal = () => {
+  //   setIsModalOpen(true);
+  // };
+
+  // const handleCloseModal = () => {
+  //   setIsModalOpen(false);
+  // };
+
+  const boardsList = boards.map(({ title, icon, _id }) => {
+    const board = { id: _id, title: title };
     return (
-      <li key={title} className={css.boardContainer}>
-        <div className={css.box1}>
+      <li
+        key={title}
+        className={css.boardContainer}
+        onClick={() => handleBoardClick(board)}
+      >
+        <a className={css.box1} to={`home/${_id}`}>
           <Icon className={css.icon} id={icon} width="18" height="18" />
           <p>{title}</p>
-        </div>
+        </a>
         <div>
           <button
             type="button"
             className={css.updateButton}
-            onClick={() => dispatch(updateBoardById(id))}
+            // onClick={handleOpenModal}
+            // onClick={() => dispatch(updateBoardById(_id))}
           >
             <Icon
               className={css.icon}
@@ -31,7 +57,7 @@ const BoardsList = () => {
           <button
             type="button"
             className={css.deleteButton}
-            onClick={() => dispatch(deleteBoard(id))}
+            onClick={() => dispatch(deleteBoard(_id))}
           >
             <Icon
               className={css.icon}
@@ -41,11 +67,21 @@ const BoardsList = () => {
             />
           </button>
         </div>
+        {/* {isModalOpen ? (
+          <CommonModal isOpen={isModalOpen} onClose={handleCloseModal}>
+            <UpdateBoardForm
+              closeModal={handleCloseModal}
+              title={title}
+              icon={icon}
+              id={_id}
+            />
+          </CommonModal>
+        ) : (
+          ''
+        )} */}
       </li>
     );
   });
-
-  const dispatch = useDispatch();
 
   return <ul>{boardsList}</ul>;
 };

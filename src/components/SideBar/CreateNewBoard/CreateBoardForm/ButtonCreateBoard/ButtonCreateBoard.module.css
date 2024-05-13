@@ -40,6 +40,14 @@
   stroke: var(--modal-plus-icon);
   fill: none;
   border: none;
+  border-radius: 8px;
+}
+
+.icon {
+  stroke: white;
+  border: 1px;
+  background-color: black;
+  border-radius: 8px;
 }
 
 .textButton {
