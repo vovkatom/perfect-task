@@ -21,7 +21,7 @@
   --secondary-color-light-violet: #7b7ede;
   --color-violet-background: #ecedfd;
 
-  --font-family: 'Poppins';
+  --font-family: 'Poppins', sans-serif;
 }
 
 .light {
