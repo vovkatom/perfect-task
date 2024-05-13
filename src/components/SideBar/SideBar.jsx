@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, forwardRef } from 'react';
 import css from './SideBar.module.css';
 import Logo from './Logo/Logo';
 import CreateNewBoard from './CreateNewBoard/CreateNewBoard';
@@ -10,7 +10,7 @@ import { selectBoards } from '../../redux/userBoard/userBoard-selectors';
 import { fetchBoards } from '../../redux/userBoard/userBoard-operations';
 import Loader from '../Loader/Loader';
 
-const SideBar = () => {
+const SideBar = forwardRef((_, ref) => {
   const allBoards = useSelector(selectBoards);
   const { items, isLoading, error } = allBoards;
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const SideBar = () => {
   }, [dispatch]);
 
   return (
-    <div className={`${css.container} ${css.sidebar}`}>
+    <div ref={ref} className={`${css.container} ${css.sidebar}`}>
       <div>
         <Logo />
         <h3 className={css.myBoardsTitle}>My boards</h3>
@@ -35,6 +35,8 @@ const SideBar = () => {
       </div>
     </div>
   );
-};
+});
+
+SideBar.displayName = 'SideBar';
 
 export default SideBar;

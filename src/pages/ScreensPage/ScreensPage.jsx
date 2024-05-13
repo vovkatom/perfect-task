@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import css from './ScreensPage.module.css';
 import { useSelector } from 'react-redux';
 //import { selectIsLogin } from '../../redux/auth/auth-selectors';
@@ -14,12 +14,12 @@ import {
 } from '../../redux/userBoard/userBoard-selectors';
 import HeaderDashboard from './HeaderDashboard/HeaderDashboard';
 //import { requestBoardById } from '../../api/boards-api';
-import Loader from '../../components/Loader/Loader';
+// import Loader from '../../components/Loader/Loader';
 //import Container from '../../components/Container/Container';
 
 const ScreensPage = () => {
   //const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
   //const [activeBoard, setActiveBoard] = useState(null);
   //const [error, setError] = useState(null);
   //const isLogin = useSelector(selectIsLogin);
@@ -56,7 +56,7 @@ const ScreensPage = () => {
   return (
     //<div className={css.container}>
     <div className={css.mainContainer}>
-      {isLoading && <Loader />}
+      {/* {isLoading && <Loader />} */}
       {currentBoard && <HeaderDashboard currentBoard={currentBoard} />}
     </div>
   );
