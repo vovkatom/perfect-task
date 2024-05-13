@@ -55,7 +55,7 @@ form {
 @media only screen and (min-width: 768px) {
   .modalControl,
   .modalControlText {
-    width: 352px;
+    /* width: 352px; */
   }
 }
 
