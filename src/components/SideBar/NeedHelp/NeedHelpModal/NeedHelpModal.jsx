@@ -1,8 +1,10 @@
 import { useState, useId } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { support } from '../../../../redux/user/user-operations';
+import Loader from '../../../../components/Loader/Loader';
 import css from './need-help-modal.module.css';
 import clsx from 'clsx';
+import { selectAuthLoading } from '../../../../redux/auth/auth-selectors.js';
 import { Notify } from 'notiflix';
 
 const INITIAL_STATE = {
@@ -13,6 +15,7 @@ const INITIAL_STATE = {
 const NeedHelpModal = ({ closeModal }) => {
   const [formData, setFormData] = useState({ ...INITIAL_STATE });
   const dispatch = useDispatch();
+  const loading = useSelector(selectAuthLoading);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -81,7 +84,7 @@ const NeedHelpModal = ({ closeModal }) => {
           />
         </div>
         <button className={buttonClassName} type="submit">
-          Send
+          {loading ? <Loader /> : 'Send'}
         </button>
       </form>
     </div>
