@@ -29,7 +29,10 @@ const boardsSlice = createSlice({
     items: [],
     isLoading: false,
     error: null,
-    currentBoard: null,
+    currentBoard: {
+      title: '',
+      id: '',
+    },
     filter: null,
   },
   reducers: {
@@ -238,7 +241,6 @@ const boardsSlice = createSlice({
 export const { selectBoard, setFilter, dragAndDropTask, dragAndDropColumn } =
   boardsSlice.actions;
 export const boardsReducer = boardsSlice.reducer;
-
 
 const filterSlice = createSlice({
   name: 'filter',

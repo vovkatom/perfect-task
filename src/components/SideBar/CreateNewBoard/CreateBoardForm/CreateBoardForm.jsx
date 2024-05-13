@@ -1,16 +1,16 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import BackgroundSet from './BackgroundSet/BackgroundSet';
 import ButtonCreateBoard from './ButtonCreateBoard/ButtonCreateBoard';
 import IconsSelector from './IconSelector/IconsSelector';
 import css from '../CreateBoardForm/CreateBoardForm.module.css';
-import { useEffect, useState } from 'react';
 import { requestBgImages } from '../../../../api/boards-api';
-import { useDispatch } from 'react-redux';
 import { addBoard } from '../../../../redux/userBoard/userBoard-operations';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const schema = yup.object().shape({
   title: yup.string().required(),

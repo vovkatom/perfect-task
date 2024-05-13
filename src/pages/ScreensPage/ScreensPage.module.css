@@ -14,8 +14,23 @@
   color: var(--board-secondary);
 }
 
+.mainContainer {
+  width: 100vw;
+  height: 100vh;
+  margin-top: 60px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 @media screen and (min-width: 768px) {
   .container {
+    width: 100%;
+    width: 486px;
+  }
+
+  .mainContainer {
     width: 100%;
     width: 486px;
   }
@@ -23,6 +38,10 @@
 
 @media screen and (min-width: 1440px) {
   .container {
+    padding-top: 281px;
+  }
+
+  .mainContainer {
     padding-top: 281px;
   }
 }
