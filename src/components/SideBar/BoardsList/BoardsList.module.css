@@ -38,8 +38,3 @@ button {
   background-color: transparent;
 }
 
-ul {
-  max-height: 300px; 
-  overflow-y: auto; 
-  overflow-x: hidden;
-}
