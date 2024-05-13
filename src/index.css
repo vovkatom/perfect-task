@@ -2,34 +2,15 @@
 
 @font-face {
   font-family: 'Poppins';
-  src: url('/assets/fonts/Poppins-Regular.eot');
   src:
-      url('/assets/fonts/Poppins-Regular.eot?#iefix') format('embedded-opentype'),
-      url('/assets/fonts/Poppins-Regular.woff') format('woff'),
-      url('/assets/fonts/Poppins-Regular.ttf') format('truetype');
+    local('Poppins-Regular'),
+    local('Poppins-Medium'),
+    local('Poppins-SemiBold'),
+    url('./assets/fonts/Poppins-Regular.ttf') format('truetype'),
+    url('./assets/fonts/Poppins-Medium.ttf') format('truetype'),
+    url('./assets/fonts/Poppins-SemiBold.ttf') format('truetype');
   font-display: swap;
 }
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-Medium.eot');
-  src:
-      url('/assets/fonts/Poppins-Medium.eot?#iefix') format('embedded-opentype'),
-      url('/assets/fonts/Poppins-Medium.woff') format('woff'),
-      url('/assets/fonts/Poppins-Medium.ttf') format('truetype');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/assets/fonts/Poppins-SemiBold.eot');
-  src:
-      url('/assets/fonts/Poppins-SemiBold.eot?#iefix') format('embedded-opentype'),
-      url('/assets/fonts/Poppins-SemiBold.woff') format('woff'),
-      url('/assets/fonts/Poppins-SemiBold.ttf') format('truetype');
-  font-display: swap;
-}
-
 
 .container {
   min-width: 320px;
