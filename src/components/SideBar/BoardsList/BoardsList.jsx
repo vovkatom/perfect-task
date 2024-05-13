@@ -83,7 +83,7 @@ const BoardsList = () => {
     );
   });
 
-  return <ul>{boardsList}</ul>;
+  return <ul className={css.ScrollBoardList}>{boardsList}</ul>;
 };
 
 export default BoardsList;
