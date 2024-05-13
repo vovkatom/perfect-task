@@ -38,3 +38,9 @@ button {
   background-color: transparent;
 }
 
+.ScrollBoardList {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 5px;
+}
