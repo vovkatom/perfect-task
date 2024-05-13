@@ -1,0 +1,53 @@
+import React, { useEffect } from 'react';
+import css from './Modal.module.css';
+
+import Icon from '../../Icon/Icon';
+import { createPortal } from 'react-dom';
+const modalRoot = document.querySelector('#modal-root');
+
+const Modal = ({ children, openModal }) => {
+
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.code === 'Escape') {
+        openModal();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [openModal]);
+
+  const handleBackdropClick = (event) => {
+    if (event.currentTarget === event.target) {
+      openModal();
+    }
+  };
+
+  return createPortal(
+    <div className={css.backdrop} onClick={handleBackdropClick}>
+      <div className={css.modal}>
+        <button
+          type="button"
+          className={css.closeIcon}
+          onClick={() => openModal()}
+        >
+          <Icon
+            id="icon-plus"
+            className={css.icon}
+            width="20"
+            height="20"
+          />
+        </button>
+        {children}
+      </div>
+    </div>,
+    modalRoot
+  );
+};
+
+export default Modal;

@@ -2,10 +2,6 @@ import { useState } from 'react';
 import css from './ScreensPage.module.css';
 import { useSelector } from 'react-redux';
 import { selectIsLogin } from '../../redux/auth/auth-selectors';
-// import Modal1
-// import newBoard
-// import CommonModal from '../../CommonModal/CommonModal';
-// import CreateBoardForm from './CreateBoardForm/CreateBoardForm';
 import CommonModal from '../../components/CommonModal/CommonModal';
 import CreateBoardForm from '../../components/SideBar/CreateNewBoard/CreateBoardForm/CreateBoardForm';
 

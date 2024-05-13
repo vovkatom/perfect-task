@@ -17,6 +17,7 @@
     "@reduxjs/toolkit": "^2.2.4",
     "@vitejs/plugin-react-swc": "^3.3.2",
     "axios": "^1.6.8",
+    "axios-instances": "^1.0.1",
     "clsx": "^2.1.1",
     "loader-utils": "^3.2.1",
     "modern-normalize": "^2.0.0",
