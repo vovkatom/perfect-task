@@ -108,6 +108,7 @@ const authSlice = createSlice({
       .addCase(updateProfile.rejected, (state, { payload }) => {
         state.error=payload
         state.isUpdate = true;
+        state.isLoading = false;
         Notify.failure('Server error. Please try again.');
         state.isMessageSend = false;
         
