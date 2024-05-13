@@ -21,14 +21,18 @@ const SideBar = () => {
 
   return (
     <div className={`${css.container} ${css.sidebar}`}>
-      <Logo />
-      <h3 className={css.myBoardsTitle}>My boards</h3>
-      <CreateNewBoard />
-      {error && <p>{error}</p>}
-      {isLoading && <Loader />}
-      {items?.length === 0 ? '' : <BoardsList />}
-      <NeedHelp />
-      <LogOut />
+      <div>
+        <Logo />
+        <h3 className={css.myBoardsTitle}>My boards</h3>
+        <CreateNewBoard />
+        {error && <p>{error}</p>}
+        {isLoading && <Loader />}
+        {items?.length === 0 ? '' : <BoardsList />}
+      </div>
+      <div>
+        <NeedHelp />
+        <LogOut />
+      </div>
     </div>
   );
 };

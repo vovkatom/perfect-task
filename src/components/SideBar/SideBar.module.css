@@ -10,6 +10,9 @@
 
 .sidebar {
   background-color: var(--sidebar-background);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 @media only screen and (min-width: 768px) {
@@ -24,6 +27,11 @@
   .container {
     display: block;
     visibility: 100%;
+  }
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }
 
