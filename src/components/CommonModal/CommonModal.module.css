@@ -52,6 +52,13 @@
   stroke-linejoin: round;
   fill: none;
   stroke: var(--modal-main);
+
+  transition: stroke 0.25s ease-in-out;
+}
+
+.closeIcon:hover,
+.closeIcon:focus {
+  stroke: var(--modal-button-hover);
 }
 
 h2 {

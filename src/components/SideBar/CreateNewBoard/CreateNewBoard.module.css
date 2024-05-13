@@ -34,6 +34,13 @@
   align-items: center;
   justify-content: center;
   background-color: var(--create-button);
+
+  transition: background-color 0.25s ease-in-out;
+}
+
+.buttonPlus:hover,
+.buttonPlus:focus {
+  background-color: var(--sidebar-plus-hover);
 }
 
 .iconPlus {
