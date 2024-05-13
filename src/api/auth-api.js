@@ -12,7 +12,7 @@ export const setupAxiosInterceptors = (store) => {
         try {
           const { refreshToken } = store.getState().auth;
           if (refreshToken) {
-            store.dispatch(refresh({ refreshToken }));
+            await store.dispatch(refresh({ refreshToken }));
             const { accessToken } = store.getState().auth;
             error.config.headers.authorization = `Bearer ${accessToken}`;
           }
