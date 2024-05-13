@@ -57,8 +57,7 @@ const Header = ({ toggleSidebar }) => {
         onClose={handleCloseModal}
         title={'Edit profile'}
       >
-        <EditProfileForm user={user} onCloseModal={handleCloseModal} />{' '}
-        {/* Передача onCloseModal */}
+        <EditProfileForm user={user} onCloseModal={handleCloseModal} />
       </ModalEditProfile>
     </div>
   );

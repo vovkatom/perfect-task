@@ -29,7 +29,11 @@ const CreateNewBoard = () => {
           />
         </div>
       </button>
-      <CommonModal isOpen={isModalOpen} onClose={handleCloseModal}>
+      <CommonModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        title="New board"
+      >
         <CreateBoardForm closeModal={handleCloseModal} />
       </CommonModal>
     </>

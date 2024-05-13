@@ -50,6 +50,9 @@
   /*pop-up & modal*/
   --popup-primary-background: #fcfcfc;
   --popup-border: #bedbb0;
+  --popup-item-color: #161616;
+  --popup-accent-color: #bedbb0;
+  --modal-main: #161616;
 }
 
 .dark {
@@ -78,6 +81,9 @@
   /*pop-up & modal*/
   --popup-primary-background: #151515;
   --popup-border: #bedbb0;
+  --popup-item-color: rgba(255, 255, 255, 0.5);
+  --popup-accent-color: #bedbb0;
+  --modal-main: #fff;
 }
 
 .violet {
@@ -106,6 +112,9 @@
   /*pop-up & modal*/
   --popup-primary-background: #fcfcfc;
   --popup-border: #ecedfd;
+  --popup-item-color: #161616;
+  --popup-accent-color: #5255bc;
+  --modal-main: #161616;
 }
 
 .light body,
