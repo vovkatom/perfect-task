@@ -1,7 +1,7 @@
 const HeaderDashboard = ({ currentBoard }) => {
   //   console.log(board);
   //   const { title } = board;
-  console.log(currentBoard.title);
+  // console.log(currentBoard.title);
   return (
     <>
       <h3>{currentBoard.title}</h3>

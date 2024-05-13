@@ -130,9 +130,9 @@
 
 .registrationBtn:hover,
 .registrationBtn:focus {
-  background-color: transparent;
-  color: var(--primary-color-black);
-  border: 1px solid var(--primary-color-black);
+  background-color: var(--secondary-color-green);
+  /* color: var(--primary-color-black); */
+  border: 1px solid var(--primary-color-white);
   outline: none;
 }
 

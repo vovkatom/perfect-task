@@ -3,7 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { Notify } from 'notiflix';
 
 import BackgroundSet from './BackgroundSet/BackgroundSet';
 import ButtonCreateBoard from './ButtonCreateBoard/ButtonCreateBoard';

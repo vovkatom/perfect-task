@@ -1,26 +1,44 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
 import Container from '../../components/Container/Container';
 import Header from '../../components/Header/Header';
 import SideBar from '../../components/SideBar/SideBar';
 import ScreensPage from '../ScreensPage/ScreensPage';
 import css from './HomePage.module.css';
-import { selectIsLoading } from '../../redux/userBoard/userBoard-selectors';
-import Loader from '../../components/Loader/Loader';
+import { useEffect } from 'react';
+import { useRef } from 'react';
 
 const HomePage = () => {
-  const isLoading = useSelector(selectIsLoading);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const sidebarRef = useRef();
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+  useEffect(() => {
+    const body = document.querySelector('body');
+    console.dir(body);
+    if (body.clientWidth >= 1440) {
+      setIsSidebarOpen(true);
+      return;
+    }
+    const handleMouseDown = (e) => {
+      if (!sidebarRef.current.contains(e.target)) {
+        setIsSidebarOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleMouseDown);
+
+    return () => {
+      document.removeEventListener('mousedown', handleMouseDown);
+    };
+  }, []);
+
   return (
     <>
-      {isLoading && <Loader />}
       <Header toggleSidebar={toggleSidebar} />
+      {isSidebarOpen && <SideBar ref={sidebarRef} />}
       <div className={css.background}>
-        {isSidebarOpen && <SideBar />}
         <Container className="home-page">
           <ScreensPage />
         </Container>
