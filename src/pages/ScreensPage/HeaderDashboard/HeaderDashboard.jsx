@@ -1,13 +1,11 @@
-
-import css from '../../ScreensPage/HeaderDashboard';
-
-
-const HeaderDashboard = ({ boardName }) => {
+const HeaderDashboard = ({ currentBoard }) => {
+  //   console.log(board);
+  //   const { title } = board;
+  console.log(currentBoard.title);
   return (
-    <div className={css.headerDashSection}>
-      <h3 className={css.titleDashboard}>{boardName}</h3>
-    </div>
-
+    <>
+      <h3>{currentBoard.title}</h3>
+    </>
   );
 };
 
