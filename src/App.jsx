@@ -13,6 +13,7 @@ import { getTheme } from './js/theme-changer';
 
 const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('./pages/AuthPage/AuthPage'));
+const AuthPageGoogle = lazy(() => import('./pages/AuthPage/AuthPageGoogle'));
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const ScreensPage = lazy(() => import('./pages/ScreensPage/ScreensPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
@@ -37,6 +38,7 @@ const AppRoutes = () => {
         />
         <Route element={<PublicRoute />}>
           <Route path="welcome" element={<WelcomePage />} />
+          <Route path="auth" element={<AuthPageGoogle />} />
           <Route path="auth/:id" element={<AuthPage />} />
         </Route>
         <Route element={<PrivateRoute />}>
