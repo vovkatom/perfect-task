@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import css from './Welcome.module.css';
 import Container from '../Container/Container';
@@ -14,12 +14,12 @@ const Welcome = () => {
     <>
       <div className={css.background}>
         <Container className="welcome-page">
-          <motion.div
+          {/* <motion.div
             className={`${css.mainBox}`}
             initial={{ y: -700, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.7 }}
-          >
+          > */}
             <img
               className={css.logoAvatar}
               srcSet={`
@@ -52,13 +52,13 @@ const Welcome = () => {
               Supercharge your productivity and take control of your tasks with
               Perfect Task - Don&apos;t wait, start achieving your goals now!
             </p>
-          </motion.div>
-          <motion.div
+          {/* </motion.div> */}
+          {/* <motion.div
             className={`${css.mainBox}`}
             initial={{ y: 700, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.7 }}
-          >
+          > */}
             <Link to="/auth/register" className={css.buttonLink}>
               <button className={css.registrationBtn} type="button">
                 Registration
@@ -72,7 +72,7 @@ const Welcome = () => {
               </Link>
               {/* <GoogleButton /> */}
             </div>
-          </motion.div>
+          {/* </motion.div> */}
         </Container>
       </div>
     </>
