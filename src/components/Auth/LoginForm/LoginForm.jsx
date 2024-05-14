@@ -35,9 +35,8 @@ const LoginForm = ({ formClassName, inputClassName, buttonClassName }) => {
     }
 
     if (resp.error) {
-      console.log(resp.error.message);
       Notify.failure(
-        'Invalid email, or password, or something went wrong. Please try again.'
+        'Invalid email, or password, or something went wrong. Try again, please.'
       );
     }
 

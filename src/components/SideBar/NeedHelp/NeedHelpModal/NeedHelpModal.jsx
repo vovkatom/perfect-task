@@ -22,24 +22,21 @@ const NeedHelpModal = ({ closeModal }) => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = dispatch(support(formData));
-      console.log(response);
-      if (response.email === formData.email) {
-        return Notify.success(
-          "You've successfully sent your message to our support. You will get the answer on your email during 48 hours"
-        );
-      }
-
-      reset();
-    } catch (error) {
-      console.log(error.response.data.message);
-      return Notify.failure('Ooops, something went wrong. Try again, please');
+    const resp = await dispatch(support(formData));
+    if (resp.type === 'user/support/fulfilled') {
+      Notify.success(
+        "You've successfully sent your message to our support. You will get the answer on your email during 48 hours"
+      );
     }
 
+    if (resp.error) {
+      Notify.failure('Oops, something went wrong. Try again, please');
+    }
+
+    reset();
     closeModal();
   };
 

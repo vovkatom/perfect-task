@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import css from './ScreensPage.module.css';
 import { useSelector } from 'react-redux';
 import { selectIsLogin } from '../../redux/auth/auth-selectors';
@@ -56,7 +56,7 @@ const ScreensPage = () => {
   return (
     //<div className={css.container}>
     <div className={css.mainContainer}>
-      {isLoading && <Loader />}
+      {/* {isLoading && <Loader />} */}
       {currentBoard && <HeaderDashboard currentBoard={currentBoard} />}
     </div>
   );

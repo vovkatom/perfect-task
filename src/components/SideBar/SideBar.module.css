@@ -1,7 +1,7 @@
 .container {
   position: absolute;
   z-index: 100;
-  top: 60px;
+  top: 0px;
   width: 225px;
   padding: 14px;
   background-color: var(--sidebar-background);
@@ -10,11 +10,13 @@
 
 .sidebar {
   background-color: var(--sidebar-background);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 @media only screen and (min-width: 768px) {
   .container {
-    top: 68px;
     width: 260px;
     padding: 24px;
   }
@@ -22,8 +24,15 @@
 
 @media only screen and (min-width: 1440px) {
   .container {
+    position: fixed;
+    top: 0;
+    left: 0;
     display: block;
-    visibility: 100%;
+  }
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }
 
