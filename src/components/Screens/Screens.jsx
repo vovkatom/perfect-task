@@ -55,7 +55,7 @@ const ScreensPage = () => {
   return (
     // <div className={css.container}>
     <div className={css.mainContainer}>
-      {isLoading && <Loader />}
+      {isLoading && <Loader centered />}
       <HeaderDashboard currentBoard={currentBoard} />
       <AddAnotherColumn />
     </div>
