@@ -1,10 +1,10 @@
+import css from './HeaderDashboard.module.css';
+
 const HeaderDashboard = ({ currentBoard }) => {
-  //   console.log(board);
-  //   const { title } = board;
   console.log(currentBoard.title);
   return (
     <>
-      <h3>{currentBoard.title}</h3>
+      <p className={css.boardTitle}>{currentBoard.title}</p>
     </>
   );
 };

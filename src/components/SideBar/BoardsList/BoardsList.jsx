@@ -31,7 +31,7 @@ const BoardsList = () => {
   const boardsList = boards.map(({ title, icon, _id }) => {
     const board = { id: _id, title: title };
     return (
-      <li
+      <button
         key={title}
         className={css.boardContainer}
         onClick={() => handleBoardClick(board)}
@@ -79,7 +79,7 @@ const BoardsList = () => {
         ) : (
           ''
         )} */}
-      </li>
+      </button>
     );
   });
 
