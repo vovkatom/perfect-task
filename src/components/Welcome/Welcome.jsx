@@ -16,9 +16,9 @@ const Welcome = () => {
         <Container className='welcome-page'>
           <motion.div
             className={`${css.mainBox}`}
-            initial={{ y: -100, opacity: 0 }}
+            initial={{ y: -700, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7 }}
           >
             <img
               className={css.logoAvatar}
@@ -55,9 +55,9 @@ const Welcome = () => {
           </motion.div>
           <motion.div
             className={`${css.mainBox}`}
-            initial={{ y: 100, opacity: 0 }}
+            initial={{ y: 700, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7 }}
           >
             <Link to='/auth/register' className={css.buttonLink}>
               <button className={css.registrationBtn} type='button'>
