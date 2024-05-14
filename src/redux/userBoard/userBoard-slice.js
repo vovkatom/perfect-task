@@ -6,8 +6,9 @@ import {
   deleteBoard,
   updateBoardById,
   updateBoardPatchById,
+  addColumn,
   // addTask,
-  // addColumn,
+
   // updateColumnTitle,
   // deleteColumn,
   // updateTask,
@@ -31,7 +32,7 @@ const boardsSlice = createSlice({
     error: null,
     currentBoard: {
       title: '',
-      id: '',
+      boardId: '',
     },
     filter: null,
   },
@@ -129,14 +130,14 @@ const boardsSlice = createSlice({
           state.currentBoard = 0;
         }
       })
-      .addCase(deleteBoard.rejected, handleRejected),
-  // .addCase(addColumn.fulfilled, (state, action) => {
-  //   state.isLoading = false;
-  //   state.error = null;
-  //   state.items[state.currentBoard].columns.push(action.payload);
-  // })
-  // .addCase(addColumn.pending, handlePending)
-  // .addCase(addColumn.rejected, handleRejected)
+      .addCase(deleteBoard.rejected, handleRejected)
+      .addCase(addColumn.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.items[state.currentBoard].columns.push(action.payload);
+      })
+      .addCase(addColumn.pending, handlePending)
+      .addCase(addColumn.rejected, handleRejected),
   // .addCase(updateColumnTitle.fulfilled, (state, action) => {
   //   state.isLoading = false;
   //   state.error = null;

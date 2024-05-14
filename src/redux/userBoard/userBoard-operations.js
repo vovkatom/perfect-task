@@ -73,7 +73,7 @@ export const updateBoardById = createAsyncThunk(
   }
 );
 
-//POST  id columns
+//POST  task
 
 export const addTask = createAsyncThunk(
   'boards/addTask',
@@ -96,7 +96,8 @@ export const addColumn = createAsyncThunk(
   async (body, thunkAPI) => {
     try {
       const response = await axiosInstance.post('/columns', { ...body });
-      return response.data;
+      return { ...body, ...response.data };
+      // return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

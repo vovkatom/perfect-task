@@ -7,8 +7,6 @@ export const requestAllBoards = async () => {
 
 export const requestBoardById = async (id) => {
   const { data } = await axiosInstance.get(`/boards/${id}`);
-  console.log(id);
-  console.log(data);
   return { data };
 };
 
