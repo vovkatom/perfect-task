@@ -1,40 +1,31 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import Container from '../../components/Container/Container';
 import Header from '../../components/Header/Header';
 import SideBar from '../../components/SideBar/SideBar';
 import ScreensPage from '../ScreensPage/ScreensPage';
 import css from './HomePage.module.css';
-// import { useEffect } from 'react';
-// import { useRef } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 const HomePage = () => {
-  // const sidebarRef = useRef();
-  const [isSideBarOpen, setIsSideBarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const body = document.querySelector('body');
-  const viewPortWidth = Number(body.clientWidth);
-  console.log(viewPortWidth);
+  const viewPortWidth = useMediaQuery({ minWidth: 1440 });
+
   useEffect(() => {
-    if (viewPortWidth >= 1440) {
-      setIsSideBarOpen(true);
-      return;
-    }
+    setIsSidebarOpen(viewPortWidth);
   }, [viewPortWidth]);
 
-  const openSidebar = () => {
-    setIsSideBarOpen(true);
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
   };
 
   return (
     <>
+      <Header toggleSidebar={toggleSidebar} />
+      {isSidebarOpen && (
+        <SideBar viewPortWidth={viewPortWidth} isOpen={toggleSidebar} />
+      )}
       <div className={css.background}>
-        <Header openSidebar={openSidebar} />
-        {isSideBarOpen && (
-          <SideBar
-            isSideBarOpen={isSideBarOpen}
-            viewPortWidth={viewPortWidth}
-          />
-        )}
         <Container className="home-page">
           <ScreensPage />
         </Container>
@@ -42,5 +33,4 @@ const HomePage = () => {
     </>
   );
 };
-
 export default HomePage;

@@ -10,7 +10,7 @@ import ThemeHeaderButton from './ThemeHeaderButton/ThemeHeaderButton';
 import Loader from '../Loader/Loader.jsx';
 // import { selectAuthLoading } from '../../redux/auth/auth-selectors';
 
-const Header = ({ openSidebar }) => {
+const Header = ({ toggleSidebar }) => {
   const user = useSelector(selectUser);
   const loading = useSelector(selectAuthLoading);
 
@@ -32,7 +32,7 @@ const Header = ({ openSidebar }) => {
   return (
     <div className={css.headerMainContainer}>
       <header className={css.headerContainer}>
-        <BurgerMenu onClick={openSidebar} />
+        <BurgerMenu onClick={toggleSidebar} />
         <div className={css.customBox}>
           <ThemeHeaderButton onClick={togglePopUp} />
           <div className={css.user} onClick={handleOpenModal}>
