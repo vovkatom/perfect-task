@@ -28,7 +28,7 @@ const AppRoutes = () => {
   }, [dispatch]);
 
   return (
-    <Suspense fallback={<Loader />}>
+    <Suspense fallback={<Loader centered />}>
       <Routes>
         <Route
           index
