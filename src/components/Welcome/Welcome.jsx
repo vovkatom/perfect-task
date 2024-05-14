@@ -8,13 +8,16 @@ import UserAvatarDesktop from '../../assets/img/start-avatar/start-user_desktop-
 import UserAvatarDesktop2x from '../../assets/img/start-avatar/start-user_desktop@2x-324.png';
 import Icon from '../Icon/Icon';
 import GoogleButton from '../Auth/GoogleButton/GoogleButton';
+import 'animate.css';
 
 const Welcome = () => {
   return (
     <>
       <div className={css.background}>
         <Container className="welcome-page">
-          <div className={css.mainBox}>
+          <div
+            className={`${css.mainBox} animate__animated animate__bounceInDown`}
+          >
             <img
               className={css.logoAvatar}
               srcSet={`
@@ -42,10 +45,15 @@ const Welcome = () => {
               />
               <h1 className={css.header}>Perfect Task</h1>
             </div>
+
             <p className={css.paragraph}>
               Supercharge your productivity and take control of your tasks with
               Perfect Task - Don&apos;t wait, start achieving your goals now!
             </p>
+          </div>
+          <div
+            className={`${css.mainBox} animate__animated animate__bounceInUp`}
+          >
             <Link to="/auth/register" className={css.buttonLink}>
               <button className={css.registrationBtn} type="button">
                 Registration
