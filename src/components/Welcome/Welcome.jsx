@@ -7,6 +7,7 @@ import UserAvatarMobile2x from '../../assets/img/start-avatar/start-user@2x-248.
 import UserAvatarDesktop from '../../assets/img/start-avatar/start-user_desktop-162.png';
 import UserAvatarDesktop2x from '../../assets/img/start-avatar/start-user_desktop@2x-324.png';
 import Icon from '../Icon/Icon';
+import GoogleButton from '../Auth/GoogleButton/GoogleButton';
 
 const Welcome = () => {
   return (
@@ -56,18 +57,7 @@ const Welcome = () => {
                   Log In
                 </button>
               </Link>
-              <a
-                className={css.googleBtn}
-                href="https://perfect-task-back.onrender.com/api/users/google"
-                aria-label="Registration by using Google"
-              >
-                <Icon
-                  id="google"
-                  className={css.googleIcon}
-                  width="20"
-                  height="20"
-                />
-              </a>
+              <GoogleButton />
             </div>
           </div>
         </Container>

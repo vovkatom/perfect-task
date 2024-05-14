@@ -5,6 +5,7 @@ import { useParams } from 'react-router';
 import RegisterForm from './RegisterForm/RegisterForm';
 import LoginForm from './LoginForm/LoginForm';
 import { Link } from 'react-router-dom';
+import GoogleButton from './GoogleButton/GoogleButton';
 
 const Auth = () => {
   const { id } = useParams();
@@ -44,6 +45,7 @@ const Auth = () => {
                 Log In
               </button>
             </Link>
+            <GoogleButton />
           </div>
           <Form
             inputClassName={inputClassName}

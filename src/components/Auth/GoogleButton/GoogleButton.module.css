@@ -1,0 +1,26 @@
+.googleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  height: 28px;
+  width: 28px;
+
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(-120deg, #4285f4, #34a853, #fbbc05, #ea4335);
+}
+
+.googleBtn:hover,
+.googleBtn:focus {
+  .googleIcon {
+    fill: var(--primary-color-black);
+  }
+}
+
+.googleIcon {
+  fill: var(--primary-color-white);
+
+  transition: fill 0.25s ease-in-out;
+}
