@@ -10,8 +10,9 @@ import { useSelector } from 'react-redux';
 import { selectIsLogin } from './redux/auth/auth-selectors';
 import Loader from './components/Loader/Loader';
 import { getTheme } from './js/theme-changer';
+import Welcome from './components/Welcome/Welcome';
 
-const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'));
+// const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('./pages/AuthPage/AuthPage'));
 const AuthPageGoogle = lazy(() => import('./pages/AuthPage/AuthPageGoogle'));
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
@@ -37,7 +38,7 @@ const AppRoutes = () => {
           }
         />
         <Route element={<PublicRoute />}>
-          <Route path="welcome" element={<WelcomePage />} />
+          <Route path="welcome" element={<Welcome />} />
           <Route path="auth" element={<AuthPageGoogle />} />
           <Route path="auth/:id" element={<AuthPage />} />
         </Route>
