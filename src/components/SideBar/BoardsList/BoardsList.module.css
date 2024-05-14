@@ -1,6 +1,9 @@
 .boardContainer {
   display: flex;
+  padding-left: 0;
+  padding-right: 0;
   width: 100%;
+  box-sizing: border-box;
   min-height: 61px;
   justify-content: space-between;
   align-items: center;
@@ -8,7 +11,8 @@
   color: #16161680;
 }
 
-.boardContainer:active {
+.boardContainer:active,
+.boardContainer:hover {
   width: 100%;
   color: black;
   background-color: var(--color-light-background);
@@ -18,6 +22,11 @@
 .box1 {
   display: flex;
   gap: 2px;
+}
+
+.box1:active,
+.box1:hover {
+  fill: black;
 }
 
 .box2 {
