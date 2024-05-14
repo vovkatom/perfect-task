@@ -17,6 +17,7 @@
 .mainBox {
   display: flex;
   flex-direction: column;
+
   background-color: var(--primary-color-black);
   padding: 24px;
   border-radius: 8px;
@@ -31,6 +32,7 @@
 .authMenu {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 14px;
   margin-bottom: 40px;
 }

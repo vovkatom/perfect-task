@@ -13,7 +13,7 @@ const Welcome = () => {
   return (
     <>
       <div className={css.background}>
-        <Container className='welcome-page'>
+        <Container className="welcome-page">
           <motion.div
             className={`${css.mainBox}`}
             initial={{ y: -700, opacity: 0 }}
@@ -28,22 +28,22 @@ const Welcome = () => {
               ${UserAvatarDesktop} 162w,
               ${UserAvatarDesktop2x} 324w
               `}
-              sizes='
+              sizes="
               (min-width: 1200px) 162px,
               (min-width: 768px) 162px,
               (min-width: 375px) 124px
-              '
+              "
               src={`${UserAvatarMobile}`}
-              alt='Task Pro avatar'
-              width='124'
-              height='124'
+              alt="Task Pro avatar"
+              width="124"
+              height="124"
             />
             <div className={css.logoIconBox}>
               <Icon
                 className={css.logoIcon}
-                id='icon-logo-welcome'
-                width='40'
-                height='40'
+                id="icon-logo-welcome"
+                width="40"
+                height="40"
               />
               <h1 className={css.header}>Perfect Task</h1>
             </div>
@@ -59,29 +59,18 @@ const Welcome = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.7 }}
           >
-            <Link to='/auth/register' className={css.buttonLink}>
-              <button className={css.registrationBtn} type='button'>
+            <Link to="/auth/register" className={css.buttonLink}>
+              <button className={css.registrationBtn} type="button">
                 Registration
               </button>
             </Link>
             <div className={css.authBox}>
-              <Link to='/auth/login'>
-                <button className={css.loginBtn} type='button'>
+              <Link to="/auth/login">
+                <button className={css.loginBtn} type="button">
                   Log In
                 </button>
               </Link>
-              <a
-                className={css.googleBtn}
-                href='https://perfect-task-back.onrender.com/api/users/google'
-                aria-label='Registration by using Google'
-              >
-                <Icon
-                  id='google'
-                  className={css.googleIcon}
-                  width='20'
-                  height='20'
-                />
-              </a>
+              {/* <GoogleButton /> */}
             </div>
           </motion.div>
         </Container>

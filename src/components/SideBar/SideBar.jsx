@@ -1,4 +1,4 @@
-import { useEffect, forwardRef } from 'react';
+import { useEffect } from 'react';
 import css from './SideBar.module.css';
 import Logo from './Logo/Logo';
 import CreateNewBoard from './CreateNewBoard/CreateNewBoard';
@@ -9,34 +9,54 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectBoards } from '../../redux/userBoard/userBoard-selectors';
 import { fetchBoards } from '../../redux/userBoard/userBoard-operations';
 import Loader from '../Loader/Loader';
+import { useRef } from 'react';
 
-const SideBar = forwardRef((_, ref) => {
+const SideBar = ({ viewPortWidth, isOpen }) => {
+  const sidebarRef = useRef();
+
   const allBoards = useSelector(selectBoards);
   const { items, isLoading, error } = allBoards;
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchBoards());
-  }, [dispatch]);
+  }, [dispatch, isOpen]);
+
+  useEffect(() => {
+    const handleMouseDown = (e) => {
+      if (!sidebarRef.current.contains(e.target)) {
+        isOpen(false);
+      }
+    };
+    if (isOpen && !viewPortWidth) {
+      document.addEventListener('mousedown', handleMouseDown);
+    } else {
+      document.removeEventListener('mousedown', handleMouseDown);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleMouseDown);
+    };
+  }, [isOpen, viewPortWidth]);
 
   return (
-    <div ref={ref} className={`${css.container} ${css.sidebar}`}>
-      <div>
-        <Logo />
-        <h3 className={css.myBoardsTitle}>My boards</h3>
-        <CreateNewBoard />
-        {error && <p>{error}</p>}
-        {isLoading && <Loader />}
-        {items?.length === 0 ? '' : <BoardsList />}
-      </div>
-      <div>
-        <NeedHelp />
-        <LogOut />
+    <div className={`${!viewPortWidth ? css.background : css.noBackground}`}>
+      <div ref={sidebarRef} className={`${css.container} ${css.sidebar}`}>
+        <div>
+          <Logo />
+          <h3 className={css.myBoardsTitle}>My boards</h3>
+          <CreateNewBoard />
+          {error && <p>{error}</p>}
+          {isLoading && <Loader />}
+          {items?.length === 0 ? '' : <BoardsList />}
+        </div>
+        <div>
+          <NeedHelp />
+          <LogOut />
+        </div>
       </div>
     </div>
   );
-});
-
-SideBar.displayName = 'SideBar';
+};
 
 export default SideBar;
