@@ -14,6 +14,7 @@ import HeaderDashboard from './HeaderDashboard/HeaderDashboard';
 import { requestBoardById } from '../../api/boards-api';
 import Loader from '../../components/Loader/Loader';
 //import Container from '../../components/Container/Container';
+import AddAnotherColumn from './AddAnotherColumn/AddAnotherColumn';
 
 const ScreensPage = () => {
   //const [isModalOpen, setIsModalOpen] = useState(false);
@@ -55,7 +56,8 @@ const ScreensPage = () => {
     // <div className={css.container}>
     <div className={css.mainContainer}>
       {isLoading && <Loader />}
-      {currentBoard && <HeaderDashboard currentBoard={currentBoard} />}
+      <HeaderDashboard currentBoard={currentBoard} />
+      <AddAnotherColumn />
     </div>
   );
 };
