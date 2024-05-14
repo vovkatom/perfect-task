@@ -7,13 +7,16 @@ import UserAvatarMobile2x from '../../assets/img/start-avatar/start-user@2x-248.
 import UserAvatarDesktop from '../../assets/img/start-avatar/start-user_desktop-162.png';
 import UserAvatarDesktop2x from '../../assets/img/start-avatar/start-user_desktop@2x-324.png';
 import Icon from '../Icon/Icon';
+import 'animate.css';
 
 const Welcome = () => {
   return (
     <>
       <div className={css.background}>
-        <Container className="welcome-page">
-          <div className={css.mainBox}>
+        <Container className='welcome-page'>
+          <div
+            className={`${css.mainBox} animate__animated animate__bounceInDown`}
+          >
             <img
               className={css.logoAvatar}
               srcSet={`
@@ -22,50 +25,55 @@ const Welcome = () => {
               ${UserAvatarDesktop} 162w,
               ${UserAvatarDesktop2x} 324w
               `}
-              sizes="
+              sizes='
               (min-width: 1200px) 162px,
               (min-width: 768px) 162px,
               (min-width: 375px) 124px
-              "
+              '
               src={`${UserAvatarMobile}`}
-              alt="Task Pro avatar"
-              width="124"
-              height="124"
+              alt='Task Pro avatar'
+              width='124'
+              height='124'
             />
             <div className={css.logoIconBox}>
               <Icon
                 className={css.logoIcon}
-                id="icon-logo-welcome"
-                width="40"
-                height="40"
+                id='icon-logo-welcome'
+                width='40'
+                height='40'
               />
               <h1 className={css.header}>Perfect Task</h1>
             </div>
+
             <p className={css.paragraph}>
               Supercharge your productivity and take control of your tasks with
               Perfect Task - Don&apos;t wait, start achieving your goals now!
             </p>
-            <Link to="/auth/register" className={css.buttonLink}>
-              <button className={css.registrationBtn} type="button">
+          </div>
+          <div
+            className={`${css.mainBox} animate__animated animate__bounceInUp`}
+          >
+            <Link to='/auth/register' className={css.buttonLink}>
+              <button className={css.registrationBtn} type='button'>
                 Registration
               </button>
             </Link>
             <div className={css.authBox}>
-              <Link to="/auth/login">
-                <button className={css.loginBtn} type="button">
+              <Link to='/auth/login'>
+                <button className={css.loginBtn} type='button'>
                   Log In
                 </button>
               </Link>
               <a
                 className={css.googleBtn}
-                href="https://perfect-task-back.onrender.com/api/users/google"
-                aria-label="Registration by using Google"
+                href='https://perfect-task-back.onrender.com/api/users/google'
+                aria-label='Registration by using Google'
               >
                 <Icon
-                  id="google"
+                  id='google'
                   className={css.googleIcon}
-                  width="20"
-                  height="20"
+                  width='20'
+                  height='20'
                 />
               </a>
             </div>

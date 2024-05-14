@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import css from './IconsSelector.module.css';
 import Icon from '../../../../Icon/Icon';
@@ -6,10 +6,13 @@ import Icon from '../../../../Icon/Icon';
 const IconsSelector = ({ updateIcon }) => {
   const [selectedIcon, setSelectedIcon] = useState(null);
 
-  const handleIconClick = (iconId) => {
-    setSelectedIcon(iconId);
+  useEffect(() => {
     console.log(selectedIcon);
     updateIcon(selectedIcon);
+  }, [selectedIcon, updateIcon]);
+
+  const handleIconClick = (iconId) => {
+    setSelectedIcon(iconId);
   };
 
   const iconsList = [
@@ -46,6 +49,7 @@ const IconsSelector = ({ updateIcon }) => {
 };
 
 export default IconsSelector;
+
 
 {
   /* <li
