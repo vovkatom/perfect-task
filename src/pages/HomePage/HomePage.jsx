@@ -36,9 +36,9 @@ const HomePage = () => {
 
   return (
     <>
-      <Header toggleSidebar={toggleSidebar} />
-      {isSidebarOpen && <SideBar ref={sidebarRef} />}
       <div className={css.background}>
+        <Header toggleSidebar={toggleSidebar} />
+        {isSidebarOpen && <SideBar ref={sidebarRef} />}
         <Container className="home-page">
           <ScreensPage />
         </Container>
