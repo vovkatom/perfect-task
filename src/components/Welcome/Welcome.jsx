@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import css from './Welcome.module.css';
 import Container from '../Container/Container';
@@ -7,15 +8,17 @@ import UserAvatarMobile2x from '../../assets/img/start-avatar/start-user@2x-248.
 import UserAvatarDesktop from '../../assets/img/start-avatar/start-user_desktop-162.png';
 import UserAvatarDesktop2x from '../../assets/img/start-avatar/start-user_desktop@2x-324.png';
 import Icon from '../Icon/Icon';
-import 'animate.css';
 
 const Welcome = () => {
   return (
     <>
       <div className={css.background}>
         <Container className='welcome-page'>
-          <div
+          <motion.div
             className={`${css.mainBox}`}
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
           >
             <img
               className={css.logoAvatar}
@@ -49,9 +52,12 @@ const Welcome = () => {
               Supercharge your productivity and take control of your tasks with
               Perfect Task - Don&apos;t wait, start achieving your goals now!
             </p>
-          </div>
-          <div
+          </motion.div>
+          <motion.div
             className={`${css.mainBox}`}
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
           >
             <Link to='/auth/register' className={css.buttonLink}>
               <button className={css.registrationBtn} type='button'>
@@ -77,7 +83,7 @@ const Welcome = () => {
                 />
               </a>
             </div>
-          </div>
+          </motion.div>
         </Container>
       </div>
     </>
