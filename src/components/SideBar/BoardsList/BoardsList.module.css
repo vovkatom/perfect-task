@@ -53,3 +53,21 @@ button {
   overflow-x: hidden;
   border-radius: 5px;
 }
+
+.ScrollBoardList::-webkit-scrollbar {
+  width: 10px; /* Для WebKit (Chrome, Safari) */
+}
+
+.ScrollBoardList::-moz-scrollbar {
+  width: 10px; /* Для Mozilla Firefox */
+}
+
+.ScrollBoardList::-ms-scrollbar {
+  width: 10px; /* Для Internet Explorer та Edge */
+}
+
+/* Якщо потрібно визначити ширину скрола для всіх браузерів, використовуйте цю властивість */
+.ScrollBoardList {
+  scrollbar-width: thin; /* Загальний синтаксис */
+  scrollbar-width: 10px; /* Конкретне значення ширини */
+}
