@@ -15,7 +15,7 @@ const Welcome = () => {
       <div className={css.background}>
         <Container className='welcome-page'>
           <div
-            className={`${css.mainBox} animate__animated animate__bounceInDown`}
+            className={`${css.mainBox}`}
           >
             <img
               className={css.logoAvatar}
@@ -51,7 +51,7 @@ const Welcome = () => {
             </p>
           </div>
           <div
-            className={`${css.mainBox} animate__animated animate__bounceInUp`}
+            className={`${css.mainBox}`}
           >
             <Link to='/auth/register' className={css.buttonLink}>
               <button className={css.registrationBtn} type='button'>
