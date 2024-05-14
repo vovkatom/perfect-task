@@ -21,22 +21,21 @@ Board, request help and exit the application. In Board, we create columns and
 cards with tasks or notes. User can edit cards, sort by priority, set Deadline,
 drag to another columns and delete.
 
-For BackEnd we use Node.js enviroment. As a database we use MongoDB for storage,
-and Mongoose as a library for interaction with DB. For routing we use Express
-framework. Also we implement possibility for saving user pictures in Cloudinary
-service. Work with user mail's realized with nodemailer package and special
-account for this project.
+For BackEnd we use Node.js environment. As a database we use MongoDB for
+storage, and Mongoose as a library for interaction with DB. For routing we use
+Express framework. Also we implement possibility for saving user pictures in
+Cloudinary service. Work with user mail's realized with nodemailer package and
+special account for this project.
 
 Our Team(and main roles):
 
-
 1. Volodymyr Bohachuk - Team Lead / Frontend developer
-2. 
-3. 
-4. 
-5. 
-6. 
-7. 
-8. 
-9. 
+2. Scram
+3. Svitlana Klymenko - Frontend developer
+4.
+5.
+6.
+7.
+8.
+9.
 10.
