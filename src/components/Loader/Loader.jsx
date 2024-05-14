@@ -1,13 +1,16 @@
 import { ColorRing } from 'react-loader-spinner';
 import styles from './Loader.module.css'; // Import CSS module
 
-const Loader = () => {
+const Loader = ({ centered }) => {
+  const spinnerClass = centered ? `${styles.spinner} ${styles.centered}` : styles.spinner;
+  const spinnerSize = centered ? 64 : 32; // Збільшуємо розмір до 48 лише при центруванні
+
   return (
-    <div className={styles.spinner}> {/* Use the class from the CSS module */}
+    <div className={spinnerClass}> {/* Use the class from the CSS module */}
       <ColorRing
         visible={true}
-        height="32"
-        width="32"
+        height={spinnerSize}
+        width={spinnerSize}
         ariaLabel="blocks-loading"
         wrapperStyle={{}}
         wrapperClass="blocks-wrapper"

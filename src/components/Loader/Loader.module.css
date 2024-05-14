@@ -4,3 +4,10 @@
   justify-content: center;
   z-index: 1100;
 }
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
