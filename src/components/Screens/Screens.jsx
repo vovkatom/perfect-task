@@ -23,9 +23,9 @@ const ScreensPage = () => {
   const [activeBoard, setActiveBoard] = useState(null);
   const [error, setError] = useState(null);
 
-  // const items = useSelector(selectBoards); // _id
+  const items = useSelector(selectBoards); // _id
   // // const { _id } = items;
-  // console.log(items);
+  console.log(items);
   const currentBoard = useSelector(selectCurrentBoard); // id
   const { id } = currentBoard;
 

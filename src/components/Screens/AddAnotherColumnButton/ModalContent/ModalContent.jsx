@@ -17,20 +17,18 @@ const ModalContent = ({ closeModal }) => {
   const dispatch = useDispatch();
 
   const { id } = useSelector(selectCurrentBoard);
-  console.log(id);
+  //console.log(id);
 
   const handleColumn = async (data) => {
     const formData = {
       title: data.title,
-      boardId: id,
+      board: id,
     };
-    console.log(formData);
     const resp = await dispatch(addColumn(formData));
     console.log(resp);
     if (resp.type === 'boards/addColumn/fulfilled') {
       Notify.success('Column successful created');
     }
-
     if (resp.error) {
       Notify.failure('Oops,something went wrong. Try again, please.');
     }

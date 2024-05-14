@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { pending, rejected } from '../../shared/redux/redux';
 
 import {
   fetchBoards,
   addBoard,
   deleteBoard,
   updateBoardById,
-  updateBoardPatchById,
+  //updateBoardPatchById,
   addColumn,
   // addTask,
 
@@ -15,14 +16,14 @@ import {
   // updateTaskPlace,
   // deleteTask,
 } from './userBoard-operations';
-const handlePending = (state) => {
-  state.isLoading = true;
-};
+// const handlePending = (state) => {
+//   state.isLoading = true;
+// };
 
-const handleRejected = (state, action) => {
-  state.error = action.payload;
-  state.isLoading = false;
-};
+// const handleRejected = (state, action) => {
+//   state.error = action.payload;
+//   state.isLoading = false;
+// };
 
 const boardsSlice = createSlice({
   name: 'boards',
@@ -30,10 +31,7 @@ const boardsSlice = createSlice({
     items: [],
     isLoading: false,
     error: null,
-    currentBoard: {
-      title: '',
-      boardId: '',
-    },
+    currentBoard: {},
     filter: null,
   },
   reducers: {
@@ -94,15 +92,15 @@ const boardsSlice = createSlice({
         state.error = null;
         state.items = action.payload;
       })
-      .addCase(fetchBoards.pending, handlePending)
-      .addCase(fetchBoards.rejected, handleRejected)
+      .addCase(fetchBoards.pending, pending)
+      .addCase(fetchBoards.rejected, rejected)
       .addCase(addBoard.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.items.push({ ...action.payload, columns: [] });
       })
-      .addCase(addBoard.pending, handlePending)
-      .addCase(addBoard.rejected, handleRejected)
+      .addCase(addBoard.pending, pending)
+      .addCase(addBoard.rejected, rejected)
       .addCase(updateBoardById.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
@@ -112,11 +110,11 @@ const boardsSlice = createSlice({
 
         state.items[index] = action.payload;
       })
-      .addCase(updateBoardById.pending, handlePending)
-      .addCase(updateBoardById.rejected, handleRejected)
-      .addCase(updateBoardPatchById.pending, handlePending)
-      .addCase(updateBoardPatchById.rejected, handleRejected)
-      .addCase(deleteBoard.pending, handlePending)
+      .addCase(updateBoardById.pending, pending)
+      .addCase(updateBoardById.rejected, rejected)
+      // .addCase(updateBoardPatchById.pending, handlePending)
+      // .addCase(updateBoardPatchById.rejected, handleRejected)
+      .addCase(deleteBoard.pending, pending)
       .addCase(deleteBoard.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
@@ -130,14 +128,15 @@ const boardsSlice = createSlice({
           state.currentBoard = 0;
         }
       })
-      .addCase(deleteBoard.rejected, handleRejected)
+      .addCase(deleteBoard.rejected, rejected)
       .addCase(addColumn.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.items[state.currentBoard].columns.push(action.payload);
+        state.items = action.payload;
+        //state.items[state.currentBoard].columns.push(action.payload);
       })
-      .addCase(addColumn.pending, handlePending)
-      .addCase(addColumn.rejected, handleRejected),
+      .addCase(addColumn.pending, pending)
+      .addCase(addColumn.rejected, rejected),
   // .addCase(updateColumnTitle.fulfilled, (state, action) => {
   //   state.isLoading = false;
   //   state.error = null;
