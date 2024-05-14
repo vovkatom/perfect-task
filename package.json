@@ -19,6 +19,7 @@
     "animate.css": "^4.1.1",
     "axios": "^1.6.8",
     "clsx": "^2.1.1",
+    "framer-motion": "^11.2.0",
     "loader-utils": "^3.2.1",
     "modern-normalize": "^2.0.0",
     "nanoid": "^5.0.7",
