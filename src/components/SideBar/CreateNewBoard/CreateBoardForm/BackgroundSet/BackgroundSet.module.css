@@ -24,5 +24,7 @@
 }
 
 .imageSelected {
-  transform: scale(1.2);
+  transform: none;
+  width: 28px;
+  height: 28px;
 }
