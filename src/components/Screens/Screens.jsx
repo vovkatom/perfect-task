@@ -45,8 +45,6 @@ const ScreensPage = () => {
     fetchCurrentBoardById();
   }, [id]);
 
-  console.log(activeBoard);
-
   // const openModal = () => {
   //   setIsModalOpen(!isModalOpen);
   // };
@@ -59,9 +57,13 @@ const ScreensPage = () => {
     // <div className={css.container}>
     <div className={css.mainContainer}>
       {isLoading && <Loader centered />}
-      <HeaderDashboard currentBoard={currentBoard} />
-      <AddAnotherColumnButton activeBoard={activeBoard} />
-      {activeBoard && <NewColumn activeBoard={activeBoard} />}
+      {/* <HeaderDashboard currentBoard={currentBoard} /> */}
+
+      {activeBoard?.columns?.length === 0 ? (
+        <AddAnotherColumnButton activeBoard={activeBoard} />
+      ) : (
+        <NewColumn activeBoard={activeBoard} />
+      )}
     </div>
   );
 };

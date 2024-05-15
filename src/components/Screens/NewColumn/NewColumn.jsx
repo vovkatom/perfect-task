@@ -4,37 +4,40 @@ import Icon from '../../Icon/Icon';
 
 const NewColumn = ({ activeBoard }) => {
   //const dispatch = useDispatch();
-  return (
-    <div className={css.boardContainer}>
-      <p>New column</p>
-      <div>
-        <button
-          type="button"
-          className={css.updateButton}
-          // onClick={handleOpenModal}
-          // onClick={() => dispatch(updateBoardById(_id))}
-        >
-          <Icon
-            className={css.icon}
-            id="icon-pencil-01"
-            width="16"
-            height="16"
-          />
-        </button>
-        <button
-          type="button"
-          className={css.deleteButton}
-          //onClick={() => dispatch(deleteColumn(_id))}
-        >
-          <Icon
-            className={css.icon}
-            id="icon-trash-04"
-            width="16"
-            height="16"
-          />
-        </button>
-      </div>
-      {/* {isModalOpen ? (
+  const { columns } = activeBoard;
+  console.log(columns);
+  const items = columns.map(({ title }) => {
+    return (
+      <li key={title} className={css.item}>
+        <p>{title}</p>
+        <div>
+          <button
+            type="button"
+            className={css.updateButton}
+            // onClick={handleOpenModal}
+            // onClick={() => dispatch(updateBoardById(_id))}
+          >
+            <Icon
+              className={css.icon}
+              id="icon-pencil-01"
+              width="16"
+              height="16"
+            />
+          </button>
+          <button
+            type="button"
+            className={css.deleteButton}
+            //onClick={() => dispatch(deleteColumn(_id))}
+          >
+            <Icon
+              className={css.icon}
+              id="icon-trash-04"
+              width="16"
+              height="16"
+            />
+          </button>
+        </div>
+        {/* {isModalOpen ? (
           <CommonModal isOpen={isModalOpen} onClose={handleCloseModal}>
             <UpdateBoardForm
               closeModal={handleCloseModal}
@@ -46,8 +49,13 @@ const NewColumn = ({ activeBoard }) => {
         ) : (
           ''
         )} */}
-    </div>
-  );
+      </li>
+    );
+  });
+
+  console.log(items);
+
+  return <ul className={css.boardContainer}>{items}</ul>;
 };
 
 export default NewColumn;

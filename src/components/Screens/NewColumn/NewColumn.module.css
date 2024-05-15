@@ -19,6 +19,12 @@
   border-right: 4px solid var(--primary-color-light-green);
 }
 
+.item {
+  display: flex;
+  width: 335px;
+  height: 56px;
+}
+
 .box1 {
   display: flex;
   gap: 2px;
