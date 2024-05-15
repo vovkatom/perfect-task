@@ -3,10 +3,13 @@ import Icon from '../../Icon/Icon';
 //import { useDispatch } from 'react-redux';
 
 const NewColumn = ({ activeBoard }) => {
+  if (!activeBoard || !activeBoard.columns) {
+    return null; // Повертаємо null, якщо activeBoard або activeBoard.columns не існує
+  }
   //const dispatch = useDispatch();
-  const { columns } = activeBoard;
-  console.log(columns);
-  const items = columns.map(({ title }) => {
+  //const { columns } = activeBoard;
+  //console.log(columns);
+  const items = activeBoard.columns.map(({ title }) => {
     return (
       <li key={title} className={css.item}>
         <p>{title}</p>

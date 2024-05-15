@@ -59,7 +59,7 @@ const ScreensPage = () => {
       {isLoading && <Loader centered />}
       {/* <HeaderDashboard currentBoard={currentBoard} /> */}
 
-      {activeBoard?.columns?.length === 0 ? (
+      {activeBoard && activeBoard?.columns?.length === 0 ? (
         <AddAnotherColumnButton activeBoard={activeBoard} />
       ) : (
         <NewColumn activeBoard={activeBoard} />

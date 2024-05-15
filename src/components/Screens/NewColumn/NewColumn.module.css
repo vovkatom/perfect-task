@@ -3,6 +3,7 @@
   padding-left: 0;
   padding-right: 0;
   width: 100%;
+  gap: 5px;
   box-sizing: border-box;
   min-height: 61px;
   justify-content: space-between;
@@ -23,6 +24,10 @@
   display: flex;
   width: 335px;
   height: 56px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  background-color: var(--primary-color-white);
 }
 
 .box1 {
