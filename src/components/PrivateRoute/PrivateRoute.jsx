@@ -10,7 +10,7 @@ const PrivateRoute = () => {
   const token = useSelector(selectAccessToken);
 
   if (!isLogin && !token) {
-    return <Navigate to='/welcome' />;
+    return <Navigate to="/welcome" />;
   }
   return <Outlet />;
 };
