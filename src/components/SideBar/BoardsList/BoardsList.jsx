@@ -38,9 +38,10 @@ const BoardsList = () => {
           onClick={() => handleBoardClick(board)}
         >
           <Icon className={css.icon} id={icon} width="18" height="18" />
-          <p>{title}</p>
+          {/* <p className={css.title}>{title}</p> */}
+          {title}
         </button>
-        <div>
+        <div className={css.helperButton}>
           <button
             type="button"
             className={css.updateButton}

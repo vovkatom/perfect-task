@@ -42,7 +42,7 @@
   --need-help-background: #f6f6f7;
   --need-help-span: #bedbb0;
 
-  --sidebar-board-button-hover: #f6f6f7;
+  --sidebar-board-button-hover: #f6f6f766;
   /*header*/
   --header-background: #fcfcfc;
   --header-primary: #161616;
@@ -79,7 +79,7 @@
   --need-help-background: #1f1f1f;
   --need-help-span: #bedbb0;
 
-  --sidebar-board-button-hover: #1f1f1f;
+  --sidebar-board-button-hover: #f6f6f766;
   /*header*/
   --header-background: #161616;
   --header-primary: #fff;
@@ -116,7 +116,7 @@
   --need-help-background: rgba(236, 237, 253, 0.4);
   --need-help-span: #5255bc;
 
-  --sidebar-board-button-hover: rgba(255, 255, 255, 0.5);
+  --sidebar-board-button-hover: rgba(255, 255, 255, 0.162);
   /*header*/
   --header-background: #fff;
   --header-primary: #161616;
