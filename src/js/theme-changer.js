@@ -40,6 +40,6 @@ export const onChangeTheme = () => {
 
 export const getTheme = () => {
   const body = document.querySelector('body');
-  const theme = localStorage.getItem('THEME_KEY');
+  const theme = localStorage.getItem('theme');
   body.classList.add(theme);
 };
