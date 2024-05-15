@@ -8,6 +8,7 @@ import UserAvatarMobile2x from '../../assets/img/start-avatar/start-user@2x-248.
 import UserAvatarDesktop from '../../assets/img/start-avatar/start-user_desktop-162.png';
 import UserAvatarDesktop2x from '../../assets/img/start-avatar/start-user_desktop@2x-324.png';
 import Icon from '../Icon/Icon';
+import GoogleButton from '../Auth/GoogleButton/GoogleButton';
 
 const Welcome = () => {
   return (
@@ -70,7 +71,7 @@ const Welcome = () => {
                   Log In
                 </button>
               </Link>
-              {/* <GoogleButton /> */}
+              <GoogleButton />
             </div>
           </motion.div>
         </Container>
