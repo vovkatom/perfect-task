@@ -25,8 +25,8 @@ const NewCardForm = ({ closeModal }) => {
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedDate, setSelectedDate] = useState(null);
 
-  console.log(selectedColor);
-  console.log(selectedDate);
+  // console.log(selectedColor);
+  // console.log(selectedDate);
 
   const dispatch = useDispatch();
 
@@ -44,8 +44,8 @@ const NewCardForm = ({ closeModal }) => {
 
   const currentBoard = useSelector(selectBoard);
   const { payload } = currentBoard;
-  console.log(currentBoard);
-  console.log(payload);
+  // console.log(currentBoard);
+  // console.log(payload);
 
   const submit = async (data) => {
     // Обробка поданих даних форми
@@ -71,7 +71,7 @@ const NewCardForm = ({ closeModal }) => {
     }
 
     if (res.error) {
-      console.log(res.error.message);
+      // console.log(res.error.message);
       return Notify.failure('Something went wrong. Please try again.');
     }
   };

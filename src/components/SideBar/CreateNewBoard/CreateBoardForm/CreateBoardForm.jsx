@@ -65,7 +65,7 @@ const CreateBoardForm = ({ closeModal }) => {
     }
 
     if (res.error) {
-      console.log(res.error.message);
+      // console.log(res.error.message);
       return Notify.failure('Something went wrong. Please try again.');
     }
   };
@@ -75,7 +75,7 @@ const CreateBoardForm = ({ closeModal }) => {
       try {
         setLoading(true);
         const data = await requestBgImages();
-        console.log(data);
+        // console.log(data);
         setBgImages(data);
       } catch (error) {
         setError(error.message);

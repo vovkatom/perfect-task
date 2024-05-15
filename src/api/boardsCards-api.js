@@ -2,14 +2,14 @@ import { axiosInstance } from './axios-instance';
 
 export const requestCardById = async (id) => {
   const { data } = await axiosInstance.get(`/cards/${id}`);
-  console.log(id);
-  console.log(data);
+  // console.log(id);
+  // console.log(data);
   return { data };
 };
 
 export const requestAddCard = async (body) => {
   const { data } = await axiosInstance.post('/cards', body);
-  console.log(data);
+  // console.log(data);
   return data;
 };
 

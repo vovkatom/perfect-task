@@ -43,7 +43,7 @@ const RegisterForm = ({ formClassName, inputClassName, buttonClassName }) => {
     }
 
     if (resp.error) {
-      console.log(resp.payload.error.message);
+      // console.log(resp.payload.error.message);
       return Notify.failure(
         'Oops... Something went wrong. Please,ry again later!'
       );

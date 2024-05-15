@@ -1,13 +1,13 @@
 import BurgerMenu from './BurgerMenu/BurgerMenu';
 import { useState } from 'react';
 import css from './Header.module.css';
-import ModalEditProfile from '../EditProfile/ModalEditProfile.jsx';
 import EditProfileForm from '../EditProfile/EditProfile';
 import { useSelector } from 'react-redux';
 import { selectAuthLoading, selectUser } from '../../redux/auth/auth-selectors';
 import ThemeModal from './ThemeModal/ThemeModal';
 import ThemeHeaderButton from './ThemeHeaderButton/ThemeHeaderButton';
 import Loader from '../Loader/Loader.jsx';
+import CommonModal from '../CommonModal/CommonModal';
 // import { selectAuthLoading } from '../../redux/auth/auth-selectors';
 
 const Header = ({ toggleSidebar }) => {
@@ -52,13 +52,13 @@ const Header = ({ toggleSidebar }) => {
         </div>
       </header>
       {isPopUpOpen && <ThemeModal onClick={togglePopUp} />}
-      <ModalEditProfile
+      <CommonModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         title={'Edit profile'}
       >
         <EditProfileForm user={user} onCloseModal={handleCloseModal} />
-      </ModalEditProfile>
+      </CommonModal>
     </div>
   );
 };

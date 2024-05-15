@@ -1,197 +1,96 @@
-/* DARK THEME */
+.profileForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+
+  margin: 0;
+}
+
+.avatarBox {
+  position: relative;
+  width: 68px;
+  height: 79px;
+  /* fill: var(--color-violet-background); */
+}
+
+.avatarImage {
+  width: 68px;
+  height: 68px;
+  border-radius: 8px;
+}
+
+.buttonIconProfile {
+  position: absolute;
+  bottom: 0;
+  left: 22px;
+
+  display: flex;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  background-color: var(--popup-border);
+  transition: background-color 0.25s ease-in-out;
+}
+
+.buttonIconProfile:hover,
+.buttonIconProfile:focus {
+  background-color: var(--sidebar-plus-hover);
+}
+
+.plusIcon {
+  stroke: var(--modal-plus-icon);
+  fill: none;
+  border: none;
+  cursor: pointer;
+}
+
 .inputClassName {
-  box-sizing: border-box;
-  background-color: inherit;
-  color: var(--primary-color-white);
-  opacity: 40%;
-  box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
-  padding-left: 18px;
-  font-size: 14px;
-  font-family: 'Poppins';
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  width: 287px;
+  font-family: inherit;
+  width: 100%;
   height: 49px;
+  border: 1px solid var(--popup-accent-color);
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 18px;
+  padding-right: 18px;
   border-radius: 8px;
-  border: 1px solid var(--primary-color-light-green);
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
+  opacity: 0.4;
+  color: var(--modal-main);
+  font-weight: 400;
+  font-size: 14;
+
+  transition: opacity 0.25s ease-in-out;
 }
 
+.inputClassName:hover,
 .inputClassName:focus {
-  color: var(--primary-color-white);
-  border: 2px solid var(--primary-color-light-green);
-  font-weight: 500;
-}
-
-.plusIcon {
-  stroke: #121212;
-  fill: #bedbb0;
-  border-radius: 4px;
-  cursor: pointer;
+  opacity: 1;
 }
 
 .buttonSend {
-  width: 287px;
+  width: 100%;
   height: 49px;
+  border: none;
   border-radius: 8px;
-  border: 1px solid var(--primary-color-light-green);
-  background-color: var(--primary-color-light-green);
-  color: var(--primary-color-black);
-  font-size: 14px;
-  font-family: 'Poppins';
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  margin-top: 10px;
+  background-color: var(--popup-accent-color);
+  color: var(--modal-button-create);
+
+  transition: background-color 0.25s ease-in-out;
 }
 
-/* LIGHT THEME */
-
-/* .inputClassName {
-  box-sizing: border-box;
-  background-color: inherit;
-  color: var(--primary-color-black);
-  opacity: 40%;
-  box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
-  padding-left: 18px;
-  font-size: 14px;
-  font-family: 'Poppins';
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  width: 287px;
-  height: 49px;
-  border-radius: 8px;
-  border: 1px solid var(--primary-color-light-green);
+.buttonSend:hover,
+.buttonSend:focus {
+  background-color: var(--modal-button-hover);
 }
-
-.inputClassName:focus {
-  color: var(--primary-color-black);
-  border: 2px solid var(--primary-color-light-green);
-  font-weight: 600;
-} */
-
-/* .buttonSend {
-  width: 287px;
-  height: 49px;
-  border-radius: 8px;
-  border: 1px solid var(--primary-color-light-green);
-  background-color: var(--primary-color-light-green);
-  color: var(--primary-color-black);
-  font-size: 14px;
-  font-family: 'Poppins';
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  margin-top: 10px;
-} */
-
-/* .plusIcon {
-  stroke: #121212;
-  fill: #bedbb0;
-  border-radius: 4px;
-  cursor: pointer;
-} */
-
-/* VIOLET THEME */
-/* .inputClassName {
-  box-sizing: border-box;
-  background-color: inherit;
-  color: var(--primary-color-black);
-  opacity: 40%;
-  box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
-  padding-left: 18px;
-  font-size: 14px;
-  font-family: 'Poppins';
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  width: 287px;
-  height: 49px;
-  border-radius: 8px;
-  border: 1px solid var(--primary-color-violet);
-}
-
-.inputClassName:focus {
-  color: var(--primary-color-black);
-  border: 2px solid var(--primary-color-violet);
-  font-weight: 600;
-}
-
-.buttonSend {
-  width: 287px;
-  height: 49px;
-  border-radius: 8px;
-  border: 1px solid var(--primary-color-violet);
-  background-color: var(--primary-color-violet);
-  color: var(--primary-color-white);
-  font-size: 14px;
-  font-family: 'Poppins';
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  margin-top: 10px;
-}
-
-.plusIcon {
-  stroke: #121212;
-  fill: var(--color-violet-background);
-  border-radius: 4px;
-  cursor: pointer;
-} */
 
 @media only screen and (min-width: 768px) {
   .authControl {
     width: 352px;
   }
 }
-
-.profileForm {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-}
-
-.avatar {
-  position: relative;
-  width: 68px;
-  height: 68px;
-  border-radius: 8px;
-  margin: 24px 133px 14px 134px;
-  fill: var(--color-violet-background);
-}
-
-.buttonIconProfile {
-  position: absolute;
-  display: flex;
-  width: 24px;
-  height: 24px;
-  border-radius: 25%;
-  align-items: center;
-  justify-content: center;
-  bottom: -13px;
-  right: 22px;
-  cursor: pointer;
-}
-
-.buttonPlusProfile {
-  display: flex;
-  position: absolute;
-  font-weight: 400;
-  color: #121212;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
-}
-
-/* .plusIconBackground {
-  position: absolute;
-  right: 148px;
-  top: 73%;
-  transform: translate(-70%);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 24px;
-  height: 24px;
-
-  border-radius: 6px;
-  background: #bedbb0;
-} */

@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import Container from '../../components/Container/Container';
 import Header from '../../components/Header/Header';
 import SideBar from '../../components/SideBar/SideBar';
 import ScreensPage from '../ScreensPage/ScreensPage';
@@ -26,9 +25,9 @@ const HomePage = () => {
         <SideBar viewPortWidth={viewPortWidth} isOpen={toggleSidebar} />
       )}
       <div className={css.background}>
-        <Container className="home-page">
+        <div className={css.screenPageContainer}>
           <ScreensPage />
-        </Container>
+        </div>
       </div>
     </>
   );
