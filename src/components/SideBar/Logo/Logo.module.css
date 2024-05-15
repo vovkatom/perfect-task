@@ -1,8 +1,14 @@
 .logo {
   display: flex;
-  margin-bottom: 70px;
+  margin-bottom: 60px;
   align-items: center;
   gap: 8px;
+}
+
+@media only screen and (min-width: 768px) {
+  .logo {
+    margin-bottom: 60px;
+  }
 }
 
 .logoIcon {

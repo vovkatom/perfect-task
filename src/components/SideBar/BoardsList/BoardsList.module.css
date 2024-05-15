@@ -1,4 +1,21 @@
-.boardContainer {
+.buttonsMainContainer {
+  max-height: 242px;
+  overflow: auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .buttonsMainContainer {
+    max-height: 420px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .buttonsMainContainer {
+    max-height: 166px;
+  }
+}
+
+.buttonBox {
   display: flex;
   padding-left: 0;
   padding-right: 0;
@@ -7,30 +24,24 @@
   min-height: 61px;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
-  color: #16161680;
 }
 
-.boardContainer:active,
-.boardContainer:hover {
+.buttonBox:active,
+.buttonBox:hover {
   width: 100%;
   color: black;
-  background-color: var(--color-light-background);
-  border-right: 4px solid var(--primary-color-light-green);
+  background-color: var(--sidebar-board-button-hover);
+  border-right: 4px solid var(--logout-stroke);
 }
 
-.box1 {
+.mainButton {
   display: flex;
   gap: 2px;
 }
 
-.box1:active,
-.box1:hover {
+.mainButton:active,
+.mainButton:hover {
   fill: black;
-}
-
-.box2 {
-  justify-content: space-between;
 }
 
 .icon {
@@ -47,27 +58,41 @@ button {
   background-color: transparent;
 }
 
-.ScrollBoardList {
-  max-height: 300px;
-  overflow-y: auto;
-  overflow-x: hidden;
+.boardButtonsList {
+  /* max-height: 242px; */
+  height: 100%;
+  /* overflow-y: auto;
+  overflow-x: hidden; */
+  overflow: auto;
   border-radius: 5px;
 }
 
-.ScrollBoardList::-webkit-scrollbar {
+/* @media only screen and (min-width: 768px) {
+  .boardButtonsList {
+    max-height: 420px;
+  }
+} */
+
+/* @media only screen and (min-width: 1440px) {
+  .boardButtonsList {
+    max-height: 166px;
+  }
+} */
+
+.boardButtonsList::-webkit-scrollbar {
   width: 10px; /* Для WebKit (Chrome, Safari) */
 }
 
-.ScrollBoardList::-moz-scrollbar {
+.boardButtonsList::-moz-scrollbar {
   width: 10px; /* Для Mozilla Firefox */
 }
 
-.ScrollBoardList::-ms-scrollbar {
+.boardButtonsList::-ms-scrollbar {
   width: 10px; /* Для Internet Explorer та Edge */
 }
 
 /* Якщо потрібно визначити ширину скрола для всіх браузерів, використовуйте цю властивість */
-.ScrollBoardList {
+.boardButtonsList {
   scrollbar-width: thin; /* Загальний синтаксис */
   scrollbar-width: 10px; /* Конкретне значення ширини */
 }

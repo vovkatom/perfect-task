@@ -19,12 +19,6 @@
   height: 100vh;
 }
 
-@media only screen and (min-width: 768px) {
-  .container {
-    width: 260px;
-  }
-}
-
 .container {
   position: relative;
   top: 0px;
@@ -32,11 +26,8 @@
   width: 225px;
   padding: 14px;
   background-color: var(--sidebar-background);
-  height: 100vh;
-}
+  height: 100%;
 
-.sidebar {
-  background-color: var(--sidebar-background);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -49,22 +40,35 @@
   }
 }
 
-@media only screen and (min-width: 1440px) {
-  .container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: block;
-  }
-  .sidebar {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.upperPart {
+  max-height: 480px;
+}
+
+@media only screen and (min-width: 768px) {
+  .upperPart {
+    max-height: 648px;
   }
 }
+
+@media only screen and (min-width: 1440px) {
+  .upperPart {
+    max-height: 394px;
+  }
+}
+
 .myBoardsTitle {
   color: var(--secondary-sidebar-text-color);
   font-weight: 400;
   font-size: 12px;
   margin-bottom: 8px;
+}
+
+.bottomPart {
+  height: 294px;
+}
+
+@media only screen and (min-width: 768px) {
+  .bottomPart {
+    height: 328px;
+  }
 }
