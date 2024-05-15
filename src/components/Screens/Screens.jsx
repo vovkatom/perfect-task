@@ -14,7 +14,8 @@ import HeaderDashboard from './HeaderDashboard/HeaderDashboard';
 import { requestBoardById } from '../../api/boards-api';
 import Loader from '../../components/Loader/Loader';
 //import Container from '../../components/Container/Container';
-import AddAnotherColumn from './AddAnotherColumn/AddAnotherColumn';
+import AddAnotherColumnButton from './AddAnotherColumnButton/AddAnotherColumnButton';
+import NewColumn from './NewColumn/NewColumn';
 
 const ScreensPage = () => {
   //const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,9 +24,9 @@ const ScreensPage = () => {
   const [error, setError] = useState(null);
 
   const items = useSelector(selectBoards); // _id
+  // // const { _id } = items;
   console.log(items);
   const currentBoard = useSelector(selectCurrentBoard); // id
-  console.log(currentBoard);
   const { id } = currentBoard;
 
   useEffect(() => {
@@ -56,8 +57,13 @@ const ScreensPage = () => {
     // <div className={css.container}>
     <div className={css.mainContainer}>
       {isLoading && <Loader centered />}
-      <HeaderDashboard currentBoard={currentBoard} />
-      <AddAnotherColumn />
+      {/* <HeaderDashboard currentBoard={currentBoard} /> */}
+
+      {activeBoard && activeBoard?.columns?.length === 0 ? (
+        <AddAnotherColumnButton activeBoard={activeBoard} />
+      ) : (
+        <NewColumn activeBoard={activeBoard} />
+      )}
     </div>
   );
 };

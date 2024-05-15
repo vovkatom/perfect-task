@@ -11,6 +11,7 @@ import IconsSelector from './IconSelector/IconsSelector';
 import css from '../CreateBoardForm/CreateBoardForm.module.css';
 import { requestBgImages } from '../../../../api/boards-api';
 import { addBoard } from '../../../../redux/userBoard/userBoard-operations';
+import { selectBoard } from '../../../../redux/userBoard/userBoard-slice';
 import Loader from '../../../Loader/Loader';
 
 const schema = yup.object().shape({
@@ -59,6 +60,7 @@ const CreateBoardForm = ({ closeModal }) => {
     closeModal();
 
     if (res.type === 'boards/addBoard/fulfilled') {
+      dispatch(selectBoard(res.payload.currentBoard));
       return Notify.success("You've successfully created a board! Congrats)");
     }
 

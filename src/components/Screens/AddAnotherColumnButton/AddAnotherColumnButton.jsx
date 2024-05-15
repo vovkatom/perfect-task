@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import css from './AddAnotherColumn.module.css';
+import css from './AddAnotherColumnButton.module.css';
 import CommonModal from '../../CommonModal/CommonModal';
 import ModalContent from './ModalContent/ModalContent';
 import Button from '../../../shared/Button/Button';
