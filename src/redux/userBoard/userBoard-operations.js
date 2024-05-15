@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { axiosInstance } from '../../api/axios-instance';
 import * as boardsApi from '../../api/boards-api';
 import * as boardsColumnsApi from '../../api/boardsColumns-api';
-
+import * as cardsApi from '../../api/boardsCards-api';
 //  GET
 export const fetchBoards = createAsyncThunk(
   'boards/fetchBoards',
@@ -16,7 +16,7 @@ export const fetchBoards = createAsyncThunk(
   }
 );
 
-// POST
+// POST board
 export const addBoard = createAsyncThunk(
   'boards/addBoard',
   async (body, thunkAPI) => {
@@ -29,7 +29,7 @@ export const addBoard = createAsyncThunk(
   }
 );
 
-//   DELETE
+//   DELETE board
 export const deleteBoard = createAsyncThunk(
   'boards/deleteBoard',
   async (_id, thunkAPI) => {
@@ -41,7 +41,8 @@ export const deleteBoard = createAsyncThunk(
     }
   }
 );
-// PUT
+
+// PUT board
 export const updateBoardById = createAsyncThunk(
   'boards/updateBoardById',
   async (_id, thunkAPI) => {
@@ -61,16 +62,43 @@ export const updateBoardById = createAsyncThunk(
   }
 );
 
-//POST  task
+//POST  card
 
-export const addTask = createAsyncThunk(
+export const addCard = createAsyncThunk(
   'boards/addTask',
-  async ({ _id, body }, thunkAPI) => {
+  async (body, thunkAPI) => {
     try {
-      const response = await axiosInstance.post(`/columns/${_id}/tasks`, {
-        ...body,
-      });
-      return response.data;
+      const response = await cardsApi.requestAddCard(body);
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+//UPDATE card by id
+
+export const updateCardById = createAsyncThunk(
+  'cards/updateCardById',
+  async (_id, thunkAPI) => {
+    try {
+      const data = await cardsApi.updateCardById(_id);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+//DELETE card by id
+
+export const deleteCard = createAsyncThunk(
+  'boards/deleteTask',
+  async (task, thunkAPI) => {
+    const { _id } = task;
+    try {
+      await cardsApi.requestDeleteCardById(_id);
+      return task;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -91,7 +119,7 @@ export const addColumn = createAsyncThunk(
   }
 );
 
-//PATCH id columns
+//PUT id columns
 export const updateColumnTitle = createAsyncThunk(
   'boards/updateColumnTitle',
   async (column, thunkAPI) => {
@@ -107,7 +135,7 @@ export const updateColumnTitle = createAsyncThunk(
   }
 );
 
-// * DELETE id  columns
+//DELETE id  columns
 export const deleteColumn = createAsyncThunk(
   'boards/deleteColumn',
   async (_id, thunkAPI) => {
@@ -120,7 +148,7 @@ export const deleteColumn = createAsyncThunk(
   }
 );
 
-//  PUT id  columns
+//  PUT id  task
 export const updateTask = createAsyncThunk(
   'task/updateTask',
   async (task, thunkAPI) => {
@@ -150,21 +178,6 @@ export const updateTaskPlace = createAsyncThunk(
         column,
       });
       return { task, oldColumn };
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-//DELETE id
-
-export const deleteTask = createAsyncThunk(
-  'boards/deleteTask',
-  async (task, thunkAPI) => {
-    const { _id } = task;
-    try {
-      await axiosInstance.delete(`/tasks/${_id}`);
-      return task;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

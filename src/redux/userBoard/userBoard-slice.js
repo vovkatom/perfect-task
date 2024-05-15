@@ -8,22 +8,14 @@ import {
   updateBoardById,
   //updateBoardPatchById,
   addColumn,
-  // addTask,
-
+  deleteColumn,
+  updateColumnTitle,
+  addCard,
+  updateCardById,
+  deleteCard,
   // updateColumnTitle,
-  // deleteColumn,
-  // updateTask,
   // updateTaskPlace,
-  // deleteTask,
 } from './userBoard-operations';
-// const handlePending = (state) => {
-//   state.isLoading = true;
-// };
-
-// const handleRejected = (state, action) => {
-//   state.error = action.payload;
-//   state.isLoading = false;
-// };
 
 const boardsSlice = createSlice({
   name: 'boards',
@@ -112,8 +104,6 @@ const boardsSlice = createSlice({
       })
       .addCase(updateBoardById.pending, pending)
       .addCase(updateBoardById.rejected, rejected)
-      // .addCase(updateBoardPatchById.pending, handlePending)
-      // .addCase(updateBoardPatchById.rejected, handleRejected)
       .addCase(deleteBoard.pending, pending)
       .addCase(deleteBoard.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -133,109 +123,80 @@ const boardsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.items = action.payload;
-        //state.items[state.currentBoard].columns.push(action.payload);
       })
       .addCase(addColumn.pending, pending)
-      .addCase(addColumn.rejected, rejected),
-  // .addCase(updateColumnTitle.fulfilled, (state, action) => {
-  //   state.isLoading = false;
-  //   state.error = null;
-  //   const index = state.items[state.currentBoard].columns.findIndex(
-  //     (column) => column._id === action.payload._id
-  //   );
+      .addCase(addColumn.rejected, rejected)
+      .addCase(updateColumnTitle.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        const index = state.items[state.currentBoard].columns.findIndex(
+          (column) => column._id === action.payload._id
+        );
 
-  //   state.items[state.currentBoard].columns[index] = action.payload;
-  // })
-  // .addCase(updateColumnTitle.pending, handlePending)
-  // .addCase(updateColumnTitle.rejected, handleRejected)
-  // .addCase(deleteColumn.pending, handlePending)
-  // .addCase(deleteColumn.fulfilled, (state, action) => {
-  //   state.isLoading = false;
-  //   state.error = null;
-  //   const index = state.items[state.currentBoard].columns.findIndex(
-  //     (column) => column._id === action.payload
-  //   );
-  //   state.items[state.currentBoard].columns.splice(index, 1);
-  // })
-  // .addCase(deleteColumn.rejected, handleRejected)
-  // .addCase(addTask.fulfilled, (state, action) => {
-  //   state.isLoading = false;
-  //   state.error = null;
+        state.items[state.currentBoard].columns[index] = action.payload;
+      })
+      .addCase(updateColumnTitle.pending, pending)
+      .addCase(updateColumnTitle.rejected, rejected)
+      .addCase(deleteColumn.pending, pending)
+      .addCase(deleteColumn.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        const index = state.items[state.currentBoard].columns.findIndex(
+          (column) => column._id === action.payload
+        );
+        state.items[state.currentBoard].columns.splice(index, 1);
+      })
+      .addCase(deleteColumn.rejected, rejected)
+      .addCase(addCard.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
 
-  //   const index = state.items[state.currentBoard].columns.findIndex(
-  //     (column) => column._id === action.payload.column
-  //   );
+        const index = state.items[state.currentBoard].columns.findIndex(
+          (column) => column._id === action.payload.column
+        );
 
-  //   state.items[state.currentBoard].columns[index].tasks.push(
-  //     action.payload
-  //   );
-  // })
-  // .addCase(addTask.pending, handlePending)
-  // .addCase(addTask.rejected, handleRejected)
-  // .addCase(updateTask.fulfilled, (state, action) => {
-  //   state.isLoading = false;
-  //   state.error = null;
+        state.items[state.currentBoard].columns[index].tasks.push(
+          action.payload
+        );
+      })
+      .addCase(addCard.pending, pending)
+      .addCase(addCard.rejected, rejected)
+      .addCase(updateCardById.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
 
-  //   const columnIndex = state.items[state.currentBoard].columns.findIndex(
-  //     (column) => column._id === action.payload.column
-  //   );
+        const columnIndex = state.items[state.currentBoard].columns.findIndex(
+          (column) => column._id === action.payload.column
+        );
 
-  //   const taskIndex = state.items[state.currentBoard].columns[
-  //     columnIndex
-  //   ].tasks.findIndex((task) => task._id === action.payload._id);
+        const taskIndex = state.items[state.currentBoard].columns[
+          columnIndex
+        ].tasks.findIndex((task) => task._id === action.payload._id);
 
-  //   state.items[state.currentBoard].columns[columnIndex].tasks[taskIndex] =
-  //     action.payload;
-  // })
-  // .addCase(updateTask.pending, handlePending)
-  // .addCase(updateTask.rejected, handleRejected)
-  // .addCase(updateTaskPlace.fulfilled, (state, action) => {
-  //   state.isLoading = false;
-  //   state.error = null;
-  //   const { task, oldColumn } = action.payload;
+        state.items[state.currentBoard].columns[columnIndex].tasks[taskIndex] =
+          action.payload;
+      })
+      .addCase(updateCardById.pending, pending)
+      .addCase(updateCardById.rejected, rejected)
+      .addCase(deleteCard.pending, pending)
+      .addCase(deleteCard.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
 
-  //   const newColumnIndex = state.items[
-  //     state.currentBoard
-  //   ].columns.findIndex((column) => column._id === task.column);
+        const columnIndex = state.items[state.currentBoard].columns.findIndex(
+          (column) => column._id === action.payload.column
+        );
 
-  //   state.items[state.currentBoard].columns[newColumnIndex].tasks.push(
-  //     task
-  //   );
+        const taskIndex = state.items[state.currentBoard].columns[
+          columnIndex
+        ].tasks.findIndex((task) => task._id === action.payload._id);
 
-  //   const oldColumnIndex = state.items[
-  //     state.currentBoard
-  //   ].columns.findIndex((column) => column._id === oldColumn);
-
-  //   const oldTaskIndex = state.items[state.currentBoard].columns[
-  //     oldColumnIndex
-  //   ].tasks.findIndex((item) => item._id === task._id);
-
-  //   state.items[state.currentBoard].columns[oldColumnIndex].tasks.splice(
-  //     oldTaskIndex,
-  //     1
-  //   );
-  // })
-  // .addCase(updateTaskPlace.pending, handlePending)
-  // .addCase(updateTaskPlace.rejected, handleRejected)
-  // .addCase(deleteTask.pending, handlePending)
-  // .addCase(deleteTask.fulfilled, (state, action) => {
-  //   state.isLoading = false;
-  //   state.error = null;
-
-  //   const columnIndex = state.items[state.currentBoard].columns.findIndex(
-  //     (column) => column._id === action.payload.column
-  //   );
-
-  //   const taskIndex = state.items[state.currentBoard].columns[
-  //     columnIndex
-  //   ].tasks.findIndex((task) => task._id === action.payload._id);
-
-  //   state.items[state.currentBoard].columns[columnIndex].tasks.splice(
-  //     taskIndex,
-  //     1
-  //   );
-  // })
-  // .addCase(deleteTask.rejected, handleRejected),
+        state.items[state.currentBoard].columns[columnIndex].tasks.splice(
+          taskIndex,
+          1
+        );
+      })
+      .addCase(deleteCard.rejected, rejected),
 });
 
 export const { selectBoard, setFilter, dragAndDropTask, dragAndDropColumn } =
@@ -255,3 +216,32 @@ const filterSlice = createSlice({
 export const filterReducer = filterSlice.reducer;
 
 export const { addFilter } = filterSlice.actions;
+
+// .addCase(updateTaskPlace.fulfilled, (state, action) => {
+//   state.isLoading = false;
+//   state.error = null;
+//   const { task, oldColumn } = action.payload;
+
+//   const newColumnIndex = state.items[
+//     state.currentBoard
+//   ].columns.findIndex((column) => column._id === task.column);
+
+//   state.items[state.currentBoard].columns[newColumnIndex].tasks.push(
+//     task
+//   );
+
+//   const oldColumnIndex = state.items[
+//     state.currentBoard
+//   ].columns.findIndex((column) => column._id === oldColumn);
+
+//   const oldTaskIndex = state.items[state.currentBoard].columns[
+//     oldColumnIndex
+//   ].tasks.findIndex((item) => item._id === task._id);
+
+//   state.items[state.currentBoard].columns[oldColumnIndex].tasks.splice(
+//     oldTaskIndex,
+//     1
+//   );
+// })
+// .addCase(updateTaskPlace.pending, handlePending)
+// .addCase(updateTaskPlace.rejected, handleRejected)

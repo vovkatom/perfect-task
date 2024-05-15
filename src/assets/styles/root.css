@@ -22,6 +22,11 @@
   --color-violet-background: #ecedfd;
 
   --font-family: 'Poppins', sans-serif;
+
+  --color1: #8fa1d0; /* Кольори кнопок */
+  --color2: #e09cb5;
+  --color3: #bedbb0;
+  --color4: #1616164d;
 }
 
 .light {

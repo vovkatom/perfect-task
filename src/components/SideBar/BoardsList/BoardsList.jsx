@@ -34,7 +34,6 @@ const BoardsList = () => {
       <div key={title} className={css.buttonBox}>
         <button
           className={css.mainButton}
-          to={`home/${_id}`}
           onClick={() => handleBoardClick(board)}
         >
           <Icon className={css.icon} id={icon} width="18" height="18" />
