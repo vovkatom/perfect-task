@@ -79,18 +79,12 @@ export const googleLogin = async (token) => {
 };
 
 export const updateProfileRequest = async (formData) => {
-  try {
+
     const { data } = await axiosInstance.patch('/users/update', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
- 
     });
-         console.log(data)
     return data;
-  } catch (error) {
-
-
-    // throw error;
-  }
+  
 };

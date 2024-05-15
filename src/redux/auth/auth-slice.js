@@ -112,7 +112,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         Notify.failure(payload);
         state.isMessageSend = false;
-        
+               
       })
       .addCase(refreshAndFetchCurrent.pending, pending)
       .addCase(refreshAndFetchCurrent.fulfilled, (state, { payload }) => {
