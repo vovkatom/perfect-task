@@ -2,6 +2,7 @@ import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 
 import './react-datepicker2.css';
+import { format } from 'date-fns';
 
 const Calendar = ({ handleDate }) => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -11,7 +12,9 @@ const Calendar = ({ handleDate }) => {
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
-    handleDate(date);
+    const formattedDate = format(date, 'dd-MM-yyyy');
+    handleDate(formattedDate);
+    console.log('formattedDate:', formattedDate)
   };
 
   return (
