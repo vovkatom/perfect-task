@@ -6,6 +6,9 @@ import './react-datepicker2.css';
 const Calendar = ({ handleDate }) => {
   const [selectedDate, setSelectedDate] = useState(null);
 
+    const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
   const handleDateChange = (date) => {
     setSelectedDate(date);
     handleDate(date);
@@ -20,6 +23,7 @@ const Calendar = ({ handleDate }) => {
         showPopperArrow={false}
         placeholderText="Select a date"
         closeOnScroll={true}
+        minDate={today}
       />
     </div>
   );
