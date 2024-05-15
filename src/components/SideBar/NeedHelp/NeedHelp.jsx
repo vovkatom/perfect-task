@@ -20,7 +20,7 @@ const NeedHelp = () => {
     <div className={css.container}>
       <svg className={css.image}></svg>
       <p className={css.infoText}>
-        If you need help with{' '}
+        If you need help with <br />
         <span className={css.perfectTask}>Perfect Task</span>, check out our
         support resources or reach out to our customer support team.
       </p>

@@ -42,7 +42,7 @@ const SideBar = ({ viewPortWidth, isOpen }) => {
   return (
     <div className={`${!viewPortWidth ? css.background : css.noBackground}`}>
       <div ref={sidebarRef} className={`${css.container} ${css.sidebar}`}>
-        <div>
+        <div className={css.upperPart}>
           <Logo />
           <h3 className={css.myBoardsTitle}>My boards</h3>
           <CreateNewBoard />
@@ -50,7 +50,7 @@ const SideBar = ({ viewPortWidth, isOpen }) => {
           {isLoading && <Loader />}
           {items?.length === 0 ? '' : <BoardsList />}
         </div>
-        <div>
+        <div className={css.bottomPart}>
           <NeedHelp />
           <LogOut />
         </div>
