@@ -24,16 +24,14 @@
   min-height: 61px;
   justify-content: space-between;
   align-items: center;
-
-  color: #16161680;
 }
 
 .buttonBox:active,
 .buttonBox:hover {
   width: 100%;
   color: black;
-  background-color: var(--color-light-background);
-  border-right: 4px solid var(--primary-color-light-green);
+  background-color: var(--sidebar-board-button-hover);
+  border-right: 4px solid var(--logout-stroke);
 }
 
 .mainButton {
