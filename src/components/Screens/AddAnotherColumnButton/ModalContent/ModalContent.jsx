@@ -25,7 +25,7 @@ const ModalContent = ({ closeModal }) => {
       board: id,
     };
     const resp = await dispatch(addColumn(formData));
-    console.log(resp);
+    // console.log(resp);
     if (resp.type === 'boards/addColumn/fulfilled') {
       Notify.success('Column successful created');
     }

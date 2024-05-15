@@ -7,14 +7,14 @@ import { format } from 'date-fns';
 const Calendar = ({ handleDate }) => {
   const [selectedDate, setSelectedDate] = useState(null);
 
-    const today = new Date();
+  const today = new Date();
   today.setHours(0, 0, 0, 0);
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
     const formattedDate = format(date, 'dd-MM-yyyy');
     handleDate(formattedDate);
-    console.log('formattedDate:', formattedDate)
+    // console.log('formattedDate:', formattedDate)
   };
 
   return (

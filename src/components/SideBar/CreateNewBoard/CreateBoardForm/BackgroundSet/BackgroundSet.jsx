@@ -4,9 +4,9 @@ import css from '../BackgroundSet/BackgroundSet.module.css';
 const BackgroundSet = ({ bgImages, updateBg }) => {
   const [selectedBg, setSelectedBg] = useState(null);
 
-  const handleBgClick = selectedBg => {
+  const handleBgClick = (selectedBg) => {
     setSelectedBg(selectedBg);
-    console.log(selectedBg);
+    // console.log(selectedBg);
     updateBg(selectedBg);
   };
 

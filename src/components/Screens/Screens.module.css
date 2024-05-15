@@ -1,4 +1,4 @@
-.container {
+/* .container {
   width: 100%;
   max-width: 375px;
   height: 80px;
@@ -39,7 +39,7 @@
   .mainContainer {
     padding-top: 281px;
   }
-}
+} */
 
 .button_create {
   color: var(--board-accent);

@@ -23,10 +23,10 @@ button {
 .boardButtonsList {
   /* max-height: 242px; */
   height: 100%;
-  /* overflow-y: auto;
-  overflow-x: hidden; */
+  overflow-y: auto;
+  overflow-x: hidden;
   overflow: auto;
-  border-radius: 5px;
+  /* border-radius: 5px; */
 }
 
 .boardButtonsList::-webkit-scrollbar {
@@ -65,7 +65,7 @@ button {
   color: black;
   background-color: var(--sidebar-board-button-hover);
   border-right: 4px solid var(--logout-stroke);
-  border-radius: 0 4px 4px 0;
+  border-radius: 4px;
 }
 
 .mainButton {

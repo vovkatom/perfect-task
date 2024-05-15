@@ -33,7 +33,7 @@ const ScreensPage = () => {
       return null;
     }
     const { id } = currentBoard;
-    console.log(currentBoard);
+    // console.log(currentBoard);
     const fetchCurrentBoardById = async () => {
       try {
         setIsLoading(true);
@@ -56,12 +56,12 @@ const ScreensPage = () => {
   //   setIsModalOpen(false);
   // };
 
-  console.log(activeBoard);
+  // console.log(activeBoard);
   if (!activeBoard) {
     return null;
   }
   const { columns } = activeBoard;
-  console.log(columns);
+  // console.log(columns);
   // const items = columns.map(({ title, _id }) => {
   //   <li key={_id}>{title}</li>;
   // });

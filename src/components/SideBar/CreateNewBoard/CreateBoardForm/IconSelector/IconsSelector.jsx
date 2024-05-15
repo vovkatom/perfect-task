@@ -7,7 +7,7 @@ const IconsSelector = ({ updateIcon }) => {
   const [selectedIcon, setSelectedIcon] = useState(null);
 
   useEffect(() => {
-    console.log(selectedIcon);
+    // console.log(selectedIcon);
     updateIcon(selectedIcon);
   }, [selectedIcon, updateIcon]);
 
@@ -49,7 +49,6 @@ const IconsSelector = ({ updateIcon }) => {
 };
 
 export default IconsSelector;
-
 
 {
   /* <li

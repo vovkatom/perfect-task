@@ -4,7 +4,7 @@ const ColorSelector = ({ updateColor }) => {
   const handleColorChange = (event) => {
     const selectedColor = event.target.value;
     updateColor(selectedColor);
-    console.log(selectedColor);
+    // console.log(selectedColor);
   };
 
   return (
