@@ -71,7 +71,6 @@ export const refresh = createAsyncThunk(
   async (_, { rejectWithValue, getState }) => {
     try {
       const { auth } = getState();
-
       const data = await refreshRequest(auth.refreshToken);
       const { accessToken } = data;
       await currentRequest(accessToken);
@@ -98,12 +97,16 @@ export const updateProfile = createAsyncThunk(
   'auth/update',
   async (formData, { rejectWithValue, getState }) => {
     try {
-      const { accessToken } = getState();
-      await currentRequest(accessToken);
+      const { auth } = getState();
+      // await refreshRequest(auth.refreshToken);
+      await currentRequest(auth.accessToken)
+      console.log('uth.refreshToken:', auth.refreshToken)
 
       const data = await updateProfileRequest(formData);
+      ;
       return data;
     } catch (error) {
+      
       
       return rejectWithValue(error.response.data.message);
     }

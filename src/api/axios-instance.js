@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const axiosInstance = axios.create({
-  baseURL: 'https://perfect-task-back.onrender.com/api',
+  baseURL: 'http://localhost:3000/api',
 });
 
 export const setToken = (accessToken) => {
