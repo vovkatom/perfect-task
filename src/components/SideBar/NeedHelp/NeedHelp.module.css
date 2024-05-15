@@ -1,5 +1,6 @@
 .container {
-  width: 100%;
+  width: 197px;
+  height: 238px;
   padding: 14px;
   margin-bottom: 24px;
   background-color: var(--need-help-background);
@@ -9,6 +10,8 @@
 @media only screen and (min-width: 768px) {
   .container {
     padding: 20px;
+    width: 212px;
+    height: 272px;
   }
 }
 
@@ -27,6 +30,13 @@
   line-height: 133%;
   letter-spacing: -0.02em;
   color: var(--primary-sidebar-text-color);
+}
+
+@media only screen and (min-width: 768px) {
+  .infoText {
+    font-size: 14px;
+    line-height: 143%;
+  }
 }
 
 .perfectTask {

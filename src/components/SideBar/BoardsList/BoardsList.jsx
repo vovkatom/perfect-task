@@ -31,16 +31,17 @@ const BoardsList = () => {
   const boardsList = boards.map(({ title, icon, _id }) => {
     const board = { id: _id, title: title };
     return (
-      <div
-        key={title}
-        className={css.boardContainer}
-        onClick={() => handleBoardClick(board)}
-      >
-        <div className={css.box1}>
+      <div key={title} className={css.buttonBox}>
+        <button
+          className={css.mainButton}
+          to={`home/${_id}`}
+          onClick={() => handleBoardClick(board)}
+        >
           <Icon className={css.icon} id={icon} width="18" height="18" />
-          <p>{title}</p>
-        </div>
-        <div>
+          {/* <p className={css.title}>{title}</p> */}
+          {title}
+        </button>
+        <div className={css.helperButton}>
           <button
             type="button"
             className={css.updateButton}
@@ -83,7 +84,11 @@ const BoardsList = () => {
     );
   });
 
-  return <ul className={css.ScrollBoardList}>{boardsList}</ul>;
+  return (
+    <div className={css.buttonsMainContainer}>
+      <ul className={css.boardButtonsList}>{boardsList}</ul>
+    </div>
+  );
 };
 
 export default BoardsList;

@@ -24,7 +24,7 @@ export const setupAxiosInterceptors = (store) => {
         }
       }
       if (error.response.status === 403) {
-        // store.dispatch(logout());
+        store.dispatch(logout());
       }
       return Promise.reject(error);
     }
@@ -55,7 +55,7 @@ export const currentRequest = async (token) => {
   setToken(token);
   try {
     const { data } = await axiosInstance.get('/users/current');
-    return data;
+        return data;
   } catch (error) {
     setToken();
     throw error;
@@ -79,16 +79,12 @@ export const googleLogin = async (token) => {
 };
 
 export const updateProfileRequest = async (formData) => {
-  // try {
+
     const { data } = await axiosInstance.patch('/users/update', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
     });
     return data;
-  // } catch (error) {
-
-
-  //   throw error;
-  // }
+  
 };

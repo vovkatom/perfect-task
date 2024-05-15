@@ -5,7 +5,7 @@ import {
   login,
   signup,
   logout,
-  // refresh,
+  refresh,
   googleLog,
   updateProfile,
   refreshAndFetchCurrent
@@ -71,8 +71,8 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(logout.rejected, rejected)
-      .addCase(refreshAndFetchCurrent.pending, pending)
-      .addCase(refreshAndFetchCurrent.fulfilled, (state, { payload }) => {
+      .addCase(refresh.pending, pending)
+      .addCase(refresh.fulfilled, (state, { payload }) => {
         state.user = payload.user;
         state.accessToken = payload.accessToken;
         state.refreshToken = payload.refreshToken;
@@ -80,7 +80,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(refreshAndFetchCurrent.rejected, (state) => {
+      .addCase(refresh.rejected, (state) => {
         state.isLoading = false;
         state.accessToken = '';
         state.refreshToken = '';
@@ -99,6 +99,7 @@ const authSlice = createSlice({
       .addCase(updateProfile.fulfilled, (state, { payload }) => {
         state.user = payload.user;
         state.isLoading = false;
+        state.isLogin = true;
         Notify.success('Profile updated successfully');
         state.isUpdate = true;
         state.isMessageSend = false;
@@ -109,10 +110,24 @@ const authSlice = createSlice({
         state.error=payload
         state.isUpdate = true;
         state.isLoading = false;
-        Notify.failure('Server error. Please try again.');
+        Notify.failure(payload);
         state.isMessageSend = false;
-        
-      });
+               
+      })
+      .addCase(refreshAndFetchCurrent.pending, pending)
+      .addCase(refreshAndFetchCurrent.fulfilled, (state, { payload }) => {
+        state.user = payload.user;
+        state.accessToken = payload.accessToken;
+        state.refreshToken = payload.refreshToken;
+        state.isLogin = true;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(refreshAndFetchCurrent.rejected, (state) => {
+        state.isLoading = false;
+        state.accessToken = '';
+        state.refreshToken = '';
+      })
 
   },
 });

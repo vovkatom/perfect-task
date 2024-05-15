@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   margin-bottom: 37px;
   gap: 4px;
+  width: 252px;
 }
 
 .bgItem {
@@ -26,6 +27,6 @@
   transform: none;
   width: 28px;
   height: 28px;
-  border: 2px solid red;
+  border: 2px solid var(--modal-main);
   border-radius: 7px;
 }

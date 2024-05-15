@@ -1,4 +1,53 @@
-.boardContainer {
+button {
+  border: none;
+  background-color: transparent;
+}
+
+.buttonsMainContainer {
+  max-height: 242px;
+  overflow: auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .buttonsMainContainer {
+    max-height: 420px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .buttonsMainContainer {
+    max-height: 166px;
+  }
+}
+
+.boardButtonsList {
+  /* max-height: 242px; */
+  height: 100%;
+  /* overflow-y: auto;
+  overflow-x: hidden; */
+  overflow: auto;
+  border-radius: 5px;
+}
+
+.boardButtonsList::-webkit-scrollbar {
+  width: 10px; /* Для WebKit (Chrome, Safari) */
+}
+
+.boardButtonsList::-moz-scrollbar {
+  width: 10px; /* Для Mozilla Firefox */
+}
+
+.boardButtonsList::-ms-scrollbar {
+  width: 10px; /* Для Internet Explorer та Edge */
+}
+
+/* Якщо потрібно визначити ширину скрола для всіх браузерів, використовуйте цю властивість */
+.boardButtonsList {
+  scrollbar-width: thin; /* Загальний синтаксис */
+  scrollbar-width: 10px; /* Конкретне значення ширини */
+}
+
+.buttonBox {
   display: flex;
   padding-left: 0;
   padding-right: 0;
@@ -7,67 +56,80 @@
   min-height: 61px;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
-  color: #16161680;
 }
 
-.boardContainer:active,
-.boardContainer:hover {
+.buttonBox:active,
+.buttonBox:hover,
+.buttonBox:focus {
   width: 100%;
   color: black;
-  background-color: var(--color-light-background);
-  border-right: 4px solid var(--primary-color-light-green);
+  background-color: var(--sidebar-board-button-hover);
+  border-right: 4px solid var(--logout-stroke);
+  border-radius: 0 4px 4px 0;
 }
 
-.box1 {
+.mainButton {
+  position: relative;
   display: flex;
-  gap: 2px;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+  gap: 8px;
+
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+
+  color: var(--secondary-sidebar-text-color);
+
+  transition: color 0.25s ease-in-out;
 }
 
-.box1:active,
-.box1:hover {
-  fill: black;
+.mainButton:hover::after,
+.mainButton:focus::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
-.box2 {
-  justify-content: space-between;
+.mainButton:active,
+.mainButton:hover,
+.mainButton:focus {
+  color: var(--primary-sidebar-text-color);
 }
 
 .icon {
-  background-color: white;
-  fill: #16161680;
-  stroke: 1.3 solid #16161680;
-}
-.icon:hover {
-  transform: scale(1.3);
+  stroke: var(--primary-sidebar-text-color);
+  stroke-opacity: 0.5;
+  stroke-width: 2;
+
+  fill: none;
+
+  transition:
+    stroke 0.25s ease-in-out,
+    stroke-opacity 0.25s ease-in-out;
 }
 
-button {
-  border: none;
-  background-color: transparent;
+.icon:hover,
+.icon:focus {
+  stroke: var(--primary-sidebar-text-color);
+  stroke-opacity: 1;
 }
 
-.ScrollBoardList {
-  max-height: 300px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  border-radius: 5px;
+.mainButton:hover .icon,
+.mainButton:focus .icon {
+  stroke: var(--primary-sidebar-text-color);
+  stroke-opacity: 1;
 }
 
-.ScrollBoardList::-webkit-scrollbar {
-  width: 10px; /* Для WebKit (Chrome, Safari) */
-}
+.helperButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 
-.ScrollBoardList::-moz-scrollbar {
-  width: 10px; /* Для Mozilla Firefox */
-}
-
-.ScrollBoardList::-ms-scrollbar {
-  width: 10px; /* Для Internet Explorer та Edge */
-}
-
-/* Якщо потрібно визначити ширину скрола для всіх браузерів, використовуйте цю властивість */
-.ScrollBoardList {
-  scrollbar-width: thin; /* Загальний синтаксис */
-  scrollbar-width: 10px; /* Конкретне значення ширини */
+  gap: 8px;
 }

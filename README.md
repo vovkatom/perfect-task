@@ -30,8 +30,8 @@ special account for this project.
 Our Team(and main roles):
 
 1. Volodymyr Bohachuk - Team Lead / Frontend developer
-2. Scram
-3. Svitlana Klymenko - Frontend developer
+2. 
+3. Svitlana Klymenko - Scram / Frontend developer
 4.
 5.
 6.
