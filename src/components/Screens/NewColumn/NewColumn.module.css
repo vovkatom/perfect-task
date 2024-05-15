@@ -28,6 +28,7 @@
   align-items: center;
   border-radius: 8px;
   background-color: var(--primary-color-white);
+  color: var(--primary-color-black);
 }
 
 .box1 {

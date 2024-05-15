@@ -1,0 +1,59 @@
+.form {
+  display: block;
+  margin: 0;
+}
+
+.input {
+  font-family: inherit;
+  width: 100%;
+  height: 49px;
+  margin-bottom: 24px;
+  border: 1px solid var(--popup-accent-color);
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
+  opacity: 0.4;
+  color: var(--modal-main);
+  font-weight: 400;
+  font-size: 14;
+
+  transition: opacity 0.25s ease-in-out;
+}
+
+.input:hover,
+.input:focus {
+  opacity: 1;
+}
+
+.description {
+  width: 100%;
+  min-height: 154px;
+  border-radius: 8px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 18px;
+  padding-right: 18px;
+  margin-bottom: 24px;
+  box-shadow: 0px 4px 16px 0px #16161614;
+  font-weight: 500;
+  font-size: 14px;
+  color: black;
+  border: 1px solid var(--primary-color-light-green);
+}
+
+.categoryName {
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+
+  color: var(--modal-main);
+}
+
+.calendar {
+  margin-bottom: 40px;
+}

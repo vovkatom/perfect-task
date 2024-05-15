@@ -31,15 +31,15 @@ const BoardsList = () => {
   const boardsList = boards.map(({ title, icon, _id }) => {
     const board = { id: _id, title: title };
     return (
-      <button
+      <div
         key={title}
         className={css.boardContainer}
         onClick={() => handleBoardClick(board)}
       >
-        <a className={css.box1} to={`home/${_id}`}>
+        <div className={css.box1}>
           <Icon className={css.icon} id={icon} width="18" height="18" />
           <p>{title}</p>
-        </a>
+        </div>
         <div>
           <button
             type="button"
@@ -79,7 +79,7 @@ const BoardsList = () => {
         ) : (
           ''
         )} */}
-      </button>
+      </div>
     );
   });
 

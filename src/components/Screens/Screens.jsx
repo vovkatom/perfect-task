@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 //import CreateBoardForm from '../../components/SideBar/CreateNewBoard/CreateBoardForm/CreateBoardForm';
 import {
   selectCurrentBoard,
-  selectBoards,
+  //selectBoards,
 } from '../../redux/userBoard/userBoard-selectors';
 import HeaderDashboard from './HeaderDashboard/HeaderDashboard';
 import { requestBoardById } from '../../api/boards-api';
@@ -23,18 +23,21 @@ const ScreensPage = () => {
   const [activeBoard, setActiveBoard] = useState(null);
   const [error, setError] = useState(null);
 
-  const items = useSelector(selectBoards); // _id
-  // // const { _id } = items;
-  console.log(items);
-  const currentBoard = useSelector(selectCurrentBoard); // id
-  const { id } = currentBoard;
+  //const items = useSelector(selectBoards); // _id
+  const currentBoard = useSelector(selectCurrentBoard);
+  //const { id } = currentBoard;
 
   useEffect(() => {
+    // id
+    if (!currentBoard) {
+      return null;
+    }
+    const { id } = currentBoard;
+    console.log(currentBoard);
     const fetchCurrentBoardById = async () => {
       try {
         setIsLoading(true);
         const { data } = await requestBoardById(id);
-        console.log(data);
         setActiveBoard(data);
       } catch (error) {
         setError(error.message);
@@ -43,7 +46,7 @@ const ScreensPage = () => {
       }
     };
     fetchCurrentBoardById();
-  }, [id]);
+  }, [currentBoard]);
 
   // const openModal = () => {
   //   setIsModalOpen(!isModalOpen);
@@ -53,17 +56,23 @@ const ScreensPage = () => {
   //   setIsModalOpen(false);
   // };
 
+  console.log(activeBoard);
+  if (!activeBoard) {
+    return null;
+  }
+  const { columns } = activeBoard;
+  console.log(columns);
+  // const items = columns.map(({ title, _id }) => {
+  //   <li key={_id}>{title}</li>;
+  // });
+
   return (
     // <div className={css.container}>
     <div className={css.mainContainer}>
       {isLoading && <Loader centered />}
       {/* <HeaderDashboard currentBoard={currentBoard} /> */}
-
-      {activeBoard && activeBoard?.columns?.length === 0 ? (
-        <AddAnotherColumnButton activeBoard={activeBoard} />
-      ) : (
-        <NewColumn activeBoard={activeBoard} />
-      )}
+      <NewColumn columns={columns} />
+      {columns && <AddAnotherColumnButton />}
     </div>
   );
 };

@@ -1,0 +1,82 @@
+.categoryList {
+  display: flex;
+}
+
+.categoryName {
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+
+  margin-bottom: 14px;
+
+  color: var(--modal-main);
+}
+
+.box {
+  border: none;
+}
+
+.container {
+  display: flex;
+  gap: 8px;
+}
+
+/* ------------------ */
+.radioButtonContainer {
+  display: flex;
+  margin-bottom: 14px;
+}
+
+.radioButtonInput {
+  position: absolute;
+  left: -9999px;
+}
+
+.radioButtonLabel {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.radioButtonLabel:hover {
+  border: 2px solid var(--radioButtonColor); /* Використовуємо CSS-змінну для встановлення кольору бордера */
+  /* border-style: double; */
+  border-style: double;
+  transform: scale(1.2);
+}
+
+.radioButtonInput:checked + .radioButtonLabel {
+  --radioButtonColor: var(
+    --color1
+  ); /* Встановлюємо значення змінної залежно від вибраної кнопки */
+}
+
+.radioButtonInput:checked + .radioButtonLabel:nth-of-type(2) {
+  --radioButtonColor: var(--color2);
+}
+
+.radioButtonInput:checked + .radioButtonLabel:nth-of-type(3) {
+  --radioButtonColor: var(--color3);
+}
+
+.radioButtonInput:checked + .radioButtonLabel:nth-of-type(4) {
+  --radioButtonColor: var(--color4);
+}
+
+.radioButtonInput:checked + .radioButtonLabel::after {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  fill: white;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

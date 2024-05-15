@@ -1,17 +1,32 @@
+//import { useState } from 'react';
+
 import css from './NewColumn.module.css';
 import Icon from '../../Icon/Icon';
+// import Button from '../../../shared/Button/Button';
+// import CommonModal from '../../CommonModal/CommonModal';
+//import NewCardForm from '../NewCardForm/NewCardForm';
+import CreateNewCardButton from './CreateNewCardButton/CreateNewCardButton';
 //import { useDispatch } from 'react-redux';
 
-const NewColumn = ({ activeBoard }) => {
-  if (!activeBoard || !activeBoard.columns) {
+const NewColumn = ({ columns }) => {
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+
+  if (!columns) {
     return null; // Повертаємо null, якщо activeBoard або activeBoard.columns не існує
   }
+
+  // const handleOpenModal = () => {
+  //   setIsModalOpen(!isModalOpen);
+  // };
+
+  // const handleCloseModal = () => {
+  //   setIsModalOpen(false);
+  // };
   //const dispatch = useDispatch();
-  //const { columns } = activeBoard;
-  //console.log(columns);
-  const items = activeBoard.columns.map(({ title }) => {
+
+  const items = columns.map(({ title, _id }) => {
     return (
-      <li key={title} className={css.item}>
+      <li key={_id} className={css.item}>
         <p>{title}</p>
         <div>
           <button
@@ -56,9 +71,12 @@ const NewColumn = ({ activeBoard }) => {
     );
   });
 
-  console.log(items);
-
-  return <ul className={css.boardContainer}>{items}</ul>;
+  return (
+    <>
+      <ul className={css.boardContainer}>{items}</ul>
+      <CreateNewCardButton />
+    </>
+  );
 };
 
 export default NewColumn;
