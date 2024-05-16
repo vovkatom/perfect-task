@@ -1,0 +1,67 @@
+.buttonAddColumn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 56px;
+  gap: 8px;
+  background-color: var(--screen-button-plus-stroke);
+  border-radius: 8px;
+}
+
+.buttonAddCommon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 56px;
+  gap: 8px;
+  background-color: var(--popup-accent-color);
+  border-radius: 8px;
+}
+
+.columnPlusButton {
+  display: flex;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--screen-button-plus-background);
+}
+
+.commonPlusButton {
+  display: flex;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--modal-button-create);
+}
+
+.columnIcon {
+  stroke: var(--screen-button-plus-stroke);
+  fill: none;
+  border: none;
+}
+
+.commonIcon {
+  stroke: var(--modal-plus-icon);
+  fill: none;
+  border: none;
+}
+
+.columnTitle {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--modal-main);
+}
+
+.commonTitle {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--modal-button-create);
+}

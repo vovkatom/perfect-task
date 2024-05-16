@@ -1,8 +1,8 @@
-// import button
 import css from './AddColumn.module.css';
 import { useDispatch } from 'react-redux';
-import { addColumn } from '../../redux/userBoard/userBoard-operations'
-import { Icon } from '../Icon/Icon'
+import { addColumn } from '../../redux/userBoard/userBoard-operations';
+import { Icon } from '../Icon/Icon';
+import Button from '../Button/Button';
 
 const AddColumn = ({ closeModal }) => {
   //  const { _id: shownBoardId } = useShownBoard();react-redux
