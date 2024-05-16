@@ -123,7 +123,7 @@ const NewCardForm = ({ closeModal }) => {
       <div className={css.calendar}>
         <Calendar handleDate={handleDate} />
       </div>
-      <Button onClick={submit} title="Add card" type="submit" />
+      <Button onClick={submit} title="Add" type="submit" id="icon-plus" />
     </form>
   );
 };

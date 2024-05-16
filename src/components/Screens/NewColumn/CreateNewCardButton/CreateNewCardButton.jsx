@@ -21,6 +21,7 @@ const CreateNewBoardButton = () => {
         onClick={handleOpenModal}
         title="Add another card"
         type="button"
+        id="icon-plus"
       />
 
       <CommonModal

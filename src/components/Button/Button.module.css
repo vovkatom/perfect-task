@@ -7,6 +7,14 @@
   gap: 8px;
   background-color: var(--screen-button-plus-stroke);
   border-radius: 8px;
+  border: 1px solid transparent;
+
+  transition: border 0.25s ease-in-out;
+}
+
+.buttonAddColumn:hover,
+.buttonAddColumn:focus {
+  border: 1px solid var(--create-button);
 }
 
 .buttonAddCommon {
@@ -18,6 +26,13 @@
   gap: 8px;
   background-color: var(--popup-accent-color);
   border-radius: 8px;
+
+  transition: background-color 0.25s ease-in-out;
+}
+
+.buttonAddCommon:hover,
+.buttonAddCommon:focus {
+  background-color: var(--sidebar-plus-hover);
 }
 
 .columnPlusButton {

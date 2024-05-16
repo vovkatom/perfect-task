@@ -55,6 +55,7 @@ const ModalContent = ({ closeModal }) => {
         type="submit"
         onClick={closeModal}
         title="Add"
+        id="icon-plus"
       />
     </form>
   );
