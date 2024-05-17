@@ -2,6 +2,9 @@
   /* position: relative; */
   height: 100vh;
   background-color: var(--main-background);
+  background-image: var(--bg-mobile-1x);
+  background-size: cover;
+  background-position: center;
 }
 
 .screenPageContainer {
@@ -18,10 +21,16 @@
   .screenPageContainer {
     top: 68px;
   }
+  .background {
+    background-image: var(--bg-tablet-1x);
+  }
 }
 
 @media only screen and (min-width: 1440px) {
   .screenPageContainer {
     left: 260px;
+  }
+  .background {
+    background-image: var(--bg-desktop-1x);
   }
 }
