@@ -30,7 +30,8 @@ const ScreensPage = () => {
   useEffect(() => {
     // id
     if (!currentBoard) {
-      return null;
+      // return null;
+      return;
     }
     const { id } = currentBoard;
     // console.log(currentBoard);
