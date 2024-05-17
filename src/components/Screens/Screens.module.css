@@ -53,3 +53,27 @@
 .button_create:focus {
   color: var(--main-hover);
 }
+
+.mainContainer {
+  position: relative;
+  background-image: var(--bg-mobile-1x);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .mainContainer {
+    background-image: var(--bg-tablet-1x);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .mainContainer {
+    background-image: var(--bg-desktop-1x);
+  }
+}

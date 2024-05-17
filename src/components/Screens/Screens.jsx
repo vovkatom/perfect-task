@@ -40,6 +40,32 @@ const ScreensPage = () => {
         setIsLoading(true);
         const { data } = await requestBoardById(id);
         setActiveBoard(data);
+
+        const root = document.documentElement;
+        root.style.setProperty(
+          '--bg-mobile-1x',
+          `url(${data.backgroundURL.mobile_1x})`
+        );
+        root.style.setProperty(
+          '--bg-mobile-2x',
+          `url(${data.backgroundURL.mobile_2x})`
+        );
+        root.style.setProperty(
+          '--bg-tablet-1x',
+          `url(${data.backgroundURL.tablet_1x})`
+        );
+        root.style.setProperty(
+          '--bg-tablet-2x',
+          `url(${data.backgroundURL.tablet_2x})`
+        );
+        root.style.setProperty(
+          '--bg-desktop-1x',
+          `url(${data.backgroundURL.desktop_1x})`
+        );
+        root.style.setProperty(
+          '--bg-desktop-2x',
+          `url(${data.backgroundURL.desktop_2x})`
+        );
       } catch (error) {
         setError(error.message);
       } finally {
