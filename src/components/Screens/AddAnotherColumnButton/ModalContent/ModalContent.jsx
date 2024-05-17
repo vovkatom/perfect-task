@@ -5,7 +5,7 @@ import * as yup from 'yup';
 import { Notify } from 'notiflix';
 
 import { addColumn } from '../../../../redux/userBoard/userBoard-operations';
-import Button from '../../../../shared/Button/Button';
+import Button from '../../../Button/Button';
 import css from './ModalContent.module.css';
 import { selectCurrentBoard } from '../../../../redux/userBoard/userBoard-selectors';
 
@@ -55,6 +55,7 @@ const ModalContent = ({ closeModal }) => {
         type="submit"
         onClick={closeModal}
         title="Add"
+        id="icon-plus"
       />
     </form>
   );

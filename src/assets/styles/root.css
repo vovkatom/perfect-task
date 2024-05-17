@@ -64,6 +64,9 @@
   --modal-button-create: #161616;
   --modal-plus-icon: #fff;
   --modal-button-hover: #9dc888;
+  /*screen page*/
+  --screen-button-plus-stroke: #fff;
+  --screen-button-plus-background: #161616;
 }
 
 .dark {
@@ -101,6 +104,9 @@
   --modal-button-create: #161616;
   --modal-plus-icon: #fff;
   --modal-button-hover: #9dc888;
+  /*screen page*/
+  --screen-button-plus-stroke: #121212;
+  --screen-button-plus-background: #fff;
 }
 
 .violet {
@@ -138,6 +144,9 @@
   --modal-button-create: #fff;
   --modal-plus-icon: #161616;
   --modal-button-hover: #7b7ede;
+  /*screen page*/
+  --screen-button-plus-stroke: #fff;
+  --screen-button-plus-background: #5255bc;
 }
 
 .light body,

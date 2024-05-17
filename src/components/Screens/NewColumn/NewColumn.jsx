@@ -2,7 +2,6 @@
 
 import css from './NewColumn.module.css';
 import Icon from '../../Icon/Icon';
-// import Button from '../../../shared/Button/Button';
 // import CommonModal from '../../CommonModal/CommonModal';
 //import NewCardForm from '../NewCardForm/NewCardForm';
 import CreateNewCardButton from './CreateNewCardButton/CreateNewCardButton';

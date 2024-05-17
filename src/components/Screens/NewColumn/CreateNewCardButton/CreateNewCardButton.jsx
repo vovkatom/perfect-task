@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import Button from '../../../../shared/Button/Button';
-import css from './CreateNewCardButton.module.css';
+import Button from '../../../Button/Button';
+// import css from './CreateNewCardButton.module.css';
 import NewCardForm from '../../NewCardForm/NewCardForm';
 import CommonModal from '../../../CommonModal/CommonModal';
 
@@ -21,6 +21,7 @@ const CreateNewBoardButton = () => {
         onClick={handleOpenModal}
         title="Add another card"
         type="button"
+        id="icon-plus"
       />
 
       <CommonModal

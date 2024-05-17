@@ -17,6 +17,7 @@ const CreateNewBoard = () => {
 
   return (
     <>
+      {/* Button = ({ onClick, title, type, id }) */}
       <button className={css.button} type="button" onClick={handleOpenModal}>
         <p className={css.buttonTitle}>Create a new board</p>
         <div className={css.buttonPlus}>

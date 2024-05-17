@@ -9,7 +9,7 @@ import Loader from '../../Loader/Loader';
 import ColorSelector from './ColorSelector/ColorSelector';
 import css from './NewCardForm.module.css';
 import { addCard } from '../../../redux/userBoard/userBoard-operations';
-import Button from '../../../shared/Button/Button';
+import Button from '../../Button/Button';
 import Calendar from '../../Calendar/Calendar';
 import { selectBoard } from '../../../redux/userBoard/userBoard-slice';
 
@@ -44,6 +44,7 @@ const NewCardForm = ({ closeModal }) => {
 
   const currentBoard = useSelector(selectBoard);
   const { payload } = currentBoard;
+  console.log(payload);
   // console.log(currentBoard);
   // console.log(payload);
 
@@ -122,7 +123,7 @@ const NewCardForm = ({ closeModal }) => {
       <div className={css.calendar}>
         <Calendar handleDate={handleDate} />
       </div>
-      <Button onClick={submit} title="Add card" type="submit" />
+      <Button onClick={submit} title="Add" type="submit" id="icon-plus" />
     </form>
   );
 };
