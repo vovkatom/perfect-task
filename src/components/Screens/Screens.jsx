@@ -40,6 +40,7 @@ const ScreensPage = () => {
         setIsLoading(true);
         const { data } = await requestBoardById(id);
         setActiveBoard(data);
+        console.log(data);
 
         const root = document.documentElement;
         root.style.setProperty(
