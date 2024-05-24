@@ -1,10 +1,10 @@
-import css from './AddColumn.module.css';
+import css from './ModalAddColumn.module.css';
 import { useDispatch } from 'react-redux';
 import { addColumn } from '../../redux/userBoard/userBoard-operations';
 import { Icon } from '../Icon/Icon';
 import Button from '../Button/Button';
 
-const AddColumn = ({ closeModal }) => {
+const ModalAddColumn = ({ closeModal }) => {
   //  const { _id: shownBoardId } = useShownBoard();react-redux
 
   const dispatch = useDispatch();
@@ -46,4 +46,4 @@ const AddColumn = ({ closeModal }) => {
   );
 };
 
-export default AddColumn;
+export default ModalAddColumn;

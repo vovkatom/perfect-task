@@ -23,8 +23,6 @@ const AddAnotherColumn = () => {
         type="button"
         onClick={openModal}
         title="Add another column"
-        className={css.button}
-        style="background-color: var(--primary-color-white)"
       />
       <CommonModal
         isOpen={isModalOpen}
