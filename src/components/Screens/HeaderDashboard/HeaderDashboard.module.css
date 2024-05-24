@@ -30,9 +30,26 @@
   color: #161616;
 }
 
+.boardTitlePlaceholder {
+  width: 0;
+  visibility: hidden;
+}
+
 .filterTitle {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
   color: rgba(22, 22, 22, 0.8);
+}
+
+.filterIcon {
+  fill: none;
+  stroke: #161616;
+  stroke-opacity: 0.8;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }

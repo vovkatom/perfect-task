@@ -4,7 +4,11 @@ import css from './HeaderDashboard.module.css';
 const HeaderDashboard = ({ boardTitle }) => {
   return (
     <div className={css.headerDashboardContainer}>
-      {boardTitle && <h2 className={css.boardTitle}>{boardTitle}</h2>}
+      {boardTitle ? (
+        <h2 className={css.boardTitle}>{boardTitle}</h2>
+      ) : (
+        <div className={css.boardTitlePlaceholder}></div> // Placeholder when boardTitle is not present
+      )}
       <p className={css.filterTitle}>
         <Icon
           id="icon-filter"
