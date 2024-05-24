@@ -1,0 +1,16 @@
+.screenPageContainer {
+  width: 100%;
+  height: 100%;
+  margin-top: 60px;
+}
+
+@media only screen and (min-width: 768px) {
+  .screenPageContainer {
+    margin-top: 68px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .screenPageContainer {
+    margin-left: 260px;
+  }
+}

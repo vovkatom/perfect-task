@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import css from './AddAnotherColumnButton.module.css';
+import css from './AddAnotherColumn.module.css';
 import CommonModal from '../../CommonModal/CommonModal';
 import ModalContent from './ModalContent/ModalContent';
 import Button from '../../Button/Button';
@@ -23,11 +23,13 @@ const AddAnotherColumn = () => {
         type="button"
         onClick={openModal}
         title="Add another column"
+        className={css.addColumnButton}
       />
       <CommonModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         title="Add column"
+        className={css.addColumnModal}
       >
         <ModalContent closeModal={handleCloseModal} />
       </CommonModal>

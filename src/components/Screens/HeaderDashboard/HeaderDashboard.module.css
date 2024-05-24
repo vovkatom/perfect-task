@@ -1,4 +1,38 @@
+.headerDashboardContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  min-width: 320px;
+  max-width: 375px;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+}
+
+@media only screen and (min-width: 768px) {
+  .headerDashboardContainer {
+    width: 768px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .headerDashboardContainer {
+    width: 1440px;
+  }
+}
+
 .boardTitle {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 14px;
+  letter-spacing: -0.02em;
+  color: #161616;
+}
+
+.filterTitle {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: rgba(22, 22, 22, 0.8);
 }

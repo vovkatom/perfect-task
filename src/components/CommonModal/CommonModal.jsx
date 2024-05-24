@@ -41,7 +41,7 @@ const CommonModal = ({ isOpen, onClose, title, children }) => {
             height="18"
           />
         </button>
-        <h2>{title}</h2>
+        <h2 className={css.modalTitle}>{title}</h2>
 
         <div className={css.content}>{children}</div>
       </div>

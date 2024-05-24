@@ -10,18 +10,19 @@ import {
   selectCurrentBoard,
   //selectBoards,
 } from '../../redux/userBoard/userBoard-selectors';
-import HeaderDashboard from './HeaderDashboard/HeaderDashboard';
+// import HeaderDashboard from './HeaderDashboard/HeaderDashboard';
 import { requestBoardById } from '../../api/boards-api';
 import Loader from '../../components/Loader/Loader';
 //import Container from '../../components/Container/Container';
 import AddAnotherColumnButton from './AddAnotherColumnButton/AddAnotherColumnButton';
 import NewColumn from './NewColumn/NewColumn';
 
-const ScreensPage = () => {
+const Screens = () => {
   //const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [activeBoard, setActiveBoard] = useState(null);
   const [error, setError] = useState(null);
+  console.log(error);
 
   //const items = useSelector(selectBoards); // _id
   const currentBoard = useSelector(selectCurrentBoard);
@@ -105,7 +106,7 @@ const ScreensPage = () => {
   );
 };
 
-export default ScreensPage;
+export default Screens;
 
 //
 
