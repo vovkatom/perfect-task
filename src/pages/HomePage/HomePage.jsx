@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import Header from '../../components/Header/Header';
 import SideBar from '../../components/SideBar/SideBar';
 import ScreensPage from '../ScreensPage/ScreensPage';
-import css from './HomePage.module.css';
 import { useMediaQuery } from 'react-responsive';
 
 const HomePage = () => {
@@ -24,11 +23,7 @@ const HomePage = () => {
       {isSidebarOpen && (
         <SideBar viewPortWidth={viewPortWidth} isOpen={toggleSidebar} />
       )}
-      <div className={css.background}>
-        <div className={css.screenPageContainer}>
-          <ScreensPage />
-        </div>
-      </div>
+      <ScreensPage />
     </>
   );
 };

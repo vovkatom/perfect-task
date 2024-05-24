@@ -8,13 +8,12 @@ export const requestAllBoards = async () => {
 export const requestBoardById = async (id) => {
   // Перевірка, чи ідентифікатор визначений
   if (id === undefined) {
-    throw new Error("ID is undefined");
+    throw new Error('ID is not defined');
   }
 
   const { data } = await axiosInstance.get(`/boards/${id}`);
   return { data };
 };
-
 
 export const requestAddBoard = async (body) => {
   const { data } = await axiosInstance.post('/boards', body);

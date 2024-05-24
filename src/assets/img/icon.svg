@@ -2,7 +2,7 @@
   version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
     <symbol id="icon-filter" viewBox="0 0 32 32">
-      <path d="M29.334 4h-26.667l10.667 12.613v8.72l5.333 2.667v-11.387l10.667-12.613z"></path>
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3" d="M29.333 4h-26.667l10.667 12.613v8.72l5.333 2.667v-11.387l10.667-12.613z"></path>
     </symbol>
     <symbol id="icon-bell-01" viewBox="0 0 32 32">
       <path
