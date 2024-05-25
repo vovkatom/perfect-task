@@ -11,7 +11,7 @@ export const onChangeTheme = () => {
     const { textContent } = e.target;
 
     const mode = textContent.trim().toLowerCase();
-
+    console.log('mode :>> ', mode);
     switch (mode) {
       case light:
         localStorage.setItem(THEME_KEY, light);
@@ -41,5 +41,6 @@ export const onChangeTheme = () => {
 export const getTheme = () => {
   const body = document.querySelector('body');
   const theme = localStorage.getItem('theme');
-  body.classList.add(theme);
+
+  theme ? body.classList.add(theme) : body.classList.add(light);
 };
