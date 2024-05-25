@@ -6,8 +6,7 @@
   border-radius: 8px;
 
   height: 56px;
-  min-width: 320px;
-  max-width: 375px;
+  width: 100%;
 
   margin-left: auto;
   margin-right: auto;
@@ -15,7 +14,7 @@
 
 @media only screen and (min-width: 768px) {
   .addColumnButton {
-    width: 768px;
+    width: 334px;
   }
 }
 

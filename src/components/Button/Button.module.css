@@ -17,6 +17,12 @@
   border: 1px solid var(--create-button);
 }
 
+@media only screen and (min-width: 768px) {
+  .buttonAddColumn {
+    width: 334px;
+  }
+}
+
 .buttonAddCommon {
   display: flex;
   justify-content: center;

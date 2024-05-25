@@ -64,9 +64,11 @@ const ScreensBackground = ({ children }) => {
   return (
     <>
       <div className={css.background}>
-        {isLoading && <Loader centered />}
-        {error && <p>{error}</p>}
-        {children}
+        <div className={`container ${css.screenMainContainer}`}>
+          {isLoading && <Loader centered />}
+          {error && <p>{error}</p>}
+          {children}
+        </div>
       </div>
     </>
   );

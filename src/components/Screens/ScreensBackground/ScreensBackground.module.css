@@ -1,14 +1,12 @@
 .background {
-  height: 100vh;
+  height: 100%;
+  width: 100%;
   background-color: var(--main-background);
   background-image: var(--bg-mobile-1x);
   background-size: cover;
   background-position: center;
-  background-clip: padding-box;
-  background-origin: padding-box;
-
-  padding-top: 14px;
-  padding-left: 20px;
+  /* background-clip: padding-box;
+  background-origin: padding-box; */
 }
 
 @media (min-device-pixel-ratio: 2),
@@ -42,5 +40,21 @@
     .background {
       background-image: var(--bg-desktop-2x);
     }
+  }
+}
+
+.screenMainContainer {
+  padding: 14px 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .screenMainContainer {
+    padding: 26px 32px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .screenMainContainer {
+    padding: 10px 24px;
   }
 }
