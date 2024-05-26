@@ -1,41 +1,61 @@
-FrontEnd for "Perfect Task" project
+## Project developed by the GoIT students team - Perfect Task
 
-Repositories:
+# Task Pro
 
-Front-End: Github: https://github.com/vovkatom/perfect-task Page:
-https://vovkatom.github.io/perfect-task/
+---
 
-Back-End: Github: https://github.com/vovkatom/Perfect-Task-Back Page:
-https://perfect-task-back.onrender.com/ Routes:
-https://perfect-task-back.onrender.com/api-docs/
+## Links
 
-Description: It's final team project after completing the FullStack developer
-course of GoIT. Our task was to create a WEB application from scratch. For
-FrontEnd we used React. The project was implemented according to the layout. The
-MobileFirst approach, responsive and adaptive layout is used. There are private
-and public application pages. The user interface consists of: Header, Sidebar
-and ScreensPage. The user has the opportunity to edit his personal data and
-download an Avatar separately, choose one of the three visual themes of the
-application. In the Sidebar, it is possible to create, select, edit and delete a
-Board, request help and exit the application. In Board, we create columns and
-cards with tasks or notes. User can edit cards, sort by priority, set Deadline,
-drag to another columns and delete.
+### Front-End: [Front-End GitHub](https://github.com/vovkatom/perfect-task) [Front-End App](https://vovkatom.github.io/perfect-task/)
 
-For BackEnd we use Node.js environment. As a database we use MongoDB for
-storage, and Mongoose as a library for interaction with DB. For routing we use
-Express framework. Also we implement possibility for saving user pictures in
-Cloudinary service. Work with user mail's realized with nodemailer package and
-special account for this project.
+### Back-End: [Back-End GitHub](https://github.com/vovkatom/Perfect-Task-Back) [Back-End App](https://perfect-task-back.onrender.com/) [Swagger](https://perfect-task-back.onrender.com/api-docs/)
 
-Our Team(and main roles):
+---
 
-1. Volodymyr Bohachuk - Team Lead / Frontend developer
-2. 
-3. Svitlana Klymenko - Scram / Frontend developer
-4.
-5.
-6.
-7.
-8.
-9.
-10.
+## About
+
+Task Pro is an application that helps you organize your work and save time. With
+Task Pro, you'll never forget important tasks again.
+
+After a quick registration and login (you can also log in using Google), you're
+in: you can create your first board and enjoy the app. Manage several projects
+simultaneously, create and customize as many boards as you need with an
+unlimited number of columns and cards! You can prioritize cards, move them
+between columns, and set due dates.
+
+You can edit your account anytime by changing your avatar, name, or email
+address. If you need help with Task Pro, you can send an email describing your
+problem - the application has a feedback form located in the sidebar.
+
+The app offers light, dark, and violet modes for a better user experience. Use
+it on your smartphone, tablet, or laptop - it's excellently adapted for every
+device.
+
+---
+
+## Project Technology Stack
+
+### Front-End:
+
+`vite` `react` `react-router-dom` `react-hook-form` `react-datepicker`
+`@reduxjs/toolkit` `redux-persist` `axios` `yup`
+
+### Back-End:
+
+`node` `express` `mongodb` `mongoose` `cors` `cloudinary` `jsonwebtoken` `joi`
+`multer` `bcrypt` `dotenv`
+
+---
+
+## Our Team:
+
+- Volodymyr Bohachuk - Team Lead / Frontend developer
+- Nataliia Paszczenko - Scrum / Frontend developer
+- Svitlana Klymenko - Frontend developer
+- Maryna Bublyk - Frontend developer
+- Lena Zyamileva - Backend developer
+- Taras Panasenko - Backend developer
+
+<p align="center">
+  &copy; 2024 Perfect Task&trade;
+</p>

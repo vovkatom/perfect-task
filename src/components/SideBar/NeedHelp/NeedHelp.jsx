@@ -21,8 +21,8 @@ const NeedHelp = () => {
       <svg className={css.image}></svg>
       <p className={css.infoText}>
         If you need help with <br />
-        <span className={css.perfectTask}>Perfect Task</span>, check out our
-        support resources or reach out to our customer support team.
+        <span className={css.perfectTask}>Task Pro</span>, check out our support
+        resources or reach out to our customer support team.
       </p>
       <Link className={css.needHelpLink} onClick={handleOpenModal}>
         <Icon
