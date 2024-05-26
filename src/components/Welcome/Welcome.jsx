@@ -46,12 +46,12 @@ const Welcome = () => {
                 width="40"
                 height="40"
               />
-              <h1 className={css.header}>Perfect Task</h1>
+              <h1 className={css.header}>Task Pro</h1>
             </div>
 
             <p className={css.paragraph}>
               Supercharge your productivity and take control of your tasks with
-              Perfect Task - Don&apos;t wait, start achieving your goals now!
+              Task Pro - Don&apos;t wait, start achieving your goals now!
             </p>
           </motion.div>
           <motion.div
