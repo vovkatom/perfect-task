@@ -14,7 +14,7 @@ import {
 import { requestBoardById } from '../../api/boards-api';
 import Loader from '../../components/Loader/Loader';
 //import Container from '../../components/Container/Container';
-import AddAnotherColumnButton from './AddAnotherColumnButton/AddAnotherColumnButton';
+import AddAnotherColumn from './AddAnotherColumn/AddAnotherColumn';
 import NewColumn from './NewColumn/NewColumn';
 
 const Screens = () => {
@@ -101,7 +101,7 @@ const Screens = () => {
       {isLoading && <Loader centered />}
       {/* <HeaderDashboard currentBoard={currentBoard} /> */}
       <NewColumn columns={columns} />
-      {columns && <AddAnotherColumnButton />}
+      {columns && <AddAnotherColumn />}
     </div>
   );
 };
@@ -121,25 +121,22 @@ export default Screens;
 }
 
 {
-  /* {items?.length === 0 && 
-        // <p>Before starting your project, it is essential{' '}</p>
-        //   <button
-        //     type="button"
-        //     className={css.button_create}
-        //     onClick={openModal}
-        //   >
-        //     {' '}
-        //     <span>to create a board{' '}</span>
-        //   </button>{' '}
-        //   <p>to visualize and track all the necessary tasks and milestones. This
-        //   board serves as a powerful tool to organize the workflow and ensure
-        //   effective collaboration among team members.</p>
-      
-            // <CommonModal isOpen={isModalOpen} onClose={handleCloseModal}>
-            //   <CreateBoardForm />
-            // </CommonModal>
-          
-      }    */
+  // {items?.length === 0 &&
+  //       <p>Before starting your project, it is essential{' '}</p>
+  //         <button
+  //           type="button"
+  //           className={css.button_create}
+  //           onClick={openModal}
+  //         >
+  //           <span>to create a board{' '}</span>
+  //         </button>{' '}
+  //         <p>to visualize and track all the necessary tasks and milestones. This
+  //         board serves as a powerful tool to organize the workflow and ensure
+  //         effective collaboration among team members.</p>
+  //           <CommonModal isOpen={isModalOpen} onClose={handleCloseModal}>
+  //             <CreateBoardForm />
+  //           </CommonModal>
+  //     }
 }
 {
   /* </div> */

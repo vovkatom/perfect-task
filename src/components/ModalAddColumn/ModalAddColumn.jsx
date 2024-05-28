@@ -2,7 +2,7 @@ import css from './ModalAddColumn.module.css';
 import { useDispatch } from 'react-redux';
 import { addColumn } from '../../redux/userBoard/userBoard-operations';
 import { Icon } from '../Icon/Icon';
-import Button from '../Button/Button';
+import CommonButton from '../CommonButton/CommonButton';
 
 const ModalAddColumn = ({ closeModal }) => {
   //  const { _id: shownBoardId } = useShownBoard();react-redux
@@ -35,12 +35,12 @@ const ModalAddColumn = ({ closeModal }) => {
           className={css.addColumn_input}
           autoFocus
         />
-        <Button type="submit" className={css.addColumn_btn}>
+        <CommonButton type="submit" className={css.addColumn_btn}>
           <span className={css.iconWrap}>
             <Icon id={'icon-plus'} className={css.icon} />
           </span>
           Add
-        </Button>
+        </CommonButton>
       </form>
     </div>
   );

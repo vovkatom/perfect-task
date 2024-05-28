@@ -3,7 +3,7 @@ import { useState } from 'react';
 import css from './AddAnotherColumn.module.css';
 import CommonModal from '../../CommonModal/CommonModal';
 import ModalContent from './ModalContent/ModalContent';
-import Button from '../../Button/Button';
+import CommonButton from '../../CommonButton/CommonButton';
 
 const AddAnotherColumn = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,7 +18,7 @@ const AddAnotherColumn = () => {
 
   return (
     <>
-      <Button
+      <CommonButton
         id="icon-plus"
         type="button"
         onClick={openModal}

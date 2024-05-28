@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import Button from '../../../Button/Button';
+import CommonButton from '../../../CommonButton/CommonButton';
 // import css from './CreateNewCardButton.module.css';
 import NewCardForm from '../../NewCardForm/NewCardForm';
 import CommonModal from '../../../CommonModal/CommonModal';
@@ -17,7 +17,7 @@ const CreateNewBoardButton = () => {
   };
   return (
     <>
-      <Button
+      <CommonButton
         onClick={handleOpenModal}
         title="Add another card"
         type="button"
