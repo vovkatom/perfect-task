@@ -1,4 +1,4 @@
-.background {
+.screenBackground {
   height: 100%;
   width: 100%;
   background-color: var(--main-background);
@@ -12,32 +12,32 @@
 @media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
-  .background {
+  .screenBackground {
     background-image: var(--bg-mobile-2x);
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .background {
+  .screenBackground {
     background-image: var(--bg-tablet-1x);
   }
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    .background {
+    .screenBackground {
       background-image: var(--bg-tablet-2x);
     }
   }
 }
 
 @media only screen and (min-width: 1440px) {
-  .background {
+  .screenBackground {
     background-image: var(--bg-desktop-1x);
   }
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    .background {
+    .screenBackground {
       background-image: var(--bg-desktop-2x);
     }
   }
