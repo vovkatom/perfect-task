@@ -1,11 +1,11 @@
 :root {
   /*ScreenPage background images*/
-  --bg-mobile-1x: url('default-mobile-1x.jpg');
-  --bg-mobile-2x: url('default-mobile-2x.jpg');
-  --bg-tablet-1x: url('default-tablet-1x.jpg');
-  --bg-tablet-2x: url('default-tablet-2x.jpg');
-  --bg-desktop-1x: url('default-desktop-1x.jpg');
-  --bg-desktop-2x: url('default-desktop-2x.jpg');
+  --bg-mobile-1x: '';
+  --bg-mobile-2x: '';
+  --bg-tablet-1x: '';
+  --bg-tablet-2x: '';
+  --bg-desktop-1x: '';
+  --bg-desktop-2x: '';
 
   --primary-color-white: #fff;
 

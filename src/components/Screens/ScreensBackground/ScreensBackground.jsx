@@ -1,16 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import css from './ScreensBackground.module.css';
 import { requestBoardById } from '../../../api/boards-api';
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { selectCurrentBoard } from '../../../redux/userBoard/userBoard-selectors';
 import Loader from '../../Loader/Loader';
-import { useSelector } from 'react-redux';
 
 const ScreensBackground = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-
   const currentBoard = useSelector(selectCurrentBoard);
+  const backgroundRef = useRef(null);
 
   useEffect(() => {
     const fetchCurrentBoardById = async () => {
@@ -24,33 +23,24 @@ const ScreensBackground = ({ children }) => {
         setIsLoading(true);
         const { data } = await requestBoardById(id);
 
-        console.log(data);
+        if (backgroundRef.current) {
+          const setScreenBackground = (property, url) => {
+            backgroundRef.current.style.setProperty(property, `url(${url})`);
+          };
 
-        const root = document.documentElement;
-        root.style.setProperty(
-          '--bg-mobile-1x',
-          `url(${data.backgroundURL.mobile_1x})`
-        );
-        root.style.setProperty(
-          '--bg-mobile-2x',
-          `url(${data.backgroundURL.mobile_2x})`
-        );
-        root.style.setProperty(
-          '--bg-tablet-1x',
-          `url(${data.backgroundURL.tablet_1x})`
-        );
-        root.style.setProperty(
-          '--bg-tablet-2x',
-          `url(${data.backgroundURL.tablet_2x})`
-        );
-        root.style.setProperty(
-          '--bg-desktop-1x',
-          `url(${data.backgroundURL.desktop_1x})`
-        );
-        root.style.setProperty(
-          '--bg-desktop-2x',
-          `url(${data.backgroundURL.desktop_2x})`
-        );
+          const backgroundProperties = [
+            ['--bg-mobile-1x', data.backgroundURL.mobile_1x],
+            ['--bg-mobile-2x', data.backgroundURL.mobile_2x],
+            ['--bg-tablet-1x', data.backgroundURL.tablet_1x],
+            ['--bg-tablet-2x', data.backgroundURL.tablet_2x],
+            ['--bg-desktop-1x', data.backgroundURL.desktop_1x],
+            ['--bg-desktop-2x', data.backgroundURL.desktop_2x],
+          ];
+
+          backgroundProperties.forEach(([property, url]) =>
+            setScreenBackground(property, url)
+          );
+        }
       } catch (error) {
         setError(error.message);
       } finally {
@@ -58,19 +48,18 @@ const ScreensBackground = ({ children }) => {
         setError(null);
       }
     };
+
     fetchCurrentBoardById();
   }, [currentBoard]);
 
   return (
-    <>
-      <div className={css.background}>
-        <div className={`container ${css.screenMainContainer}`}>
-          {isLoading && <Loader centered />}
-          {error && <p>{error}</p>}
-          {children}
-        </div>
+    <div ref={backgroundRef} className={css.screenBackground}>
+      <div className={`container ${css.screenMainContainer}`}>
+        {isLoading && <Loader centered />}
+        {error && <p>{error}</p>}
+        {children}
       </div>
-    </>
+    </div>
   );
 };
 
