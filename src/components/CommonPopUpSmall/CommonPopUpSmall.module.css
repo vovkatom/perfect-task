@@ -57,3 +57,7 @@
 .popUpBtn:focus {
   color: var(--popup-accent-color);
 }
+
+.activeButton {
+  color: var(--popup-accent-color);
+}

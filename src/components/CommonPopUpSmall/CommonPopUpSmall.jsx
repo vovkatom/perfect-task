@@ -7,13 +7,20 @@ const CommonPopUpSmall = ({
   listClassName,
   itemClassName,
 }) => {
+  const activeTheme = document.body.className;
+
   return (
     <div className={css.background}>
       <div className={css.popUpBox}>
         <ul className={`${css.themeList} ${listClassName}`}>
-          {children?.map((item, index) => (
-            <li key={index} id={nanoid()} className={itemClassName}>
-              <button className={css.popUpBtn} onClick={() => onClick(item)}>
+          {children?.map((item) => (
+            <li key={nanoid()} className={itemClassName}>
+              <button
+                className={`${css.popUpBtn} ${
+                  activeTheme === item.toLowerCase() ? css.activeButton : ''
+                }`}
+                onClick={() => onClick(item)}
+              >
                 {item}
               </button>
             </li>
