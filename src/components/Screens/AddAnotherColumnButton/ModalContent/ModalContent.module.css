@@ -1,11 +1,23 @@
+.form {
+  margin: 0;
+}
+
 .input {
   height: 49px;
-  padding-left: 18px;
-  padding-right: 18px;
-  padding-top: 14px;
-  padding-bottom: 14px;
-  border: 1px solid var(--primary-color-light-green);
+  padding: 14px 18px;
+  border: 1px solid var(--popup-accent-color);
   border-radius: 8px;
-  box-shadow: 0px 4px 16px 0px #16161614;
-  color: var(--primary-color-black);
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
+  opacity: 0.4;
+  margin-bottom: 24px;
+
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--modal-main);
+}
+
+.input:hover,
+.input:focus {
+  opacity: 1;
 }

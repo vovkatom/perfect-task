@@ -1,16 +1,10 @@
-## Project developed by the GoIT students team - Perfect Task
-
-# Task Pro
-
----
+<h1 align="center">Task Pro</h1>
 
 ## Links
 
-### Front-End: [Front-End GitHub](https://github.com/vovkatom/perfect-task) [Front-End App](https://vovkatom.github.io/perfect-task/)
+### Frontend: [GitHub](https://github.com/vovkatom/perfect-task) | [App](https://vovkatom.github.io/perfect-task/)
 
-### Back-End: [Back-End GitHub](https://github.com/vovkatom/Perfect-Task-Back) [Back-End App](https://perfect-task-back.onrender.com/) [Swagger](https://perfect-task-back.onrender.com/api-docs/)
-
----
+### Backend: [GitHub](https://github.com/vovkatom/Perfect-Task-Back) | [App](https://perfect-task-back.onrender.com/) | [Swagger](https://perfect-task-back.onrender.com/api-docs/)
 
 ## About
 
@@ -31,21 +25,17 @@ The app offers light, dark, and violet modes for a better user experience. Use
 it on your smartphone, tablet, or laptop - it's excellently adapted for every
 device.
 
----
-
 ## Project Technology Stack
 
-### Front-End:
+### Frontend:
 
 `vite` `react` `react-router-dom` `react-hook-form` `react-datepicker`
 `@reduxjs/toolkit` `redux-persist` `axios` `yup`
 
-### Back-End:
+### Backend:
 
 `node` `express` `mongodb` `mongoose` `cors` `cloudinary` `jsonwebtoken` `joi`
 `multer` `bcrypt` `dotenv`
-
----
 
 ## Our Team:
 
