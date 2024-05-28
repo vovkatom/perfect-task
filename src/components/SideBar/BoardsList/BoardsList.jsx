@@ -1,4 +1,4 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 
 import css from './BoardsList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,16 +13,15 @@ const BoardsList = () => {
   const handleBoardClick = (board) => {
     dispatch(selectBoard(board));
   };
-  //const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // const handleOpenModal = () => {
-  //   setIsModalOpen(true);
-  // };
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
 
-  // const handleCloseModal = () => {
-  //   setIsModalOpen(false);
-  // };
-
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <div className={css.buttonsMainContainer}>
       {Boolean(boards.length) && (
@@ -34,6 +33,9 @@ const BoardsList = () => {
               title={title}
               icon={icon}
               handleBoardClick={handleBoardClick}
+              handleOpenModal={handleOpenModal}
+              handleCloseModal={handleCloseModal}
+              isModalOpen={isModalOpen}
             />
           ))}
         </ul>

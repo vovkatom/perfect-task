@@ -5,20 +5,20 @@ import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { Notify } from 'notiflix';
 
-import BackgroundSet from './BackgroundSet/BackgroundSet';
-import ButtonCreateBoard from './ButtonCreateBoard/ButtonCreateBoard';
-import IconsSelector from './IconSelector/IconsSelector';
-import css from '../CreateBoardForm/CreateBoardForm.module.css';
-import { requestBgImages } from '../../../../api/boards-api';
-import { addBoard } from '../../../../redux/userBoard/userBoard-operations';
-import { selectBoard } from '../../../../redux/userBoard/userBoard-slice';
-import Loader from '../../../Loader/Loader';
+import BackgroundSet from './../SideBar/CreateNewBoard/CreateBoardForm/BackgroundSet/BackgroundSet';
+import ButtonCreateBoard from './../SideBar/CreateNewBoard/CreateBoardForm/ButtonCreateBoard/ButtonCreateBoard';
+import IconsSelector from './../SideBar/CreateNewBoard/CreateBoardForm/IconSelector/IconsSelector';
+import css from './../SideBar/CreateNewBoard/CreateBoardForm/CreateBoardForm.module.css';
+import { requestBgImages, requestBoardById } from '../../api/boards-api';
+import { updateBoardById } from '../../redux/userBoard/userBoard-operations';
+import { selectBoard } from '../../redux/userBoard/userBoard-slice';
+import Loader from '../Loader/Loader';
 
 const schema = yup.object().shape({
-  title: yup.string().required(),
+  title: yup.string(),
 });
 
-const CreateBoardForm = ({ closeModal }) => {
+const UpdateBoardForm = ({ closeModal, id, title }) => {
   const [bgImages, setBgImages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -38,9 +38,6 @@ const CreateBoardForm = ({ closeModal }) => {
   const updateIcon = (icon) => {
     setIcon(icon);
   };
-  // console.log(icon);
-
-  // console.log(background);
 
   const submit = async (data) => {
     // Обробка поданих даних форми
@@ -51,15 +48,35 @@ const CreateBoardForm = ({ closeModal }) => {
       background: background,
     };
 
-    // console.log(formData);
+    const dboarData = await requestBoardById(id);
+    const {
+      title: dbTitle,
+      icon: dbIcon,
+      background: dbBackground,
+    } = dboarData;
 
-    const res = await dispatch(addBoard(formData));
+    const dboard = {
+      title: dbTitle,
+      icon: dbIcon,
+      background: dbBackground,
+    };
 
-    // console.log(res);
+    for (const key in formData) {
+      if (formData[key] === null || formData[key] === '') {
+        formData[key] = dboard[key];
+      }
+    }
+
+    const db = {
+      id: id,
+      formData: formData,
+    };
+
+    const res = await dispatch(updateBoardById(db));
 
     closeModal();
 
-    if (res.type === 'boards/addBoard/fulfilled') {
+    if (res.type === 'boards/updateBoardById/fulfilled') {
       dispatch(selectBoard(res.payload.currentBoard));
       return Notify.success("You've successfully created a board! Congrats)");
     }
@@ -97,7 +114,7 @@ const CreateBoardForm = ({ closeModal }) => {
       <input
         className={css.input}
         type="text"
-        placeholder="Title"
+        placeholder={title}
         {...register('title')}
       />
       {/* Icon selection */}
@@ -108,9 +125,9 @@ const CreateBoardForm = ({ closeModal }) => {
       {error && <p className={css.error}>{error}</p>}
       {loading && <Loader />}
       <BackgroundSet bgImages={bgImages} updateBg={updateBg} />
-      <ButtonCreateBoard type="Create" />
+      <ButtonCreateBoard type="Edit" />
     </form>
   );
 };
 
-export default CreateBoardForm;
+export default UpdateBoardForm;

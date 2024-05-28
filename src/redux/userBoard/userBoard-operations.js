@@ -21,6 +21,7 @@ export const addBoard = createAsyncThunk(
   'boards/addBoard',
   async (body, thunkAPI) => {
     try {
+      console.log('Lena', body);
       const data = await boardsApi.requestAddBoard(body);
       return data;
     } catch (error) {
@@ -45,17 +46,11 @@ export const deleteBoard = createAsyncThunk(
 // PUT board
 export const updateBoardById = createAsyncThunk(
   'boards/updateBoardById',
-  async (_id, thunkAPI) => {
-    // const { _id, title, icon, background } = board;
-
+  async (data, thunkAPI) => {
     try {
-      //   await axiosInstance.put(`/boards/${_id}`, {
-      //     title,
-      //     icon,
-      //     background,
-      //   });
-      const data = await boardsApi.updateBoardById(_id);
-      return data;
+      const { id, formData } = data;
+      const datta = await boardsApi.updateBoardById(id, formData);
+      return datta;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

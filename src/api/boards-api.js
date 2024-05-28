@@ -25,8 +25,8 @@ export const requestDeleteBoardById = async (id) => {
   return { data };
 };
 
-export const updateBoardById = async (id) => {
-  const { data } = await axiosInstance.put(`/boards/${id}`);
+export const updateBoardById = async (id, body) => {
+  const { data } = await axiosInstance.put(`/boards/${id}`, body);
   return { data };
 };
 
