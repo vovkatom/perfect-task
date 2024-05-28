@@ -1,5 +1,5 @@
-import css from './Button.module.css';
-import Icon from '../../components/Icon/Icon';
+import css from './CommonButton.module.css';
+import Icon from '../Icon/Icon';
 
 const Button = ({ onClick, title, type, id }) => {
   return (

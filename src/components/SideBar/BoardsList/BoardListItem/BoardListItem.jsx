@@ -17,7 +17,7 @@ const BoardListItem = ({
   const dispatch = useDispatch();
 
   const board = { id, title };
-  console.log('first', board);
+  // console.log('first', board);
   return (
     <div className={css.buttonBox}>
       <button
