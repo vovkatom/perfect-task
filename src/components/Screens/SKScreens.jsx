@@ -4,6 +4,7 @@ import { selectCurrentBoard } from '../../redux/userBoard/userBoard-selectors';
 import HeaderDashboard from './HeaderDashboard/HeaderDashboard';
 import ScreensBackground from './ScreensBackground/ScreensBackground';
 import AddAnotherColumn from './AddAnotherColumn/AddAnotherColumn';
+import CommonColumn from './CommonColumn/CommonColumn';
 
 const SKScreens = () => {
   const currentBoard = useSelector(selectCurrentBoard);
@@ -13,7 +14,10 @@ const SKScreens = () => {
       <div className={css.screenPageContainer}>
         <ScreensBackground>
           <HeaderDashboard boardTitle={currentBoard.title} />
-          <AddAnotherColumn />
+          <div className={css.screensContentBox}>
+            <CommonColumn />
+            <AddAnotherColumn />
+          </div>
         </ScreensBackground>
       </div>
     </>
