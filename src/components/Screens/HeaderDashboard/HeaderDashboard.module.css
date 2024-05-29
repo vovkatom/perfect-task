@@ -6,17 +6,21 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 40px;
+
+  padding: 14px 20px 0 14px;
 }
 
 @media only screen and (min-width: 768px) {
   .headerDashboardContainer {
     margin-bottom: 26px;
+    padding: 26px 32px;
   }
 }
 
 @media only screen and (min-width: 1440px) {
   .headerDashboardContainer {
     margin-bottom: 10px;
+    padding: 10px 24px;
   }
 }
 
@@ -24,7 +28,10 @@
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #161616;
+  color: var(--header-primary);
+  background-color: var(--main-background);
+  border-radius: 4px;
+  padding: 4px 4px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -45,12 +52,15 @@
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: rgba(22, 22, 22, 0.8);
+  color: var(--header-secondary);
+  background-color: var(--main-background);
+  border-radius: 4px;
+  padding: 4px 4px;
 }
 
 .filterIcon {
   fill: none;
-  stroke: #161616;
+  stroke: var(--header-secondary);
   stroke-opacity: 0.8;
   stroke-width: 1.5;
   stroke-linecap: round;

@@ -79,20 +79,21 @@ const boardsSlice = createSlice({
   },
   extraReducers: (builder) =>
     builder
+      .addCase(fetchBoards.pending, pending)
       .addCase(fetchBoards.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.items = action.payload;
       })
-      .addCase(fetchBoards.pending, pending)
       .addCase(fetchBoards.rejected, rejected)
+      .addCase(addBoard.pending, pending)
       .addCase(addBoard.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.items.push({ ...action.payload, columns: [] });
       })
-      .addCase(addBoard.pending, pending)
       .addCase(addBoard.rejected, rejected)
+      .addCase(updateBoardById.pending, pending)
       .addCase(updateBoardById.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
@@ -102,7 +103,6 @@ const boardsSlice = createSlice({
 
         state.items[index] = action.payload;
       })
-      .addCase(updateBoardById.pending, pending)
       .addCase(updateBoardById.rejected, rejected)
       .addCase(deleteBoard.pending, pending)
       .addCase(deleteBoard.fulfilled, (state, action) => {
@@ -119,13 +119,14 @@ const boardsSlice = createSlice({
         }
       })
       .addCase(deleteBoard.rejected, rejected)
+      .addCase(addColumn.pending, pending)
       .addCase(addColumn.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.items = action.payload;
       })
-      .addCase(addColumn.pending, pending)
       .addCase(addColumn.rejected, rejected)
+      .addCase(updateColumnTitle.pending, pending)
       .addCase(updateColumnTitle.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
@@ -135,7 +136,6 @@ const boardsSlice = createSlice({
 
         state.items[state.currentBoard].columns[index] = action.payload;
       })
-      .addCase(updateColumnTitle.pending, pending)
       .addCase(updateColumnTitle.rejected, rejected)
       .addCase(deleteColumn.pending, pending)
       .addCase(deleteColumn.fulfilled, (state, action) => {
@@ -147,6 +147,7 @@ const boardsSlice = createSlice({
         state.items[state.currentBoard].columns.splice(index, 1);
       })
       .addCase(deleteColumn.rejected, rejected)
+      .addCase(addCard.pending, pending)
       .addCase(addCard.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
@@ -159,8 +160,8 @@ const boardsSlice = createSlice({
           action.payload
         );
       })
-      .addCase(addCard.pending, pending)
       .addCase(addCard.rejected, rejected)
+      .addCase(updateCardById.pending, pending)
       .addCase(updateCardById.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
@@ -176,7 +177,6 @@ const boardsSlice = createSlice({
         state.items[state.currentBoard].columns[columnIndex].tasks[taskIndex] =
           action.payload;
       })
-      .addCase(updateCardById.pending, pending)
       .addCase(updateCardById.rejected, rejected)
       .addCase(deleteCard.pending, pending)
       .addCase(deleteCard.fulfilled, (state, action) => {
