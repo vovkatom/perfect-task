@@ -4,7 +4,6 @@ import CreateNewBoardButton from './CreateNewCardButton/CreateNewCardButton';
 const CommonColumn = () => {
   return (
     <div className={css.columnMainBox}>
-      CommonColumn
       <CreateNewBoardButton />
     </div>
   );
