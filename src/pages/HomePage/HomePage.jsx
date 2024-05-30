@@ -4,14 +4,13 @@ import Header from '../../components/Header/Header';
 import SideBar from '../../components/SideBar/SideBar';
 import ScreensPage from '../ScreensPage/ScreensPage';
 import { useMediaQuery } from 'react-responsive';
-import { useSelector } from 'react-redux';
-import { selectCurrentBoard } from '../../redux/userBoard/userBoard-selectors';
+// import { useSelector } from 'react-redux';
+// import { selectCurrentBoard } from '../../redux/userBoard/userBoard-selectors';
 // import HomeEmptyBoard from '../../components/Home/HomeEmptyBoard';
 
 const HomePage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const currentBoard = useSelector(selectCurrentBoard);
-  console.log(Boolean(Object.keys(currentBoard).length));
+  // const currentBoard = useSelector(selectCurrentBoard);
 
   const viewPortWidth = useMediaQuery({ minWidth: 1440 });
 
