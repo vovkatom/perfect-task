@@ -1,0 +1,1 @@
+import{u as o,s as e,j as s,L as a}from"./index-afbd1bd4.js";import{A as i}from"./Auth-fd176d2b.js";import{s as n}from"./userBoard-selectors-0129be23.js";import"./InputError-49b0c69f.js";const d=()=>{const t=o(n),r=o(e);return s.jsxs(s.Fragment,{children:[t&&s.jsx(a,{}),s.jsx(i,{}),r&&s.jsx("p",{style:{color:"red"},children:r})]})};export{d as default};
