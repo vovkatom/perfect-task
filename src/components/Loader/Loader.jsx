@@ -10,7 +10,7 @@ const Loader = ({ centered }) => {
   return (
     <div>
       <p className={styles.render}>
-        Render....
+        render is sleeping... wait)))
         <div className={spinnerClass}>
           <ColorRing
             visible={true}
