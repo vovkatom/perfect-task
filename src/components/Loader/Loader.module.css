@@ -11,11 +11,3 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-.render {
-  position: fixed;
-  top: 0%;
-  left: 50%;
-  font-size: 16px;
-  flood-color: red;
-}
