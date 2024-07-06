@@ -11,3 +11,5 @@ export const selectAccessToken = (state) => state.auth.accessToken;
 export const selectRefreshToken = (state) => state.auth.refreshToken;
 
 export const selectIsUpdate = (state) => state.auth.isUpdate;
+
+export const selectIsRefreshing = (state) => state.auth.isRefreshing;
