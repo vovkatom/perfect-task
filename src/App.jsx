@@ -3,6 +3,8 @@ import { Suspense, useEffect } from 'react';
 import { current } from './redux/auth/auth-operations';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
+import Layout from './components/Layout/Layout';
+import { Toaster } from 'react-hot-toast';
 
 import PublicRoute from './components/PublicRoute/PublicRoute';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
@@ -29,26 +31,35 @@ const AppRoutes = () => {
   }, [dispatch]);
 
   return (
-    <Suspense fallback={<Loader centered />}>
-      <Routes>
-        <Route
-          index
-          element={
-            isLogin ? <Navigate to="/home" /> : <Navigate to="/welcome" />
-          }
-        />
-        <Route element={<PublicRoute />}>
-          <Route path="welcome" element={<Welcome />} />
-          <Route path="auth" element={<AuthPageGoogle />} />
-          <Route path="auth/:id" element={<AuthPage />} />
-        </Route>
-        <Route element={<PrivateRoute />}>
-          <Route path="home" element={<HomePage />} />
-          <Route path="home/:boardName" element={<ScreensPage />} />
-        </Route>
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </Suspense>
+    <>
+      <Layout>
+        {isLogin ? (
+          <Loader centered />
+        ) : (
+          <Suspense fallback={<Loader centered />}>
+            <Routes>
+              <Route
+                index
+                element={
+                  isLogin ? <Navigate to='/home' /> : <Navigate to='/welcome' />
+                }
+              />
+              <Route element={<PublicRoute />}>
+                <Route path='welcome' element={<Welcome />} />
+                <Route path='auth' element={<AuthPageGoogle />} />
+                <Route path='auth/:id' element={<AuthPage />} />
+              </Route>
+              <Route element={<PrivateRoute />}>
+                <Route path='home' element={<HomePage />} />
+                <Route path='home/:boardName' element={<ScreensPage />} />
+              </Route>
+              <Route path='*' element={<NotFoundPage />} />
+            </Routes>
+          </Suspense>
+        )}
+      </Layout>
+      <Toaster position='top-center' reverseOrder={false} />
+    </>
   );
 };
 
