@@ -3,13 +3,13 @@ import { Suspense, useEffect } from 'react';
 import { current } from './redux/auth/auth-operations';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
-// import Layout from './components/Layout/Layout';
+import Layout from './components/Layout/Layout';
 import { Toaster } from 'react-hot-toast';
 
 import PublicRoute from './components/PublicRoute/PublicRoute';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import { useSelector } from 'react-redux';
-import { selectIsLogin, selectIsRefreshing } from './redux/auth/auth-selectors';
+import { selectIsLogin } from './redux/auth/auth-selectors';
 import Loader from './components/Loader/Loader';
 import { getTheme } from './js/theme-changer';
 import Welcome from './components/Welcome/Welcome';
@@ -23,7 +23,6 @@ const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
 
 const AppRoutes = () => {
   const isLogin = useSelector(selectIsLogin);
-  const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,8 +32,8 @@ const AppRoutes = () => {
 
   return (
     <>
-      {/* <Layout> */}
-        {isRefreshing ? (
+      <Layout>
+        {isLogin ? (
           <Loader centered />
         ) : (
           <Suspense fallback={<Loader centered />}>
@@ -58,7 +57,7 @@ const AppRoutes = () => {
             </Routes>
           </Suspense>
         )}
-      {/* </Layout> */}
+      </Layout>
       <Toaster position='top-center' reverseOrder={false} />
     </>
   );
