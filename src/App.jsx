@@ -3,7 +3,7 @@ import { Suspense, useEffect } from 'react';
 import { current } from './redux/auth/auth-operations';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
-import Layout from './components/Layout/Layout';
+// import Layout from './components/Layout/Layout';
 import { Toaster } from 'react-hot-toast';
 
 import PublicRoute from './components/PublicRoute/PublicRoute';
@@ -33,7 +33,7 @@ const AppRoutes = () => {
 
   return (
     <>
-      <Layout>
+      {/* <Layout> */}
         {isRefreshing ? (
           <Loader centered />
         ) : (
@@ -58,7 +58,7 @@ const AppRoutes = () => {
             </Routes>
           </Suspense>
         )}
-      </Layout>
+      {/* </Layout> */}
       <Toaster position='top-center' reverseOrder={false} />
     </>
   );
