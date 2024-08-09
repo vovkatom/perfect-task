@@ -1,4 +1,4 @@
-<h1 align="center">Task Pro</h1>
+<h1 align="center">Perfect Task</h1>
 
 ## Links
 
@@ -8,8 +8,8 @@
 
 ## About
 
-Task Pro is an application that helps you organize your work and save time. With
-Task Pro, you'll never forget important tasks again.
+Perfect Task is an application that helps you organize your work and save time. With
+Perfect Task, you'll never forget important tasks again.
 
 After a quick registration and login (you can also log in using Google), you're
 in: you can create your first board and enjoy the app. Manage several projects
@@ -18,7 +18,7 @@ unlimited number of columns and cards! You can prioritize cards, move them
 between columns, and set due dates.
 
 You can edit your account anytime by changing your avatar, name, or email
-address. If you need help with Task Pro, you can send an email describing your
+address. If you need help with Perfect Task, you can send an email describing your
 problem - the application has a feedback form located in the sidebar.
 
 The app offers light, dark, and violet modes for a better user experience. Use
