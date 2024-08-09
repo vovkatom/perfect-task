@@ -6,7 +6,7 @@ const Logo = () => {
     <>
       <div className={css.logo}>
         <Icon className={css.logoIcon} id="icon-logo2" width="32" height="32" />
-        <p className={css.logoTitle}>Task Pro</p>
+        <p className={css.logoTitle}>Perfect Task</p>
       </div>
     </>
   );

@@ -35,7 +35,7 @@ const Welcome = () => {
               (min-width: 375px) 124px
               "
               src={`${UserAvatarMobile}`}
-              alt="Task Pro avatar"
+              alt="Perfect Task avatar"
               width="124"
               height="124"
             />
@@ -46,12 +46,12 @@ const Welcome = () => {
                 width="40"
                 height="40"
               />
-              <h1 className={css.header}>Task Pro</h1>
+              <h1 className={css.header}>Perfect Task</h1>
             </div>
 
             <p className={css.paragraph}>
               Supercharge your productivity and take control of your tasks with
-              Task Pro - Don&apos;t wait, start achieving your goals now!
+              Perfect Task - Don&apos;t wait, start achieving your goals now!
             </p>
           </motion.div>
           <motion.div
