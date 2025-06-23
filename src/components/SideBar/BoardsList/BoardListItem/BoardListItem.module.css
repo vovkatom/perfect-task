@@ -65,7 +65,7 @@
     stroke-opacity 0.25s ease-in-out;
 }
 
-.icon:hover,
+/* .icon:hover,
 .icon:focus {
   stroke: var(--primary-sidebar-text-color);
   stroke-opacity: 1;
@@ -75,7 +75,7 @@
 .mainButton:focus .icon {
   stroke: var(--primary-sidebar-text-color);
   stroke-opacity: 1;
-}
+} */
 
 .helperButton {
   display: flex;
